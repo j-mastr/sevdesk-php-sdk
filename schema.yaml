@@ -2946,6 +2946,7 @@ components:
             - "VPDF"
             - "VM"
             - "VP"
+            - 0
           readOnly: true
         deliveryDateUntil:
           description:

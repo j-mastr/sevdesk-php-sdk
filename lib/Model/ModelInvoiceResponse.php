@@ -590,6 +590,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     public const SEND_TYPE_VPDF = 'VPDF';
     public const SEND_TYPE_VM = 'VM';
     public const SEND_TYPE_VP = 'VP';
+    public const SEND_TYPE__0 = '0';
 
     /**
      * Gets allowable values of the enum
@@ -651,6 +652,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
             self::SEND_TYPE_VPDF,
             self::SEND_TYPE_VM,
             self::SEND_TYPE_VP,
+            self::SEND_TYPE__0,
         ];
     }
 

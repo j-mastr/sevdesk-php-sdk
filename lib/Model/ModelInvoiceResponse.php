@@ -585,6 +585,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     public const INVOICE_TYPE_MA = 'MA';
     public const INVOICE_TYPE_TR = 'TR';
     public const INVOICE_TYPE_ER = 'ER';
+    public const INVOICE_TYPE_AR = 'AR';
     public const SEND_TYPE_VPR = 'VPR';
     public const SEND_TYPE_VPDF = 'VPDF';
     public const SEND_TYPE_VM = 'VM';
@@ -634,6 +635,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
             self::INVOICE_TYPE_MA,
             self::INVOICE_TYPE_TR,
             self::INVOICE_TYPE_ER,
+            self::INVOICE_TYPE_AR,
         ];
     }
 

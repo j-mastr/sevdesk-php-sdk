@@ -2648,6 +2648,7 @@ components:
             - "50"
             - "100"
             - "200"
+            - "500"
             - "1000"
           example: "100"
           readOnly: true
@@ -7150,6 +7151,7 @@ components:
             - "50"
             - "100"
             - "200"
+            - "500"
             - "1000"
           example: "100"
           nullable: false

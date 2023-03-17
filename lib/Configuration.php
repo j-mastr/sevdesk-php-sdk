@@ -96,11 +96,11 @@ class Configuration
     protected $host = 'https://my.sevdesk.de/api/v1';
 
     /**
-     * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
+     * User agent of the HTTP request
      *
      * @var string
      */
-    protected $userAgent = 'OpenAPI-Generator/1.0.0/PHP';
+    protected $userAgent = 'itsmind/sevdesk-php-client (0.0.1)';
 
     /**
      * Debug switch (default set to false)

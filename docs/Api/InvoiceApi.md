@@ -13,6 +13,8 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 | [**getInvoicePositionsById()**](InvoiceApi.md#getInvoicePositionsById) | **GET** /Invoice/{invoiceId}/getPositions | Find invoice positions |
 | [**getInvoices()**](InvoiceApi.md#getInvoices) | **GET** /Invoice | Retrieve invoices |
 | [**getIsInvoicePartiallyPaid()**](InvoiceApi.md#getIsInvoicePartiallyPaid) | **GET** /Invoice/{invoiceId}/getIsPartiallyPaid | Check if an invoice is already partially paid |
+| [**getLastDunning()**](InvoiceApi.md#getLastDunning) | **GET** /Invoice/{invoiceId}/getLastDunning | Get the last dunning of an invoice |
+| [**getOpenInvoiceReminderDebit()**](InvoiceApi.md#getOpenInvoiceReminderDebit) | **GET** /Invoice/Factory/getOpenInvoiceReminderDebit | Get the oben reminder debit for an invoice |
 | [**invoiceGetPdf()**](InvoiceApi.md#invoiceGetPdf) | **GET** /Invoice/{invoiceId}/getPdf | Retrieve pdf document of an invoice |
 | [**invoiceRender()**](InvoiceApi.md#invoiceRender) | **POST** /Invoice/{invoiceId}/render | Render the pdf document of an invoice |
 | [**invoiceSendBy()**](InvoiceApi.md#invoiceSendBy) | **PUT** /Invoice/{invoiceId}/sendBy | Mark invoice as sent |
@@ -472,7 +474,7 @@ try {
 ## `getInvoices()`
 
 ```php
-getInvoices($status, $invoice_number, $start_date, $end_date, $contact_id, $contact_object_name): \Itsmind\Sevdesk\Model\GetInvoiceById200Response
+getInvoices($count_all, $invoice_type, $offset, $limit, $partially_paid, $canceled, $status, $invoice_number, $start_date, $end_date, $contact, $payment_method, $embed): \Itsmind\Sevdesk\Model\GetInvoices200Response
 ```
 
 Retrieve invoices
@@ -498,15 +500,22 @@ $apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
     new GuzzleHttp\Client(),
     $config
 );
+$count_all = True; // bool | If all invoices should be counted
+$invoice_type = array('key' => 'invoice_type_example'); // array<string,string> | The type of invoice
+$offset = 56; // int | Which offset to start with
+$limit = 56; // int | The max number of invoices
+$partially_paid = True; // bool | Limit to partially paid invoices
+$canceled = True; // bool | Limit to canceled invoices
 $status = 3.4; // float | Status of the invoices
 $invoice_number = 'invoice_number_example'; // string | Retrieve all invoices with this invoice number
 $start_date = 56; // int | Retrieve all invoices with a date equal or higher
 $end_date = 56; // int | Retrieve all invoices with a date equal or lower
-$contact_id = 56; // int | Retrieve all invoices with this contact. Must be provided with contact[objectName]
-$contact_object_name = 'contact_object_name_example'; // string | Only required if contact[id] was provided. 'Contact' should be used as value.
+$contact = array('key' => new \Itsmind\Sevdesk\Model\GetInvoicesContactParameter()); // GetInvoicesContactParameter | Retrieve all invoices with this contact. The value of contact[objectName] must be 'Contact'.
+$payment_method = array('key' => new \Itsmind\Sevdesk\Model\GetInvoicesPaymentMethodParameter()); // GetInvoicesPaymentMethodParameter | Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be 'PaymentMethod'.
+$embed = array('embed_example'); // string[]
 
 try {
-    $result = $apiInstance->getInvoices($status, $invoice_number, $start_date, $end_date, $contact_id, $contact_object_name);
+    $result = $apiInstance->getInvoices($count_all, $invoice_type, $offset, $limit, $partially_paid, $canceled, $status, $invoice_number, $start_date, $end_date, $contact, $payment_method, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoiceApi->getInvoices: ', $e->getMessage(), PHP_EOL;
@@ -517,16 +526,23 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **count_all** | **bool**| If all invoices should be counted | [optional] |
+| **invoice_type** | [**array<string,string>**](../Model/string.md)| The type of invoice | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **limit** | **int**| The max number of invoices | [optional] |
+| **partially_paid** | **bool**| Limit to partially paid invoices | [optional] |
+| **canceled** | **bool**| Limit to canceled invoices | [optional] |
 | **status** | **float**| Status of the invoices | [optional] |
 | **invoice_number** | **string**| Retrieve all invoices with this invoice number | [optional] |
 | **start_date** | **int**| Retrieve all invoices with a date equal or higher | [optional] |
 | **end_date** | **int**| Retrieve all invoices with a date equal or lower | [optional] |
-| **contact_id** | **int**| Retrieve all invoices with this contact. Must be provided with contact[objectName] | [optional] |
-| **contact_object_name** | **string**| Only required if contact[id] was provided. &#39;Contact&#39; should be used as value. | [optional] |
+| **contact** | [**GetInvoicesContactParameter**](../Model/.md)| Retrieve all invoices with this contact. The value of contact[objectName] must be &#39;Contact&#39;. | [optional] |
+| **payment_method** | [**GetInvoicesPaymentMethodParameter**](../Model/.md)| Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be &#39;PaymentMethod&#39;. | [optional] |
+| **embed** | [**string[]**](../Model/string.md)|  | [optional] |
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetInvoiceById200Response**](../Model/GetInvoiceById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetInvoices200Response**](../Model/GetInvoices200Response.md)
 
 ### Authorization
 
@@ -589,6 +605,130 @@ try {
 ### Return type
 
 [**\Itsmind\Sevdesk\Model\GetIsInvoicePartiallyPaid200Response**](../Model/GetIsInvoicePartiallyPaid200Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getLastDunning()`
+
+```php
+getLastDunning($invoice_id): \Itsmind\Sevdesk\Model\GetLastDunning200Response
+```
+
+Get the last dunning of an invoice
+
+Using this endpoint you can render the pdf document of an invoice.<br>       Use cases for this are the retrieval of the pdf location or the forceful re-render of a already sent invoice.<br>       Please be aware that changing an invoice after it has been sent to a customer is not an allowed bookkeeping process.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$invoice_id = 56; // int | ID of invoice to get last dunning for
+
+try {
+    $result = $apiInstance->getLastDunning($invoice_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoiceApi->getLastDunning: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoice_id** | **int**| ID of invoice to get last dunning for | |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\GetLastDunning200Response**](../Model/GetLastDunning200Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getOpenInvoiceReminderDebit()`
+
+```php
+getOpenInvoiceReminderDebit($invoice): \Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebit200Response
+```
+
+Get the oben reminder debit for an invoice
+
+Using this endpoint you can render the pdf document of an invoice.<br>       Use cases for this are the retrieval of the pdf location or the forceful re-render of a already sent invoice.<br>       Please be aware that changing an invoice after it has been sent to a customer is not an allowed bookkeeping process.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$invoice = array('key' => new \Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebitInvoiceParameter()); // GetOpenInvoiceReminderDebitInvoiceParameter | Retrieve the open reminder debit for this invoice. The value of invoice[objectName] must be 'Invoice'.
+
+try {
+    $result = $apiInstance->getOpenInvoiceReminderDebit($invoice);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoiceApi->getOpenInvoiceReminderDebit: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoice** | [**GetOpenInvoiceReminderDebitInvoiceParameter**](../Model/.md)| Retrieve the open reminder debit for this invoice. The value of invoice[objectName] must be &#39;Invoice&#39;. | |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebit200Response**](../Model/GetOpenInvoiceReminderDebit200Response.md)
 
 ### Authorization
 

@@ -2555,6 +2555,7 @@ components:
         invoiceDate:
           description: "Needs to be provided as timestamp or dd.mm.yyyy"
           type: "string"
+          format: "date"
           example: "01.01.20"
           readOnly: true
         header:
@@ -2577,6 +2578,22 @@ components:
           type: "string"
           example: "10"
           readOnly: true
+        total:
+          description: "The total invoices amount"
+          type: "string"
+          example: "10"
+          readOnly: true
+        debit:
+          description: "The remaining invoices debit"
+          type: "number"
+          example: "10"
+          readOnly: true
+        tags:
+          description: "The tags assigned to the invoice"
+          type: "array"
+          readOnly: true
+          items:
+            $ref: "#/components/schemas/Model_TagResponse"
         discountTime:
           description:
             "If a value other than zero is used for the discount attribute,\r\
@@ -2748,6 +2765,7 @@ components:
           example: "01.01.2020"
           readOnly: true
         origin:
+          $ref: "#/components/schemas/Model_InvoiceResponse"
           description: "Origin of the invoice. Could f.e. be an order"
           required:
             - "id"
@@ -3577,6 +3595,176 @@ components:
           example: "string"
           readOnly: true
           deprecated: true
+      type: "object"
+    Model_DocumentResponse:
+      title: "Document model"
+      description: "Document model"
+      properties:
+        id:
+          description: "The document id"
+          type: "string"
+          example: "0"
+          readOnly: true
+        objectName:
+          description: "The document object name"
+          type: "string"
+          example: "Document"
+          readOnly: true
+        create:
+          description: "Date of document creation"
+          type: "string"
+          format: "date-time"
+          readOnly: true
+        update:
+          description: "Date of last document update"
+          type: "string"
+          format: "date-time"
+          readOnly: true
+        filename:
+          description: "The filename of the document"
+          type: "string"
+          example: "file.pdf"
+          readOnly: true
+        status:
+          description: "Defines the status of the document. 100 <-> Active."
+          type: "string"
+          example: "100"
+          readOnly: true
+        mimeType:
+          description: "The documents mime type"
+          type: "string"
+          example: "application/pdf"
+          readOnly: true
+        object:
+          description: "The object this document belongs to."
+          required:
+            - "id"
+            - "objectName"
+          properties:
+            id:
+              description: "Unique identifier of the object"
+              type: "integer"
+              example: "1234"
+            objectName:
+              description: "Model name of the object"
+              type: "string"
+              example: "Contact"
+          type: "object"
+          readOnly: true
+        additionalInformation:
+          description: "Additional information stored for the document."
+          type: "string"
+          example: "string"
+          readOnly: true
+          deprecated: true
+        documentNumber:
+          type: "string"
+          readOnly: true
+        description:
+          description: "A description for the document."
+          type: "string"
+          example: "Rightful king of the seven kingdoms"
+          readOnly: true
+        baseObject:
+          description: "Base Object in SevDesk which this document correlates with."
+          required:
+            - "id"
+            - "objectName"
+          properties:
+            id:
+              description: "Unique identifier of the base object"
+              type: "string"
+              example: "3"
+            objectName:
+              description: "Model name, which may be 'Invoice' or 'Order'"
+              type: "string"
+              example: "Invoice"
+          type: "object"
+          readOnly: true
+        extension:
+          description: "The file extension."
+          type: "string"
+          example: "pdf"
+          readOnly: true
+        filesize:
+          description: "The size of the file in bytes"
+          type: "integer"
+          example: "100253"
+          readOnly: true
+        sevClient:
+          description: "Client to which this document belongs. Will be filled automatically"
+          required:
+            - "id"
+            - "objectName"
+          properties:
+            id:
+              description: "Unique identifier of the client"
+              type: "integer"
+              example: "0"
+            objectName:
+              description: "Model name, which is 'SevClient'"
+              type: "string"
+              example: "SevClient"
+          type: "object"
+          readOnly: true
+        contentHash:
+          description: "Hash of the documents content."
+          type: "string"
+          readOnly: true
+        createUser:
+          description: "User who created the document."
+          required:
+            - "id"
+            - "objectName"
+          properties:
+            id:
+              description: "Unique identifier of the user"
+              type: "string"
+              example: "0"
+            objectName:
+              description: "Model name, which is 'SevUser'"
+              type: "string"
+              example: "SevUser"
+              enum:
+                - SevUser
+          type: "object"
+          readOnly: true
+        updateUser:
+          description: "User who updated the document."
+          required:
+            - "id"
+            - "objectName"
+          properties:
+            id:
+              description: "Unique identifier of the user"
+              type: "string"
+              example: "0"
+            objectName:
+              description: "Model name, which is 'SevUser'"
+              type: "string"
+              example: "SevUser"
+              enum:
+                - SevUser
+          type: "object"
+          readOnly: true
+        folder:
+          description: "The folder this document is located in."
+          required:
+            - "id"
+            - "objectName"
+          properties:
+            id:
+              description: "Unique identifier of the folder"
+              type: "string"
+              example: "0"
+            objectName:
+              description: "Model name, which is 'DocumentFolder'"
+              type: "string"
+              example: "DocumentFolder"
+              enum:
+                - DocumentFolder
+          type: "object"
+          readOnly: true
       type: "object"
     Model_ContactAddress:
       title: "Contact address"
@@ -10241,6 +10429,54 @@ paths:
         \ list"
       operationId: "getInvoices"
       parameters:
+        - name: "countAll"
+          in: "query"
+          description: "If all invoices should be counted"
+          required: false
+          schema:
+            type: "boolean"
+        - name: "invoiceType"
+          in: "query"
+          description: "The type of invoice"
+          required: false
+          style: deepObject
+          explode: true
+          schema:
+            type: "object"
+            additionalProperties:
+              type: "string"
+              enum:
+                - RE
+                - SR
+                - TR
+                - AR
+                - ER
+                - WKR
+                - MA
+        - name: "offset"
+          in: "query"
+          description: "Which offset to start with"
+          required: false
+          schema:
+            type: "integer"
+        - name: "limit"
+          in: "query"
+          description: "The max number of invoices"
+          required: false
+          schema:
+            type: "integer"
+        - name: "partiallyPaid"
+          in: "query"
+          description: "Limit to partially paid invoices"
+          required: false
+          schema:
+            type: "boolean"
+        - name: "canceled"
+          in: "query"
+          description: "Limit to canceled invoices"
+          required: false
+          schema:
+            type: "boolean"
         - name: "status"
           in: "query"
           description: "Status of the invoices"
@@ -10269,22 +10505,85 @@ paths:
           required: false
           schema:
             type: "integer"
-        - name: "contact[id]"
+        - name: "contact"
+          in: "query"
+          description: "Retrieve all invoices with this contact. The value of\
+            \ contact[objectName] must be 'Contact'."
+          required: false
+          style: deepObject
+          explode: true
+          schema:
+            type: "object"
+            required:
+              - id
+              - objectName
+            properties:
+              id:
+                type: "integer"
+              objectName:
+                type: "string"
+                enum:
+                  - "Contact"
+        - name: "paymentMethod"
           in: "query"
           description:
-            "Retrieve all invoices with this contact. Must be provided with\
-            \ contact[objectName]"
+            "Retrieve all invoices with this paymentMethod. The value of\
+            \ paymentMethod[objectName] must be 'PaymentMethod'."
           required: false
+          style: deepObject
+          explode: true
           schema:
-            type: "integer"
-        - name: "contact[objectName]"
+            type: "object"
+            required:
+              - id
+              - objectName
+            properties:
+              id:
+                type: "integer"
+              objectName:
+                type: "string"
+                enum:
+                  - "PaymentMethod"
+        - name: "embed"
           in: "query"
-          description:
-            "Only required if contact[id] was provided. 'Contact' should\
-            \ be used as value."
           required: false
+          style: form
+          explode: false
           schema:
-            type: "string"
+            type: "array"
+            items:
+              type: "string"
+              enum:
+                - propertyAutoGenerateRecurringInvoice
+                - propertyUseNewCalculation
+                - autoSendConfiguration
+                - swissEsrData
+                - isPartiallyPaid
+                - finalInvoiceId
+                - lastDunningDate
+                - contact
+                - paymentMethod
+                - costCentre
+                - total
+                - debit
+                - cancled
+                - tags
+                - origin
+                - origin.debit
+                - dunningLevel
+                - delinquent
+                - dunningLevel
+                - checkAccountTransactions
+                - checkAccountTransactions.checkAccount
+                - checkAccountTransactionLogs
+                - checkAccountTransactionLogs.checkAccountTransaction.checkAccount
+                - contact.parent
+                - propertyVatChangeChecked
+                - propertyIsEInvoice
+                - propertyOriginTransaction
+                - addressCountry
+                - openInvoiceReminderDebit
+                - openReminderCharge
       responses:
         "200":
           description: "Successful operation"
@@ -10292,10 +10591,14 @@ paths:
             application/json:
               schema:
                 properties:
+                  total:
+                    type: "integer"
                   objects:
                     type: "array"
                     items:
                       $ref: "#/components/schemas/Model_InvoiceResponse"
+                required:
+                  - "objects"
                 type: "object"
         "400":
           description: "Bad request"
@@ -11753,6 +12056,90 @@ paths:
           description: "Authentication required"
         "500":
           description: "Server Error"
+  /Invoice/{invoiceId}/getLastDunning:
+    get:
+      tags:
+        - "Invoice"
+      summary: "Get the last dunning of an invoice"
+      description:
+        "Using this endpoint you can render the pdf document of an invoice.<br>\r\
+        \n     Use cases for this are the retrieval of the pdf location or the forceful\
+        \ re-render of a already sent invoice.<br>\r\n     Please be aware that changing\
+        \ an invoice after it has been sent to a customer is not an allowed bookkeeping\
+        \ process."
+      operationId: "getLastDunning"
+      parameters:
+        - name: "invoiceId"
+          in: "path"
+          description: "ID of invoice to get last dunning for"
+          required: true
+          schema:
+            type: "integer"
+      responses:
+        "200":
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                properties:
+                  objects:
+                    $ref: "#/components/schemas/Model_InvoiceResponse"
+                type: "object"
+        "400":
+          description: "Bad request"
+        "401":
+          description: "Authentication required"
+        "500":
+          description: "Server Error"
+  /Invoice/Factory/getOpenInvoiceReminderDebit:
+    get:
+      tags:
+        - "Invoice"
+      summary: "Get the oben reminder debit for an invoice"
+      description:
+        "Using this endpoint you can render the pdf document of an invoice.<br>\r\
+        \n     Use cases for this are the retrieval of the pdf location or the forceful\
+        \ re-render of a already sent invoice.<br>\r\n     Please be aware that changing\
+        \ an invoice after it has been sent to a customer is not an allowed bookkeeping\
+        \ process."
+      operationId: "getOpenInvoiceReminderDebit"
+      parameters:
+        - name: "invoice"
+          in: "query"
+          description:
+            "Retrieve the open reminder debit for this invoice. The value of\
+            \ invoice[objectName] must be 'Invoice'."
+          required: true
+          style: deepObject
+          explode: true
+          schema:
+            type: "object"
+            required:
+              - id
+              - objectName
+            properties:
+              id:
+                type: "integer"
+              objectName:
+                type: "string"
+                enum:
+                  - "Invoice"
+      responses:
+        "200":
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                properties:
+                  objects:
+                    type: "number"
+                type: "object"
+        "400":
+          description: "Bad request"
+        "401":
+          description: "Authentication required"
+        "500":
+          description: "Server Error"
   /Contact:
     get:
       tags:
@@ -11765,6 +12152,24 @@ paths:
         \ list"
       operationId: "getContacts"
       parameters:
+        - name: "countAll"
+          in: "query"
+          description: "If all contacts should be counted"
+          required: false
+          schema:
+            type: "boolean"
+        - name: "limit"
+          in: "query"
+          description: "The max number of contacts"
+          required: false
+          schema:
+            type: "integer"
+        - name: "offset"
+          in: "query"
+          description: "Which offset to start with"
+          required: false
+          schema:
+            type: "integer"
         - name: "depth"
           in: "query"
           description:
@@ -11791,10 +12196,14 @@ paths:
             application/json:
               schema:
                 properties:
+                  total:
+                    type: "integer"
                   objects:
                     type: "array"
                     items:
                       $ref: "#/components/schemas/Model_ContactResponse"
+                required:
+                  - "objects"
                 type: "object"
         "400":
           description: "Bad request"
@@ -11828,6 +12237,66 @@ paths:
                     type: "array"
                     items:
                       $ref: "#/components/schemas/Model_ContactResponse"
+                type: "object"
+        "400":
+          description: "Bad request"
+        "401":
+          description: "Authentication required"
+        "500":
+          description: "Server Error"
+      deprecated: false
+  /Document:
+    get:
+      tags:
+        - "Document"
+      summary: "Retrieve documents"
+      description:
+        "There are a multitude of parameter which can be used to filter.<br>\r\
+        \n     A few of them are attached but\r\n     for a complete list please check\
+        \ out <a href='https://api.sevdesk.de/#section/How-to-filter-for-certain-contacts'>this</a>\
+        \ list"
+      operationId: "getDocuments"
+      parameters:
+        - name: "contact"
+          in: "query"
+          description: "Retrieve all documents for this contact. The value of\
+            \ contact[objectName] must be 'Contact'."
+          required: false
+          style: deepObject
+          explode: true
+          schema:
+            type: "object"
+            required:
+              - id
+              - objectName
+            properties:
+              id:
+                type: "integer"
+              objectName:
+                type: "string"
+                enum:
+                  - "Contact"
+        - name: "countAll"
+          in: "query"
+          description: "If all contacts should be counted"
+          required: false
+          schema:
+            type: "boolean"
+      responses:
+        "200":
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                properties:
+                  total:
+                    type: "integer"
+                  objects:
+                    type: "array"
+                    items:
+                      $ref: "#/components/schemas/Model_DocumentResponse"
+                required:
+                  - "objects"
                 type: "object"
         "400":
           description: "Bad request"

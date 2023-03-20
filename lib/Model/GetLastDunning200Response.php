@@ -1,6 +1,6 @@
 <?php
 /**
- * GetContacts200Response
+ * GetLastDunning200Response
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Itsmind\Sevdesk\ObjectSerializer;
 
 /**
- * GetContacts200Response Class Doc Comment
+ * GetLastDunning200Response Class Doc Comment
  *
  * @category Class
  * @package  Itsmind\Sevdesk
@@ -40,7 +40,7 @@ use \Itsmind\Sevdesk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetLastDunning200Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'getContacts_200_response';
+    protected static $openAPIModelName = 'getLastDunning_200_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total' => 'int',
-        'objects' => '\Itsmind\Sevdesk\Model\ModelContactResponse[]'
+        'objects' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponse'
     ];
 
     /**
@@ -69,7 +68,6 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'total' => null,
         'objects' => null
     ];
 
@@ -79,8 +77,7 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total' => false,
-		'objects' => false
+        'objects' => false
     ];
 
     /**
@@ -169,7 +166,6 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total',
         'objects' => 'objects'
     ];
 
@@ -179,7 +175,6 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal',
         'objects' => 'setObjects'
     ];
 
@@ -189,7 +184,6 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal',
         'objects' => 'getObjects'
     ];
 
@@ -250,7 +244,6 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('total', $data ?? [], null);
         $this->setIfExists('objects', $data ?? [], null);
     }
 
@@ -281,9 +274,6 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['objects'] === null) {
-            $invalidProperties[] = "'objects' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -300,36 +290,9 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets total
-     *
-     * @return int|null
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param int|null $total total
-     *
-     * @return self
-     */
-    public function setTotal($total)
-    {
-        if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
-        }
-        $this->container['total'] = $total;
-
-        return $this;
-    }
-
-    /**
      * Gets objects
      *
-     * @return \Itsmind\Sevdesk\Model\ModelContactResponse[]
+     * @return \Itsmind\Sevdesk\Model\ModelInvoiceResponse|null
      */
     public function getObjects()
     {
@@ -339,7 +302,7 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets objects
      *
-     * @param \Itsmind\Sevdesk\Model\ModelContactResponse[] $objects objects
+     * @param \Itsmind\Sevdesk\Model\ModelInvoiceResponse|null $objects objects
      *
      * @return self
      */

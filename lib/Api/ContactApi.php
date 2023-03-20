@@ -439,7 +439,7 @@ class ContactApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetContacts200Response
+     * @return \Itsmind\Sevdesk\Model\CreateContact201Response
      */
     public function createContact($model_contact = null, string $contentType = self::contentTypes['createContact'][0])
     {
@@ -457,7 +457,7 @@ class ContactApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetContacts200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\CreateContact201Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createContactWithHttpInfo($model_contact = null, string $contentType = self::contentTypes['createContact'][0])
     {
@@ -500,23 +500,23 @@ class ContactApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Itsmind\Sevdesk\Model\GetContacts200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\CreateContact201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetContacts200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\CreateContact201Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetContacts200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\CreateContact201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetContacts200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\CreateContact201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -537,7 +537,7 @@ class ContactApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetContacts200Response',
+                        '\Itsmind\Sevdesk\Model\CreateContact201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -581,7 +581,7 @@ class ContactApi
      */
     public function createContactAsyncWithHttpInfo($model_contact = null, string $contentType = self::contentTypes['createContact'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetContacts200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\CreateContact201Response';
         $request = $this->createContactRequest($model_contact, $contentType);
 
         return $this->client
@@ -1011,7 +1011,7 @@ class ContactApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetContacts200Response
+     * @return \Itsmind\Sevdesk\Model\CreateContact201Response
      */
     public function findContactsByCustomFieldValue($value, $custom_field_setting_id = null, $custom_field_setting_object_name = null, $custom_field_name = null, string $contentType = self::contentTypes['findContactsByCustomFieldValue'][0])
     {
@@ -1032,7 +1032,7 @@ class ContactApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetContacts200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\CreateContact201Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function findContactsByCustomFieldValueWithHttpInfo($value, $custom_field_setting_id = null, $custom_field_setting_object_name = null, $custom_field_name = null, string $contentType = self::contentTypes['findContactsByCustomFieldValue'][0])
     {
@@ -1075,23 +1075,23 @@ class ContactApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetContacts200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\CreateContact201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetContacts200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\CreateContact201Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetContacts200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\CreateContact201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetContacts200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\CreateContact201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1112,7 +1112,7 @@ class ContactApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetContacts200Response',
+                        '\Itsmind\Sevdesk\Model\CreateContact201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1162,7 +1162,7 @@ class ContactApi
      */
     public function findContactsByCustomFieldValueAsyncWithHttpInfo($value, $custom_field_setting_id = null, $custom_field_setting_object_name = null, $custom_field_name = null, string $contentType = self::contentTypes['findContactsByCustomFieldValue'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetContacts200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\CreateContact201Response';
         $request = $this->findContactsByCustomFieldValueRequest($value, $custom_field_setting_id, $custom_field_setting_object_name, $custom_field_name, $contentType);
 
         return $this->client
@@ -1342,7 +1342,7 @@ class ContactApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetContacts200Response
+     * @return \Itsmind\Sevdesk\Model\CreateContact201Response
      */
     public function getContactById($contact_id, string $contentType = self::contentTypes['getContactById'][0])
     {
@@ -1360,7 +1360,7 @@ class ContactApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetContacts200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\CreateContact201Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactByIdWithHttpInfo($contact_id, string $contentType = self::contentTypes['getContactById'][0])
     {
@@ -1403,23 +1403,23 @@ class ContactApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetContacts200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\CreateContact201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetContacts200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\CreateContact201Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetContacts200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\CreateContact201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetContacts200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\CreateContact201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1440,7 +1440,7 @@ class ContactApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetContacts200Response',
+                        '\Itsmind\Sevdesk\Model\CreateContact201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1484,7 +1484,7 @@ class ContactApi
      */
     public function getContactByIdAsyncWithHttpInfo($contact_id, string $contentType = self::contentTypes['getContactById'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetContacts200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\CreateContact201Response';
         $request = $this->getContactByIdRequest($contact_id, $contentType);
 
         return $this->client
@@ -1913,6 +1913,9 @@ class ContactApi
      *
      * Retrieve contacts
      *
+     * @param  bool $count_all If all contacts should be counted (optional)
+     * @param  int $limit The max number of contacts (optional)
+     * @param  int $offset Which offset to start with (optional)
      * @param  string $depth Defines if both organizations &lt;b&gt;and&lt;/b&gt; persons should be returned.&lt;br&gt;       &#39;0&#39; -&gt; only organizations, &#39;1&#39; -&gt; organizations and persons (optional)
      * @param  string $customer_number Retrieve all contacts with this customer number (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContacts'] to see the possible values for this operation
@@ -1921,9 +1924,9 @@ class ContactApi
      * @throws \InvalidArgumentException
      * @return \Itsmind\Sevdesk\Model\GetContacts200Response
      */
-    public function getContacts($depth = null, $customer_number = null, string $contentType = self::contentTypes['getContacts'][0])
+    public function getContacts($count_all = null, $limit = null, $offset = null, $depth = null, $customer_number = null, string $contentType = self::contentTypes['getContacts'][0])
     {
-        list($response) = $this->getContactsWithHttpInfo($depth, $customer_number, $contentType);
+        list($response) = $this->getContactsWithHttpInfo($count_all, $limit, $offset, $depth, $customer_number, $contentType);
         return $response;
     }
 
@@ -1932,6 +1935,9 @@ class ContactApi
      *
      * Retrieve contacts
      *
+     * @param  bool $count_all If all contacts should be counted (optional)
+     * @param  int $limit The max number of contacts (optional)
+     * @param  int $offset Which offset to start with (optional)
      * @param  string $depth Defines if both organizations &lt;b&gt;and&lt;/b&gt; persons should be returned.&lt;br&gt;       &#39;0&#39; -&gt; only organizations, &#39;1&#39; -&gt; organizations and persons (optional)
      * @param  string $customer_number Retrieve all contacts with this customer number (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContacts'] to see the possible values for this operation
@@ -1940,9 +1946,9 @@ class ContactApi
      * @throws \InvalidArgumentException
      * @return array of \Itsmind\Sevdesk\Model\GetContacts200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getContactsWithHttpInfo($depth = null, $customer_number = null, string $contentType = self::contentTypes['getContacts'][0])
+    public function getContactsWithHttpInfo($count_all = null, $limit = null, $offset = null, $depth = null, $customer_number = null, string $contentType = self::contentTypes['getContacts'][0])
     {
-        $request = $this->getContactsRequest($depth, $customer_number, $contentType);
+        $request = $this->getContactsRequest($count_all, $limit, $offset, $depth, $customer_number, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2033,6 +2039,9 @@ class ContactApi
      *
      * Retrieve contacts
      *
+     * @param  bool $count_all If all contacts should be counted (optional)
+     * @param  int $limit The max number of contacts (optional)
+     * @param  int $offset Which offset to start with (optional)
      * @param  string $depth Defines if both organizations &lt;b&gt;and&lt;/b&gt; persons should be returned.&lt;br&gt;       &#39;0&#39; -&gt; only organizations, &#39;1&#39; -&gt; organizations and persons (optional)
      * @param  string $customer_number Retrieve all contacts with this customer number (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContacts'] to see the possible values for this operation
@@ -2040,9 +2049,9 @@ class ContactApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactsAsync($depth = null, $customer_number = null, string $contentType = self::contentTypes['getContacts'][0])
+    public function getContactsAsync($count_all = null, $limit = null, $offset = null, $depth = null, $customer_number = null, string $contentType = self::contentTypes['getContacts'][0])
     {
-        return $this->getContactsAsyncWithHttpInfo($depth, $customer_number, $contentType)
+        return $this->getContactsAsyncWithHttpInfo($count_all, $limit, $offset, $depth, $customer_number, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2055,6 +2064,9 @@ class ContactApi
      *
      * Retrieve contacts
      *
+     * @param  bool $count_all If all contacts should be counted (optional)
+     * @param  int $limit The max number of contacts (optional)
+     * @param  int $offset Which offset to start with (optional)
      * @param  string $depth Defines if both organizations &lt;b&gt;and&lt;/b&gt; persons should be returned.&lt;br&gt;       &#39;0&#39; -&gt; only organizations, &#39;1&#39; -&gt; organizations and persons (optional)
      * @param  string $customer_number Retrieve all contacts with this customer number (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContacts'] to see the possible values for this operation
@@ -2062,10 +2074,10 @@ class ContactApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactsAsyncWithHttpInfo($depth = null, $customer_number = null, string $contentType = self::contentTypes['getContacts'][0])
+    public function getContactsAsyncWithHttpInfo($count_all = null, $limit = null, $offset = null, $depth = null, $customer_number = null, string $contentType = self::contentTypes['getContacts'][0])
     {
         $returnType = '\Itsmind\Sevdesk\Model\GetContacts200Response';
-        $request = $this->getContactsRequest($depth, $customer_number, $contentType);
+        $request = $this->getContactsRequest($count_all, $limit, $offset, $depth, $customer_number, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2106,6 +2118,9 @@ class ContactApi
     /**
      * Create request for operation 'getContacts'
      *
+     * @param  bool $count_all If all contacts should be counted (optional)
+     * @param  int $limit The max number of contacts (optional)
+     * @param  int $offset Which offset to start with (optional)
      * @param  string $depth Defines if both organizations &lt;b&gt;and&lt;/b&gt; persons should be returned.&lt;br&gt;       &#39;0&#39; -&gt; only organizations, &#39;1&#39; -&gt; organizations and persons (optional)
      * @param  string $customer_number Retrieve all contacts with this customer number (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContacts'] to see the possible values for this operation
@@ -2113,8 +2128,11 @@ class ContactApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getContactsRequest($depth = null, $customer_number = null, string $contentType = self::contentTypes['getContacts'][0])
+    public function getContactsRequest($count_all = null, $limit = null, $offset = null, $depth = null, $customer_number = null, string $contentType = self::contentTypes['getContacts'][0])
     {
+
+
+
 
 
 
@@ -2126,6 +2144,33 @@ class ContactApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $count_all,
+            'countAll', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $depth,
@@ -2485,7 +2530,7 @@ class ContactApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetContacts200Response
+     * @return \Itsmind\Sevdesk\Model\CreateContact201Response
      */
     public function updateContact($contact_id, $model_contact_update = null, string $contentType = self::contentTypes['updateContact'][0])
     {
@@ -2504,7 +2549,7 @@ class ContactApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetContacts200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\CreateContact201Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateContactWithHttpInfo($contact_id, $model_contact_update = null, string $contentType = self::contentTypes['updateContact'][0])
     {
@@ -2547,23 +2592,23 @@ class ContactApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetContacts200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\CreateContact201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetContacts200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\CreateContact201Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetContacts200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\CreateContact201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetContacts200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\CreateContact201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2584,7 +2629,7 @@ class ContactApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetContacts200Response',
+                        '\Itsmind\Sevdesk\Model\CreateContact201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2630,7 +2675,7 @@ class ContactApi
      */
     public function updateContactAsyncWithHttpInfo($contact_id, $model_contact_update = null, string $contentType = self::contentTypes['updateContact'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetContacts200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\CreateContact201Response';
         $request = $this->updateContactRequest($contact_id, $model_contact_update, $contentType);
 
         return $this->client

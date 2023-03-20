@@ -98,6 +98,12 @@ class InvoiceApi
         'getIsInvoicePartiallyPaid' => [
             'application/json',
         ],
+        'getLastDunning' => [
+            'application/json',
+        ],
+        'getOpenInvoiceReminderDebit' => [
+            'application/json',
+        ],
         'invoiceGetPdf' => [
             'application/json',
         ],
@@ -2300,21 +2306,28 @@ class InvoiceApi
      *
      * Retrieve invoices
      *
+     * @param  bool $count_all If all invoices should be counted (optional)
+     * @param  array<string,string> $invoice_type The type of invoice (optional)
+     * @param  int $offset Which offset to start with (optional)
+     * @param  int $limit The max number of invoices (optional)
+     * @param  bool $partially_paid Limit to partially paid invoices (optional)
+     * @param  bool $canceled Limit to canceled invoices (optional)
      * @param  float $status Status of the invoices (optional)
      * @param  string $invoice_number Retrieve all invoices with this invoice number (optional)
      * @param  int $start_date Retrieve all invoices with a date equal or higher (optional)
      * @param  int $end_date Retrieve all invoices with a date equal or lower (optional)
-     * @param  int $contact_id Retrieve all invoices with this contact. Must be provided with contact[objectName] (optional)
-     * @param  string $contact_object_name Only required if contact[id] was provided. &#39;Contact&#39; should be used as value. (optional)
+     * @param  GetInvoicesContactParameter $contact Retrieve all invoices with this contact. The value of contact[objectName] must be &#39;Contact&#39;. (optional)
+     * @param  GetInvoicesPaymentMethodParameter $payment_method Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be &#39;PaymentMethod&#39;. (optional)
+     * @param  string[] $embed embed (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoices'] to see the possible values for this operation
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetInvoiceById200Response
+     * @return \Itsmind\Sevdesk\Model\GetInvoices200Response
      */
-    public function getInvoices($status = null, $invoice_number = null, $start_date = null, $end_date = null, $contact_id = null, $contact_object_name = null, string $contentType = self::contentTypes['getInvoices'][0])
+    public function getInvoices($count_all = null, $invoice_type = null, $offset = null, $limit = null, $partially_paid = null, $canceled = null, $status = null, $invoice_number = null, $start_date = null, $end_date = null, $contact = null, $payment_method = null, $embed = null, string $contentType = self::contentTypes['getInvoices'][0])
     {
-        list($response) = $this->getInvoicesWithHttpInfo($status, $invoice_number, $start_date, $end_date, $contact_id, $contact_object_name, $contentType);
+        list($response) = $this->getInvoicesWithHttpInfo($count_all, $invoice_type, $offset, $limit, $partially_paid, $canceled, $status, $invoice_number, $start_date, $end_date, $contact, $payment_method, $embed, $contentType);
         return $response;
     }
 
@@ -2323,21 +2336,28 @@ class InvoiceApi
      *
      * Retrieve invoices
      *
+     * @param  bool $count_all If all invoices should be counted (optional)
+     * @param  array<string,string> $invoice_type The type of invoice (optional)
+     * @param  int $offset Which offset to start with (optional)
+     * @param  int $limit The max number of invoices (optional)
+     * @param  bool $partially_paid Limit to partially paid invoices (optional)
+     * @param  bool $canceled Limit to canceled invoices (optional)
      * @param  float $status Status of the invoices (optional)
      * @param  string $invoice_number Retrieve all invoices with this invoice number (optional)
      * @param  int $start_date Retrieve all invoices with a date equal or higher (optional)
      * @param  int $end_date Retrieve all invoices with a date equal or lower (optional)
-     * @param  int $contact_id Retrieve all invoices with this contact. Must be provided with contact[objectName] (optional)
-     * @param  string $contact_object_name Only required if contact[id] was provided. &#39;Contact&#39; should be used as value. (optional)
+     * @param  GetInvoicesContactParameter $contact Retrieve all invoices with this contact. The value of contact[objectName] must be &#39;Contact&#39;. (optional)
+     * @param  GetInvoicesPaymentMethodParameter $payment_method Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be &#39;PaymentMethod&#39;. (optional)
+     * @param  string[] $embed (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoices'] to see the possible values for this operation
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetInvoiceById200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\GetInvoices200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoicesWithHttpInfo($status = null, $invoice_number = null, $start_date = null, $end_date = null, $contact_id = null, $contact_object_name = null, string $contentType = self::contentTypes['getInvoices'][0])
+    public function getInvoicesWithHttpInfo($count_all = null, $invoice_type = null, $offset = null, $limit = null, $partially_paid = null, $canceled = null, $status = null, $invoice_number = null, $start_date = null, $end_date = null, $contact = null, $payment_method = null, $embed = null, string $contentType = self::contentTypes['getInvoices'][0])
     {
-        $request = $this->getInvoicesRequest($status, $invoice_number, $start_date, $end_date, $contact_id, $contact_object_name, $contentType);
+        $request = $this->getInvoicesRequest($count_all, $invoice_type, $offset, $limit, $partially_paid, $canceled, $status, $invoice_number, $start_date, $end_date, $contact, $payment_method, $embed, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2376,23 +2396,23 @@ class InvoiceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetInvoiceById200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\GetInvoices200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetInvoiceById200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\GetInvoices200Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetInvoiceById200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetInvoices200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetInvoiceById200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\GetInvoices200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2413,7 +2433,7 @@ class InvoiceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetInvoiceById200Response',
+                        '\Itsmind\Sevdesk\Model\GetInvoices200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2428,20 +2448,27 @@ class InvoiceApi
      *
      * Retrieve invoices
      *
+     * @param  bool $count_all If all invoices should be counted (optional)
+     * @param  array<string,string> $invoice_type The type of invoice (optional)
+     * @param  int $offset Which offset to start with (optional)
+     * @param  int $limit The max number of invoices (optional)
+     * @param  bool $partially_paid Limit to partially paid invoices (optional)
+     * @param  bool $canceled Limit to canceled invoices (optional)
      * @param  float $status Status of the invoices (optional)
      * @param  string $invoice_number Retrieve all invoices with this invoice number (optional)
      * @param  int $start_date Retrieve all invoices with a date equal or higher (optional)
      * @param  int $end_date Retrieve all invoices with a date equal or lower (optional)
-     * @param  int $contact_id Retrieve all invoices with this contact. Must be provided with contact[objectName] (optional)
-     * @param  string $contact_object_name Only required if contact[id] was provided. &#39;Contact&#39; should be used as value. (optional)
+     * @param  GetInvoicesContactParameter $contact Retrieve all invoices with this contact. The value of contact[objectName] must be &#39;Contact&#39;. (optional)
+     * @param  GetInvoicesPaymentMethodParameter $payment_method Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be &#39;PaymentMethod&#39;. (optional)
+     * @param  string[] $embed (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoicesAsync($status = null, $invoice_number = null, $start_date = null, $end_date = null, $contact_id = null, $contact_object_name = null, string $contentType = self::contentTypes['getInvoices'][0])
+    public function getInvoicesAsync($count_all = null, $invoice_type = null, $offset = null, $limit = null, $partially_paid = null, $canceled = null, $status = null, $invoice_number = null, $start_date = null, $end_date = null, $contact = null, $payment_method = null, $embed = null, string $contentType = self::contentTypes['getInvoices'][0])
     {
-        return $this->getInvoicesAsyncWithHttpInfo($status, $invoice_number, $start_date, $end_date, $contact_id, $contact_object_name, $contentType)
+        return $this->getInvoicesAsyncWithHttpInfo($count_all, $invoice_type, $offset, $limit, $partially_paid, $canceled, $status, $invoice_number, $start_date, $end_date, $contact, $payment_method, $embed, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2454,21 +2481,28 @@ class InvoiceApi
      *
      * Retrieve invoices
      *
+     * @param  bool $count_all If all invoices should be counted (optional)
+     * @param  array<string,string> $invoice_type The type of invoice (optional)
+     * @param  int $offset Which offset to start with (optional)
+     * @param  int $limit The max number of invoices (optional)
+     * @param  bool $partially_paid Limit to partially paid invoices (optional)
+     * @param  bool $canceled Limit to canceled invoices (optional)
      * @param  float $status Status of the invoices (optional)
      * @param  string $invoice_number Retrieve all invoices with this invoice number (optional)
      * @param  int $start_date Retrieve all invoices with a date equal or higher (optional)
      * @param  int $end_date Retrieve all invoices with a date equal or lower (optional)
-     * @param  int $contact_id Retrieve all invoices with this contact. Must be provided with contact[objectName] (optional)
-     * @param  string $contact_object_name Only required if contact[id] was provided. &#39;Contact&#39; should be used as value. (optional)
+     * @param  GetInvoicesContactParameter $contact Retrieve all invoices with this contact. The value of contact[objectName] must be &#39;Contact&#39;. (optional)
+     * @param  GetInvoicesPaymentMethodParameter $payment_method Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be &#39;PaymentMethod&#39;. (optional)
+     * @param  string[] $embed (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoicesAsyncWithHttpInfo($status = null, $invoice_number = null, $start_date = null, $end_date = null, $contact_id = null, $contact_object_name = null, string $contentType = self::contentTypes['getInvoices'][0])
+    public function getInvoicesAsyncWithHttpInfo($count_all = null, $invoice_type = null, $offset = null, $limit = null, $partially_paid = null, $canceled = null, $status = null, $invoice_number = null, $start_date = null, $end_date = null, $contact = null, $payment_method = null, $embed = null, string $contentType = self::contentTypes['getInvoices'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetInvoiceById200Response';
-        $request = $this->getInvoicesRequest($status, $invoice_number, $start_date, $end_date, $contact_id, $contact_object_name, $contentType);
+        $returnType = '\Itsmind\Sevdesk\Model\GetInvoices200Response';
+        $request = $this->getInvoicesRequest($count_all, $invoice_type, $offset, $limit, $partially_paid, $canceled, $status, $invoice_number, $start_date, $end_date, $contact, $payment_method, $embed, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2509,19 +2543,33 @@ class InvoiceApi
     /**
      * Create request for operation 'getInvoices'
      *
+     * @param  bool $count_all If all invoices should be counted (optional)
+     * @param  array<string,string> $invoice_type The type of invoice (optional)
+     * @param  int $offset Which offset to start with (optional)
+     * @param  int $limit The max number of invoices (optional)
+     * @param  bool $partially_paid Limit to partially paid invoices (optional)
+     * @param  bool $canceled Limit to canceled invoices (optional)
      * @param  float $status Status of the invoices (optional)
      * @param  string $invoice_number Retrieve all invoices with this invoice number (optional)
      * @param  int $start_date Retrieve all invoices with a date equal or higher (optional)
      * @param  int $end_date Retrieve all invoices with a date equal or lower (optional)
-     * @param  int $contact_id Retrieve all invoices with this contact. Must be provided with contact[objectName] (optional)
-     * @param  string $contact_object_name Only required if contact[id] was provided. &#39;Contact&#39; should be used as value. (optional)
+     * @param  GetInvoicesContactParameter $contact Retrieve all invoices with this contact. The value of contact[objectName] must be &#39;Contact&#39;. (optional)
+     * @param  GetInvoicesPaymentMethodParameter $payment_method Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be &#39;PaymentMethod&#39;. (optional)
+     * @param  string[] $embed (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoicesRequest($status = null, $invoice_number = null, $start_date = null, $end_date = null, $contact_id = null, $contact_object_name = null, string $contentType = self::contentTypes['getInvoices'][0])
+    public function getInvoicesRequest($count_all = null, $invoice_type = null, $offset = null, $limit = null, $partially_paid = null, $canceled = null, $status = null, $invoice_number = null, $start_date = null, $end_date = null, $contact = null, $payment_method = null, $embed = null, string $contentType = self::contentTypes['getInvoices'][0])
     {
+
+
+
+
+
+
+
 
 
 
@@ -2537,6 +2585,60 @@ class InvoiceApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $count_all,
+            'countAll', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $invoice_type,
+            'invoiceType', // param base name
+            'object', // openApiType
+            'deepObject', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $partially_paid,
+            'partiallyPaid', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $canceled,
+            'canceled', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $status,
@@ -2575,20 +2677,29 @@ class InvoiceApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $contact_id,
-            'contact[id]', // param base name
-            'integer', // openApiType
-            'form', // style
+            $contact,
+            'contact', // param base name
+            'object', // openApiType
+            'deepObject', // style
             true, // explode
             false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $contact_object_name,
-            'contact[objectName]', // param base name
-            'string', // openApiType
-            'form', // style
+            $payment_method,
+            'paymentMethod', // param base name
+            'object', // openApiType
+            'deepObject', // style
             true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $embed,
+            'embed', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
             false // required
         ) ?? []);
 
@@ -2881,6 +2992,583 @@ class InvoiceApi
                 $resourcePath
             );
         }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getLastDunning
+     *
+     * Get the last dunning of an invoice
+     *
+     * @param  int $invoice_id ID of invoice to get last dunning for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLastDunning'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Itsmind\Sevdesk\Model\GetLastDunning200Response
+     */
+    public function getLastDunning($invoice_id, string $contentType = self::contentTypes['getLastDunning'][0])
+    {
+        list($response) = $this->getLastDunningWithHttpInfo($invoice_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getLastDunningWithHttpInfo
+     *
+     * Get the last dunning of an invoice
+     *
+     * @param  int $invoice_id ID of invoice to get last dunning for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLastDunning'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Itsmind\Sevdesk\Model\GetLastDunning200Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getLastDunningWithHttpInfo($invoice_id, string $contentType = self::contentTypes['getLastDunning'][0])
+    {
+        $request = $this->getLastDunningRequest($invoice_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Itsmind\Sevdesk\Model\GetLastDunning200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Itsmind\Sevdesk\Model\GetLastDunning200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetLastDunning200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Itsmind\Sevdesk\Model\GetLastDunning200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Itsmind\Sevdesk\Model\GetLastDunning200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getLastDunningAsync
+     *
+     * Get the last dunning of an invoice
+     *
+     * @param  int $invoice_id ID of invoice to get last dunning for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLastDunning'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getLastDunningAsync($invoice_id, string $contentType = self::contentTypes['getLastDunning'][0])
+    {
+        return $this->getLastDunningAsyncWithHttpInfo($invoice_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getLastDunningAsyncWithHttpInfo
+     *
+     * Get the last dunning of an invoice
+     *
+     * @param  int $invoice_id ID of invoice to get last dunning for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLastDunning'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getLastDunningAsyncWithHttpInfo($invoice_id, string $contentType = self::contentTypes['getLastDunning'][0])
+    {
+        $returnType = '\Itsmind\Sevdesk\Model\GetLastDunning200Response';
+        $request = $this->getLastDunningRequest($invoice_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getLastDunning'
+     *
+     * @param  int $invoice_id ID of invoice to get last dunning for (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLastDunning'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getLastDunningRequest($invoice_id, string $contentType = self::contentTypes['getLastDunning'][0])
+    {
+
+        // verify the required parameter 'invoice_id' is set
+        if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $invoice_id when calling getLastDunning'
+            );
+        }
+
+
+        $resourcePath = '/Invoice/{invoiceId}/getLastDunning';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($invoice_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'invoiceId' . '}',
+                ObjectSerializer::toPathValue($invoice_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getOpenInvoiceReminderDebit
+     *
+     * Get the oben reminder debit for an invoice
+     *
+     * @param  GetOpenInvoiceReminderDebitInvoiceParameter $invoice Retrieve the open reminder debit for this invoice. The value of invoice[objectName] must be &#39;Invoice&#39;. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOpenInvoiceReminderDebit'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebit200Response
+     */
+    public function getOpenInvoiceReminderDebit($invoice, string $contentType = self::contentTypes['getOpenInvoiceReminderDebit'][0])
+    {
+        list($response) = $this->getOpenInvoiceReminderDebitWithHttpInfo($invoice, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getOpenInvoiceReminderDebitWithHttpInfo
+     *
+     * Get the oben reminder debit for an invoice
+     *
+     * @param  GetOpenInvoiceReminderDebitInvoiceParameter $invoice Retrieve the open reminder debit for this invoice. The value of invoice[objectName] must be &#39;Invoice&#39;. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOpenInvoiceReminderDebit'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebit200Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getOpenInvoiceReminderDebitWithHttpInfo($invoice, string $contentType = self::contentTypes['getOpenInvoiceReminderDebit'][0])
+    {
+        $request = $this->getOpenInvoiceReminderDebitRequest($invoice, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebit200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebit200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebit200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebit200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebit200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getOpenInvoiceReminderDebitAsync
+     *
+     * Get the oben reminder debit for an invoice
+     *
+     * @param  GetOpenInvoiceReminderDebitInvoiceParameter $invoice Retrieve the open reminder debit for this invoice. The value of invoice[objectName] must be &#39;Invoice&#39;. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOpenInvoiceReminderDebit'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getOpenInvoiceReminderDebitAsync($invoice, string $contentType = self::contentTypes['getOpenInvoiceReminderDebit'][0])
+    {
+        return $this->getOpenInvoiceReminderDebitAsyncWithHttpInfo($invoice, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getOpenInvoiceReminderDebitAsyncWithHttpInfo
+     *
+     * Get the oben reminder debit for an invoice
+     *
+     * @param  GetOpenInvoiceReminderDebitInvoiceParameter $invoice Retrieve the open reminder debit for this invoice. The value of invoice[objectName] must be &#39;Invoice&#39;. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOpenInvoiceReminderDebit'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getOpenInvoiceReminderDebitAsyncWithHttpInfo($invoice, string $contentType = self::contentTypes['getOpenInvoiceReminderDebit'][0])
+    {
+        $returnType = '\Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebit200Response';
+        $request = $this->getOpenInvoiceReminderDebitRequest($invoice, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getOpenInvoiceReminderDebit'
+     *
+     * @param  GetOpenInvoiceReminderDebitInvoiceParameter $invoice Retrieve the open reminder debit for this invoice. The value of invoice[objectName] must be &#39;Invoice&#39;. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOpenInvoiceReminderDebit'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getOpenInvoiceReminderDebitRequest($invoice, string $contentType = self::contentTypes['getOpenInvoiceReminderDebit'][0])
+    {
+
+        // verify the required parameter 'invoice' is set
+        if ($invoice === null || (is_array($invoice) && count($invoice) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $invoice when calling getOpenInvoiceReminderDebit'
+            );
+        }
+
+
+        $resourcePath = '/Invoice/Factory/getOpenInvoiceReminderDebit';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $invoice,
+            'invoice', // param base name
+            'object', // openApiType
+            'deepObject', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -1,7 +1,6 @@
 <?php
 /**
- * GetContacts200Response
- *
+ * DocumentApi
  * PHP version 7.4
  *
  * @category Class
@@ -26,421 +25,417 @@
  * Do not edit the class manually.
  */
 
-namespace Itsmind\Sevdesk\Model;
+namespace Itsmind\Sevdesk\Api;
 
-use \ArrayAccess;
-use \Itsmind\Sevdesk\ObjectSerializer;
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\RequestOptions;
+use Itsmind\Sevdesk\ApiException;
+use Itsmind\Sevdesk\Configuration;
+use Itsmind\Sevdesk\HeaderSelector;
+use Itsmind\Sevdesk\ObjectSerializer;
 
 /**
- * GetContacts200Response Class Doc Comment
+ * DocumentApi Class Doc Comment
  *
  * @category Class
  * @package  Itsmind\Sevdesk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
  */
-class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class DocumentApi
 {
-    public const DISCRIMINATOR = null;
+    /**
+     * @var ClientInterface
+     */
+    protected $client;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
-    protected static $openAPIModelName = 'getContacts_200_response';
+     * @var Configuration
+     */
+    protected $config;
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
-    protected static $openAPITypes = [
-        'total' => 'int',
-        'objects' => '\Itsmind\Sevdesk\Model\ModelContactResponse[]'
+     * @var HeaderSelector
+     */
+    protected $headerSelector;
+
+    /**
+     * @var int Host index
+     */
+    protected $hostIndex;
+
+    /** @var string[] $contentTypes **/
+    public const contentTypes = [
+        'getDocuments' => [
+            'application/json',
+        ],
     ];
 
-    /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
-    protected static $openAPIFormats = [
-        'total' => null,
-        'objects' => null
-    ];
-
-    /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
-    protected static array $openAPINullables = [
-        'total' => false,
-		'objects' => false
-    ];
-
-    /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
-    protected array $openAPINullablesSetToNull = [];
-
-    /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
+/**
+     * @param ClientInterface $client
+     * @param Configuration   $config
+     * @param HeaderSelector  $selector
+     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
-    public static function openAPITypes()
-    {
-        return self::$openAPITypes;
+    public function __construct(
+        ClientInterface $client = null,
+        Configuration $config = null,
+        HeaderSelector $selector = null,
+        $hostIndex = 0
+    ) {
+        $this->client = $client ?: new Client();
+        $this->config = $config ?: new Configuration();
+        $this->headerSelector = $selector ?: new HeaderSelector();
+        $this->hostIndex = $hostIndex;
     }
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
+     * Set the host index
      *
-     * @return array
+     * @param int $hostIndex Host index (required)
      */
-    public static function openAPIFormats()
+    public function setHostIndex($hostIndex): void
     {
-        return self::$openAPIFormats;
+        $this->hostIndex = $hostIndex;
     }
 
     /**
-     * Array of nullable properties
+     * Get the host index
      *
-     * @return array
+     * @return int Host index
      */
-    protected static function openAPINullables(): array
+    public function getHostIndex()
     {
-        return self::$openAPINullables;
+        return $this->hostIndex;
     }
 
     /**
-     * Array of nullable field names deliberately set to null
-     *
-     * @return boolean[]
+     * @return Configuration
      */
-    private function getOpenAPINullablesSetToNull(): array
+    public function getConfig()
     {
-        return $this->openAPINullablesSetToNull;
+        return $this->config;
     }
 
     /**
-     * Setter - Array of nullable field names deliberately set to null
+     * Operation getDocuments
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * Retrieve documents
+     *
+     * @param  GetInvoicesContactParameter $contact Retrieve all documents for this contact. The value of contact[objectName] must be &#39;Contact&#39;. (optional)
+     * @param  bool $count_all If all contacts should be counted (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocuments'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Itsmind\Sevdesk\Model\GetDocuments200Response
      */
-    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    public function getDocuments($contact = null, $count_all = null, string $contentType = self::contentTypes['getDocuments'][0])
     {
-        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+        list($response) = $this->getDocumentsWithHttpInfo($contact, $count_all, $contentType);
+        return $response;
     }
 
     /**
-     * Checks if a property is nullable
+     * Operation getDocumentsWithHttpInfo
      *
-     * @param string $property
-     * @return bool
+     * Retrieve documents
+     *
+     * @param  GetInvoicesContactParameter $contact Retrieve all documents for this contact. The value of contact[objectName] must be &#39;Contact&#39;. (optional)
+     * @param  bool $count_all If all contacts should be counted (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocuments'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Itsmind\Sevdesk\Model\GetDocuments200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public static function isNullable(string $property): bool
+    public function getDocumentsWithHttpInfo($contact = null, $count_all = null, string $contentType = self::contentTypes['getDocuments'][0])
     {
-        return self::openAPINullables()[$property] ?? false;
-    }
+        $request = $this->getDocumentsRequest($contact, $count_all, $contentType);
 
-    /**
-     * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
-     */
-    public function isNullableSetToNull(string $property): bool
-    {
-        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
-    }
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
 
-    /**
-     * Array of attributes where the key is the local name,
-     * and the value is the original name
-     *
-     * @var string[]
-     */
-    protected static $attributeMap = [
-        'total' => 'total',
-        'objects' => 'objects'
-    ];
+            $statusCode = $response->getStatusCode();
 
-    /**
-     * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @var string[]
-     */
-    protected static $setters = [
-        'total' => 'setTotal',
-        'objects' => 'setObjects'
-    ];
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
 
-    /**
-     * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @var string[]
-     */
-    protected static $getters = [
-        'total' => 'getTotal',
-        'objects' => 'getObjects'
-    ];
+            switch($statusCode) {
+                case 200:
+                    if ('\Itsmind\Sevdesk\Model\GetDocuments200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Itsmind\Sevdesk\Model\GetDocuments200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
 
-    /**
-     * Array of attributes where the key is the local name,
-     * and the value is the original name
-     *
-     * @return array
-     */
-    public static function attributeMap()
-    {
-        return self::$attributeMap;
-    }
+                    return [
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetDocuments200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
 
-    /**
-     * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
-     */
-    public static function setters()
-    {
-        return self::$setters;
-    }
+            $returnType = '\Itsmind\Sevdesk\Model\GetDocuments200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
 
-    /**
-     * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
-     */
-    public static function getters()
-    {
-        return self::$getters;
-    }
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$openAPIModelName;
-    }
-
-
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
-
-    /**
-     * Constructor
-     *
-     * @param mixed[] $data Associated array of property values
-     *                      initializing the model
-     */
-    public function __construct(array $data = null)
-    {
-        $this->setIfExists('total', $data ?? [], null);
-        $this->setIfExists('objects', $data ?? [], null);
-    }
-
-    /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-    * @param mixed  $defaultValue
-    */
-    private function setIfExists(string $variableName, array $fields, $defaultValue): void
-    {
-        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-            $this->openAPINullablesSetToNull[] = $variableName;
-        }
-
-        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
-    }
-
-    /**
-     * Show all the invalid properties with reasons.
-     *
-     * @return array invalid properties with reasons
-     */
-    public function listInvalidProperties()
-    {
-        $invalidProperties = [];
-
-        if ($this->container['objects'] === null) {
-            $invalidProperties[] = "'objects' can't be null";
-        }
-        return $invalidProperties;
-    }
-
-    /**
-     * Validate all the properties in the model
-     * return true if all passed
-     *
-     * @return bool True if all properties are valid
-     */
-    public function valid()
-    {
-        return count($this->listInvalidProperties()) === 0;
-    }
-
-
-    /**
-     * Gets total
-     *
-     * @return int|null
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param int|null $total total
-     *
-     * @return self
-     */
-    public function setTotal($total)
-    {
-        if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
-        }
-        $this->container['total'] = $total;
-
-        return $this;
-    }
-
-    /**
-     * Gets objects
-     *
-     * @return \Itsmind\Sevdesk\Model\ModelContactResponse[]
-     */
-    public function getObjects()
-    {
-        return $this->container['objects'];
-    }
-
-    /**
-     * Sets objects
-     *
-     * @param \Itsmind\Sevdesk\Model\ModelContactResponse[] $objects objects
-     *
-     * @return self
-     */
-    public function setObjects($objects)
-    {
-        if (is_null($objects)) {
-            throw new \InvalidArgumentException('non-nullable objects cannot be null');
-        }
-        $this->container['objects'] = $objects;
-
-        return $this;
-    }
-    /**
-     * Returns true if offset exists. False otherwise.
-     *
-     * @param integer $offset Offset
-     *
-     * @return boolean
-     */
-    public function offsetExists($offset): bool
-    {
-        return isset($this->container[$offset]);
-    }
-
-    /**
-     * Gets offset.
-     *
-     * @param integer $offset Offset
-     *
-     * @return mixed|null
-     */
-    #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
-    {
-        return $this->container[$offset] ?? null;
-    }
-
-    /**
-     * Sets value based on offset.
-     *
-     * @param int|null $offset Offset
-     * @param mixed    $value  Value to be set
-     *
-     * @return void
-     */
-    public function offsetSet($offset, $value): void
-    {
-        if (is_null($offset)) {
-            $this->container[] = $value;
-        } else {
-            $this->container[$offset] = $value;
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Itsmind\Sevdesk\Model\GetDocuments200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
         }
     }
 
     /**
-     * Unsets offset.
+     * Operation getDocumentsAsync
      *
-     * @param integer $offset Offset
+     * Retrieve documents
      *
-     * @return void
+     * @param  GetInvoicesContactParameter $contact Retrieve all documents for this contact. The value of contact[objectName] must be &#39;Contact&#39;. (optional)
+     * @param  bool $count_all If all contacts should be counted (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocuments'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function offsetUnset($offset): void
+    public function getDocumentsAsync($contact = null, $count_all = null, string $contentType = self::contentTypes['getDocuments'][0])
     {
-        unset($this->container[$offset]);
+        return $this->getDocumentsAsyncWithHttpInfo($contact, $count_all, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
     }
 
     /**
-     * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * Operation getDocumentsAsyncWithHttpInfo
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * Retrieve documents
+     *
+     * @param  GetInvoicesContactParameter $contact Retrieve all documents for this contact. The value of contact[objectName] must be &#39;Contact&#39;. (optional)
+     * @param  bool $count_all If all contacts should be counted (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocuments'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function getDocumentsAsyncWithHttpInfo($contact = null, $count_all = null, string $contentType = self::contentTypes['getDocuments'][0])
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        $returnType = '\Itsmind\Sevdesk\Model\GetDocuments200Response';
+        $request = $this->getDocumentsRequest($contact, $count_all, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
     }
 
     /**
-     * Gets the string presentation of the object
+     * Create request for operation 'getDocuments'
      *
-     * @return string
+     * @param  GetInvoicesContactParameter $contact Retrieve all documents for this contact. The value of contact[objectName] must be &#39;Contact&#39;. (optional)
+     * @param  bool $count_all If all contacts should be counted (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocuments'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      */
-    public function __toString()
+    public function getDocumentsRequest($contact = null, $count_all = null, string $contentType = self::contentTypes['getDocuments'][0])
     {
-        return json_encode(
-            ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+
+
+
+
+        $resourcePath = '/Document';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $contact,
+            'contact', // param base name
+            'object', // openApiType
+            'deepObject', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $count_all,
+            'countAll', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
         );
     }
 
     /**
-     * Gets a header-safe presentation of the object
+     * Create http client option
      *
-     * @return string
+     * @throws \RuntimeException on file opening failure
+     * @return array of http client options
      */
-    public function toHeaderValue()
+    protected function createHttpClientOption()
     {
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        $options = [];
+        if ($this->config->getDebug()) {
+            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
+            if (!$options[RequestOptions::DEBUG]) {
+                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+            }
+        }
+
+        return $options;
     }
 }
-
-

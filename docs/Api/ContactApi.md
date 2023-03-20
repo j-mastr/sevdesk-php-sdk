@@ -80,7 +80,7 @@ try {
 ## `createContact()`
 
 ```php
-createContact($model_contact): \Itsmind\Sevdesk\Model\GetContacts200Response
+createContact($model_contact): \Itsmind\Sevdesk\Model\CreateContact201Response
 ```
 
 Create a new contact
@@ -124,7 +124,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetContacts200Response**](../Model/GetContacts200Response.md)
+[**\Itsmind\Sevdesk\Model\CreateContact201Response**](../Model/CreateContact201Response.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ try {
 ## `findContactsByCustomFieldValue()`
 
 ```php
-findContactsByCustomFieldValue($value, $custom_field_setting_id, $custom_field_setting_object_name, $custom_field_name): \Itsmind\Sevdesk\Model\GetContacts200Response
+findContactsByCustomFieldValue($value, $custom_field_setting_id, $custom_field_setting_object_name, $custom_field_name): \Itsmind\Sevdesk\Model\CreateContact201Response
 ```
 
 Find contacts by custom field value
@@ -252,7 +252,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetContacts200Response**](../Model/GetContacts200Response.md)
+[**\Itsmind\Sevdesk\Model\CreateContact201Response**](../Model/CreateContact201Response.md)
 
 ### Authorization
 
@@ -270,7 +270,7 @@ try {
 ## `getContactById()`
 
 ```php
-getContactById($contact_id): \Itsmind\Sevdesk\Model\GetContacts200Response
+getContactById($contact_id): \Itsmind\Sevdesk\Model\CreateContact201Response
 ```
 
 Find contact by ID
@@ -314,7 +314,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetContacts200Response**](../Model/GetContacts200Response.md)
+[**\Itsmind\Sevdesk\Model\CreateContact201Response**](../Model/CreateContact201Response.md)
 
 ### Authorization
 
@@ -394,7 +394,7 @@ try {
 ## `getContacts()`
 
 ```php
-getContacts($depth, $customer_number): \Itsmind\Sevdesk\Model\GetContacts200Response
+getContacts($count_all, $limit, $offset, $depth, $customer_number): \Itsmind\Sevdesk\Model\GetContacts200Response
 ```
 
 Retrieve contacts
@@ -420,11 +420,14 @@ $apiInstance = new Itsmind\Sevdesk\Api\ContactApi(
     new GuzzleHttp\Client(),
     $config
 );
+$count_all = True; // bool | If all contacts should be counted
+$limit = 56; // int | The max number of contacts
+$offset = 56; // int | Which offset to start with
 $depth = 'depth_example'; // string | Defines if both organizations <b>and</b> persons should be returned.<br>       '0' -> only organizations, '1' -> organizations and persons
 $customer_number = 'customer_number_example'; // string | Retrieve all contacts with this customer number
 
 try {
-    $result = $apiInstance->getContacts($depth, $customer_number);
+    $result = $apiInstance->getContacts($count_all, $limit, $offset, $depth, $customer_number);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactApi->getContacts: ', $e->getMessage(), PHP_EOL;
@@ -435,6 +438,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **count_all** | **bool**| If all contacts should be counted | [optional] |
+| **limit** | **int**| The max number of contacts | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
 | **depth** | **string**| Defines if both organizations &lt;b&gt;and&lt;/b&gt; persons should be returned.&lt;br&gt;       &#39;0&#39; -&gt; only organizations, &#39;1&#39; -&gt; organizations and persons | [optional] |
 | **customer_number** | **string**| Retrieve all contacts with this customer number | [optional] |
 
@@ -517,7 +523,7 @@ This endpoint does not need any parameter.
 ## `updateContact()`
 
 ```php
-updateContact($contact_id, $model_contact_update): \Itsmind\Sevdesk\Model\GetContacts200Response
+updateContact($contact_id, $model_contact_update): \Itsmind\Sevdesk\Model\CreateContact201Response
 ```
 
 Update a existing contact
@@ -563,7 +569,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetContacts200Response**](../Model/GetContacts200Response.md)
+[**\Itsmind\Sevdesk\Model\CreateContact201Response**](../Model/CreateContact201Response.md)
 
 ### Authorization
 

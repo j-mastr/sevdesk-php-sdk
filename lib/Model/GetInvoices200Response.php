@@ -1,6 +1,6 @@
 <?php
 /**
- * GetContacts200Response
+ * GetInvoices200Response
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Itsmind\Sevdesk\ObjectSerializer;
 
 /**
- * GetContacts200Response Class Doc Comment
+ * GetInvoices200Response Class Doc Comment
  *
  * @category Class
  * @package  Itsmind\Sevdesk
@@ -40,7 +40,7 @@ use \Itsmind\Sevdesk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetInvoices200Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'getContacts_200_response';
+    protected static $openAPIModelName = 'getInvoices_200_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'total' => 'int',
-        'objects' => '\Itsmind\Sevdesk\Model\ModelContactResponse[]'
+        'objects' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponse[]'
     ];
 
     /**
@@ -329,7 +329,7 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets objects
      *
-     * @return \Itsmind\Sevdesk\Model\ModelContactResponse[]
+     * @return \Itsmind\Sevdesk\Model\ModelInvoiceResponse[]
      */
     public function getObjects()
     {
@@ -339,7 +339,7 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets objects
      *
-     * @param \Itsmind\Sevdesk\Model\ModelContactResponse[] $objects objects
+     * @param \Itsmind\Sevdesk\Model\ModelInvoiceResponse[] $objects objects
      *
      * @return self
      */

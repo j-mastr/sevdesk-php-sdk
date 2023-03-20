@@ -77,7 +77,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/itsmindcom/sevdesk-php-client/vendor/autoload.php');
+require_once('/path/to/itsmind/sevdesk-php-client/vendor/autoload.php');
 ```
 
 ## Getting Started
@@ -178,6 +178,7 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 | _CreditNoteApi_              | [**sendCreditNoteViaEMail**](docs/Api/CreditNoteApi.md#sendcreditnoteviaemail)                              | **POST** /CreditNote/{creditNoteId}/sendViaEmail                                   | Send credit note via email                      |
 | _CreditNoteApi_              | [**updatecreditNote**](docs/Api/CreditNoteApi.md#updatecreditnote)                                          | **PUT** /creditNote/{creditNoteId}                                                 | Update an existing creditNote                   |
 | _CreditNotePosApi_           | [**getcreditNotePositions**](docs/Api/CreditNotePosApi.md#getcreditnotepositions)                           | **GET** /creditNotePos                                                             | Retrieve creditNote positions                   |
+| _DocumentApi_                | [**getDocuments**](docs/Api/DocumentApi.md#getdocuments)                                                    | **GET** /Document                                                                  | Retrieve documents                              |
 | _ExportApi_                  | [**exportContact**](docs/Api/ExportApi.md#exportcontact)                                                    | **GET** /Export/contactListCsv                                                     | Export contact                                  |
 | _ExportApi_                  | [**exportCreditNote**](docs/Api/ExportApi.md#exportcreditnote)                                              | **GET** /Export/creditNoteCsv                                                      | Export creditNote                               |
 | _ExportApi_                  | [**exportDatev**](docs/Api/ExportApi.md#exportdatev)                                                        | **GET** /Export/datevCSV                                                           | Export datev                                    |
@@ -195,6 +196,8 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 | _InvoiceApi_                 | [**getInvoicePositionsById**](docs/Api/InvoiceApi.md#getinvoicepositionsbyid)                               | **GET** /Invoice/{invoiceId}/getPositions                                          | Find invoice positions                          |
 | _InvoiceApi_                 | [**getInvoices**](docs/Api/InvoiceApi.md#getinvoices)                                                       | **GET** /Invoice                                                                   | Retrieve invoices                               |
 | _InvoiceApi_                 | [**getIsInvoicePartiallyPaid**](docs/Api/InvoiceApi.md#getisinvoicepartiallypaid)                           | **GET** /Invoice/{invoiceId}/getIsPartiallyPaid                                    | Check if an invoice is already partially paid   |
+| _InvoiceApi_                 | [**getLastDunning**](docs/Api/InvoiceApi.md#getlastdunning)                                                 | **GET** /Invoice/{invoiceId}/getLastDunning                                        | Get the last dunning of an invoice              |
+| _InvoiceApi_                 | [**getOpenInvoiceReminderDebit**](docs/Api/InvoiceApi.md#getopeninvoicereminderdebit)                       | **GET** /Invoice/Factory/getOpenInvoiceReminderDebit                               | Get the oben reminder debit for an invoice      |
 | _InvoiceApi_                 | [**invoiceGetPdf**](docs/Api/InvoiceApi.md#invoicegetpdf)                                                   | **GET** /Invoice/{invoiceId}/getPdf                                                | Retrieve pdf document of an invoice             |
 | _InvoiceApi_                 | [**invoiceRender**](docs/Api/InvoiceApi.md#invoicerender)                                                   | **POST** /Invoice/{invoiceId}/render                                               | Render the pdf document of an invoice           |
 | _InvoiceApi_                 | [**invoiceSendBy**](docs/Api/InvoiceApi.md#invoicesendby)                                                   | **PUT** /Invoice/{invoiceId}/sendBy                                                | Mark invoice as sent                            |
@@ -257,6 +260,7 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 - [BookVoucherRequestCheckAccount](docs/Model/BookVoucherRequestCheckAccount.md)
 - [BookVoucherRequestCheckAccountTransaction](docs/Model/BookVoucherRequestCheckAccountTransaction.md)
 - [ContactAddressId200Response](docs/Model/ContactAddressId200Response.md)
+- [CreateContact201Response](docs/Model/CreateContact201Response.md)
 - [CreateInvoiceReminderRequest](docs/Model/CreateInvoiceReminderRequest.md)
 - [CreateInvoiceReminderRequestInvoice](docs/Model/CreateInvoiceReminderRequestInvoice.md)
 - [CreatePackingListFromOrder200Response](docs/Model/CreatePackingListFromOrder200Response.md)
@@ -289,12 +293,19 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 - [GetContactTabsItemCountById200Response](docs/Model/GetContactTabsItemCountById200Response.md)
 - [GetContacts200Response](docs/Model/GetContacts200Response.md)
 - [GetDiscounts200Response](docs/Model/GetDiscounts200Response.md)
+- [GetDocuments200Response](docs/Model/GetDocuments200Response.md)
 - [GetInvoiceById200Response](docs/Model/GetInvoiceById200Response.md)
 - [GetInvoicePos200Response](docs/Model/GetInvoicePos200Response.md)
+- [GetInvoices200Response](docs/Model/GetInvoices200Response.md)
+- [GetInvoicesContactParameter](docs/Model/GetInvoicesContactParameter.md)
+- [GetInvoicesPaymentMethodParameter](docs/Model/GetInvoicesPaymentMethodParameter.md)
 - [GetIsInvoicePartiallyPaid200Response](docs/Model/GetIsInvoicePartiallyPaid200Response.md)
+- [GetLastDunning200Response](docs/Model/GetLastDunning200Response.md)
 - [GetLetterpapersWithThumb200Response](docs/Model/GetLetterpapersWithThumb200Response.md)
 - [GetLetterpapersWithThumb200ResponseLetterpapers](docs/Model/GetLetterpapersWithThumb200ResponseLetterpapers.md)
 - [GetNextCustomerNumber200Response](docs/Model/GetNextCustomerNumber200Response.md)
+- [GetOpenInvoiceReminderDebit200Response](docs/Model/GetOpenInvoiceReminderDebit200Response.md)
+- [GetOpenInvoiceReminderDebitInvoiceParameter](docs/Model/GetOpenInvoiceReminderDebitInvoiceParameter.md)
 - [GetOrderPositions200Response](docs/Model/GetOrderPositions200Response.md)
 - [GetPartById200Response](docs/Model/GetPartById200Response.md)
 - [GetPlaceholder200Response](docs/Model/GetPlaceholder200Response.md)
@@ -415,6 +426,13 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 - [ModelCreditNoteUpdateContactPerson](docs/Model/ModelCreditNoteUpdateContactPerson.md)
 - [ModelDiscount](docs/Model/ModelDiscount.md)
 - [ModelDiscountObject](docs/Model/ModelDiscountObject.md)
+- [ModelDocumentResponse](docs/Model/ModelDocumentResponse.md)
+- [ModelDocumentResponseBaseObject](docs/Model/ModelDocumentResponseBaseObject.md)
+- [ModelDocumentResponseCreateUser](docs/Model/ModelDocumentResponseCreateUser.md)
+- [ModelDocumentResponseFolder](docs/Model/ModelDocumentResponseFolder.md)
+- [ModelDocumentResponseObject](docs/Model/ModelDocumentResponseObject.md)
+- [ModelDocumentResponseSevClient](docs/Model/ModelDocumentResponseSevClient.md)
+- [ModelDocumentResponseUpdateUser](docs/Model/ModelDocumentResponseUpdateUser.md)
 - [ModelEmail](docs/Model/ModelEmail.md)
 - [ModelEmailOrder](docs/Model/ModelEmailOrder.md)
 - [ModelEmailOrderObject](docs/Model/ModelEmailOrderObject.md)
@@ -442,7 +460,6 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 - [ModelInvoiceResponseContactPerson](docs/Model/ModelInvoiceResponseContactPerson.md)
 - [ModelInvoiceResponseCostCentre](docs/Model/ModelInvoiceResponseCostCentre.md)
 - [ModelInvoiceResponseCreateUser](docs/Model/ModelInvoiceResponseCreateUser.md)
-- [ModelInvoiceResponseOrigin](docs/Model/ModelInvoiceResponseOrigin.md)
 - [ModelInvoiceResponsePaymentMethod](docs/Model/ModelInvoiceResponsePaymentMethod.md)
 - [ModelInvoiceResponseTaxSet](docs/Model/ModelInvoiceResponseTaxSet.md)
 - [ModelInvoiceTaxSet](docs/Model/ModelInvoiceTaxSet.md)

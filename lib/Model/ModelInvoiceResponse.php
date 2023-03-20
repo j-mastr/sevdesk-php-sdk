@@ -65,11 +65,14 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'create' => '\DateTime',
         'update' => '\DateTime',
         'sev_client' => '\Itsmind\Sevdesk\Model\ModelContactCustomFieldSettingResponseSevClient',
-        'invoice_date' => 'string',
+        'invoice_date' => '\DateTime',
         'header' => 'string',
         'head_text' => 'string',
         'foot_text' => 'string',
         'time_to_pay' => 'string',
+        'total' => 'string',
+        'debit' => 'float',
+        'tags' => '\Itsmind\Sevdesk\Model\ModelTagResponse[]',
         'discount_time' => 'string',
         'discount' => 'string',
         'address_country' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponseAddressCountry',
@@ -86,7 +89,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'payment_method' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponsePaymentMethod',
         'cost_centre' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponseCostCentre',
         'send_date' => '\DateTime',
-        'origin' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponseOrigin',
+        'origin' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponse',
         'invoice_type' => 'string',
         'account_intervall' => 'string',
         'account_next_invoice' => 'string',
@@ -133,11 +136,14 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'create' => 'date-time',
         'update' => 'date-time',
         'sev_client' => null,
-        'invoice_date' => null,
+        'invoice_date' => 'date',
         'header' => null,
         'head_text' => null,
         'foot_text' => null,
         'time_to_pay' => null,
+        'total' => null,
+        'debit' => null,
+        'tags' => null,
         'discount_time' => null,
         'discount' => null,
         'address_country' => null,
@@ -204,6 +210,9 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 		'head_text' => false,
 		'foot_text' => false,
 		'time_to_pay' => false,
+		'total' => false,
+		'debit' => false,
+		'tags' => false,
 		'discount_time' => false,
 		'discount' => false,
 		'address_country' => false,
@@ -350,6 +359,9 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'head_text' => 'headText',
         'foot_text' => 'footText',
         'time_to_pay' => 'timeToPay',
+        'total' => 'total',
+        'debit' => 'debit',
+        'tags' => 'tags',
         'discount_time' => 'discountTime',
         'discount' => 'discount',
         'address_country' => 'addressCountry',
@@ -416,6 +428,9 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'head_text' => 'setHeadText',
         'foot_text' => 'setFootText',
         'time_to_pay' => 'setTimeToPay',
+        'total' => 'setTotal',
+        'debit' => 'setDebit',
+        'tags' => 'setTags',
         'discount_time' => 'setDiscountTime',
         'discount' => 'setDiscount',
         'address_country' => 'setAddressCountry',
@@ -482,6 +497,9 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'head_text' => 'getHeadText',
         'foot_text' => 'getFootText',
         'time_to_pay' => 'getTimeToPay',
+        'total' => 'getTotal',
+        'debit' => 'getDebit',
+        'tags' => 'getTags',
         'discount_time' => 'getDiscountTime',
         'discount' => 'getDiscount',
         'address_country' => 'getAddressCountry',
@@ -685,6 +703,9 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('head_text', $data ?? [], null);
         $this->setIfExists('foot_text', $data ?? [], null);
         $this->setIfExists('time_to_pay', $data ?? [], null);
+        $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('debit', $data ?? [], null);
+        $this->setIfExists('tags', $data ?? [], null);
         $this->setIfExists('discount_time', $data ?? [], null);
         $this->setIfExists('discount', $data ?? [], null);
         $this->setIfExists('address_country', $data ?? [], null);
@@ -1003,7 +1024,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets invoice_date
      *
-     * @return string|null
+     * @return \DateTime|null
      */
     public function getInvoiceDate()
     {
@@ -1013,7 +1034,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets invoice_date
      *
-     * @param string|null $invoice_date Needs to be provided as timestamp or dd.mm.yyyy
+     * @param \DateTime|null $invoice_date Needs to be provided as timestamp or dd.mm.yyyy
      *
      * @return self
      */
@@ -1131,6 +1152,87 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable time_to_pay cannot be null');
         }
         $this->container['time_to_pay'] = $time_to_pay;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return string|null
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param string|null $total The total invoices amount
+     *
+     * @return self
+     */
+    public function setTotal($total)
+    {
+        if (is_null($total)) {
+            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        }
+        $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets debit
+     *
+     * @return float|null
+     */
+    public function getDebit()
+    {
+        return $this->container['debit'];
+    }
+
+    /**
+     * Sets debit
+     *
+     * @param float|null $debit The remaining invoices debit
+     *
+     * @return self
+     */
+    public function setDebit($debit)
+    {
+        if (is_null($debit)) {
+            throw new \InvalidArgumentException('non-nullable debit cannot be null');
+        }
+        $this->container['debit'] = $debit;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelTagResponse[]|null
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelTagResponse[]|null $tags The tags assigned to the invoice
+     *
+     * @return self
+     */
+    public function setTags($tags)
+    {
+        if (is_null($tags)) {
+            throw new \InvalidArgumentException('non-nullable tags cannot be null');
+        }
+        $this->container['tags'] = $tags;
 
         return $this;
     }
@@ -1590,7 +1692,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets origin
      *
-     * @return \Itsmind\Sevdesk\Model\ModelInvoiceResponseOrigin|null
+     * @return \Itsmind\Sevdesk\Model\ModelInvoiceResponse|null
      */
     public function getOrigin()
     {
@@ -1600,7 +1702,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets origin
      *
-     * @param \Itsmind\Sevdesk\Model\ModelInvoiceResponseOrigin|null $origin origin
+     * @param \Itsmind\Sevdesk\Model\ModelInvoiceResponse|null $origin origin
      *
      * @return self
      */

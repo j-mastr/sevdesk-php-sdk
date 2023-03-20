@@ -1,6 +1,6 @@
 <?php
 /**
- * GetContacts200Response
+ * ModelDocumentResponseObject
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Itsmind\Sevdesk\ObjectSerializer;
 
 /**
- * GetContacts200Response Class Doc Comment
+ * ModelDocumentResponseObject Class Doc Comment
  *
  * @category Class
+ * @description The object this document belongs to.
  * @package  Itsmind\Sevdesk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class ModelDocumentResponseObject implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'getContacts_200_response';
+    protected static $openAPIModelName = 'Model_DocumentResponse_object';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +58,8 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total' => 'int',
-        'objects' => '\Itsmind\Sevdesk\Model\ModelContactResponse[]'
+        'id' => 'int',
+        'object_name' => 'string'
     ];
 
     /**
@@ -69,8 +70,8 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'total' => null,
-        'objects' => null
+        'id' => null,
+        'object_name' => null
     ];
 
     /**
@@ -79,8 +80,8 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total' => false,
-		'objects' => false
+        'id' => false,
+		'object_name' => false
     ];
 
     /**
@@ -169,8 +170,8 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total',
-        'objects' => 'objects'
+        'id' => 'id',
+        'object_name' => 'objectName'
     ];
 
     /**
@@ -179,8 +180,8 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal',
-        'objects' => 'setObjects'
+        'id' => 'setId',
+        'object_name' => 'setObjectName'
     ];
 
     /**
@@ -189,8 +190,8 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal',
-        'objects' => 'getObjects'
+        'id' => 'getId',
+        'object_name' => 'getObjectName'
     ];
 
     /**
@@ -250,8 +251,8 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('total', $data ?? [], null);
-        $this->setIfExists('objects', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('object_name', $data ?? [], null);
     }
 
     /**
@@ -281,8 +282,11 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['objects'] === null) {
-            $invalidProperties[] = "'objects' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['object_name'] === null) {
+            $invalidProperties[] = "'object_name' can't be null";
         }
         return $invalidProperties;
     }
@@ -300,55 +304,55 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets total
+     * Gets id
      *
-     * @return int|null
+     * @return int
      */
-    public function getTotal()
+    public function getId()
     {
-        return $this->container['total'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets total
+     * Sets id
      *
-     * @param int|null $total total
+     * @param int $id Unique identifier of the object
      *
      * @return self
      */
-    public function setTotal($total)
+    public function setId($id)
     {
-        if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['total'] = $total;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets objects
+     * Gets object_name
      *
-     * @return \Itsmind\Sevdesk\Model\ModelContactResponse[]
+     * @return string
      */
-    public function getObjects()
+    public function getObjectName()
     {
-        return $this->container['objects'];
+        return $this->container['object_name'];
     }
 
     /**
-     * Sets objects
+     * Sets object_name
      *
-     * @param \Itsmind\Sevdesk\Model\ModelContactResponse[] $objects objects
+     * @param string $object_name Model name of the object
      *
      * @return self
      */
-    public function setObjects($objects)
+    public function setObjectName($object_name)
     {
-        if (is_null($objects)) {
-            throw new \InvalidArgumentException('non-nullable objects cannot be null');
+        if (is_null($object_name)) {
+            throw new \InvalidArgumentException('non-nullable object_name cannot be null');
         }
-        $this->container['objects'] = $objects;
+        $this->container['object_name'] = $object_name;
 
         return $this;
     }

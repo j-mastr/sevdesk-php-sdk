@@ -1,6 +1,6 @@
 <?php
 /**
- * GetContacts200Response
+ * ModelDocumentResponse
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Itsmind\Sevdesk\ObjectSerializer;
 
 /**
- * GetContacts200Response Class Doc Comment
+ * ModelDocumentResponse Class Doc Comment
  *
  * @category Class
+ * @description Document model
  * @package  Itsmind\Sevdesk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class ModelDocumentResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'getContacts_200_response';
+    protected static $openAPIModelName = 'Model_DocumentResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +58,25 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total' => 'int',
-        'objects' => '\Itsmind\Sevdesk\Model\ModelContactResponse[]'
+        'id' => 'string',
+        'object_name' => 'string',
+        'create' => '\DateTime',
+        'update' => '\DateTime',
+        'filename' => 'string',
+        'status' => 'string',
+        'mime_type' => 'string',
+        'object' => '\Itsmind\Sevdesk\Model\ModelDocumentResponseObject',
+        'additional_information' => 'string',
+        'document_number' => 'string',
+        'description' => 'string',
+        'base_object' => '\Itsmind\Sevdesk\Model\ModelDocumentResponseBaseObject',
+        'extension' => 'string',
+        'filesize' => 'int',
+        'sev_client' => '\Itsmind\Sevdesk\Model\ModelDocumentResponseSevClient',
+        'content_hash' => 'string',
+        'create_user' => '\Itsmind\Sevdesk\Model\ModelDocumentResponseCreateUser',
+        'update_user' => '\Itsmind\Sevdesk\Model\ModelDocumentResponseUpdateUser',
+        'folder' => '\Itsmind\Sevdesk\Model\ModelDocumentResponseFolder'
     ];
 
     /**
@@ -69,8 +87,25 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'total' => null,
-        'objects' => null
+        'id' => null,
+        'object_name' => null,
+        'create' => 'date-time',
+        'update' => 'date-time',
+        'filename' => null,
+        'status' => null,
+        'mime_type' => null,
+        'object' => null,
+        'additional_information' => null,
+        'document_number' => null,
+        'description' => null,
+        'base_object' => null,
+        'extension' => null,
+        'filesize' => null,
+        'sev_client' => null,
+        'content_hash' => null,
+        'create_user' => null,
+        'update_user' => null,
+        'folder' => null
     ];
 
     /**
@@ -79,8 +114,25 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total' => false,
-		'objects' => false
+        'id' => false,
+		'object_name' => false,
+		'create' => false,
+		'update' => false,
+		'filename' => false,
+		'status' => false,
+		'mime_type' => false,
+		'object' => false,
+		'additional_information' => false,
+		'document_number' => false,
+		'description' => false,
+		'base_object' => false,
+		'extension' => false,
+		'filesize' => false,
+		'sev_client' => false,
+		'content_hash' => false,
+		'create_user' => false,
+		'update_user' => false,
+		'folder' => false
     ];
 
     /**
@@ -169,8 +221,25 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total',
-        'objects' => 'objects'
+        'id' => 'id',
+        'object_name' => 'objectName',
+        'create' => 'create',
+        'update' => 'update',
+        'filename' => 'filename',
+        'status' => 'status',
+        'mime_type' => 'mimeType',
+        'object' => 'object',
+        'additional_information' => 'additionalInformation',
+        'document_number' => 'documentNumber',
+        'description' => 'description',
+        'base_object' => 'baseObject',
+        'extension' => 'extension',
+        'filesize' => 'filesize',
+        'sev_client' => 'sevClient',
+        'content_hash' => 'contentHash',
+        'create_user' => 'createUser',
+        'update_user' => 'updateUser',
+        'folder' => 'folder'
     ];
 
     /**
@@ -179,8 +248,25 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal',
-        'objects' => 'setObjects'
+        'id' => 'setId',
+        'object_name' => 'setObjectName',
+        'create' => 'setCreate',
+        'update' => 'setUpdate',
+        'filename' => 'setFilename',
+        'status' => 'setStatus',
+        'mime_type' => 'setMimeType',
+        'object' => 'setObject',
+        'additional_information' => 'setAdditionalInformation',
+        'document_number' => 'setDocumentNumber',
+        'description' => 'setDescription',
+        'base_object' => 'setBaseObject',
+        'extension' => 'setExtension',
+        'filesize' => 'setFilesize',
+        'sev_client' => 'setSevClient',
+        'content_hash' => 'setContentHash',
+        'create_user' => 'setCreateUser',
+        'update_user' => 'setUpdateUser',
+        'folder' => 'setFolder'
     ];
 
     /**
@@ -189,8 +275,25 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal',
-        'objects' => 'getObjects'
+        'id' => 'getId',
+        'object_name' => 'getObjectName',
+        'create' => 'getCreate',
+        'update' => 'getUpdate',
+        'filename' => 'getFilename',
+        'status' => 'getStatus',
+        'mime_type' => 'getMimeType',
+        'object' => 'getObject',
+        'additional_information' => 'getAdditionalInformation',
+        'document_number' => 'getDocumentNumber',
+        'description' => 'getDescription',
+        'base_object' => 'getBaseObject',
+        'extension' => 'getExtension',
+        'filesize' => 'getFilesize',
+        'sev_client' => 'getSevClient',
+        'content_hash' => 'getContentHash',
+        'create_user' => 'getCreateUser',
+        'update_user' => 'getUpdateUser',
+        'folder' => 'getFolder'
     ];
 
     /**
@@ -250,8 +353,25 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('total', $data ?? [], null);
-        $this->setIfExists('objects', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('object_name', $data ?? [], null);
+        $this->setIfExists('create', $data ?? [], null);
+        $this->setIfExists('update', $data ?? [], null);
+        $this->setIfExists('filename', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('mime_type', $data ?? [], null);
+        $this->setIfExists('object', $data ?? [], null);
+        $this->setIfExists('additional_information', $data ?? [], null);
+        $this->setIfExists('document_number', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('base_object', $data ?? [], null);
+        $this->setIfExists('extension', $data ?? [], null);
+        $this->setIfExists('filesize', $data ?? [], null);
+        $this->setIfExists('sev_client', $data ?? [], null);
+        $this->setIfExists('content_hash', $data ?? [], null);
+        $this->setIfExists('create_user', $data ?? [], null);
+        $this->setIfExists('update_user', $data ?? [], null);
+        $this->setIfExists('folder', $data ?? [], null);
     }
 
     /**
@@ -281,9 +401,6 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['objects'] === null) {
-            $invalidProperties[] = "'objects' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -300,55 +417,516 @@ class GetContacts200Response implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets total
+     * Gets id
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getTotal()
+    public function getId()
     {
-        return $this->container['total'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets total
+     * Sets id
      *
-     * @param int|null $total total
+     * @param string|null $id The document id
      *
      * @return self
      */
-    public function setTotal($total)
+    public function setId($id)
     {
-        if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['total'] = $total;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets objects
+     * Gets object_name
      *
-     * @return \Itsmind\Sevdesk\Model\ModelContactResponse[]
+     * @return string|null
      */
-    public function getObjects()
+    public function getObjectName()
     {
-        return $this->container['objects'];
+        return $this->container['object_name'];
     }
 
     /**
-     * Sets objects
+     * Sets object_name
      *
-     * @param \Itsmind\Sevdesk\Model\ModelContactResponse[] $objects objects
+     * @param string|null $object_name The document object name
      *
      * @return self
      */
-    public function setObjects($objects)
+    public function setObjectName($object_name)
     {
-        if (is_null($objects)) {
-            throw new \InvalidArgumentException('non-nullable objects cannot be null');
+        if (is_null($object_name)) {
+            throw new \InvalidArgumentException('non-nullable object_name cannot be null');
         }
-        $this->container['objects'] = $objects;
+        $this->container['object_name'] = $object_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets create
+     *
+     * @return \DateTime|null
+     */
+    public function getCreate()
+    {
+        return $this->container['create'];
+    }
+
+    /**
+     * Sets create
+     *
+     * @param \DateTime|null $create Date of document creation
+     *
+     * @return self
+     */
+    public function setCreate($create)
+    {
+        if (is_null($create)) {
+            throw new \InvalidArgumentException('non-nullable create cannot be null');
+        }
+        $this->container['create'] = $create;
+
+        return $this;
+    }
+
+    /**
+     * Gets update
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdate()
+    {
+        return $this->container['update'];
+    }
+
+    /**
+     * Sets update
+     *
+     * @param \DateTime|null $update Date of last document update
+     *
+     * @return self
+     */
+    public function setUpdate($update)
+    {
+        if (is_null($update)) {
+            throw new \InvalidArgumentException('non-nullable update cannot be null');
+        }
+        $this->container['update'] = $update;
+
+        return $this;
+    }
+
+    /**
+     * Gets filename
+     *
+     * @return string|null
+     */
+    public function getFilename()
+    {
+        return $this->container['filename'];
+    }
+
+    /**
+     * Sets filename
+     *
+     * @param string|null $filename The filename of the document
+     *
+     * @return self
+     */
+    public function setFilename($filename)
+    {
+        if (is_null($filename)) {
+            throw new \InvalidArgumentException('non-nullable filename cannot be null');
+        }
+        $this->container['filename'] = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status Defines the status of the document. 100 <-> Active.
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets mime_type
+     *
+     * @return string|null
+     */
+    public function getMimeType()
+    {
+        return $this->container['mime_type'];
+    }
+
+    /**
+     * Sets mime_type
+     *
+     * @param string|null $mime_type The documents mime type
+     *
+     * @return self
+     */
+    public function setMimeType($mime_type)
+    {
+        if (is_null($mime_type)) {
+            throw new \InvalidArgumentException('non-nullable mime_type cannot be null');
+        }
+        $this->container['mime_type'] = $mime_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets object
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelDocumentResponseObject|null
+     */
+    public function getObject()
+    {
+        return $this->container['object'];
+    }
+
+    /**
+     * Sets object
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelDocumentResponseObject|null $object object
+     *
+     * @return self
+     */
+    public function setObject($object)
+    {
+        if (is_null($object)) {
+            throw new \InvalidArgumentException('non-nullable object cannot be null');
+        }
+        $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_information
+     *
+     * @return string|null
+     * @deprecated
+     */
+    public function getAdditionalInformation()
+    {
+        return $this->container['additional_information'];
+    }
+
+    /**
+     * Sets additional_information
+     *
+     * @param string|null $additional_information Additional information stored for the document.
+     *
+     * @return self
+     * @deprecated
+     */
+    public function setAdditionalInformation($additional_information)
+    {
+        if (is_null($additional_information)) {
+            throw new \InvalidArgumentException('non-nullable additional_information cannot be null');
+        }
+        $this->container['additional_information'] = $additional_information;
+
+        return $this;
+    }
+
+    /**
+     * Gets document_number
+     *
+     * @return string|null
+     */
+    public function getDocumentNumber()
+    {
+        return $this->container['document_number'];
+    }
+
+    /**
+     * Sets document_number
+     *
+     * @param string|null $document_number document_number
+     *
+     * @return self
+     */
+    public function setDocumentNumber($document_number)
+    {
+        if (is_null($document_number)) {
+            throw new \InvalidArgumentException('non-nullable document_number cannot be null');
+        }
+        $this->container['document_number'] = $document_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description A description for the document.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets base_object
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelDocumentResponseBaseObject|null
+     */
+    public function getBaseObject()
+    {
+        return $this->container['base_object'];
+    }
+
+    /**
+     * Sets base_object
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelDocumentResponseBaseObject|null $base_object base_object
+     *
+     * @return self
+     */
+    public function setBaseObject($base_object)
+    {
+        if (is_null($base_object)) {
+            throw new \InvalidArgumentException('non-nullable base_object cannot be null');
+        }
+        $this->container['base_object'] = $base_object;
+
+        return $this;
+    }
+
+    /**
+     * Gets extension
+     *
+     * @return string|null
+     */
+    public function getExtension()
+    {
+        return $this->container['extension'];
+    }
+
+    /**
+     * Sets extension
+     *
+     * @param string|null $extension The file extension.
+     *
+     * @return self
+     */
+    public function setExtension($extension)
+    {
+        if (is_null($extension)) {
+            throw new \InvalidArgumentException('non-nullable extension cannot be null');
+        }
+        $this->container['extension'] = $extension;
+
+        return $this;
+    }
+
+    /**
+     * Gets filesize
+     *
+     * @return int|null
+     */
+    public function getFilesize()
+    {
+        return $this->container['filesize'];
+    }
+
+    /**
+     * Sets filesize
+     *
+     * @param int|null $filesize The size of the file in bytes
+     *
+     * @return self
+     */
+    public function setFilesize($filesize)
+    {
+        if (is_null($filesize)) {
+            throw new \InvalidArgumentException('non-nullable filesize cannot be null');
+        }
+        $this->container['filesize'] = $filesize;
+
+        return $this;
+    }
+
+    /**
+     * Gets sev_client
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelDocumentResponseSevClient|null
+     */
+    public function getSevClient()
+    {
+        return $this->container['sev_client'];
+    }
+
+    /**
+     * Sets sev_client
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelDocumentResponseSevClient|null $sev_client sev_client
+     *
+     * @return self
+     */
+    public function setSevClient($sev_client)
+    {
+        if (is_null($sev_client)) {
+            throw new \InvalidArgumentException('non-nullable sev_client cannot be null');
+        }
+        $this->container['sev_client'] = $sev_client;
+
+        return $this;
+    }
+
+    /**
+     * Gets content_hash
+     *
+     * @return string|null
+     */
+    public function getContentHash()
+    {
+        return $this->container['content_hash'];
+    }
+
+    /**
+     * Sets content_hash
+     *
+     * @param string|null $content_hash Hash of the documents content.
+     *
+     * @return self
+     */
+    public function setContentHash($content_hash)
+    {
+        if (is_null($content_hash)) {
+            throw new \InvalidArgumentException('non-nullable content_hash cannot be null');
+        }
+        $this->container['content_hash'] = $content_hash;
+
+        return $this;
+    }
+
+    /**
+     * Gets create_user
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelDocumentResponseCreateUser|null
+     */
+    public function getCreateUser()
+    {
+        return $this->container['create_user'];
+    }
+
+    /**
+     * Sets create_user
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelDocumentResponseCreateUser|null $create_user create_user
+     *
+     * @return self
+     */
+    public function setCreateUser($create_user)
+    {
+        if (is_null($create_user)) {
+            throw new \InvalidArgumentException('non-nullable create_user cannot be null');
+        }
+        $this->container['create_user'] = $create_user;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_user
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelDocumentResponseUpdateUser|null
+     */
+    public function getUpdateUser()
+    {
+        return $this->container['update_user'];
+    }
+
+    /**
+     * Sets update_user
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelDocumentResponseUpdateUser|null $update_user update_user
+     *
+     * @return self
+     */
+    public function setUpdateUser($update_user)
+    {
+        if (is_null($update_user)) {
+            throw new \InvalidArgumentException('non-nullable update_user cannot be null');
+        }
+        $this->container['update_user'] = $update_user;
+
+        return $this;
+    }
+
+    /**
+     * Gets folder
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelDocumentResponseFolder|null
+     */
+    public function getFolder()
+    {
+        return $this->container['folder'];
+    }
+
+    /**
+     * Sets folder
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelDocumentResponseFolder|null $folder folder
+     *
+     * @return self
+     */
+    public function setFolder($folder)
+    {
+        if (is_null($folder)) {
+            throw new \InvalidArgumentException('non-nullable folder cannot be null');
+        }
+        $this->container['folder'] = $folder;
 
         return $this;
     }

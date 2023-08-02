@@ -24,6 +24,7 @@ docs/Api/ReportApi.md
 docs/Api/TagApi.md
 docs/Api/VoucherApi.md
 docs/Api/VoucherPosApi.md
+docs/Model/BookCreditNote200Response.md
 docs/Model/BookCreditNoteRequest.md
 docs/Model/BookCreditNoteRequestCheckAccountTransaction.md
 docs/Model/BookInvoice200Response.md
@@ -370,6 +371,7 @@ lib/Api/VoucherPosApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
+lib/Model/BookCreditNote200Response.php
 lib/Model/BookCreditNoteRequest.php
 lib/Model/BookCreditNoteRequestCheckAccountTransaction.php
 lib/Model/BookInvoice200Response.php
@@ -694,4 +696,4 @@ lib/Model/VoucherUploadFile201ResponseObjectsInner.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/GetTransactions200ResponseTest.php
+test/Model/BookCreditNote200ResponseTest.php

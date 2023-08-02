@@ -1,6 +1,6 @@
 <?php
 /**
- * BookInvoice200Response
+ * BookCreditNote200Response
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Itsmind\Sevdesk\ObjectSerializer;
 
 /**
- * BookInvoice200Response Class Doc Comment
+ * BookCreditNote200Response Class Doc Comment
  *
  * @category Class
  * @package  Itsmind\Sevdesk
@@ -40,7 +40,7 @@ use \Itsmind\Sevdesk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BookInvoice200Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class BookCreditNote200Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class BookInvoice200Response implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'bookInvoice_200_response';
+    protected static $openAPIModelName = 'bookCreditNote_200_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class BookInvoice200Response implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'objects' => 'object'
+        'objects' => 'object[]'
     ];
 
     /**
@@ -292,7 +292,7 @@ class BookInvoice200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets objects
      *
-     * @return object|null
+     * @return object[]|null
      */
     public function getObjects()
     {
@@ -302,7 +302,7 @@ class BookInvoice200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets objects
      *
-     * @param object|null $objects TODO: Document InvoiceLog and enter scheme here
+     * @param object[]|null $objects TODO: Document InvoiceLog and enter scheme here
      *
      * @return self
      */

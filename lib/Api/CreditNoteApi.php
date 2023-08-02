@@ -160,7 +160,7 @@ class CreditNoteApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\BookInvoice200Response
+     * @return \Itsmind\Sevdesk\Model\BookCreditNote200Response
      */
     public function bookCreditNote($credit_note_id, $book_credit_note_request = null, string $contentType = self::contentTypes['bookCreditNote'][0])
     {
@@ -179,7 +179,7 @@ class CreditNoteApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\BookInvoice200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\BookCreditNote200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function bookCreditNoteWithHttpInfo($credit_note_id, $book_credit_note_request = null, string $contentType = self::contentTypes['bookCreditNote'][0])
     {
@@ -222,23 +222,23 @@ class CreditNoteApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\BookInvoice200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\BookCreditNote200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\BookInvoice200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\BookCreditNote200Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\BookInvoice200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\BookCreditNote200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\BookInvoice200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\BookCreditNote200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -259,7 +259,7 @@ class CreditNoteApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\BookInvoice200Response',
+                        '\Itsmind\Sevdesk\Model\BookCreditNote200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -305,7 +305,7 @@ class CreditNoteApi
      */
     public function bookCreditNoteAsyncWithHttpInfo($credit_note_id, $book_credit_note_request = null, string $contentType = self::contentTypes['bookCreditNote'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\BookInvoice200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\BookCreditNote200Response';
         $request = $this->bookCreditNoteRequest($credit_note_id, $book_credit_note_request, $contentType);
 
         return $this->client

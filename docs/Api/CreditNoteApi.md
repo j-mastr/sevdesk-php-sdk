@@ -19,7 +19,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `bookCreditNote()`
 
 ```php
-bookCreditNote($credit_note_id, $book_credit_note_request): \Itsmind\Sevdesk\Model\BookInvoice200Response
+bookCreditNote($credit_note_id, $book_credit_note_request): \Itsmind\Sevdesk\Model\BookCreditNote200Response
 ```
 
 Book a credit note
@@ -65,7 +65,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\BookInvoice200Response**](../Model/BookInvoice200Response.md)
+[**\Itsmind\Sevdesk\Model\BookCreditNote200Response**](../Model/BookCreditNote200Response.md)
 
 ### Authorization
 

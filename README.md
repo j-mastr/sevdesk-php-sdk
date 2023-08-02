@@ -250,6 +250,7 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 
 ## Models
 
+- [BookCreditNote200Response](docs/Model/BookCreditNote200Response.md)
 - [BookCreditNoteRequest](docs/Model/BookCreditNoteRequest.md)
 - [BookCreditNoteRequestCheckAccountTransaction](docs/Model/BookCreditNoteRequestCheckAccountTransaction.md)
 - [BookInvoice200Response](docs/Model/BookInvoice200Response.md)

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **amount** | **string** | Amount of the transaction | [optional] [readonly]
 **payee_payer_name** | **string** | Name of the payee/payer | [optional] [readonly]
 **check_account** | [**\Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponseCheckAccount**](ModelCheckAccountTransactionResponseCheckAccount.md) |  | [optional]
-**status** | **string** | Status of the check account transaction.&lt;br&gt;       100 &lt;-&gt; Created&lt;br&gt;       200 &lt;-&gt; Linked&lt;br&gt;       300 &lt;-&gt; Private&lt;br&gt;       400 &lt;-&gt; Booked | [optional] [readonly]
+**status** | **string** | Status of the check account transaction.&lt;br&gt;       100 &lt;-&gt; Created&lt;br&gt;       200 &lt;-&gt; Linked&lt;br&gt;       300 &lt;-&gt; Private&lt;br&gt;       350 &lt;-&gt; Automatically&lt;br&gt;       400 &lt;-&gt; Booked | [optional] [readonly]
 **enshrined** | **\DateTime** | Defines if the transaction has been enshrined and can not be changed any more. | [optional] [readonly]
 **source_transaction** | [**\Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponseSourceTransaction**](ModelCheckAccountTransactionResponseSourceTransaction.md) |  | [optional]
 **target_transaction** | [**\Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponseTargetTransaction**](ModelCheckAccountTransactionResponseTargetTransaction.md) |  | [optional]

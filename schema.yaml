@@ -7046,13 +7046,14 @@ components:
           description:
             "Status of the check account transaction.<br>\r\n     100 <->\
             \ Created<br>\r\n     200 <-> Linked<br>\r\n     300 <-> Private<br>\r\
-            \n     400 <-> Booked"
+            \n     350 <-> Automatically<br>\r\n     400 <-> Booked"
           type: "string"
           readOnly: true
           enum:
             - "100"
             - "200"
             - "300"
+            - "350"
             - "400"
         enshrined:
           description:

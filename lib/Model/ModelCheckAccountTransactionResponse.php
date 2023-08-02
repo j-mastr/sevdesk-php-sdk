@@ -316,6 +316,7 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
     public const STATUS__100 = '100';
     public const STATUS__200 = '200';
     public const STATUS__300 = '300';
+    public const STATUS__350 = '350';
     public const STATUS__400 = '400';
 
     /**
@@ -329,6 +330,7 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
             self::STATUS__100,
             self::STATUS__200,
             self::STATUS__300,
+            self::STATUS__350,
             self::STATUS__400,
         ];
     }
@@ -726,7 +728,7 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
     /**
      * Sets status
      *
-     * @param string|null $status Status of the check account transaction.<br>       100 <-> Created<br>       200 <-> Linked<br>       300 <-> Private<br>       400 <-> Booked
+     * @param string|null $status Status of the check account transaction.<br>       100 <-> Created<br>       200 <-> Linked<br>       300 <-> Private<br>       350 <-> Automatically<br>       400 <-> Booked
      *
      * @return self
      */

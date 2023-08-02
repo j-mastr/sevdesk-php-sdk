@@ -573,6 +573,8 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 
 ## Authorization
 
+Authentication schemes defined for the API:
+
 ### api_key
 
 - **Type**: API key

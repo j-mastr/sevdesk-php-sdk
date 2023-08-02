@@ -316,6 +316,7 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 - [GetTagRelations200Response](docs/Model/GetTagRelations200Response.md)
 - [GetTemplates200Response](docs/Model/GetTemplates200Response.md)
 - [GetTemplates200ResponseTemplates](docs/Model/GetTemplates200ResponseTemplates.md)
+- [GetTransactions200Response](docs/Model/GetTransactions200Response.md)
 - [GetVoucherById200Response](docs/Model/GetVoucherById200Response.md)
 - [GetVoucherPositions200Response](docs/Model/GetVoucherPositions200Response.md)
 - [GetcreditNotePositions200Response](docs/Model/GetcreditNotePositions200Response.md)

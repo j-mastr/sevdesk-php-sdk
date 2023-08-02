@@ -198,7 +198,7 @@ try {
 ## `getTransactions()`
 
 ```php
-getTransactions($check_account_id, $check_account_object_name, $is_booked, $paymt_purpose, $start_date, $end_date, $payee_payer_name, $only_credit, $only_debit): \Itsmind\Sevdesk\Model\GetCheckAccountTransactionById200Response
+getTransactions($count_all, $limit, $offset, $status, $check_account_id, $check_account_object_name, $hide_fees, $is_booked, $paymt_purpose, $start_date, $end_date, $search_for_invoice_and_voucher, $payee_payer_name, $only_credit, $only_debit): \Itsmind\Sevdesk\Model\GetTransactions200Response
 ```
 
 Retrieve transactions
@@ -224,18 +224,24 @@ $apiInstance = new Itsmind\Sevdesk\Api\CheckAccountTransactionApi(
     new GuzzleHttp\Client(),
     $config
 );
+$count_all = True; // bool | If all transactions should be counted
+$limit = 56; // int | The max number of transactions
+$offset = 56; // int | Which offset to start with
+$status = 3.4; // float | Status of the transaction
 $check_account_id = 56; // int | Retrieve all transactions on this check account. Must be provided with checkAccount[objectName]
 $check_account_object_name = 'check_account_object_name_example'; // string | Only required if checkAccount[id] was provided. 'CheckAccount' should be used as value.
+$hide_fees = True; // bool | Do not include fees for financial transactions
 $is_booked = True; // bool | Only retrieve booked transactions
 $paymt_purpose = 'paymt_purpose_example'; // string | Only retrieve transactions with this payment purpose
 $start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only retrieve transactions from this date on
 $end_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only retrieve transactions up to this date
+$search_for_invoice_and_voucher = 'search_for_invoice_and_voucher_example'; // string | Search for transactions linked with a given invoice or voucher
 $payee_payer_name = 'payee_payer_name_example'; // string | Only retrieve transactions with this payee / payer
 $only_credit = True; // bool | Only retrieve credit transactions
 $only_debit = True; // bool | Only retrieve debit transactions
 
 try {
-    $result = $apiInstance->getTransactions($check_account_id, $check_account_object_name, $is_booked, $paymt_purpose, $start_date, $end_date, $payee_payer_name, $only_credit, $only_debit);
+    $result = $apiInstance->getTransactions($count_all, $limit, $offset, $status, $check_account_id, $check_account_object_name, $hide_fees, $is_booked, $paymt_purpose, $start_date, $end_date, $search_for_invoice_and_voucher, $payee_payer_name, $only_credit, $only_debit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckAccountTransactionApi->getTransactions: ', $e->getMessage(), PHP_EOL;
@@ -246,19 +252,25 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **count_all** | **bool**| If all transactions should be counted | [optional] |
+| **limit** | **int**| The max number of transactions | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **status** | **float**| Status of the transaction | [optional] |
 | **check_account_id** | **int**| Retrieve all transactions on this check account. Must be provided with checkAccount[objectName] | [optional] |
 | **check_account_object_name** | **string**| Only required if checkAccount[id] was provided. &#39;CheckAccount&#39; should be used as value. | [optional] |
+| **hide_fees** | **bool**| Do not include fees for financial transactions | [optional] |
 | **is_booked** | **bool**| Only retrieve booked transactions | [optional] |
 | **paymt_purpose** | **string**| Only retrieve transactions with this payment purpose | [optional] |
 | **start_date** | **\DateTime**| Only retrieve transactions from this date on | [optional] |
 | **end_date** | **\DateTime**| Only retrieve transactions up to this date | [optional] |
+| **search_for_invoice_and_voucher** | **string**| Search for transactions linked with a given invoice or voucher | [optional] |
 | **payee_payer_name** | **string**| Only retrieve transactions with this payee / payer | [optional] |
 | **only_credit** | **bool**| Only retrieve credit transactions | [optional] |
 | **only_debit** | **bool**| Only retrieve debit transactions | [optional] |
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCheckAccountTransactionById200Response**](../Model/GetCheckAccountTransactionById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetTransactions200Response**](../Model/GetTransactions200Response.md)
 
 ### Authorization
 

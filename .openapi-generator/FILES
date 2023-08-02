@@ -90,6 +90,7 @@ docs/Model/GetTagById200Response.md
 docs/Model/GetTagRelations200Response.md
 docs/Model/GetTemplates200Response.md
 docs/Model/GetTemplates200ResponseTemplates.md
+docs/Model/GetTransactions200Response.md
 docs/Model/GetVoucherById200Response.md
 docs/Model/GetVoucherPositions200Response.md
 docs/Model/GetcreditNotePositions200Response.md
@@ -435,6 +436,7 @@ lib/Model/GetTagById200Response.php
 lib/Model/GetTagRelations200Response.php
 lib/Model/GetTemplates200Response.php
 lib/Model/GetTemplates200ResponseTemplates.php
+lib/Model/GetTransactions200Response.php
 lib/Model/GetVoucherById200Response.php
 lib/Model/GetVoucherPositions200Response.php
 lib/Model/GetcreditNotePositions200Response.php
@@ -692,3 +694,4 @@ lib/Model/VoucherUploadFile201ResponseObjectsInner.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/GetTransactions200ResponseTest.php

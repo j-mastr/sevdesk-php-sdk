@@ -996,12 +996,18 @@ class CheckAccountTransactionApi
      *
      * Retrieve transactions
      *
+     * @param  bool $count_all If all transactions should be counted (optional)
+     * @param  int $limit The max number of transactions (optional)
+     * @param  int $offset Which offset to start with (optional)
+     * @param  float $status Status of the transaction (optional)
      * @param  int $check_account_id Retrieve all transactions on this check account. Must be provided with checkAccount[objectName] (optional)
      * @param  string $check_account_object_name Only required if checkAccount[id] was provided. &#39;CheckAccount&#39; should be used as value. (optional)
+     * @param  bool $hide_fees Do not include fees for financial transactions (optional)
      * @param  bool $is_booked Only retrieve booked transactions (optional)
      * @param  string $paymt_purpose Only retrieve transactions with this payment purpose (optional)
      * @param  \DateTime $start_date Only retrieve transactions from this date on (optional)
      * @param  \DateTime $end_date Only retrieve transactions up to this date (optional)
+     * @param  string $search_for_invoice_and_voucher Search for transactions linked with a given invoice or voucher (optional)
      * @param  string $payee_payer_name Only retrieve transactions with this payee / payer (optional)
      * @param  bool $only_credit Only retrieve credit transactions (optional)
      * @param  bool $only_debit Only retrieve debit transactions (optional)
@@ -1009,11 +1015,11 @@ class CheckAccountTransactionApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetCheckAccountTransactionById200Response
+     * @return \Itsmind\Sevdesk\Model\GetTransactions200Response
      */
-    public function getTransactions($check_account_id = null, $check_account_object_name = null, $is_booked = null, $paymt_purpose = null, $start_date = null, $end_date = null, $payee_payer_name = null, $only_credit = null, $only_debit = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactions($count_all = null, $limit = null, $offset = null, $status = null, $check_account_id = null, $check_account_object_name = null, $hide_fees = null, $is_booked = null, $paymt_purpose = null, $start_date = null, $end_date = null, $search_for_invoice_and_voucher = null, $payee_payer_name = null, $only_credit = null, $only_debit = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
-        list($response) = $this->getTransactionsWithHttpInfo($check_account_id, $check_account_object_name, $is_booked, $paymt_purpose, $start_date, $end_date, $payee_payer_name, $only_credit, $only_debit, $contentType);
+        list($response) = $this->getTransactionsWithHttpInfo($count_all, $limit, $offset, $status, $check_account_id, $check_account_object_name, $hide_fees, $is_booked, $paymt_purpose, $start_date, $end_date, $search_for_invoice_and_voucher, $payee_payer_name, $only_credit, $only_debit, $contentType);
         return $response;
     }
 
@@ -1022,12 +1028,18 @@ class CheckAccountTransactionApi
      *
      * Retrieve transactions
      *
+     * @param  bool $count_all If all transactions should be counted (optional)
+     * @param  int $limit The max number of transactions (optional)
+     * @param  int $offset Which offset to start with (optional)
+     * @param  float $status Status of the transaction (optional)
      * @param  int $check_account_id Retrieve all transactions on this check account. Must be provided with checkAccount[objectName] (optional)
      * @param  string $check_account_object_name Only required if checkAccount[id] was provided. &#39;CheckAccount&#39; should be used as value. (optional)
+     * @param  bool $hide_fees Do not include fees for financial transactions (optional)
      * @param  bool $is_booked Only retrieve booked transactions (optional)
      * @param  string $paymt_purpose Only retrieve transactions with this payment purpose (optional)
      * @param  \DateTime $start_date Only retrieve transactions from this date on (optional)
      * @param  \DateTime $end_date Only retrieve transactions up to this date (optional)
+     * @param  string $search_for_invoice_and_voucher Search for transactions linked with a given invoice or voucher (optional)
      * @param  string $payee_payer_name Only retrieve transactions with this payee / payer (optional)
      * @param  bool $only_credit Only retrieve credit transactions (optional)
      * @param  bool $only_debit Only retrieve debit transactions (optional)
@@ -1035,11 +1047,11 @@ class CheckAccountTransactionApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetCheckAccountTransactionById200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\GetTransactions200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTransactionsWithHttpInfo($check_account_id = null, $check_account_object_name = null, $is_booked = null, $paymt_purpose = null, $start_date = null, $end_date = null, $payee_payer_name = null, $only_credit = null, $only_debit = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactionsWithHttpInfo($count_all = null, $limit = null, $offset = null, $status = null, $check_account_id = null, $check_account_object_name = null, $hide_fees = null, $is_booked = null, $paymt_purpose = null, $start_date = null, $end_date = null, $search_for_invoice_and_voucher = null, $payee_payer_name = null, $only_credit = null, $only_debit = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
-        $request = $this->getTransactionsRequest($check_account_id, $check_account_object_name, $is_booked, $paymt_purpose, $start_date, $end_date, $payee_payer_name, $only_credit, $only_debit, $contentType);
+        $request = $this->getTransactionsRequest($count_all, $limit, $offset, $status, $check_account_id, $check_account_object_name, $hide_fees, $is_booked, $paymt_purpose, $start_date, $end_date, $search_for_invoice_and_voucher, $payee_payer_name, $only_credit, $only_debit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1078,23 +1090,23 @@ class CheckAccountTransactionApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetCheckAccountTransactionById200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\GetTransactions200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetCheckAccountTransactionById200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\GetTransactions200Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetCheckAccountTransactionById200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetTransactions200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetCheckAccountTransactionById200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\GetTransactions200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1115,7 +1127,7 @@ class CheckAccountTransactionApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetCheckAccountTransactionById200Response',
+                        '\Itsmind\Sevdesk\Model\GetTransactions200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1130,12 +1142,18 @@ class CheckAccountTransactionApi
      *
      * Retrieve transactions
      *
+     * @param  bool $count_all If all transactions should be counted (optional)
+     * @param  int $limit The max number of transactions (optional)
+     * @param  int $offset Which offset to start with (optional)
+     * @param  float $status Status of the transaction (optional)
      * @param  int $check_account_id Retrieve all transactions on this check account. Must be provided with checkAccount[objectName] (optional)
      * @param  string $check_account_object_name Only required if checkAccount[id] was provided. &#39;CheckAccount&#39; should be used as value. (optional)
+     * @param  bool $hide_fees Do not include fees for financial transactions (optional)
      * @param  bool $is_booked Only retrieve booked transactions (optional)
      * @param  string $paymt_purpose Only retrieve transactions with this payment purpose (optional)
      * @param  \DateTime $start_date Only retrieve transactions from this date on (optional)
      * @param  \DateTime $end_date Only retrieve transactions up to this date (optional)
+     * @param  string $search_for_invoice_and_voucher Search for transactions linked with a given invoice or voucher (optional)
      * @param  string $payee_payer_name Only retrieve transactions with this payee / payer (optional)
      * @param  bool $only_credit Only retrieve credit transactions (optional)
      * @param  bool $only_debit Only retrieve debit transactions (optional)
@@ -1144,9 +1162,9 @@ class CheckAccountTransactionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTransactionsAsync($check_account_id = null, $check_account_object_name = null, $is_booked = null, $paymt_purpose = null, $start_date = null, $end_date = null, $payee_payer_name = null, $only_credit = null, $only_debit = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactionsAsync($count_all = null, $limit = null, $offset = null, $status = null, $check_account_id = null, $check_account_object_name = null, $hide_fees = null, $is_booked = null, $paymt_purpose = null, $start_date = null, $end_date = null, $search_for_invoice_and_voucher = null, $payee_payer_name = null, $only_credit = null, $only_debit = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
-        return $this->getTransactionsAsyncWithHttpInfo($check_account_id, $check_account_object_name, $is_booked, $paymt_purpose, $start_date, $end_date, $payee_payer_name, $only_credit, $only_debit, $contentType)
+        return $this->getTransactionsAsyncWithHttpInfo($count_all, $limit, $offset, $status, $check_account_id, $check_account_object_name, $hide_fees, $is_booked, $paymt_purpose, $start_date, $end_date, $search_for_invoice_and_voucher, $payee_payer_name, $only_credit, $only_debit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1159,12 +1177,18 @@ class CheckAccountTransactionApi
      *
      * Retrieve transactions
      *
+     * @param  bool $count_all If all transactions should be counted (optional)
+     * @param  int $limit The max number of transactions (optional)
+     * @param  int $offset Which offset to start with (optional)
+     * @param  float $status Status of the transaction (optional)
      * @param  int $check_account_id Retrieve all transactions on this check account. Must be provided with checkAccount[objectName] (optional)
      * @param  string $check_account_object_name Only required if checkAccount[id] was provided. &#39;CheckAccount&#39; should be used as value. (optional)
+     * @param  bool $hide_fees Do not include fees for financial transactions (optional)
      * @param  bool $is_booked Only retrieve booked transactions (optional)
      * @param  string $paymt_purpose Only retrieve transactions with this payment purpose (optional)
      * @param  \DateTime $start_date Only retrieve transactions from this date on (optional)
      * @param  \DateTime $end_date Only retrieve transactions up to this date (optional)
+     * @param  string $search_for_invoice_and_voucher Search for transactions linked with a given invoice or voucher (optional)
      * @param  string $payee_payer_name Only retrieve transactions with this payee / payer (optional)
      * @param  bool $only_credit Only retrieve credit transactions (optional)
      * @param  bool $only_debit Only retrieve debit transactions (optional)
@@ -1173,10 +1197,10 @@ class CheckAccountTransactionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTransactionsAsyncWithHttpInfo($check_account_id = null, $check_account_object_name = null, $is_booked = null, $paymt_purpose = null, $start_date = null, $end_date = null, $payee_payer_name = null, $only_credit = null, $only_debit = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactionsAsyncWithHttpInfo($count_all = null, $limit = null, $offset = null, $status = null, $check_account_id = null, $check_account_object_name = null, $hide_fees = null, $is_booked = null, $paymt_purpose = null, $start_date = null, $end_date = null, $search_for_invoice_and_voucher = null, $payee_payer_name = null, $only_credit = null, $only_debit = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetCheckAccountTransactionById200Response';
-        $request = $this->getTransactionsRequest($check_account_id, $check_account_object_name, $is_booked, $paymt_purpose, $start_date, $end_date, $payee_payer_name, $only_credit, $only_debit, $contentType);
+        $returnType = '\Itsmind\Sevdesk\Model\GetTransactions200Response';
+        $request = $this->getTransactionsRequest($count_all, $limit, $offset, $status, $check_account_id, $check_account_object_name, $hide_fees, $is_booked, $paymt_purpose, $start_date, $end_date, $search_for_invoice_and_voucher, $payee_payer_name, $only_credit, $only_debit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1217,12 +1241,18 @@ class CheckAccountTransactionApi
     /**
      * Create request for operation 'getTransactions'
      *
+     * @param  bool $count_all If all transactions should be counted (optional)
+     * @param  int $limit The max number of transactions (optional)
+     * @param  int $offset Which offset to start with (optional)
+     * @param  float $status Status of the transaction (optional)
      * @param  int $check_account_id Retrieve all transactions on this check account. Must be provided with checkAccount[objectName] (optional)
      * @param  string $check_account_object_name Only required if checkAccount[id] was provided. &#39;CheckAccount&#39; should be used as value. (optional)
+     * @param  bool $hide_fees Do not include fees for financial transactions (optional)
      * @param  bool $is_booked Only retrieve booked transactions (optional)
      * @param  string $paymt_purpose Only retrieve transactions with this payment purpose (optional)
      * @param  \DateTime $start_date Only retrieve transactions from this date on (optional)
      * @param  \DateTime $end_date Only retrieve transactions up to this date (optional)
+     * @param  string $search_for_invoice_and_voucher Search for transactions linked with a given invoice or voucher (optional)
      * @param  string $payee_payer_name Only retrieve transactions with this payee / payer (optional)
      * @param  bool $only_credit Only retrieve credit transactions (optional)
      * @param  bool $only_debit Only retrieve debit transactions (optional)
@@ -1231,8 +1261,14 @@ class CheckAccountTransactionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTransactionsRequest($check_account_id = null, $check_account_object_name = null, $is_booked = null, $paymt_purpose = null, $start_date = null, $end_date = null, $payee_payer_name = null, $only_credit = null, $only_debit = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactionsRequest($count_all = null, $limit = null, $offset = null, $status = null, $check_account_id = null, $check_account_object_name = null, $hide_fees = null, $is_booked = null, $paymt_purpose = null, $start_date = null, $end_date = null, $search_for_invoice_and_voucher = null, $payee_payer_name = null, $only_credit = null, $only_debit = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
+
+
+
+
+
+
 
 
 
@@ -1253,6 +1289,42 @@ class CheckAccountTransactionApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $count_all,
+            'countAll', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $status,
+            'status', // param base name
+            'number', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $check_account_id,
             'checkAccount[id]', // param base name
             'integer', // openApiType
@@ -1265,6 +1337,15 @@ class CheckAccountTransactionApi
             $check_account_object_name,
             'checkAccount[objectName]', // param base name
             'string', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hide_fees,
+            'hideFees', // param base name
+            'boolean', // openApiType
             'form', // style
             false, // explode
             false // required
@@ -1300,6 +1381,15 @@ class CheckAccountTransactionApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $end_date,
             'endDate', // param base name
+            'string', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $search_for_invoice_and_voucher,
+            'searchForInvoiceAndVoucher', // param base name
             'string', // openApiType
             'form', // style
             false, // explode

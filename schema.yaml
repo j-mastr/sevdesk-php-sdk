@@ -13360,6 +13360,36 @@ paths:
         \ the query."
       operationId: "getTransactions"
       parameters:
+        - name: "countAll"
+          in: "query"
+          description: "If all transactions should be counted"
+          required: false
+          schema:
+            type: "boolean"
+        - name: "limit"
+          in: "query"
+          description: "The max number of transactions"
+          required: false
+          schema:
+            type: "integer"
+        - name: "offset"
+          in: "query"
+          description: "Which offset to start with"
+          required: false
+          schema:
+            type: "integer"
+        - name: "status"
+          in: "query"
+          description: "Status of the transaction"
+          required: false
+          schema:
+            type: "number"
+            enum:
+              - 100
+              - 200
+              - 300
+              - 350
+              - 400
         - name: "checkAccount[id]"
           in: "query"
           description:
@@ -13378,6 +13408,13 @@ paths:
           explode: false
           schema:
             type: "string"
+        - name: "hideFees"
+          in: "query"
+          description: "Do not include fees for financial transactions"
+          required: false
+          explode: false
+          schema:
+            type: "boolean"
         - name: "isBooked"
           in: "query"
           description: "Only retrieve booked transactions"
@@ -13408,6 +13445,13 @@ paths:
           schema:
             type: "string"
             format: "date-time"
+        - name: "searchForInvoiceAndVoucher"
+          in: "query"
+          description: "Search for transactions linked with a given invoice or voucher"
+          required: false
+          explode: false
+          schema:
+            type: "string"
         - name: "payeePayerName"
           in: "query"
           description: "Only retrieve transactions with this payee / payer"
@@ -13436,6 +13480,8 @@ paths:
             application/json:
               schema:
                 properties:
+                  total:
+                    type: "integer"
                   objects:
                     type: "array"
                     items:

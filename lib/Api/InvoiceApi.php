@@ -1689,15 +1689,16 @@ class InvoiceApi
      * Find invoice by ID
      *
      * @param  int $invoice_id ID of invoice to return (required)
+     * @param  string[] $embed embed (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceById'] to see the possible values for this operation
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Itsmind\Sevdesk\Model\GetInvoiceById200Response
      */
-    public function getInvoiceById($invoice_id, string $contentType = self::contentTypes['getInvoiceById'][0])
+    public function getInvoiceById($invoice_id, $embed = null, string $contentType = self::contentTypes['getInvoiceById'][0])
     {
-        list($response) = $this->getInvoiceByIdWithHttpInfo($invoice_id, $contentType);
+        list($response) = $this->getInvoiceByIdWithHttpInfo($invoice_id, $embed, $contentType);
         return $response;
     }
 
@@ -1707,15 +1708,16 @@ class InvoiceApi
      * Find invoice by ID
      *
      * @param  int $invoice_id ID of invoice to return (required)
+     * @param  string[] $embed (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceById'] to see the possible values for this operation
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Itsmind\Sevdesk\Model\GetInvoiceById200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceByIdWithHttpInfo($invoice_id, string $contentType = self::contentTypes['getInvoiceById'][0])
+    public function getInvoiceByIdWithHttpInfo($invoice_id, $embed = null, string $contentType = self::contentTypes['getInvoiceById'][0])
     {
-        $request = $this->getInvoiceByIdRequest($invoice_id, $contentType);
+        $request = $this->getInvoiceByIdRequest($invoice_id, $embed, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1807,14 +1809,15 @@ class InvoiceApi
      * Find invoice by ID
      *
      * @param  int $invoice_id ID of invoice to return (required)
+     * @param  string[] $embed (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceById'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceByIdAsync($invoice_id, string $contentType = self::contentTypes['getInvoiceById'][0])
+    public function getInvoiceByIdAsync($invoice_id, $embed = null, string $contentType = self::contentTypes['getInvoiceById'][0])
     {
-        return $this->getInvoiceByIdAsyncWithHttpInfo($invoice_id, $contentType)
+        return $this->getInvoiceByIdAsyncWithHttpInfo($invoice_id, $embed, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1828,15 +1831,16 @@ class InvoiceApi
      * Find invoice by ID
      *
      * @param  int $invoice_id ID of invoice to return (required)
+     * @param  string[] $embed (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceById'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceByIdAsyncWithHttpInfo($invoice_id, string $contentType = self::contentTypes['getInvoiceById'][0])
+    public function getInvoiceByIdAsyncWithHttpInfo($invoice_id, $embed = null, string $contentType = self::contentTypes['getInvoiceById'][0])
     {
         $returnType = '\Itsmind\Sevdesk\Model\GetInvoiceById200Response';
-        $request = $this->getInvoiceByIdRequest($invoice_id, $contentType);
+        $request = $this->getInvoiceByIdRequest($invoice_id, $embed, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1878,12 +1882,13 @@ class InvoiceApi
      * Create request for operation 'getInvoiceById'
      *
      * @param  int $invoice_id ID of invoice to return (required)
+     * @param  string[] $embed (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceById'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getInvoiceByIdRequest($invoice_id, string $contentType = self::contentTypes['getInvoiceById'][0])
+    public function getInvoiceByIdRequest($invoice_id, $embed = null, string $contentType = self::contentTypes['getInvoiceById'][0])
     {
 
         // verify the required parameter 'invoice_id' is set
@@ -1894,6 +1899,7 @@ class InvoiceApi
         }
 
 
+
         $resourcePath = '/Invoice/{invoiceId}';
         $formParams = [];
         $queryParams = [];
@@ -1901,6 +1907,15 @@ class InvoiceApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $embed,
+            'embed', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
         // path params

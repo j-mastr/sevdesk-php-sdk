@@ -10143,6 +10143,46 @@ paths:
           required: true
           schema:
             type: "integer"
+        - name: "embed"
+          in: "query"
+          required: false
+          style: form
+          explode: false
+          schema:
+            type: "array"
+            items:
+              type: "string"
+              enum:
+                - propertyAutoGenerateRecurringInvoice
+                - propertyUseNewCalculation
+                - autoSendConfiguration
+                - swissEsrData
+                - isPartiallyPaid
+                - finalInvoiceId
+                - lastDunningDate
+                - contact
+                - paymentMethod
+                - costCentre
+                - total
+                - debit
+                - cancled
+                - tags
+                - origin
+                - origin.debit
+                - dunningLevel
+                - delinquent
+                - dunningLevel
+                - checkAccountTransactions
+                - checkAccountTransactions.checkAccount
+                - checkAccountTransactionLogs
+                - checkAccountTransactionLogs.checkAccountTransaction.checkAccount
+                - contact.parent
+                - propertyVatChangeChecked
+                - propertyIsEInvoice
+                - propertyOriginTransaction
+                - addressCountry
+                - openInvoiceReminderDebit
+                - openReminderCharge
       responses:
         "200":
           description: "Successful operation"

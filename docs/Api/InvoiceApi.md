@@ -345,7 +345,7 @@ try {
 ## `getInvoiceById()`
 
 ```php
-getInvoiceById($invoice_id): \Itsmind\Sevdesk\Model\GetInvoiceById200Response
+getInvoiceById($invoice_id, $embed): \Itsmind\Sevdesk\Model\GetInvoiceById200Response
 ```
 
 Find invoice by ID
@@ -372,9 +372,10 @@ $apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
     $config
 );
 $invoice_id = 56; // int | ID of invoice to return
+$embed = array('embed_example'); // string[]
 
 try {
-    $result = $apiInstance->getInvoiceById($invoice_id);
+    $result = $apiInstance->getInvoiceById($invoice_id, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoiceApi->getInvoiceById: ', $e->getMessage(), PHP_EOL;
@@ -386,6 +387,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **invoice_id** | **int**| ID of invoice to return | |
+| **embed** | [**string[]**](../Model/string.md)|  | [optional] |
 
 ### Return type
 

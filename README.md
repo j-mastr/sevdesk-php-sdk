@@ -202,6 +202,7 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 | _InvoiceApi_                 | [**invoiceRender**](docs/Api/InvoiceApi.md#invoicerender)                                                   | **POST** /Invoice/{invoiceId}/render                                               | Render the pdf document of an invoice           |
 | _InvoiceApi_                 | [**invoiceSendBy**](docs/Api/InvoiceApi.md#invoicesendby)                                                   | **PUT** /Invoice/{invoiceId}/sendBy                                                | Mark invoice as sent                            |
 | _InvoiceApi_                 | [**sendInvoiceViaEMail**](docs/Api/InvoiceApi.md#sendinvoiceviaemail)                                       | **POST** /Invoice/{invoiceId}/sendViaEmail                                         | Send invoice via email                          |
+| _InvoiceApi_                 | [**updateStatus**](docs/Api/InvoiceApi.md#updatestatus)                                                     | **PUT** /Invoice/{invoiceId}/changeStatus                                          | Update the status of an invoice                 |
 | _InvoicePosApi_              | [**getInvoicePos**](docs/Api/InvoicePosApi.md#getinvoicepos)                                                | **GET** /InvoicePos                                                                | Retrieve InvoicePos                             |
 | _LayoutApi_                  | [**getLetterpapersWithThumb**](docs/Api/LayoutApi.md#getletterpaperswiththumb)                              | **GET** /DocServer/getLetterpapersWithThumb                                        | Retrieve letterpapers                           |
 | _LayoutApi_                  | [**getTemplates**](docs/Api/LayoutApi.md#gettemplates)                                                      | **GET** /DocServer/getTemplatesWithThumb                                           | Retrieve templates                              |
@@ -568,6 +569,7 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 - [SendInvoiceViaEMailRequest](docs/Model/SendInvoiceViaEMailRequest.md)
 - [SendorderViaEMail201Response](docs/Model/SendorderViaEMail201Response.md)
 - [UpdateOrderTemplate200Response](docs/Model/UpdateOrderTemplate200Response.md)
+- [UpdateStatusRequest](docs/Model/UpdateStatusRequest.md)
 - [UpdateTagRequest](docs/Model/UpdateTagRequest.md)
 - [VoucherUploadFile201Response](docs/Model/VoucherUploadFile201Response.md)
 - [VoucherUploadFile201ResponseObjectsInner](docs/Model/VoucherUploadFile201ResponseObjectsInner.md)

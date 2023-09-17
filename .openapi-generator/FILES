@@ -342,6 +342,7 @@ docs/Model/SendInvoiceViaEMail201Response.md
 docs/Model/SendInvoiceViaEMailRequest.md
 docs/Model/SendorderViaEMail201Response.md
 docs/Model/UpdateOrderTemplate200Response.md
+docs/Model/UpdateStatusRequest.md
 docs/Model/UpdateTagRequest.md
 docs/Model/VoucherUploadFile201Response.md
 docs/Model/VoucherUploadFile201ResponseObjectsInner.md
@@ -690,10 +691,11 @@ lib/Model/SendInvoiceViaEMail201Response.php
 lib/Model/SendInvoiceViaEMailRequest.php
 lib/Model/SendorderViaEMail201Response.php
 lib/Model/UpdateOrderTemplate200Response.php
+lib/Model/UpdateStatusRequest.php
 lib/Model/UpdateTagRequest.php
 lib/Model/VoucherUploadFile201Response.php
 lib/Model/VoucherUploadFile201ResponseObjectsInner.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/BookCreditNote200ResponseTest.php
+test/Model/UpdateStatusRequestTest.php

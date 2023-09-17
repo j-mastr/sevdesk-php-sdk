@@ -14566,6 +14566,59 @@ paths:
           description: "Authentication required"
         "500":
           description: "Server Error"
+  /Invoice/{invoiceId}/changeStatus:
+    put:
+      tags:
+        - "Invoice"
+      summary: "Update the status of an invoice"
+      description: "Update the status of an invoice"
+      operationId: "updateStatus"
+      parameters:
+        - name: "invoiceId"
+          in: "path"
+          description: "ID of invoice to update"
+          required: true
+          schema:
+            type: "integer"
+      requestBody:
+        description: "Update the status of an invoice."
+        content:
+          application/json:
+            schema:
+              properties:
+                value:
+                  # description:
+                  #   "Please have a look in our\r\n     <a href='https://api.sevdesk.de/#section/Types-and-status-of-invoices'>Types\
+                  #   \ and status of invoice</a>\r\n     to see what the different status codes\
+                  #   \ mean"
+                  # type: "string"
+                  # enum:
+                  #   - "50"
+                  #   - "100"
+                  #   - "200"
+                  #   - "1000"
+                  # example: "100"
+                  # nullable: true
+                  $ref: "#/components/schemas/Model_Invoice/properties/status"
+              type: "object"
+      responses:
+        "200":
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                properties:
+                  objects:
+                    type: "array"
+                    items:
+                      $ref: "#/components/schemas/Model_InvoiceResponse"
+                type: "object"
+        "400":
+          description: "Bad request"
+        "401":
+          description: "Authentication required"
+        "500":
+          description: "Server Error"
   /CommunicationWay:
     get:
       tags:

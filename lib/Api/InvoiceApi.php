@@ -116,6 +116,9 @@ class InvoiceApi
         'sendInvoiceViaEMail' => [
             'application/json',
         ],
+        'updateStatus' => [
+            'application/json',
+        ],
     ];
 
 /**
@@ -4844,6 +4847,307 @@ class InvoiceApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateStatus
+     *
+     * Update the status of an invoice
+     *
+     * @param  int $invoice_id ID of invoice to update (required)
+     * @param  \Itsmind\Sevdesk\Model\UpdateStatusRequest $update_status_request Update the status of an invoice. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStatus'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Itsmind\Sevdesk\Model\GetInvoiceById200Response
+     */
+    public function updateStatus($invoice_id, $update_status_request = null, string $contentType = self::contentTypes['updateStatus'][0])
+    {
+        list($response) = $this->updateStatusWithHttpInfo($invoice_id, $update_status_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateStatusWithHttpInfo
+     *
+     * Update the status of an invoice
+     *
+     * @param  int $invoice_id ID of invoice to update (required)
+     * @param  \Itsmind\Sevdesk\Model\UpdateStatusRequest $update_status_request Update the status of an invoice. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStatus'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Itsmind\Sevdesk\Model\GetInvoiceById200Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateStatusWithHttpInfo($invoice_id, $update_status_request = null, string $contentType = self::contentTypes['updateStatus'][0])
+    {
+        $request = $this->updateStatusRequest($invoice_id, $update_status_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Itsmind\Sevdesk\Model\GetInvoiceById200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Itsmind\Sevdesk\Model\GetInvoiceById200Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetInvoiceById200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Itsmind\Sevdesk\Model\GetInvoiceById200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Itsmind\Sevdesk\Model\GetInvoiceById200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateStatusAsync
+     *
+     * Update the status of an invoice
+     *
+     * @param  int $invoice_id ID of invoice to update (required)
+     * @param  \Itsmind\Sevdesk\Model\UpdateStatusRequest $update_status_request Update the status of an invoice. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStatus'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateStatusAsync($invoice_id, $update_status_request = null, string $contentType = self::contentTypes['updateStatus'][0])
+    {
+        return $this->updateStatusAsyncWithHttpInfo($invoice_id, $update_status_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateStatusAsyncWithHttpInfo
+     *
+     * Update the status of an invoice
+     *
+     * @param  int $invoice_id ID of invoice to update (required)
+     * @param  \Itsmind\Sevdesk\Model\UpdateStatusRequest $update_status_request Update the status of an invoice. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStatus'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateStatusAsyncWithHttpInfo($invoice_id, $update_status_request = null, string $contentType = self::contentTypes['updateStatus'][0])
+    {
+        $returnType = '\Itsmind\Sevdesk\Model\GetInvoiceById200Response';
+        $request = $this->updateStatusRequest($invoice_id, $update_status_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateStatus'
+     *
+     * @param  int $invoice_id ID of invoice to update (required)
+     * @param  \Itsmind\Sevdesk\Model\UpdateStatusRequest $update_status_request Update the status of an invoice. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStatus'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateStatusRequest($invoice_id, $update_status_request = null, string $contentType = self::contentTypes['updateStatus'][0])
+    {
+
+        // verify the required parameter 'invoice_id' is set
+        if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $invoice_id when calling updateStatus'
+            );
+        }
+
+
+
+        $resourcePath = '/Invoice/{invoiceId}/changeStatus';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($invoice_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'invoiceId' . '}',
+                ObjectSerializer::toPathValue($invoice_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($update_status_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_status_request));
+            } else {
+                $httpBody = $update_status_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

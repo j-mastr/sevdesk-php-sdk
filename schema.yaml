@@ -2511,20 +2511,12 @@ components:
           example: "RE-1000"
           readOnly: true
         contact:
+          $ref: "#/components/schemas/Model_ContactResponse"
           description: "The contact used in the invoice"
           readOnly: true
           required:
             - "id"
             - "objectName"
-          properties:
-            id:
-              description: "Unique identifier of the contact"
-              type: "string"
-              example: "0"
-            objectName:
-              description: "Model name, which is 'Contact'"
-              type: "string"
-              example: "Contact"
           type: "object"
         create:
           description: "Date of invoice creation"
@@ -2610,20 +2602,8 @@ components:
           example: "0"
           readOnly: true
         addressCountry:
+          $ref: "#/components/schemas/Model_StaticCountryResponse"
           description: "Can be omitted as complete address is defined in address attribute"
-          required:
-            - "id"
-            - "objectName"
-          properties:
-            id:
-              description: "Unique identifier of the country"
-              type: "string"
-              example: "1"
-            objectName:
-              description: "Model name, which is 'StaticCountry'"
-              type: "string"
-              example: "StaticCountry"
-          type: "object"
           readOnly: true
         payDate:
           description: "Needs to be timestamp or dd.mm.yyyy"
@@ -2727,20 +2707,10 @@ components:
             - "custom"
           readOnly: true
         paymentMethod:
-          description: "Payment method used for the invoice"
+          $ref: "#/components/schemas/Model_PaymentMethodResponse"
           required:
             - "id"
             - "objectName"
-          properties:
-            id:
-              description: "Unique identifier of the payment method"
-              type: "string"
-              example: "0"
-            objectName:
-              description: "Model name, which is 'PaymentMethod'"
-              type: "string"
-              example: "PaymentMethod"
-          type: "object"
           readOnly: true
         costCentre:
           description: "Cost centre for the invoice"
@@ -2984,6 +2954,18 @@ components:
           type: "string"
           example: "0"
           readOnly: true
+        checkAccountTransactions:
+          description: "Transactions this invoice is booked on"
+          type: "array"
+          readOnly: true
+          items:
+            $ref: "#/components/schemas/Model_CheckAccountTransactionResponse"
+        checkAccountTransactionLogs:
+          description: "Transaction history this invoice is booked on"
+          type: "array"
+          readOnly: true
+          items:
+            $ref: "#/components/schemas/Model_CheckAccountTransactionLogResponse"
       type: "object"
     Model_ContactCustomField:
       title: "contact fields model"
@@ -3596,6 +3578,51 @@ components:
           readOnly: true
           deprecated: true
       type: "object"
+    Model_StaticCountryResponse:
+      description: "Information on the country"
+      required:
+        - "id"
+        - "objectName"
+      properties:
+        id:
+          description: "Unique identifier of the country"
+          type: "string"
+          example: "1"
+        objectName:
+          description: "Model name, which is 'StaticCountry'"
+          type: "string"
+          example: "StaticCountry"
+          enum:
+            - StaticCountry
+        additionalInformation:
+          description: ""
+          type: "string"
+          example: null
+        code:
+          description: ""
+          type: "string"
+          example: "de"
+        name:
+          description: ""
+          type: "string"
+          example: "Deutschland"
+        nameEn:
+          description: ""
+          type: "string"
+          example: "Germany"
+        translationCode:
+          description: ""
+          type: "string"
+          example: "COUNTRY_DE"
+        locale:
+          description: ""
+          type: "string"
+          example: "en_US"
+        priority:
+          description: ""
+          type: "string"
+          example: "100"
+      type: "object"
     Model_DocumentResponse:
       title: "Document model"
       description: "Document model"
@@ -4171,6 +4198,50 @@ components:
             \ on invoices and orders."
           type: "string"
           nullable: true
+      type: "object"
+    Model_PaymentMethodResponse:
+      description: "The Invoice payment method"
+      required:
+        - "id"
+        - "objectName"
+      properties:
+        id:
+          description: "Unique identifier of the payment method"
+          type: "string"
+          example: "1"
+        objectName:
+          description: "Model name, which is 'PaymentMethod'"
+          type: "string"
+          example: "PaymentMethod"
+          enum:
+            - PaymentMethod
+        additionalInformation:
+          description: ""
+          type: string
+        create:
+          description: ""
+          type: string
+          format: "date-time"
+          example: "2019-01-11T19:08:20+01:00"
+        update:
+          description: ""
+          type: string
+          format: "date-time"
+          example: "2021-12-18T23:42:45+01:00"
+        name:
+          description: ""
+          type: string
+          example: "SEPA-Lastschrift"
+        text:
+          description: ""
+          type: string
+          example: "Den f\u00e4lligen Betrag in H\u00f6he von [%BETRAG%] buchen wir fr\u00fchestens zum [%ZAHLUNGSZIEL%] von Deinem bei uns hinterlegten Konto ab."
+        electronicInvoiceId:
+          description: ""
+          type: string
+        translationCode:
+          description: ""
+          type: string
       type: "object"
     Model_CheckAccountResponse:
       title: "CheckAccount model"
@@ -7097,6 +7168,110 @@ components:
               type: "string"
               default: "CheckAccountTransaction"
           type: "object"
+          readOnly: true
+      type: "object"
+    Model_CheckAccountTransactionLogResponse:
+      title: "CheckAccountTransaction model"
+      description:
+        "CheckAccountTransaction model. Responsible for the transactions\
+        \ on payment accounts."
+      properties:
+        id:
+          description: "The check account transaction id"
+          type: "string"
+          example: "0"
+          readOnly: true
+        objectName:
+          description: "The check account transaction object name"
+          type: "string"
+          example: "CheckAccountTransactionLog"
+          readOnly: true
+          enum:
+            - CheckAccountTransactionLog
+        create:
+          description: "Date of check account transaction creation"
+          type: "string"
+          format: "date-time"
+          readOnly: true
+        checkAccountTransaction:
+          $ref: "#/components/schemas/Model_CheckAccountTransactionResponse"
+          description: "The check account to which the transaction belongs"
+          required:
+            - "id"
+            - "objectName"
+          readOnly: true
+        sevClient:
+          description:
+            "Client to which check account transaction belongs. Will be\
+            \ filled automatically"
+          required:
+            - "id"
+            - "objectName"
+          properties:
+            id:
+              description: "Unique identifier of the client"
+              type: "string"
+              example: "0"
+            objectName:
+              description: "Model name, which is 'SevClient'"
+              type: "string"
+              example: "SevClient"
+          type: "object"
+          readOnly: true
+        object:
+          required:
+            - "id"
+            - "objectName"
+          properties:
+            id:
+              description: "Unique identifier of the object"
+              type: "string"
+              example: "0"
+            objectName:
+              description: "Model name"
+              type: "string"
+              example: "Invoice"
+          type: "object"
+          readOnly: true
+        bookingDate:
+          description: "Date the check account transaction was booked"
+          type: "string"
+          format: "date-time"
+          example: "01.01.2022"
+          readOnly: true
+        amountPaid:
+          description: "Amount booked on the check account transaction"
+          type: "number"
+          example: "6"
+          readOnly: true
+        fromStatus:
+          description:
+            "Status of the check account transaction.<br>\r\n     100 <->\
+            \ Created<br>\r\n     200 <-> Linked<br>\r\n     300 <-> Private<br>\r\
+            \n     350 <-> Automatically<br>\r\n     400 <-> Booked"
+          type: "string"
+          readOnly: true
+          enum:
+            - "100"
+            - "200"
+            - "300"
+            - "350"
+            - "400"
+        toStatus:
+          description:
+            "Status of the check account transaction.<br>\r\n     100 <->\
+            \ Created<br>\r\n     200 <-> Linked<br>\r\n     300 <-> Private<br>\r\
+            \n     350 <-> Automatically<br>\r\n     400 <-> Booked"
+          type: "string"
+          readOnly: true
+          enum:
+            - "100"
+            - "200"
+            - "300"
+            - "350"
+            - "400"
+        additionalInformation:
+          type: "string"
           readOnly: true
       type: "object"
     Model_ContactCustomFieldUpdate:
@@ -14649,9 +14824,7 @@ paths:
               schema:
                 properties:
                   objects:
-                    type: "array"
-                    items:
-                      $ref: "#/components/schemas/Model_InvoiceResponse"
+                    $ref: "#/components/schemas/Model_InvoiceResponse"
                 type: "object"
         "400":
           description: "Bad request"

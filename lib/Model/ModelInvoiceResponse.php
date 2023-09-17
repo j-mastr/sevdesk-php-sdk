@@ -61,7 +61,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'id' => 'string',
         'object_name' => 'string',
         'invoice_number' => 'string',
-        'contact' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponseContact',
+        'contact' => '\Itsmind\Sevdesk\Model\ModelContactResponse',
         'create' => '\DateTime',
         'update' => '\DateTime',
         'sev_client' => '\Itsmind\Sevdesk\Model\ModelContactCustomFieldSettingResponseSevClient',
@@ -75,7 +75,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'tags' => '\Itsmind\Sevdesk\Model\ModelTagResponse[]',
         'discount_time' => 'string',
         'discount' => 'string',
-        'address_country' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponseAddressCountry',
+        'address_country' => '\Itsmind\Sevdesk\Model\ModelStaticCountryResponse',
         'pay_date' => '\DateTime',
         'create_user' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponseCreateUser',
         'delivery_date' => '\DateTime',
@@ -86,7 +86,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'tax_text' => 'string',
         'dunning_level' => 'string',
         'tax_type' => 'string',
-        'payment_method' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponsePaymentMethod',
+        'payment_method' => '\Itsmind\Sevdesk\Model\ModelPaymentMethodResponse',
         'cost_centre' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponseCostCentre',
         'send_date' => '\DateTime',
         'origin' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponse',
@@ -118,7 +118,9 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'send_type' => 'string',
         'delivery_date_until' => 'string',
         'datev_connect_online' => 'object',
-        'send_payment_received_notification_date' => 'string'
+        'send_payment_received_notification_date' => 'string',
+        'check_account_transactions' => '\Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponse[]',
+        'check_account_transaction_logs' => '\Itsmind\Sevdesk\Model\ModelCheckAccountTransactionLogResponse[]'
     ];
 
     /**
@@ -189,7 +191,9 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'send_type' => null,
         'delivery_date_until' => null,
         'datev_connect_online' => null,
-        'send_payment_received_notification_date' => null
+        'send_payment_received_notification_date' => null,
+        'check_account_transactions' => null,
+        'check_account_transaction_logs' => null
     ];
 
     /**
@@ -258,7 +262,9 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 		'send_type' => false,
 		'delivery_date_until' => false,
 		'datev_connect_online' => false,
-		'send_payment_received_notification_date' => false
+		'send_payment_received_notification_date' => false,
+		'check_account_transactions' => false,
+		'check_account_transaction_logs' => false
     ];
 
     /**
@@ -407,7 +413,9 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'send_type' => 'sendType',
         'delivery_date_until' => 'deliveryDateUntil',
         'datev_connect_online' => 'datevConnectOnline',
-        'send_payment_received_notification_date' => 'sendPaymentReceivedNotificationDate'
+        'send_payment_received_notification_date' => 'sendPaymentReceivedNotificationDate',
+        'check_account_transactions' => 'checkAccountTransactions',
+        'check_account_transaction_logs' => 'checkAccountTransactionLogs'
     ];
 
     /**
@@ -476,7 +484,9 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'send_type' => 'setSendType',
         'delivery_date_until' => 'setDeliveryDateUntil',
         'datev_connect_online' => 'setDatevConnectOnline',
-        'send_payment_received_notification_date' => 'setSendPaymentReceivedNotificationDate'
+        'send_payment_received_notification_date' => 'setSendPaymentReceivedNotificationDate',
+        'check_account_transactions' => 'setCheckAccountTransactions',
+        'check_account_transaction_logs' => 'setCheckAccountTransactionLogs'
     ];
 
     /**
@@ -545,7 +555,9 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'send_type' => 'getSendType',
         'delivery_date_until' => 'getDeliveryDateUntil',
         'datev_connect_online' => 'getDatevConnectOnline',
-        'send_payment_received_notification_date' => 'getSendPaymentReceivedNotificationDate'
+        'send_payment_received_notification_date' => 'getSendPaymentReceivedNotificationDate',
+        'check_account_transactions' => 'getCheckAccountTransactions',
+        'check_account_transaction_logs' => 'getCheckAccountTransactionLogs'
     ];
 
     /**
@@ -752,6 +764,8 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('delivery_date_until', $data ?? [], null);
         $this->setIfExists('datev_connect_online', $data ?? [], null);
         $this->setIfExists('send_payment_received_notification_date', $data ?? [], null);
+        $this->setIfExists('check_account_transactions', $data ?? [], null);
+        $this->setIfExists('check_account_transaction_logs', $data ?? [], null);
     }
 
     /**
@@ -916,7 +930,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets contact
      *
-     * @return \Itsmind\Sevdesk\Model\ModelInvoiceResponseContact|null
+     * @return \Itsmind\Sevdesk\Model\ModelContactResponse|null
      */
     public function getContact()
     {
@@ -926,7 +940,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets contact
      *
-     * @param \Itsmind\Sevdesk\Model\ModelInvoiceResponseContact|null $contact contact
+     * @param \Itsmind\Sevdesk\Model\ModelContactResponse|null $contact contact
      *
      * @return self
      */
@@ -1294,7 +1308,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets address_country
      *
-     * @return \Itsmind\Sevdesk\Model\ModelInvoiceResponseAddressCountry|null
+     * @return \Itsmind\Sevdesk\Model\ModelStaticCountryResponse|null
      */
     public function getAddressCountry()
     {
@@ -1304,7 +1318,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets address_country
      *
-     * @param \Itsmind\Sevdesk\Model\ModelInvoiceResponseAddressCountry|null $address_country address_country
+     * @param \Itsmind\Sevdesk\Model\ModelStaticCountryResponse|null $address_country address_country
      *
      * @return self
      */
@@ -1611,7 +1625,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets payment_method
      *
-     * @return \Itsmind\Sevdesk\Model\ModelInvoiceResponsePaymentMethod|null
+     * @return \Itsmind\Sevdesk\Model\ModelPaymentMethodResponse|null
      */
     public function getPaymentMethod()
     {
@@ -1621,7 +1635,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets payment_method
      *
-     * @param \Itsmind\Sevdesk\Model\ModelInvoiceResponsePaymentMethod|null $payment_method payment_method
+     * @param \Itsmind\Sevdesk\Model\ModelPaymentMethodResponse|null $payment_method payment_method
      *
      * @return self
      */
@@ -2515,6 +2529,60 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable send_payment_received_notification_date cannot be null');
         }
         $this->container['send_payment_received_notification_date'] = $send_payment_received_notification_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets check_account_transactions
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponse[]|null
+     */
+    public function getCheckAccountTransactions()
+    {
+        return $this->container['check_account_transactions'];
+    }
+
+    /**
+     * Sets check_account_transactions
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponse[]|null $check_account_transactions Transactions this invoice is booked on
+     *
+     * @return self
+     */
+    public function setCheckAccountTransactions($check_account_transactions)
+    {
+        if (is_null($check_account_transactions)) {
+            throw new \InvalidArgumentException('non-nullable check_account_transactions cannot be null');
+        }
+        $this->container['check_account_transactions'] = $check_account_transactions;
+
+        return $this;
+    }
+
+    /**
+     * Gets check_account_transaction_logs
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelCheckAccountTransactionLogResponse[]|null
+     */
+    public function getCheckAccountTransactionLogs()
+    {
+        return $this->container['check_account_transaction_logs'];
+    }
+
+    /**
+     * Sets check_account_transaction_logs
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelCheckAccountTransactionLogResponse[]|null $check_account_transaction_logs Transaction history this invoice is booked on
+     *
+     * @return self
+     */
+    public function setCheckAccountTransactionLogs($check_account_transaction_logs)
+    {
+        if (is_null($check_account_transaction_logs)) {
+            throw new \InvalidArgumentException('non-nullable check_account_transaction_logs cannot be null');
+        }
+        $this->container['check_account_transaction_logs'] = $check_account_transaction_logs;
 
         return $this;
     }

@@ -1007,7 +1007,7 @@ try {
 ## `updateStatus()`
 
 ```php
-updateStatus($invoice_id, $update_status_request): \Itsmind\Sevdesk\Model\GetInvoiceById200Response
+updateStatus($invoice_id, $update_status_request): \Itsmind\Sevdesk\Model\GetLastDunning200Response
 ```
 
 Update the status of an invoice
@@ -1053,7 +1053,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetInvoiceById200Response**](../Model/GetInvoiceById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetLastDunning200Response**](../Model/GetLastDunning200Response.md)
 
 ### Authorization
 

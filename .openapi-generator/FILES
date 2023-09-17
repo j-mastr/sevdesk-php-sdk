@@ -117,6 +117,8 @@ docs/Model/ModelCheckAccountResponseSevClient.md
 docs/Model/ModelCheckAccountSevClient.md
 docs/Model/ModelCheckAccountTransaction.md
 docs/Model/ModelCheckAccountTransactionCheckAccount.md
+docs/Model/ModelCheckAccountTransactionLogResponse.md
+docs/Model/ModelCheckAccountTransactionLogResponseObject.md
 docs/Model/ModelCheckAccountTransactionResponse.md
 docs/Model/ModelCheckAccountTransactionResponseCheckAccount.md
 docs/Model/ModelCheckAccountTransactionResponseSevClient.md
@@ -231,12 +233,9 @@ docs/Model/ModelInvoicePosUnity.md
 docs/Model/ModelInvoicePosUpdate.md
 docs/Model/ModelInvoicePosUpdateInvoice.md
 docs/Model/ModelInvoiceResponse.md
-docs/Model/ModelInvoiceResponseAddressCountry.md
-docs/Model/ModelInvoiceResponseContact.md
 docs/Model/ModelInvoiceResponseContactPerson.md
 docs/Model/ModelInvoiceResponseCostCentre.md
 docs/Model/ModelInvoiceResponseCreateUser.md
-docs/Model/ModelInvoiceResponsePaymentMethod.md
 docs/Model/ModelInvoiceResponseTaxSet.md
 docs/Model/ModelInvoiceTaxSet.md
 docs/Model/ModelInvoiceUpdate.md
@@ -279,6 +278,8 @@ docs/Model/ModelPartCategory.md
 docs/Model/ModelPartSevClient.md
 docs/Model/ModelPartUnity.md
 docs/Model/ModelPartUpdate.md
+docs/Model/ModelPaymentMethodResponse.md
+docs/Model/ModelStaticCountryResponse.md
 docs/Model/ModelTagCreateResponse.md
 docs/Model/ModelTagCreateResponseObject.md
 docs/Model/ModelTagCreateResponseSevClient.md
@@ -465,6 +466,8 @@ lib/Model/ModelCheckAccountResponseSevClient.php
 lib/Model/ModelCheckAccountSevClient.php
 lib/Model/ModelCheckAccountTransaction.php
 lib/Model/ModelCheckAccountTransactionCheckAccount.php
+lib/Model/ModelCheckAccountTransactionLogResponse.php
+lib/Model/ModelCheckAccountTransactionLogResponseObject.php
 lib/Model/ModelCheckAccountTransactionResponse.php
 lib/Model/ModelCheckAccountTransactionResponseCheckAccount.php
 lib/Model/ModelCheckAccountTransactionResponseSevClient.php
@@ -580,12 +583,9 @@ lib/Model/ModelInvoicePosUnity.php
 lib/Model/ModelInvoicePosUpdate.php
 lib/Model/ModelInvoicePosUpdateInvoice.php
 lib/Model/ModelInvoiceResponse.php
-lib/Model/ModelInvoiceResponseAddressCountry.php
-lib/Model/ModelInvoiceResponseContact.php
 lib/Model/ModelInvoiceResponseContactPerson.php
 lib/Model/ModelInvoiceResponseCostCentre.php
 lib/Model/ModelInvoiceResponseCreateUser.php
-lib/Model/ModelInvoiceResponsePaymentMethod.php
 lib/Model/ModelInvoiceResponseTaxSet.php
 lib/Model/ModelInvoiceTaxSet.php
 lib/Model/ModelInvoiceUpdate.php
@@ -628,6 +628,8 @@ lib/Model/ModelPartCategory.php
 lib/Model/ModelPartSevClient.php
 lib/Model/ModelPartUnity.php
 lib/Model/ModelPartUpdate.php
+lib/Model/ModelPaymentMethodResponse.php
+lib/Model/ModelStaticCountryResponse.php
 lib/Model/ModelTagCreateResponse.php
 lib/Model/ModelTagCreateResponseObject.php
 lib/Model/ModelTagCreateResponseSevClient.php
@@ -698,3 +700,5 @@ lib/Model/VoucherUploadFile201ResponseObjectsInner.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/ModelCheckAccountTransactionLogResponseObjectTest.php
+test/Model/ModelCheckAccountTransactionLogResponseTest.php

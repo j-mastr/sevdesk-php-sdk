@@ -4879,7 +4879,7 @@ class InvoiceApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetInvoiceById200Response
+     * @return \Itsmind\Sevdesk\Model\GetLastDunning200Response
      */
     public function updateStatus($invoice_id, $update_status_request = null, string $contentType = self::contentTypes['updateStatus'][0])
     {
@@ -4898,7 +4898,7 @@ class InvoiceApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetInvoiceById200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\GetLastDunning200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateStatusWithHttpInfo($invoice_id, $update_status_request = null, string $contentType = self::contentTypes['updateStatus'][0])
     {
@@ -4941,23 +4941,23 @@ class InvoiceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetInvoiceById200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\GetLastDunning200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetInvoiceById200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\GetLastDunning200Response' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetInvoiceById200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetLastDunning200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetInvoiceById200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\GetLastDunning200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4978,7 +4978,7 @@ class InvoiceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetInvoiceById200Response',
+                        '\Itsmind\Sevdesk\Model\GetLastDunning200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5024,7 +5024,7 @@ class InvoiceApi
      */
     public function updateStatusAsyncWithHttpInfo($invoice_id, $update_status_request = null, string $contentType = self::contentTypes['updateStatus'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetInvoiceById200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\GetLastDunning200Response';
         $request = $this->updateStatusRequest($invoice_id, $update_status_request, $contentType);
 
         return $this->client

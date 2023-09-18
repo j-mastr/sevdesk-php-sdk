@@ -39,7 +39,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ReportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sev_query = array('key' => new \Itsmind\Sevdesk\Model\ReportContactSevQueryParameter()); // ReportContactSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\ReportContactSevQueryParameter(); // ReportContactSevQueryParameter
 $download = True; // bool
 
 try {
@@ -103,7 +103,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ReportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sev_query = array('key' => new \Itsmind\Sevdesk\Model\ReportInvoiceSevQueryParameter()); // ReportInvoiceSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\ReportInvoiceSevQueryParameter(); // ReportInvoiceSevQueryParameter
 $download = True; // bool
 
 try {
@@ -167,7 +167,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ReportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sev_query = array('key' => new \Itsmind\Sevdesk\Model\ReportOrderSevQueryParameter()); // ReportOrderSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\ReportOrderSevQueryParameter(); // ReportOrderSevQueryParameter
 $download = True; // bool
 
 try {
@@ -231,7 +231,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ReportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sev_query = array('key' => new \Itsmind\Sevdesk\Model\ReportVoucherSevQueryParameter()); // ReportVoucherSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\ReportVoucherSevQueryParameter(); // ReportVoucherSevQueryParameter
 $download = True; // bool
 
 try {

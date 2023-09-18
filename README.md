@@ -389,7 +389,6 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 - [ModelContactCustomFieldContactCustomFieldSetting](docs/Model/ModelContactCustomFieldContactCustomFieldSetting.md)
 - [ModelContactCustomFieldResponse](docs/Model/ModelContactCustomFieldResponse.md)
 - [ModelContactCustomFieldResponseContact](docs/Model/ModelContactCustomFieldResponseContact.md)
-- [ModelContactCustomFieldResponseContactCustomFieldSetting](docs/Model/ModelContactCustomFieldResponseContactCustomFieldSetting.md)
 - [ModelContactCustomFieldResponseSevClient](docs/Model/ModelContactCustomFieldResponseSevClient.md)
 - [ModelContactCustomFieldSetting](docs/Model/ModelContactCustomFieldSetting.md)
 - [ModelContactCustomFieldSettingResponse](docs/Model/ModelContactCustomFieldSettingResponse.md)

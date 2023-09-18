@@ -36,7 +36,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\DocumentApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contact = array('key' => new \Itsmind\Sevdesk\Model\GetInvoicesContactParameter()); // GetInvoicesContactParameter | Retrieve all documents for this contact. The value of contact[objectName] must be 'Contact'.
+$contact = new \Itsmind\Sevdesk\Model\GetInvoicesContactParameter(); // GetInvoicesContactParameter | Retrieve all documents for this contact. The value of contact[objectName] must be 'Contact'.
 $count_all = True; // bool | If all contacts should be counted
 
 try {

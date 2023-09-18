@@ -513,8 +513,8 @@ $status = 3.4; // float | Status of the invoices
 $invoice_number = 'invoice_number_example'; // string | Retrieve all invoices with this invoice number
 $start_date = 56; // int | Retrieve all invoices with a date equal or higher
 $end_date = 56; // int | Retrieve all invoices with a date equal or lower
-$contact = array('key' => new \Itsmind\Sevdesk\Model\GetInvoicesContactParameter()); // GetInvoicesContactParameter | Retrieve all invoices with this contact. The value of contact[objectName] must be 'Contact'.
-$payment_method = array('key' => new \Itsmind\Sevdesk\Model\GetInvoicesPaymentMethodParameter()); // GetInvoicesPaymentMethodParameter | Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be 'PaymentMethod'.
+$contact = new \Itsmind\Sevdesk\Model\GetInvoicesContactParameter(); // GetInvoicesContactParameter | Retrieve all invoices with this contact. The value of contact[objectName] must be 'Contact'.
+$payment_method = new \Itsmind\Sevdesk\Model\GetInvoicesPaymentMethodParameter(); // GetInvoicesPaymentMethodParameter | Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be 'PaymentMethod'.
 $embed = array('embed_example'); // string[]
 
 try {
@@ -713,7 +713,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$invoice = array('key' => new \Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebitInvoiceParameter()); // GetOpenInvoiceReminderDebitInvoiceParameter | Retrieve the open reminder debit for this invoice. The value of invoice[objectName] must be 'Invoice'.
+$invoice = new \Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebitInvoiceParameter(); // GetOpenInvoiceReminderDebitInvoiceParameter | Retrieve the open reminder debit for this invoice. The value of invoice[objectName] must be 'Invoice'.
 
 try {
     $result = $apiInstance->getOpenInvoiceReminderDebit($invoice);

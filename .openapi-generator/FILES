@@ -159,7 +159,6 @@ docs/Model/ModelContactCustomFieldContact.md
 docs/Model/ModelContactCustomFieldContactCustomFieldSetting.md
 docs/Model/ModelContactCustomFieldResponse.md
 docs/Model/ModelContactCustomFieldResponseContact.md
-docs/Model/ModelContactCustomFieldResponseContactCustomFieldSetting.md
 docs/Model/ModelContactCustomFieldResponseSevClient.md
 docs/Model/ModelContactCustomFieldSetting.md
 docs/Model/ModelContactCustomFieldSettingResponse.md
@@ -512,7 +511,6 @@ lib/Model/ModelContactCustomFieldContact.php
 lib/Model/ModelContactCustomFieldContactCustomFieldSetting.php
 lib/Model/ModelContactCustomFieldResponse.php
 lib/Model/ModelContactCustomFieldResponseContact.php
-lib/Model/ModelContactCustomFieldResponseContactCustomFieldSetting.php
 lib/Model/ModelContactCustomFieldResponseSevClient.php
 lib/Model/ModelContactCustomFieldSetting.php
 lib/Model/ModelContactCustomFieldSettingResponse.php

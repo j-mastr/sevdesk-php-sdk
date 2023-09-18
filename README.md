@@ -1,6 +1,6 @@
 # itsmind/sevdesk-php-client
 
-> This unofficial package provides an SDK to access the [sevDesk API](https://api.sevdesk.de/) using PHP. It is auto-generated using the [OpenAPI-Generator](https://openapi-generator.tech), with slight adjustments to the original [OpenAPI specification](https://api.sevdesk.de/OpenAPI/Index/output.yaml).
+> This unofficial package provides an SDK to access the [sevDesk API](https://api.sevdesk.de/) using PHP. It is auto-generated using the [OpenAPI-Generator](https://openapi-generator.tech), with slight adjustments to the official [OpenAPI specification](https://api.sevdesk.de/openapi.yaml).
 >
 > For support regarding the API, please contact the sevDesk support directly.
 

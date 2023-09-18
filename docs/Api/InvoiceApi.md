@@ -9,6 +9,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 | [**createInvoiceByFactory()**](InvoiceApi.md#createInvoiceByFactory) | **POST** /Invoice/Factory/saveInvoice | Create a new invoice |
 | [**createInvoiceFromOrder()**](InvoiceApi.md#createInvoiceFromOrder) | **POST** /Invoice/Factory/createInvoiceFromOrder | Create invoice from order |
 | [**createInvoiceReminder()**](InvoiceApi.md#createInvoiceReminder) | **POST** /Invoice/Factory/createInvoiceReminder | Create invoice reminder |
+| [**deleteInvoiceById()**](InvoiceApi.md#deleteInvoiceById) | **DELETE** /Invoice/{invoiceId} | Delete invoice by ID |
 | [**getInvoiceById()**](InvoiceApi.md#getInvoiceById) | **GET** /Invoice/{invoiceId} | Find invoice by ID |
 | [**getInvoicePositionsById()**](InvoiceApi.md#getInvoicePositionsById) | **GET** /Invoice/{invoiceId}/getPositions | Find invoice positions |
 | [**getInvoices()**](InvoiceApi.md#getInvoices) | **GET** /Invoice | Retrieve invoices |
@@ -19,6 +20,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 | [**invoiceRender()**](InvoiceApi.md#invoiceRender) | **POST** /Invoice/{invoiceId}/render | Render the pdf document of an invoice |
 | [**invoiceSendBy()**](InvoiceApi.md#invoiceSendBy) | **PUT** /Invoice/{invoiceId}/sendBy | Mark invoice as sent |
 | [**sendInvoiceViaEMail()**](InvoiceApi.md#sendInvoiceViaEMail) | **POST** /Invoice/{invoiceId}/sendViaEmail | Send invoice via email |
+| [**updateInvoiceById()**](InvoiceApi.md#updateInvoiceById) | **PUT** /Invoice/{invoiceId} | Update invoice by ID |
 | [**updateStatus()**](InvoiceApi.md#updateStatus) | **PUT** /Invoice/{invoiceId}/changeStatus | Update the status of an invoice |
 
 
@@ -279,7 +281,7 @@ try {
 ## `createInvoiceReminder()`
 
 ```php
-createInvoiceReminder($invoice_id, $invoice_object_name, $create_invoice_reminder_request): \Itsmind\Sevdesk\Model\GetLastDunning200Response
+createInvoiceReminder($invoice_id, $invoice_object_name, $create_invoice_reminder_request): \Itsmind\Sevdesk\Model\UpdateInvoiceById200Response
 ```
 
 Create invoice reminder
@@ -327,7 +329,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetLastDunning200Response**](../Model/GetLastDunning200Response.md)
+[**\Itsmind\Sevdesk\Model\UpdateInvoiceById200Response**](../Model/UpdateInvoiceById200Response.md)
 
 ### Authorization
 
@@ -337,6 +339,67 @@ try {
 
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteInvoiceById()`
+
+```php
+deleteInvoiceById($invoice_id)
+```
+
+Delete invoice by ID
+
+Deletes a single invoice
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$invoice_id = 56; // int | ID of invoice to return
+
+try {
+    $apiInstance->deleteInvoiceById($invoice_id);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoiceApi->deleteInvoiceById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoice_id** | **int**| ID of invoice to return | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -625,7 +688,7 @@ try {
 ## `getLastDunning()`
 
 ```php
-getLastDunning($invoice_id): \Itsmind\Sevdesk\Model\GetLastDunning200Response
+getLastDunning($invoice_id): \Itsmind\Sevdesk\Model\UpdateInvoiceById200Response
 ```
 
 Get the last dunning of an invoice
@@ -669,7 +732,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetLastDunning200Response**](../Model/GetLastDunning200Response.md)
+[**\Itsmind\Sevdesk\Model\UpdateInvoiceById200Response**](../Model/UpdateInvoiceById200Response.md)
 
 ### Authorization
 
@@ -879,7 +942,7 @@ try {
 ## `invoiceSendBy()`
 
 ```php
-invoiceSendBy($invoice_id, $invoice_send_by_request): \Itsmind\Sevdesk\Model\InvoiceSendBy200Response
+invoiceSendBy($invoice_id, $invoice_send_by_request): \Itsmind\Sevdesk\Model\UpdateInvoiceById200Response
 ```
 
 Mark invoice as sent
@@ -925,7 +988,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\InvoiceSendBy200Response**](../Model/InvoiceSendBy200Response.md)
+[**\Itsmind\Sevdesk\Model\UpdateInvoiceById200Response**](../Model/UpdateInvoiceById200Response.md)
 
 ### Authorization
 
@@ -1004,10 +1067,76 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `updateInvoiceById()`
+
+```php
+updateInvoiceById($invoice_id, $embed, $model_invoice_update): \Itsmind\Sevdesk\Model\UpdateInvoiceById200Response
+```
+
+Update invoice by ID
+
+Updates a single invoice
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$invoice_id = 56; // int | ID of invoice to return
+$embed = array('embed_example'); // string[]
+$model_invoice_update = new \Itsmind\Sevdesk\Model\ModelInvoiceUpdate(); // \Itsmind\Sevdesk\Model\ModelInvoiceUpdate | Update data
+
+try {
+    $result = $apiInstance->updateInvoiceById($invoice_id, $embed, $model_invoice_update);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoiceApi->updateInvoiceById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoice_id** | **int**| ID of invoice to return | |
+| **embed** | [**string[]**](../Model/string.md)|  | [optional] |
+| **model_invoice_update** | [**\Itsmind\Sevdesk\Model\ModelInvoiceUpdate**](../Model/ModelInvoiceUpdate.md)| Update data | [optional] |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\UpdateInvoiceById200Response**](../Model/UpdateInvoiceById200Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `updateStatus()`
 
 ```php
-updateStatus($invoice_id, $update_status_request): \Itsmind\Sevdesk\Model\GetLastDunning200Response
+updateStatus($invoice_id, $update_status_request): \Itsmind\Sevdesk\Model\UpdateInvoiceById200Response
 ```
 
 Update the status of an invoice
@@ -1053,7 +1182,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetLastDunning200Response**](../Model/GetLastDunning200Response.md)
+[**\Itsmind\Sevdesk\Model\UpdateInvoiceById200Response**](../Model/UpdateInvoiceById200Response.md)
 
 ### Authorization
 

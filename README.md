@@ -192,6 +192,7 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 | _InvoiceApi_                 | [**createInvoiceByFactory**](docs/Api/InvoiceApi.md#createinvoicebyfactory)                                 | **POST** /Invoice/Factory/saveInvoice                                              | Create a new invoice                            |
 | _InvoiceApi_                 | [**createInvoiceFromOrder**](docs/Api/InvoiceApi.md#createinvoicefromorder)                                 | **POST** /Invoice/Factory/createInvoiceFromOrder                                   | Create invoice from order                       |
 | _InvoiceApi_                 | [**createInvoiceReminder**](docs/Api/InvoiceApi.md#createinvoicereminder)                                   | **POST** /Invoice/Factory/createInvoiceReminder                                    | Create invoice reminder                         |
+| _InvoiceApi_                 | [**deleteInvoiceById**](docs/Api/InvoiceApi.md#deleteinvoicebyid)                                           | **DELETE** /Invoice/{invoiceId}                                                    | Delete invoice by ID                            |
 | _InvoiceApi_                 | [**getInvoiceById**](docs/Api/InvoiceApi.md#getinvoicebyid)                                                 | **GET** /Invoice/{invoiceId}                                                       | Find invoice by ID                              |
 | _InvoiceApi_                 | [**getInvoicePositionsById**](docs/Api/InvoiceApi.md#getinvoicepositionsbyid)                               | **GET** /Invoice/{invoiceId}/getPositions                                          | Find invoice positions                          |
 | _InvoiceApi_                 | [**getInvoices**](docs/Api/InvoiceApi.md#getinvoices)                                                       | **GET** /Invoice                                                                   | Retrieve invoices                               |
@@ -202,6 +203,7 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 | _InvoiceApi_                 | [**invoiceRender**](docs/Api/InvoiceApi.md#invoicerender)                                                   | **POST** /Invoice/{invoiceId}/render                                               | Render the pdf document of an invoice           |
 | _InvoiceApi_                 | [**invoiceSendBy**](docs/Api/InvoiceApi.md#invoicesendby)                                                   | **PUT** /Invoice/{invoiceId}/sendBy                                                | Mark invoice as sent                            |
 | _InvoiceApi_                 | [**sendInvoiceViaEMail**](docs/Api/InvoiceApi.md#sendinvoiceviaemail)                                       | **POST** /Invoice/{invoiceId}/sendViaEmail                                         | Send invoice via email                          |
+| _InvoiceApi_                 | [**updateInvoiceById**](docs/Api/InvoiceApi.md#updateinvoicebyid)                                           | **PUT** /Invoice/{invoiceId}                                                       | Update invoice by ID                            |
 | _InvoiceApi_                 | [**updateStatus**](docs/Api/InvoiceApi.md#updatestatus)                                                     | **PUT** /Invoice/{invoiceId}/changeStatus                                          | Update the status of an invoice                 |
 | _InvoicePosApi_              | [**getInvoicePos**](docs/Api/InvoicePosApi.md#getinvoicepos)                                                | **GET** /InvoicePos                                                                | Retrieve InvoicePos                             |
 | _LayoutApi_                  | [**getLetterpapersWithThumb**](docs/Api/LayoutApi.md#getletterpaperswiththumb)                              | **GET** /DocServer/getLetterpapersWithThumb                                        | Retrieve letterpapers                           |
@@ -306,7 +308,6 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 - [GetInvoicesContactParameter](docs/Model/GetInvoicesContactParameter.md)
 - [GetInvoicesPaymentMethodParameter](docs/Model/GetInvoicesPaymentMethodParameter.md)
 - [GetIsInvoicePartiallyPaid200Response](docs/Model/GetIsInvoicePartiallyPaid200Response.md)
-- [GetLastDunning200Response](docs/Model/GetLastDunning200Response.md)
 - [GetLetterpapersWithThumb200Response](docs/Model/GetLetterpapersWithThumb200Response.md)
 - [GetLetterpapersWithThumb200ResponseLetterpapers](docs/Model/GetLetterpapersWithThumb200ResponseLetterpapers.md)
 - [GetNextCustomerNumber200Response](docs/Model/GetNextCustomerNumber200Response.md)
@@ -331,7 +332,6 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 - [InvoiceRender201Response](docs/Model/InvoiceRender201Response.md)
 - [InvoiceRender201ResponseObjectsInner](docs/Model/InvoiceRender201ResponseObjectsInner.md)
 - [InvoiceRenderRequest](docs/Model/InvoiceRenderRequest.md)
-- [InvoiceSendBy200Response](docs/Model/InvoiceSendBy200Response.md)
 - [InvoiceSendByRequest](docs/Model/InvoiceSendByRequest.md)
 - [ModelAccountingContact](docs/Model/ModelAccountingContact.md)
 - [ModelAccountingContactContact](docs/Model/ModelAccountingContactContact.md)
@@ -575,6 +575,7 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 - [SendInvoiceViaEMail201Response](docs/Model/SendInvoiceViaEMail201Response.md)
 - [SendInvoiceViaEMailRequest](docs/Model/SendInvoiceViaEMailRequest.md)
 - [SendorderViaEMail201Response](docs/Model/SendorderViaEMail201Response.md)
+- [UpdateInvoiceById200Response](docs/Model/UpdateInvoiceById200Response.md)
 - [UpdateOrderTemplate200Response](docs/Model/UpdateOrderTemplate200Response.md)
 - [UpdateStatusRequest](docs/Model/UpdateStatusRequest.md)
 - [UpdateTagRequest](docs/Model/UpdateTagRequest.md)

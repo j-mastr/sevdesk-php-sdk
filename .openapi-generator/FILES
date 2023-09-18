@@ -76,7 +76,6 @@ docs/Model/GetInvoices200Response.md
 docs/Model/GetInvoicesContactParameter.md
 docs/Model/GetInvoicesPaymentMethodParameter.md
 docs/Model/GetIsInvoicePartiallyPaid200Response.md
-docs/Model/GetLastDunning200Response.md
 docs/Model/GetLetterpapersWithThumb200Response.md
 docs/Model/GetLetterpapersWithThumb200ResponseLetterpapers.md
 docs/Model/GetNextCustomerNumber200Response.md
@@ -101,7 +100,6 @@ docs/Model/InvoiceGetPdf200Response.md
 docs/Model/InvoiceRender201Response.md
 docs/Model/InvoiceRender201ResponseObjectsInner.md
 docs/Model/InvoiceRenderRequest.md
-docs/Model/InvoiceSendBy200Response.md
 docs/Model/InvoiceSendByRequest.md
 docs/Model/ModelAccountingContact.md
 docs/Model/ModelAccountingContactContact.md
@@ -345,6 +343,7 @@ docs/Model/SendCreditNoteByPrinting200Response.md
 docs/Model/SendInvoiceViaEMail201Response.md
 docs/Model/SendInvoiceViaEMailRequest.md
 docs/Model/SendorderViaEMail201Response.md
+docs/Model/UpdateInvoiceById200Response.md
 docs/Model/UpdateOrderTemplate200Response.md
 docs/Model/UpdateStatusRequest.md
 docs/Model/UpdateTagRequest.md
@@ -428,7 +427,6 @@ lib/Model/GetInvoices200Response.php
 lib/Model/GetInvoicesContactParameter.php
 lib/Model/GetInvoicesPaymentMethodParameter.php
 lib/Model/GetIsInvoicePartiallyPaid200Response.php
-lib/Model/GetLastDunning200Response.php
 lib/Model/GetLetterpapersWithThumb200Response.php
 lib/Model/GetLetterpapersWithThumb200ResponseLetterpapers.php
 lib/Model/GetNextCustomerNumber200Response.php
@@ -453,7 +451,6 @@ lib/Model/InvoiceGetPdf200Response.php
 lib/Model/InvoiceRender201Response.php
 lib/Model/InvoiceRender201ResponseObjectsInner.php
 lib/Model/InvoiceRenderRequest.php
-lib/Model/InvoiceSendBy200Response.php
 lib/Model/InvoiceSendByRequest.php
 lib/Model/ModelAccountingContact.php
 lib/Model/ModelAccountingContactContact.php
@@ -698,6 +695,7 @@ lib/Model/SendCreditNoteByPrinting200Response.php
 lib/Model/SendInvoiceViaEMail201Response.php
 lib/Model/SendInvoiceViaEMailRequest.php
 lib/Model/SendorderViaEMail201Response.php
+lib/Model/UpdateInvoiceById200Response.php
 lib/Model/UpdateOrderTemplate200Response.php
 lib/Model/UpdateStatusRequest.php
 lib/Model/UpdateTagRequest.php

@@ -10470,6 +10470,103 @@ paths:
           description: "Authentication required"
         "500":
           description: "Server Error"
+    put:
+      tags:
+        - "Invoice"
+      summary: "Update invoice by ID"
+      description: "Updates a single invoice"
+      operationId: "updateInvoiceById"
+      parameters:
+        - name: "invoiceId"
+          in: "path"
+          description: "ID of invoice to return"
+          required: true
+          schema:
+            type: "integer"
+        - name: "embed"
+          in: "query"
+          required: false
+          style: form
+          explode: false
+          schema:
+            type: "array"
+            items:
+              type: "string"
+              enum:
+                - propertyAutoGenerateRecurringInvoice
+                - propertyUseNewCalculation
+                - autoSendConfiguration
+                - swissEsrData
+                - isPartiallyPaid
+                - finalInvoiceId
+                - lastDunningDate
+                - contact
+                - paymentMethod
+                - costCentre
+                - total
+                - debit
+                - cancled
+                - tags
+                - origin
+                - origin.debit
+                - dunningLevel
+                - delinquent
+                - dunningLevel
+                - checkAccountTransactions
+                - checkAccountTransactions.checkAccount
+                - checkAccountTransactionLogs
+                - checkAccountTransactionLogs.checkAccountTransaction.checkAccount
+                - contact.parent
+                - propertyVatChangeChecked
+                - propertyIsEInvoice
+                - propertyOriginTransaction
+                - addressCountry
+                - openInvoiceReminderDebit
+                - openReminderCharge
+      requestBody:
+        description: "Update data"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Model_InvoiceUpdate"
+      responses:
+        "200":
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                properties:
+                  objects:
+                    $ref: "#/components/schemas/Model_InvoiceResponse"
+                type: "object"
+        "400":
+          description: "Bad request. Invoice was not found"
+        "401":
+          description: "Authentication required"
+        "500":
+          description: "Server Error"
+    delete:
+      tags:
+        - "Invoice"
+      summary: "Delete invoice by ID"
+      description: "Deletes a single invoice"
+      operationId: "deleteInvoiceById"
+      parameters:
+        - name: "invoiceId"
+          in: "path"
+          description: "ID of invoice to return"
+          required: true
+          schema:
+            type: "integer"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Bad request. Invoice was not found"
+        "401":
+          description: "Authentication required"
+        "500":
+          description: "Server Error"
   /Voucher/Factory/saveVoucher:
     post:
       tags:
@@ -13438,10 +13535,7 @@ paths:
               schema:
                 properties:
                   objects:
-                    description: "The invoice object which was marked as sent."
-                    type: "array"
-                    items:
-                      $ref: "#/components/schemas/Model_InvoiceResponse"
+                    $ref: "#/components/schemas/Model_InvoiceResponse"
                 type: "object"
         "400":
           description: "Bad request"

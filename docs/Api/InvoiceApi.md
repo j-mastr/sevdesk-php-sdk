@@ -279,7 +279,7 @@ try {
 ## `createInvoiceReminder()`
 
 ```php
-createInvoiceReminder($invoice_id, $invoice_object_name, $create_invoice_reminder_request): \Itsmind\Sevdesk\Model\GetInvoiceById200Response
+createInvoiceReminder($invoice_id, $invoice_object_name, $create_invoice_reminder_request): \Itsmind\Sevdesk\Model\GetLastDunning200Response
 ```
 
 Create invoice reminder
@@ -327,7 +327,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetInvoiceById200Response**](../Model/GetInvoiceById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetLastDunning200Response**](../Model/GetLastDunning200Response.md)
 
 ### Authorization
 

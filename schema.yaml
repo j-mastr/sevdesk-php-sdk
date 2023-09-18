@@ -13920,9 +13920,7 @@ paths:
               schema:
                 properties:
                   objects:
-                    type: "array"
-                    items:
-                      $ref: "#/components/schemas/Model_InvoiceResponse"
+                    $ref: "#/components/schemas/Model_InvoiceResponse"
                 type: "object"
         "400":
           description: "Bad Request"

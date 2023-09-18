@@ -60,7 +60,7 @@ class BookInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'amount' => 'float',
         'date' => 'int',
         'type' => 'string',
-        'check_account' => '\Itsmind\Sevdesk\Model\BookVoucherRequestCheckAccount',
+        'check_account' => '\Itsmind\Sevdesk\Model\BookInvoiceRequestCheckAccount',
         'check_account_transaction' => '\Itsmind\Sevdesk\Model\BookInvoiceRequestCheckAccountTransaction',
         'create_feed' => 'bool'
     ];
@@ -462,7 +462,7 @@ class BookInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets check_account
      *
-     * @return \Itsmind\Sevdesk\Model\BookVoucherRequestCheckAccount
+     * @return \Itsmind\Sevdesk\Model\BookInvoiceRequestCheckAccount
      */
     public function getCheckAccount()
     {
@@ -472,7 +472,7 @@ class BookInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets check_account
      *
-     * @param \Itsmind\Sevdesk\Model\BookVoucherRequestCheckAccount $check_account check_account
+     * @param \Itsmind\Sevdesk\Model\BookInvoiceRequestCheckAccount $check_account check_account
      *
      * @return self
      */

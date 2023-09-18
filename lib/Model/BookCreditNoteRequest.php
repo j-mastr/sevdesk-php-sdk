@@ -60,7 +60,7 @@ class BookCreditNoteRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'amount' => 'float',
         'date' => 'int',
         'type' => 'string',
-        'check_account' => '\Itsmind\Sevdesk\Model\BookVoucherRequestCheckAccount',
+        'check_account' => '\Itsmind\Sevdesk\Model\BookInvoiceRequestCheckAccount',
         'check_account_transaction' => '\Itsmind\Sevdesk\Model\BookCreditNoteRequestCheckAccountTransaction',
         'create_feed' => 'bool'
     ];
@@ -462,7 +462,7 @@ class BookCreditNoteRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets check_account
      *
-     * @return \Itsmind\Sevdesk\Model\BookVoucherRequestCheckAccount
+     * @return \Itsmind\Sevdesk\Model\BookInvoiceRequestCheckAccount
      */
     public function getCheckAccount()
     {
@@ -472,7 +472,7 @@ class BookCreditNoteRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets check_account
      *
-     * @param \Itsmind\Sevdesk\Model\BookVoucherRequestCheckAccount $check_account check_account
+     * @param \Itsmind\Sevdesk\Model\BookInvoiceRequestCheckAccount $check_account check_account
      *
      * @return self
      */

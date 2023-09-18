@@ -9415,6 +9415,8 @@ paths:
                       description: "Internal object name which is 'CheckAccount'."
                       type: "string"
                       example: "CheckAccount"
+                      enum:
+                        - "CheckAccount"
                   type: "object"
                 checkAccountTransaction:
                   description:
@@ -9433,6 +9435,8 @@ paths:
                       description: "Internal object name which is 'CheckAccountTransaction'."
                       type: "string"
                       example: "CheckAccountTransaction"
+                      enum:
+                        - "CheckAccountTransaction"
                   type: "object"
                 createFeed:
                   description: "Determines if a feed is created for the booking process."
@@ -10612,7 +10616,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/saveVoucherResponse"
+                properties:
+                  objects:
+                    $ref: "#/components/schemas/saveVoucherResponse"
         "400":
           description: "Bad request"
         "401":

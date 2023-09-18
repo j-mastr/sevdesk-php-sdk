@@ -30,6 +30,7 @@ docs/Model/BookCreditNoteRequest.md
 docs/Model/BookCreditNoteRequestCheckAccountTransaction.md
 docs/Model/BookInvoice200Response.md
 docs/Model/BookInvoiceRequest.md
+docs/Model/BookInvoiceRequestCheckAccount.md
 docs/Model/BookInvoiceRequestCheckAccountTransaction.md
 docs/Model/BookVoucher200Response.md
 docs/Model/BookVoucherRequest.md
@@ -42,6 +43,7 @@ docs/Model/CreateInvoiceReminderRequestInvoice.md
 docs/Model/CreatePackingListFromOrder200Response.md
 docs/Model/CreateTagRequest.md
 docs/Model/CreateTagRequestObject.md
+docs/Model/CreateVoucherByFactory201Response.md
 docs/Model/CreditNoteSendBy200Response.md
 docs/Model/CreditNoteSendByRequest.md
 docs/Model/DeleteAccountingContact200Response.md
@@ -381,6 +383,7 @@ lib/Model/BookCreditNoteRequest.php
 lib/Model/BookCreditNoteRequestCheckAccountTransaction.php
 lib/Model/BookInvoice200Response.php
 lib/Model/BookInvoiceRequest.php
+lib/Model/BookInvoiceRequestCheckAccount.php
 lib/Model/BookInvoiceRequestCheckAccountTransaction.php
 lib/Model/BookVoucher200Response.php
 lib/Model/BookVoucherRequest.php
@@ -393,6 +396,7 @@ lib/Model/CreateInvoiceReminderRequestInvoice.php
 lib/Model/CreatePackingListFromOrder200Response.php
 lib/Model/CreateTagRequest.php
 lib/Model/CreateTagRequestObject.php
+lib/Model/CreateVoucherByFactory201Response.php
 lib/Model/CreditNoteSendBy200Response.php
 lib/Model/CreditNoteSendByRequest.php
 lib/Model/DeleteAccountingContact200Response.php
@@ -704,3 +708,4 @@ lib/Model/VoucherUploadFile201ResponseObjectsInner.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/BookInvoiceRequestCheckAccountTest.php

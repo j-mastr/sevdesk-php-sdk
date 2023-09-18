@@ -79,7 +79,7 @@ try {
 ## `createVoucherByFactory()`
 
 ```php
-createVoucherByFactory($save_voucher): \Itsmind\Sevdesk\Model\SaveVoucherResponse
+createVoucherByFactory($save_voucher): \Itsmind\Sevdesk\Model\CreateVoucherByFactory201Response
 ```
 
 Create a new voucher
@@ -123,7 +123,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\SaveVoucherResponse**](../Model/SaveVoucherResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateVoucherByFactory201Response**](../Model/CreateVoucherByFactory201Response.md)
 
 ### Authorization
 

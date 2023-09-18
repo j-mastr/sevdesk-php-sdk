@@ -235,6 +235,19 @@ class BookVoucherRequestCheckAccount implements ModelInterface, ArrayAccess, \Js
         return self::$openAPIModelName;
     }
 
+    public const OBJECT_NAME_CHECK_ACCOUNT = 'CheckAccount';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getObjectNameAllowableValues()
+    {
+        return [
+            self::OBJECT_NAME_CHECK_ACCOUNT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -288,6 +301,15 @@ class BookVoucherRequestCheckAccount implements ModelInterface, ArrayAccess, \Js
         if ($this->container['object_name'] === null) {
             $invalidProperties[] = "'object_name' can't be null";
         }
+        $allowedValues = $this->getObjectNameAllowableValues();
+        if (!is_null($this->container['object_name']) && !in_array($this->container['object_name'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'object_name', must be one of '%s'",
+                $this->container['object_name'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -351,6 +373,16 @@ class BookVoucherRequestCheckAccount implements ModelInterface, ArrayAccess, \Js
     {
         if (is_null($object_name)) {
             throw new \InvalidArgumentException('non-nullable object_name cannot be null');
+        }
+        $allowedValues = $this->getObjectNameAllowableValues();
+        if (!in_array($object_name, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'object_name', must be one of '%s'",
+                    $object_name,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['object_name'] = $object_name;
 

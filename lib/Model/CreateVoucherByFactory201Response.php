@@ -1,6 +1,6 @@
 <?php
 /**
- * BookVoucherRequestCheckAccountTransaction
+ * CreateVoucherByFactory201Response
  *
  * PHP version 7.4
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \Itsmind\Sevdesk\ObjectSerializer;
 
 /**
- * BookVoucherRequestCheckAccountTransaction Class Doc Comment
+ * CreateVoucherByFactory201Response Class Doc Comment
  *
  * @category Class
- * @description The check account transaction on which should be booked.&lt;br&gt;      The transaction will be linked to the voucher.
  * @package  Itsmind\Sevdesk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BookVoucherRequestCheckAccountTransaction implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateVoucherByFactory201Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class BookVoucherRequestCheckAccountTransaction implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $openAPIModelName = 'bookVoucher_request_checkAccountTransaction';
+    protected static $openAPIModelName = 'createVoucherByFactory_201_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +57,7 @@ class BookVoucherRequestCheckAccountTransaction implements ModelInterface, Array
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'object_name' => 'string'
+        'objects' => '\Itsmind\Sevdesk\Model\SaveVoucherResponse'
     ];
 
     /**
@@ -70,8 +68,7 @@ class BookVoucherRequestCheckAccountTransaction implements ModelInterface, Array
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'object_name' => null
+        'objects' => null
     ];
 
     /**
@@ -80,8 +77,7 @@ class BookVoucherRequestCheckAccountTransaction implements ModelInterface, Array
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'object_name' => false
+        'objects' => false
     ];
 
     /**
@@ -170,8 +166,7 @@ class BookVoucherRequestCheckAccountTransaction implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'object_name' => 'objectName'
+        'objects' => 'objects'
     ];
 
     /**
@@ -180,8 +175,7 @@ class BookVoucherRequestCheckAccountTransaction implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'object_name' => 'setObjectName'
+        'objects' => 'setObjects'
     ];
 
     /**
@@ -190,8 +184,7 @@ class BookVoucherRequestCheckAccountTransaction implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'object_name' => 'getObjectName'
+        'objects' => 'getObjects'
     ];
 
     /**
@@ -235,19 +228,6 @@ class BookVoucherRequestCheckAccountTransaction implements ModelInterface, Array
         return self::$openAPIModelName;
     }
 
-    public const OBJECT_NAME_CHECK_ACCOUNT_TRANSACTION = 'CheckAccountTransaction';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getObjectNameAllowableValues()
-    {
-        return [
-            self::OBJECT_NAME_CHECK_ACCOUNT_TRANSACTION,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -264,8 +244,7 @@ class BookVoucherRequestCheckAccountTransaction implements ModelInterface, Array
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('object_name', $data ?? [], null);
+        $this->setIfExists('objects', $data ?? [], null);
     }
 
     /**
@@ -295,21 +274,6 @@ class BookVoucherRequestCheckAccountTransaction implements ModelInterface, Array
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object_name'] === null) {
-            $invalidProperties[] = "'object_name' can't be null";
-        }
-        $allowedValues = $this->getObjectNameAllowableValues();
-        if (!is_null($this->container['object_name']) && !in_array($this->container['object_name'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'object_name', must be one of '%s'",
-                $this->container['object_name'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -326,65 +290,28 @@ class BookVoucherRequestCheckAccountTransaction implements ModelInterface, Array
 
 
     /**
-     * Gets id
+     * Gets objects
      *
-     * @return int
+     * @return \Itsmind\Sevdesk\Model\SaveVoucherResponse|null
      */
-    public function getId()
+    public function getObjects()
     {
-        return $this->container['id'];
+        return $this->container['objects'];
     }
 
     /**
-     * Sets id
+     * Sets objects
      *
-     * @param int $id The id of the check account transaction on which should be booked.
+     * @param \Itsmind\Sevdesk\Model\SaveVoucherResponse|null $objects objects
      *
      * @return self
      */
-    public function setId($id)
+    public function setObjects($objects)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($objects)) {
+            throw new \InvalidArgumentException('non-nullable objects cannot be null');
         }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets object_name
-     *
-     * @return string
-     */
-    public function getObjectName()
-    {
-        return $this->container['object_name'];
-    }
-
-    /**
-     * Sets object_name
-     *
-     * @param string $object_name Internal object name which is 'CheckAccountTransaction'.
-     *
-     * @return self
-     */
-    public function setObjectName($object_name)
-    {
-        if (is_null($object_name)) {
-            throw new \InvalidArgumentException('non-nullable object_name cannot be null');
-        }
-        $allowedValues = $this->getObjectNameAllowableValues();
-        if (!in_array($object_name, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object_name', must be one of '%s'",
-                    $object_name,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['object_name'] = $object_name;
+        $this->container['objects'] = $objects;
 
         return $this;
     }

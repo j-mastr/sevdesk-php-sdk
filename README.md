@@ -241,6 +241,10 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 | _TagApi_                     | [**getTagRelations**](docs/Api/TagApi.md#gettagrelations)                                                   | **GET** /TagRelation                                                               | Retrieve tag relations                          |
 | _TagApi_                     | [**getTags**](docs/Api/TagApi.md#gettags)                                                                   | **GET** /Tag                                                                       | Retrieve tags                                   |
 | _TagApi_                     | [**updateTag**](docs/Api/TagApi.md#updatetag)                                                               | **PUT** /Tag/{tagId}                                                               | Update tag                                      |
+| _TextTemplateApi_            | [**addTextTemplate**](docs/Api/TextTemplateApi.md#addtexttemplate)                                          | **POST** /TextTemplate                                                             | Create a new text template                      |
+| _TextTemplateApi_            | [**deleteTextTemplate**](docs/Api/TextTemplateApi.md#deletetexttemplate)                                    | **DELETE** /TextTemplate/{id}                                                      | Delete an existing text template                |
+| _TextTemplateApi_            | [**getTextTemplate**](docs/Api/TextTemplateApi.md#gettexttemplate)                                          | **GET** /TextTemplate                                                              | Get an overview of all text template            |
+| _TextTemplateApi_            | [**updateTextTemplate**](docs/Api/TextTemplateApi.md#updatetexttemplate)                                    | **PUT** /TextTemplate/{id}                                                         | Update an existing text template                |
 | _VoucherApi_                 | [**bookVoucher**](docs/Api/VoucherApi.md#bookvoucher)                                                       | **PUT** /Voucher/{voucherId}/bookAmount                                            | Book a voucher                                  |
 | _VoucherApi_                 | [**createVoucherByFactory**](docs/Api/VoucherApi.md#createvoucherbyfactory)                                 | **POST** /Voucher/Factory/saveVoucher                                              | Create a new voucher                            |
 | _VoucherApi_                 | [**getVoucherById**](docs/Api/VoucherApi.md#getvoucherbyid)                                                 | **GET** /Voucher/{voucherId}                                                       | Find voucher by ID                              |
@@ -318,6 +322,7 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 - [GetTagRelations200Response](docs/Model/GetTagRelations200Response.md)
 - [GetTemplates200Response](docs/Model/GetTemplates200Response.md)
 - [GetTemplates200ResponseTemplates](docs/Model/GetTemplates200ResponseTemplates.md)
+- [GetTextTemplate200Response](docs/Model/GetTextTemplate200Response.md)
 - [GetTransactions200Response](docs/Model/GetTransactions200Response.md)
 - [GetVoucherById200Response](docs/Model/GetVoucherById200Response.md)
 - [GetVoucherPositions200Response](docs/Model/GetVoucherPositions200Response.md)
@@ -512,6 +517,8 @@ All URIs are relative to *https://my.sevdesk.de/api/v1*
 - [ModelTagCreateResponseSevClient](docs/Model/ModelTagCreateResponseSevClient.md)
 - [ModelTagCreateResponseTag](docs/Model/ModelTagCreateResponseTag.md)
 - [ModelTagResponse](docs/Model/ModelTagResponse.md)
+- [ModelTextTemplate](docs/Model/ModelTextTemplate.md)
+- [ModelTextTemplateResponse](docs/Model/ModelTextTemplateResponse.md)
 - [ModelVoucher](docs/Model/ModelVoucher.md)
 - [ModelVoucherCreateUser](docs/Model/ModelVoucherCreateUser.md)
 - [ModelVoucherPos](docs/Model/ModelVoucherPos.md)

@@ -22,6 +22,7 @@ docs/Api/OrderPosApi.md
 docs/Api/PartApi.md
 docs/Api/ReportApi.md
 docs/Api/TagApi.md
+docs/Api/TextTemplateApi.md
 docs/Api/VoucherApi.md
 docs/Api/VoucherPosApi.md
 docs/Model/BookCreditNote200Response.md
@@ -91,6 +92,7 @@ docs/Model/GetTagById200Response.md
 docs/Model/GetTagRelations200Response.md
 docs/Model/GetTemplates200Response.md
 docs/Model/GetTemplates200ResponseTemplates.md
+docs/Model/GetTextTemplate200Response.md
 docs/Model/GetTransactions200Response.md
 docs/Model/GetVoucherById200Response.md
 docs/Model/GetVoucherPositions200Response.md
@@ -285,6 +287,8 @@ docs/Model/ModelTagCreateResponseObject.md
 docs/Model/ModelTagCreateResponseSevClient.md
 docs/Model/ModelTagCreateResponseTag.md
 docs/Model/ModelTagResponse.md
+docs/Model/ModelTextTemplate.md
+docs/Model/ModelTextTemplateResponse.md
 docs/Model/ModelVoucher.md
 docs/Model/ModelVoucherCreateUser.md
 docs/Model/ModelVoucherPos.md
@@ -368,6 +372,7 @@ lib/Api/OrderPosApi.php
 lib/Api/PartApi.php
 lib/Api/ReportApi.php
 lib/Api/TagApi.php
+lib/Api/TextTemplateApi.php
 lib/Api/VoucherApi.php
 lib/Api/VoucherPosApi.php
 lib/ApiException.php
@@ -440,6 +445,7 @@ lib/Model/GetTagById200Response.php
 lib/Model/GetTagRelations200Response.php
 lib/Model/GetTemplates200Response.php
 lib/Model/GetTemplates200ResponseTemplates.php
+lib/Model/GetTextTemplate200Response.php
 lib/Model/GetTransactions200Response.php
 lib/Model/GetVoucherById200Response.php
 lib/Model/GetVoucherPositions200Response.php
@@ -635,6 +641,8 @@ lib/Model/ModelTagCreateResponseObject.php
 lib/Model/ModelTagCreateResponseSevClient.php
 lib/Model/ModelTagCreateResponseTag.php
 lib/Model/ModelTagResponse.php
+lib/Model/ModelTextTemplate.php
+lib/Model/ModelTextTemplateResponse.php
 lib/Model/ModelVoucher.php
 lib/Model/ModelVoucherCreateUser.php
 lib/Model/ModelVoucherPos.php

@@ -3049,6 +3049,100 @@ components:
               type: "string"
               example: "SevClient"
           type: "object"
+    Model_TextTemplateResponse:
+      title: "Text Template Model"
+      description: "text template model"
+      properties:
+        create:
+          description: "date the text template was created"
+          type: string
+          format: date-time
+        update:
+          description: "date the text template was last updated"
+          type: string
+          format: date-time
+        id:
+          description: "id of the text template"
+          type: number
+        name:
+          description: "name of the text template"
+          type: string
+        text:
+          description: "text of your text template"
+          type: string
+        category:
+          description: "The category of the new Text Template."
+          type: "string"
+          enum:
+            - "DOCUMENT"
+            - "MAIL"
+            - "LETTER"
+        objectType:
+          description: "object type for which you want to use the text template"
+          type: "string"
+          enum:
+            - "ALL"
+            - "AN"
+            - "AB"
+            - "CN"
+            - "LI"
+            - "MA"
+            - "RE"
+            - "PAYMENT_CONFIRMATION"
+        textType:
+          description: "type of your text"
+          type: "string"
+          enum:
+            - "HEAD"
+            - "FOOT"
+            - "SUBJECT"
+            - "TEXT"
+            - "SIGNATURE"
+        sevUser:
+          description: sevUser who created the text template
+          type: object
+        sevClient:
+          description: sevClient is the unique id every customer has and is used in nearly all operations
+          type: object
+        main:
+          description: defines if the text template is used as the main template
+          type: boolean
+    Model_TextTemplate:
+      properties:
+        name:
+          description: "The name for the new Text Template."
+          type: "string"
+        text:
+          description: "The text of the new Text Template."
+          type: "string"
+        category:
+          description: "The category of the new Text Template."
+          type: "string"
+          enum:
+            - "DOCUMENT"
+            - "MAIL"
+            - "LETTER"
+        objectType:
+          description: "object type for which you want to use the text template"
+          type: "string"
+          enum:
+            - "ALL"
+            - "AN"
+            - "AB"
+            - "CN"
+            - "LI"
+            - "MA"
+            - "RE"
+            - "PAYMENT_CONFIRMATION"
+        textType:
+          description: "type of your text"
+          type: "string"
+          enum:
+            - "HEAD"
+            - "FOOT"
+            - "SUBJECT"
+            - "TEXT"
+            - "SIGNATURE"
     Model_CheckAccountUpdate:
       title: "CheckAccount model"
       description: "CheckAccount model. Responsible for the payment accounts."
@@ -15444,6 +15538,179 @@ paths:
           description: "Authentication required"
         "500":
           description: "Server Error"
+  /TextTemplate:
+    get:
+      tags:
+        - "TextTemplate"
+      summary: Get an overview of all text template
+      description: Calls TextTemplate.php to get necessary variables.
+      operationId: getTextTemplate
+      parameters:
+        - name: limit
+          in: query
+          description: Limits the number of entries returned. Default is 100
+          required: false
+          schema:
+            type: integer
+            default: 100
+        - name: offset
+          in: query
+          description: Set the index where the returned text templates start. Default is 0
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: embed
+          in: query
+          description: "Get some additional information. Embed can handle multiple values, they must be separated by comma. Default ``."
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: category
+          in: query
+          description: "The category of the new Text Template."
+          required: false
+          schema:
+            type: "string"
+            enum:
+              - "DOCUMENT"
+              - "MAIL"
+              - "LETTER"
+        - name: objectType
+          in: query
+          description: "object type for which you want to use the text template"
+          required: false
+          schema:
+            type: "string"
+            enum:
+              - "ALL"
+              - "AN"
+              - "AB"
+              - "CN"
+              - "LI"
+              - "MA"
+              - "RE"
+              - "PAYMENT_CONFIRMATION"
+        - name: textType
+          in: query
+          description: "type of your text"
+          required: false
+          schema:
+            type: "string"
+            enum:
+              - "HEAD"
+              - "FOOT"
+              - "SUBJECT"
+              - "TEXT"
+              - "SIGNATURE"
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                properties:
+                  objects:
+                    type: "array"
+                    items:
+                      $ref: "#/components/schemas/Model_TextTemplateResponse"
+                required:
+                  - "objects"
+                type: "object"
+        "400":
+          description: invalid request
+        "401":
+          description: authentication required
+      security:
+        - api_key: []
+    post:
+      tags:
+        - TextTemplate
+      summary: Create a new text template
+      description: Calls TextTemplate.php to create a new text template
+      operationId: addTextTemplate
+      requestBody:
+        description: "Text Template Data"
+        content:
+          application/json:
+            schema:
+              required:
+                - "name"
+                - "text"
+              $ref: "#/components/schemas/Model_TextTemplate"
+      responses:
+        "201":
+          description: created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Model_TextTemplateResponse"
+        "400":
+          description: invalid request
+        "401":
+          description: authentication required
+      security:
+        - api_key: []
+  /TextTemplate/{id}:
+    put:
+      tags:
+        - TextTemplate
+      summary: Update an existing text template
+      description: Calls TextTemplate.php to update an existing text template
+      operationId: updateTextTemplate
+      parameters:
+        - name: id
+          in: path
+          description: Id of text template you want to update
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: "Text Template Data"
+        content:
+          application/json:
+            schema:
+              required:
+                - "name"
+                - "text"
+              $ref: "#/components/schemas/Model_TextTemplate"
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Model_TextTemplateResponse"
+        "400":
+          description: invalid request
+        "401":
+          description: authentication required
+      security:
+        - api_key: []
+    delete:
+      tags:
+        - TextTemplate
+      summary: Delete an existing text template
+      description: Calls TextTemplate.php to delete a text template
+      operationId: deleteTextTemplate
+      parameters:
+        - name: id
+          in: path
+          description: Id of text template you want to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: deleted
+        "400":
+          description: invalid request
+        "401":
+          description: authentication required
+      security:
+        - api_key: []
   /ContactAddress:
     post:
       tags:
@@ -16997,6 +17264,8 @@ tags:
       \ receipts, orders and credit notes that have a tag<br> The tag relation does\
       \ not have to be created separately, as this is automatically created when a tag\
       \ is created.<br> <br>"
+  - name: "TextTemplate"
+    description: Everything about the TextTemplate model
   - name: "ContactField"
     description:
       "The contact fields are placeholders that can be titled and filled\

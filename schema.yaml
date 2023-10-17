@@ -2646,6 +2646,7 @@ components:
             - "100"
             - "200"
             - "500"
+            - "750"
             - "1000"
           example: "100"
           readOnly: true
@@ -7610,6 +7611,7 @@ components:
             - "100"
             - "200"
             - "500"
+            - "750"
             - "1000"
           example: "100"
           nullable: false
@@ -10894,7 +10896,7 @@ paths:
           required: false
           schema:
             type: "number"
-            enum:
+            enum: # other values?
               - 100
               - 200
               - 1000

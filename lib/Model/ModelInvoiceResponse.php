@@ -605,6 +605,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     public const STATUS__100 = '100';
     public const STATUS__200 = '200';
     public const STATUS__500 = '500';
+    public const STATUS__750 = '750';
     public const STATUS__1000 = '1000';
     public const TAX_TYPE__DEFAULT = 'default';
     public const TAX_TYPE_EU = 'eu';
@@ -635,6 +636,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
             self::STATUS__100,
             self::STATUS__200,
             self::STATUS__500,
+            self::STATUS__750,
             self::STATUS__1000,
         ];
     }

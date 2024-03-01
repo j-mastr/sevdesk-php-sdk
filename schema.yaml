@@ -763,6 +763,9 @@ paths:
           schema:
             type: string
             example: ContactCustomFieldSetting
+            enum:
+              - ContactCustomFieldSetting
+            default: ContactCustomFieldSetting
         - name: customFieldName
           in: query
           description: >-
@@ -1232,6 +1235,9 @@ paths:
           schema:
             type: string
             example: Contact
+            enum:
+              - Contact
+            default: Contact
         - name: type
           in: query
           description: Type of the communication ways you want to get.
@@ -1430,6 +1436,8 @@ paths:
                           description: object name which is 'CommunicationWayKey'.
                           type: string
                           example: CommunicationWayKey
+                          enum:
+                            - CommunicationWayKey
                         create:
                           description: Date the communication way key was created
                           type: string
@@ -1486,6 +1494,9 @@ paths:
           schema:
             type: string
             example: Contact
+            enum:
+              - Contact
+            default: Contact
       responses:
         '200':
           description: Successful operation
@@ -2163,6 +2174,9 @@ paths:
                       description: The objectName must be 'Invoice'
                       type: string
                       example: Invoice
+                      enum:
+                        - Invoice
+                      default: Invoice
       responses:
         '201':
           description: Created
@@ -2221,6 +2235,9 @@ paths:
                       description: The objectName must be 'Voucher'
                       type: string
                       example: Voucher
+                      enum:
+                        - Voucher
+                      default: Voucher
       responses:
         '201':
           description: Created
@@ -2621,6 +2638,9 @@ paths:
                       description: Internal object name which is 'CheckAccount'.
                       type: string
                       example: CheckAccount
+                      enum:
+                        - CheckAccount
+                      default: CheckAccount
                   type: object
                 checkAccountTransaction:
                   description: "The check account transaction on which should be booked.<br>\r\n    The transaction will be linked to the credit note."
@@ -2637,6 +2657,9 @@ paths:
                       description: Internal object name which is 'CheckAccountTransaction'.
                       type: string
                       example: CheckAccountTransaction
+                      enum:
+                        - CheckAccountTransaction
+                      default: CheckAccountTransaction
                   type: object
                 createFeed:
                   description: Determines if a feed is created for the booking process.
@@ -2654,8 +2677,12 @@ paths:
                     type: string
                     example: 2
                   objectName:
+                    description: Internal object name which is 'CreditNoteLog'.
                     type: string
                     example: CreditNoteLog
+                    enum:
+                      - CreditNoteLog
+                    default: CreditNoteLog
                   additionalInformation:
                     type: string
                     default: null
@@ -2678,6 +2705,8 @@ paths:
                         description: Internal object name which is 'CreditNote'.
                         type: string
                         example: CreditNote
+                        enum:
+                          - CreditNote
                   fromStatus:
                     type: string
                     example: 200
@@ -2708,6 +2737,8 @@ paths:
                         description: Model name, which is 'SevClient'
                         type: string
                         example: SevClient
+                        enum:
+                          - SevClient
         '400':
           description: Bad request
         '401':
@@ -2919,10 +2950,18 @@ paths:
                 example: 999999
               modelName:
                 description: Model name, which is 'Invoice'
+                type: string
                 example: Invoice
+                enum:
+                  - Invoice
+                default: Invoice
               objectName:
                 description: Model name, which is 'SevQuery'
+                type: string
                 example: SevQuery
+                enum:
+                  - SevQuery
+                default: SevQuery
               filter:
                 type: object
                 properties:
@@ -2968,6 +3007,9 @@ paths:
                         description: Model name, which is 'Contact'
                         type: string
                         example: Contact
+                        enum:
+                          - Contact
+                        default: Contact
                   startAmount:
                     description: filters the invoices by amount
                     type: integer
@@ -3033,9 +3075,18 @@ paths:
                 example: 999999
               modelName:
                 description: Model name, which is 'Invoice'
+                type: string
+                example: Invoice
+                enum:
+                  - Invoice
+                default: Invoice
               objectName:
                 description: Model name, which is 'SevQuery'
+                type: string
                 example: SevQuery
+                enum:
+                  - SevQuery
+                default: SevQuery
               filter:
                 type: object
                 properties:
@@ -3081,6 +3132,9 @@ paths:
                         description: Model name, which is 'Contact'
                         type: string
                         example: Contact
+                        enum:
+                          - Contact
+                        default: Contact
                   startAmount:
                     description: filters the invoices by amount
                     type: integer
@@ -3148,10 +3202,18 @@ paths:
                 example: 999999
               modelName:
                 description: Model name, which is 'CreditNote'
+                type: string
                 example: CreditNote
+                enum:
+                  - CreditNote
+                default: CreditNote
               objectName:
                 description: Model name, which is 'SevQuery'
+                type: string
                 example: SevQuery
+                enum:
+                  - SevQuery
+                default: SevQuery
               filter:
                 type: object
                 properties:
@@ -3177,6 +3239,9 @@ paths:
                         description: Model name, which is 'Contact'
                         type: string
                         example: Contact
+                        enum:
+                          - Contact
+                        default: Contact
                   startAmount:
                     description: filters the credit notes by amount
                     type: integer
@@ -3242,10 +3307,18 @@ paths:
                 example: 999999
               modelName:
                 description: Model name, which is 'Voucher'
+                type: string
                 example: Voucher
+                enum:
+                  - Voucher
+                default: Voucher
               objectName:
                 description: Model name, which is 'SevQuery'
+                type: string
                 example: SevQuery
+                enum:
+                  - SevQuery
+                default: SevQuery
               filter:
                 type: object
                 properties:
@@ -3279,6 +3352,9 @@ paths:
                         description: Model name, which is 'Contact'
                         type: string
                         example: Contact
+                        enum:
+                          - Contact
+                        default: Contact
                   startAmount:
                     description: filters the vouchers by amount
                     type: integer
@@ -3342,10 +3418,18 @@ paths:
                 example: 999999
               modelName:
                 description: Model name, which is 'CheckAccountTransaction'
+                type: string
                 example: CheckAccountTransaction
+                enum:
+                  - CheckAccountTransaction
+                default: CheckAccountTransaction
               objectName:
                 description: Model name, which is 'SevQuery'
+                type: string
                 example: SevQuery
+                enum:
+                  - SevQuery
+                default: SevQuery
               filter:
                 type: object
                 properties:
@@ -3387,6 +3471,9 @@ paths:
                         description: Model name, which is 'CheckAccount'
                         type: string
                         example: CheckAccount
+                        enum:
+                          - CheckAccount
+                        default: CheckAccount
       responses:
         '200':
           description: Successful operation
@@ -3444,10 +3531,18 @@ paths:
                 example: 999999
               modelName:
                 description: Model name, which is 'Voucher'
+                type: string
                 example: Voucher
+                enum:
+                  - Voucher
+                default: Voucher
               objectName:
                 description: Model name, which is 'SevQuery'
+                type: string
                 example: SevQuery
+                enum:
+                  - SevQuery
+                default: SevQuery
               filter:
                 type: object
                 properties:
@@ -3482,6 +3577,9 @@ paths:
                         description: Model name, which is 'Contact'
                         type: string
                         example: Contact
+                        enum:
+                          - Contact
+                        default: Contact
                   startAmount:
                     description: filters the vouchers by amount
                     type: integer
@@ -3548,10 +3646,18 @@ paths:
                 example: 999999
               modelName:
                 description: Model name, which is 'Contact'
+                type: string
                 example: Contact
+                enum:
+                  - Contact
+                default: Contact
               objectName:
                 description: Model name, which is 'SevQuery'
+                type: string
                 example: SevQuery
+                enum:
+                  - SevQuery
+                default: SevQuery
               filter:
                 type: object
                 properties:
@@ -3577,6 +3683,9 @@ paths:
                         description: Model name, which is 'StaticCountry'
                         type: string
                         example: StaticCountry
+                        enum:
+                          - StaticCountry
+                        default: StaticCountry
                   depth:
                     description: export only organisations
                     type: boolean
@@ -3878,9 +3987,12 @@ paths:
               id:
                 type: integer
               objectName:
+                description: Model name, which is 'Contact'
                 type: string
+                example: Contact
                 enum:
                   - Contact
+                default: Contact
         - name: paymentMethod
           in: query
           description: >-
@@ -3898,9 +4010,12 @@ paths:
               id:
                 type: integer
               objectName:
+                description: Model name, which is 'PaymentMethod'
                 type: string
+                example: PaymentMethod
                 enum:
                   - PaymentMethod
+                default: PaymentMethod
         - name: embed
           in: query
           required: false
@@ -4266,6 +4381,9 @@ paths:
           example: Invoice
           schema:
             type: string
+            enum:
+              - Invoice
+            default: Invoice
   /Invoice/Factory/createInvoiceReminder:
     post:
       tags:
@@ -4287,6 +4405,9 @@ paths:
           example: Invoice
           schema:
             type: string
+            enum:
+              - Invoice
+            default: Invoice
       requestBody:
         description: Create invoice
         content:
@@ -4308,6 +4429,9 @@ paths:
                       description: Model name, which is 'Invoice'
                       type: string
                       example: Invoice
+                      enum:
+                        - Invoice
+                      default: Invoice
               type: object
       responses:
         '200':
@@ -4688,6 +4812,9 @@ paths:
                       description: Internal object name which is 'CheckAccount'.
                       type: string
                       example: CheckAccount
+                      enum:
+                        - CheckAccount
+                      default: CheckAccount
                   type: object
                 checkAccountTransaction:
                   description: "The check account transaction on which should be booked.<br>\r\n    The transaction will be linked to the invoice."
@@ -4704,6 +4831,9 @@ paths:
                       description: Internal object name which is 'CheckAccountTransaction'.
                       type: string
                       example: CheckAccountTransaction
+                      enum:
+                        - CheckAccountTransaction
+                      default: CheckAccountTransaction
                   type: object
                 createFeed:
                   description: Determines if a feed is created for the booking process.
@@ -4721,8 +4851,11 @@ paths:
                     type: string
                     example: 2
                   objectName:
+                    description: Internal object name which is 'InvoiceLog'.
                     type: string
                     example: InvoiceLog
+                    enum:
+                      - InvoiceLog
                   additionalInformation:
                     type: string
                     default: null
@@ -4745,6 +4878,8 @@ paths:
                         description: Internal object name which is 'Invoice'.
                         type: string
                         example: Invoice
+                        enum:
+                          - Invoice
                   fromStatus:
                     type: string
                     example: 200
@@ -4775,6 +4910,8 @@ paths:
                         description: Model name, which is 'SevClient'
                         type: string
                         example: SevClient
+                        enum:
+                          - SevClient
         '400':
           description: Bad request
         '401':
@@ -5501,6 +5638,9 @@ paths:
           example: Order
           schema:
             type: string
+            enum:
+              - Order
+            default: Order
       requestBody:
         description: Create packing list
         content:
@@ -5543,6 +5683,9 @@ paths:
           example: Order
           schema:
             type: string
+            enum:
+              - Order
+            default: Order
       requestBody:
         description: Create contract note
         content:
@@ -6144,6 +6287,7 @@ paths:
                       example: CheckAccount
                       enum:
                         - CheckAccount
+                      default: CheckAccount
                   type: object
                 checkAccountTransaction:
                   description: "The check account transaction on which should be booked.<br>\r\n    The transaction will be linked to the voucher."
@@ -6162,6 +6306,7 @@ paths:
                       example: CheckAccountTransaction
                       enum:
                         - CheckAccountTransaction
+                      default: CheckAccountTransaction
                   type: object
                 createFeed:
                   description: Determines if a feed is created for the booking process.
@@ -6179,8 +6324,12 @@ paths:
                     type: string
                     example: 2
                   objectName:
+                    description: Internal object name which is 'VoucherLog'.
                     type: string
                     example: VoucherLog
+                    enum:
+                      - VoucherLog
+                    default: VoucherLog
                   additionalInformation:
                     type: string
                     default: null
@@ -6203,6 +6352,8 @@ paths:
                         description: Internal object name which is 'Voucher'.
                         type: string
                         example: Voucher
+                        enum:
+                          - Voucher
                   fromStatus:
                     type: string
                     example: 200
@@ -6233,6 +6384,8 @@ paths:
                         description: Model name, which is 'SevClient'
                         type: string
                         example: SevClient
+                        enum:
+                          - SevClient
         '400':
           description: Bad request
         '401':
@@ -6319,10 +6472,18 @@ paths:
                 example: 999999
               modelName:
                 description: Model name which is exported
+                type: string
                 example: Invoice
+                enum:
+                  - Invoice
+                default: Invoice
               objectName:
                 description: SevQuery object name
+                type: string
                 example: SevQuery
+                enum:
+                  - SevQuery
+                default: SevQuery
               filter:
                 type: object
                 properties:
@@ -6368,6 +6529,9 @@ paths:
                         description: Model name, which is 'Contact'
                         type: string
                         example: Contact
+                        enum:
+                          - Contact
+                        default: Contact
                   startAmount:
                     description: filters the invoices by amount
                     type: integer
@@ -6439,10 +6603,18 @@ paths:
                 example: 999999
               modelName:
                 description: Model name which is exported
+                type: string
                 example: Order
+                enum:
+                  - Order
+                default: Order
               objectName:
                 description: SevQuery object name
+                type: string
                 example: SevQuery
+                enum:
+                  - SevQuery
+                default: SevQuery
               filter:
                 type: object
                 properties:
@@ -6479,6 +6651,9 @@ paths:
                         description: Model name, which is 'Contact'
                         type: string
                         example: Contact
+                        enum:
+                          - Contact
+                        default: Contact
                   startAmount:
                     description: filters the orders by amount
                     type: integer
@@ -6544,10 +6719,18 @@ paths:
                 example: 999999
               modelName:
                 description: Model name which is exported
+                type: string
                 example: Contact
+                enum:
+                  - Contact
+                default: Contact
               objectName:
                 description: SevQuery object name
+                type: string
                 example: SevQuery
+                enum:
+                  - SevQuery
+                default: SevQuery
               filter:
                 type: object
                 properties:
@@ -6573,6 +6756,9 @@ paths:
                         description: Model name, which is 'StaticCountry'
                         type: string
                         example: StaticCountry
+                        enum:
+                          - StaticCountry
+                        default: StaticCountry
                   depth:
                     description: export only organisations
                     type: boolean
@@ -6636,10 +6822,18 @@ paths:
                 example: 999999
               modelName:
                 description: Model name which is exported
+                type: string
                 example: Voucher
+                enum:
+                  - Voucher
+                default: Voucher
               objectName:
                 description: SevQuery object name
+                type: string
                 example: SevQuery
+                enum:
+                  - SevQuery
+                default: SevQuery
               filter:
                 type: object
                 properties:
@@ -6673,6 +6867,9 @@ paths:
                         description: Model name, which is 'Contact'
                         type: string
                         example: Contact
+                        enum:
+                          - Contact
+                        default: Contact
                   startAmount:
                     description: filters the vouchers by amount
                     type: integer
@@ -6934,9 +7131,12 @@ paths:
               id:
                 type: integer
               objectName:
+                description: Internal object name which is 'Contact'.
                 type: string
+                example: Contact
                 enum:
                   - Contact
+                default: Contact
         - name: countAll
           in: query
           description: If all contacts should be counted
@@ -7060,9 +7260,12 @@ paths:
               id:
                 type: integer
               objectName:
+                description: Internal object name which is 'Invoice'.
                 type: string
+                example: Invoice
                 enum:
                   - Invoice
+                default: Invoice
       responses:
         '200':
           description: Successful operation
@@ -7269,6 +7472,8 @@ components:
           description: The check account object name
           type: string
           example: CheckAccount
+          enum:
+            - CheckAccount
           readOnly: true
         create:
           description: Date of check account creation
@@ -7294,6 +7499,8 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
           type: object
           readOnly: true
         name:
@@ -7362,6 +7569,10 @@ components:
         objectName:
           description: The check account object name
           type: string
+          example: CheckAccount
+          enum:
+            - CheckAccount
+          default: CheckAccount
           readOnly: true
           nullable: false
         create:
@@ -7386,6 +7597,10 @@ components:
             objectName:
               description: Model name, which is 'SevClient'
               type: string
+              example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         name:
@@ -7511,6 +7726,8 @@ components:
           description: The check account transaction object name
           type: string
           example: CheckAccountTransaction
+          enum:
+            - CheckAccountTransaction
           readOnly: true
         create:
           description: Date of check account transaction creation
@@ -7538,6 +7755,8 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
           type: object
           readOnly: true
         valueDate:
@@ -7581,6 +7800,8 @@ components:
               description: Model name, which is 'CheckAccount'
               type: string
               example: CheckAccount
+              enum:
+                - CheckAccount
           type: object
           readOnly: true
         status:
@@ -7614,6 +7835,8 @@ components:
               description: Model name, which is 'CheckAccountTransaction'
               type: string
               example: CheckAccountTransaction
+              enum:
+                - CheckAccountTransaction
           type: object
           readOnly: true
         targetTransaction:
@@ -7629,6 +7852,9 @@ components:
             objectName:
               description: Model name, which is 'CheckAccountTransaction'
               type: string
+              example: CheckAccountTransaction
+              enum:
+                - CheckAccountTransaction
               default: CheckAccountTransaction
           type: object
           readOnly: true
@@ -7653,6 +7879,10 @@ components:
         objectName:
           description: The check account transaction object name
           type: string
+          example: CheckAccountTransaction
+          enum:
+            - CheckAccountTransaction
+          default: CheckAccountTransaction
           readOnly: true
         create:
           description: Date of check account transaction creation
@@ -7678,6 +7908,10 @@ components:
             objectName:
               description: Model name, which is 'SevClient'
               type: string
+              example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         valueDate:
@@ -7719,6 +7953,9 @@ components:
             objectName:
               description: Model name, which is 'CheckAccount'
               type: string
+              example: CheckAccount
+              enum:
+                - CheckAccount
               default: CheckAccount
           type: object
           nullable: false
@@ -7750,6 +7987,9 @@ components:
             objectName:
               description: Model name, which is 'CheckAccountTransaction'
               type: string
+              example: CheckAccountTransaction
+              enum:
+                - CheckAccountTransaction
               default: CheckAccountTransaction
           type: object
           nullable: true
@@ -7765,6 +8005,9 @@ components:
             objectName:
               description: Model name, which is 'CheckAccountTransaction'
               type: string
+              example: CheckAccountTransaction
+              enum:
+                - CheckAccountTransaction
               default: CheckAccountTransaction
           type: object
           nullable: true
@@ -7811,6 +8054,9 @@ components:
             objectName:
               description: Model name, which is 'CheckAccount'
               type: string
+              example: CheckAccount
+              enum:
+                - CheckAccount
               default: CheckAccount
           type: object
         status:
@@ -7840,6 +8086,9 @@ components:
             objectName:
               description: Model name, which is 'CheckAccountTransaction'
               type: string
+              example: CheckAccountTransaction
+              enum:
+                - CheckAccountTransaction
               default: CheckAccountTransaction
           type: object
           nullable: true
@@ -7855,6 +8104,9 @@ components:
             objectName:
               description: Model name, which is 'CheckAccountTransaction'
               type: string
+              example: CheckAccountTransaction
+              enum:
+                - CheckAccountTransaction
               default: CheckAccountTransaction
           type: object
           nullable: true
@@ -7872,6 +8124,8 @@ components:
           description: The contact object name
           type: string
           example: Contact
+          enum:
+            - Contact
           readOnly: true
         create:
           description: Date of contact creation
@@ -7922,6 +8176,8 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
           type: object
           readOnly: true
         surename:
@@ -7960,6 +8216,8 @@ components:
               description: Model name, which is 'Category'
               type: string
               example: Category
+              enum:
+                - Category
           type: object
           readOnly: true
         description:
@@ -7993,6 +8251,8 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
           type: object
           readOnly: true
         name2:
@@ -8081,6 +8341,8 @@ components:
               description: Model name, which is 'TaxSet'
               type: string
               example: TaxSet
+              enum:
+                - TaxSet
           type: object
           readOnly: true
         defaultDiscountAmount:
@@ -8162,6 +8424,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: true
         surename:
@@ -8200,6 +8465,9 @@ components:
               description: Model name, which is 'Category'
               type: string
               example: Category
+              enum:
+                - Category
+              default: Category
           type: object
           nullable: false
         description:
@@ -8298,6 +8566,10 @@ components:
             objectName:
               description: Model name, which is 'TaxSet'
               type: string
+              example: TaxSet
+              enum:
+                - TaxSet
+              default: TaxSet
           type: object
           nullable: true
         defaultDiscountAmount:
@@ -8366,6 +8638,10 @@ components:
             objectName:
               description: Model name, which is 'Contact'
               type: string
+              example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: true
         surename:
@@ -8404,6 +8680,9 @@ components:
               description: Model name, which is 'Category'
               type: string
               example: Category
+              enum:
+                - Category
+              default: Category
           type: object
           nullable: true
         description:
@@ -8502,6 +8781,10 @@ components:
             objectName:
               description: Model name, which is 'TaxSet'
               type: string
+              example: TaxSet
+              enum:
+                - TaxSet
+              default: TaxSet
           type: object
           nullable: true
         defaultDiscountAmount:
@@ -8548,6 +8831,9 @@ components:
           readOnly: true
           nullable: false
           example: ContactAddress
+          enum:
+            - ContactAddress
+          default: ContactAddress
         create:
           description: Date of contact address creation
           type: string
@@ -8571,6 +8857,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: false
         street:
@@ -8601,6 +8890,9 @@ components:
               description: Model name, which is 'StaticCountry'
               type: string
               example: StaticCountry
+              enum:
+                - StaticCountry
+              default: StaticCountry
           type: object
           nullable: false
         category:
@@ -8615,6 +8907,10 @@ components:
             objectName:
               description: Model name, which is 'Category'
               type: string
+              example: Category
+              enum:
+                - Category
+              default: Category
           type: object
           nullable: true
         name:
@@ -8636,6 +8932,10 @@ components:
             objectName:
               description: Model name, which is 'SevClient'
               type: string
+              example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         name2:
@@ -8666,6 +8966,10 @@ components:
         objectName:
           description: The contact address object name
           type: string
+          example: ContactAddress
+          enum:
+            - ContactAddress
+          default: ContactAddress
           readOnly: true
           nullable: false
         create:
@@ -8691,6 +8995,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: false
         street:
@@ -8721,6 +9028,9 @@ components:
               description: Model name, which is 'StaticCountry'
               type: string
               example: StaticCountry
+              enum:
+                - StaticCountry
+              default: StaticCountry
           type: object
           nullable: false
         category:
@@ -8735,6 +9045,10 @@ components:
             objectName:
               description: Model name, which is 'Category'
               type: string
+              example: Category
+              enum:
+                - Category
+              default: Category
           type: object
           nullable: true
         name:
@@ -8756,6 +9070,10 @@ components:
             objectName:
               description: Model name, which is 'SevClient'
               type: string
+              example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         name2:
@@ -8788,6 +9106,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: true
         street:
@@ -8818,6 +9139,9 @@ components:
               description: Model name, which is 'StaticCountry'
               type: string
               example: StaticCountry
+              enum:
+                - StaticCountry
+              default: StaticCountry
           type: object
           nullable: true
         category:
@@ -8832,6 +9156,10 @@ components:
             objectName:
               description: Model name, which is 'Category'
               type: string
+              example: Category
+              enum:
+                - Category
+              default: Category
           type: object
           nullable: true
         name:
@@ -8865,6 +9193,9 @@ components:
           description: The communication way object name
           type: string
           example: CommunicationWay
+          enum:
+            - CommunicationWay
+          default: CommunicationWay
           readOnly: true
         create:
           description: Date of communication way creation
@@ -8890,6 +9221,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           readOnly: true
         type:
@@ -8926,6 +9260,9 @@ components:
               description: Model name, which is 'CommunicationWayKey'
               type: string
               example: CommunicationWayKey
+              enum:
+                - CommunicationWayKey
+              default: CommunicationWayKey
           type: object
           readOnly: true
         main:
@@ -8951,6 +9288,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
       type: object
@@ -8970,6 +9310,10 @@ components:
         objectName:
           description: The communication way object name
           type: string
+          example: CommunicationWay
+          enum:
+            - CommunicationWay
+          default: CommunicationWay
           readOnly: true
           nullable: false
         create:
@@ -8995,6 +9339,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: false
         type:
@@ -9028,6 +9375,9 @@ components:
               description: Model name, which is 'CommunicationWayKey'
               type: string
               example: CommunicationWayKey
+              enum:
+                - CommunicationWayKey
+              default: CommunicationWayKey
           type: object
           nullable: false
         main:
@@ -9051,6 +9401,10 @@ components:
             objectName:
               description: Model name, which is 'SevClient'
               type: string
+              example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
       type: object
@@ -9071,6 +9425,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: true
         type:
@@ -9104,6 +9461,9 @@ components:
               description: Model name, which is 'CommunicationWayKey'
               type: string
               example: CommunicationWayKey
+              enum:
+                - CommunicationWayKey
+              default: CommunicationWayKey
           type: object
           nullable: true
         main:
@@ -9128,6 +9488,9 @@ components:
           type: string
           readOnly: true
           example: AccountingContact
+          enum:
+            - AccountingContact
+          default: AccountingContact
         create:
           description: Date of accounting contact creation
           type: string
@@ -9152,6 +9515,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           readOnly: true
         sevClient:
@@ -9170,6 +9536,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         debitorNumber:
@@ -9202,6 +9571,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: false
         debitorNumber:
@@ -9230,6 +9602,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: true
         debitorNumber:
@@ -9271,6 +9646,9 @@ components:
           description: Internal object name which is 'ContactCustomFieldSetting'.
           type: string
           example: ContactCustomFieldSetting
+          enum:
+            - ContactCustomFieldSetting
+          default: ContactCustomFieldSetting
           readOnly: true
         create:
           description: Date of contact field creation
@@ -9296,6 +9674,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         name:
@@ -9322,6 +9703,9 @@ components:
           description: Internal object name which is 'ContactCustomField'.
           type: string
           example: ContactCustomField
+          enum:
+            - ContactCustomField
+          default: ContactCustomField
         create:
           description: Date of contact field creation
           type: string
@@ -9344,6 +9728,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
         contact:
           description: name of the contact
@@ -9360,6 +9747,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
         contactCustomFieldSetting:
           description: the contact custom field setting
           type: object
@@ -9391,6 +9781,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
         contactCustomFieldSetting:
           description: name of the contact custom field setting
           type: object
@@ -9405,6 +9798,9 @@ components:
               description: Model name, which is 'contactCustomFieldSetting'
               type: string
               example: contactCustomFieldSetting
+              enum:
+                - ContactCustomFieldSetting
+              default: ContactCustomFieldSetting
         value:
           description: The value of the contact field
           type: string
@@ -9412,6 +9808,9 @@ components:
           description: Internal object name which is 'ContactCustomField'.
           type: string
           example: ContactCustomField
+          enum:
+            - ContactCustomField
+          default: ContactCustomField
     Model_ContactCustomFieldUpdate:
       title: contact fields model
       description: contact fields model
@@ -9430,6 +9829,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
         contactCustomFieldSetting:
           description: name of the contact custom field setting
           type: object
@@ -9444,6 +9846,9 @@ components:
               description: Model name, which is 'contactCustomFieldSetting'
               type: string
               example: contactCustomFieldSetting
+              enum:
+                - ContactCustomFieldSetting
+              default: ContactCustomFieldSetting
         value:
           description: The value of the contact field
           type: string
@@ -9451,6 +9856,9 @@ components:
           description: Internal object name which is 'ContactCustomField'.
           type: string
           example: ContactCustomField
+          enum:
+            - ContactCustomField
+          default: ContactCustomField
     Model_ContactCustomFieldSetting:
       title: contact field settings model
       description: contact field settings model
@@ -9468,6 +9876,9 @@ components:
           description: Internal object name which is 'ContactCustomFieldSetting'.
           type: string
           example: ContactCustomFieldSetting
+          enum:
+            - ContactCustomFieldSetting
+          default: ContactCustomFieldSetting
     Model_ContactCustomFieldSettingUpdate:
       title: contact fields model
       description: contact fields model
@@ -9482,6 +9893,9 @@ components:
           description: Internal object name which is 'ContactCustomFieldSetting'.
           type: string
           example: ContactCustomFieldSetting
+          enum:
+            - ContactCustomFieldSetting
+          default: ContactCustomFieldSetting
     Model_creditNoteResponse:
       title: creditNote model
       description: creditNote model
@@ -9498,6 +9912,9 @@ components:
           readOnly: true
           nullable: false
           example: CreditNote
+          enum:
+            - CreditNote
+          default: CreditNote
         create:
           description: Date of creditNote creation
           type: string
@@ -9529,6 +9946,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: true
         creditNoteDate:
@@ -9573,6 +9993,9 @@ components:
               description: Model name, which is 'StaticCountry'
               type: string
               example: StaticCountry
+              enum:
+                - StaticCountry
+              default: StaticCountry
           type: object
           nullable: true
         createUser:
@@ -9589,6 +10012,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
           readOnly: true
         sevClient:
@@ -9605,6 +10031,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         deliveryTerms:
@@ -9647,6 +10076,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
           nullable: true
         taxRate:
@@ -9670,6 +10102,9 @@ components:
               description: Model name, which is 'TaxSet'
               type: string
               example: TaxSet
+              enum:
+                - TaxSet
+              default: TaxSet
           type: object
           nullable: true
         taxText:
@@ -9815,6 +10250,9 @@ components:
           type: string
           nullable: false
           example: CreditNote
+          enum:
+            - CreditNote
+          default: CreditNote
         mapAll:
           type: boolean
           nullable: false
@@ -9847,6 +10285,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: false
         creditNoteDate:
@@ -9894,6 +10335,9 @@ components:
               description: Model name, which is 'StaticCountry'
               type: string
               example: StaticCountry
+              enum:
+                - StaticCountry
+              default: StaticCountry
           type: object
           nullable: true
         createUser:
@@ -9909,6 +10353,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
           readOnly: true
         sevClient:
@@ -9924,6 +10371,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         deliveryTerms:
@@ -9957,6 +10407,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
         taxRate:
           description: Is overwritten by creditNote position tax rates
@@ -9979,6 +10432,9 @@ components:
               description: Model name, which is 'TaxSet'
               type: string
               example: TaxSet
+              enum:
+                - TaxSet
+              default: TaxSet
           type: object
           nullable: true
         taxText:
@@ -10136,6 +10592,9 @@ components:
           type: string
           nullable: false
           example: CreditNotePos
+          enum:
+            - CreditNotePos
+          default: CreditNotePos
         mapAll:
           type: boolean
           nullable: false
@@ -10165,6 +10624,9 @@ components:
               description: Model name, which is 'creditNote'
               type: string
               example: creditNote
+              enum:
+                - CreditNote
+              default: CreditNote
           type: object
         part:
           description: Part from your inventory which is used in the position.
@@ -10179,6 +10641,9 @@ components:
               description: Model name, which is 'Part'
               type: string
               example: Part
+              enum:
+                - Part
+              default: Part
           type: object
         quantity:
           description: Quantity of the article/part
@@ -10230,6 +10695,9 @@ components:
               description: Model name, which is 'Unity'
               type: string
               example: Unity
+              enum:
+                - Unity
+              default: Unity
           type: object
         sevClient:
           description: >-
@@ -10246,6 +10714,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         positionNumber:
@@ -10304,6 +10775,10 @@ components:
             objectName:
               description: Object name of credit note position
               type: string
+              example: CreditNotePos
+              enum:
+                - CreditNotePos
+              default: CreditNotePos
           default: null
         filename:
           description: Filename of a previously upload file which should be attached.
@@ -10335,6 +10810,9 @@ components:
               description: Object name of the discount
               type: string
               example: Discounts
+              enum:
+                - Discounts
+              default: Discounts
             mapAll:
               description: Internal param
               type: boolean
@@ -10352,6 +10830,9 @@ components:
               description: Object name of discount
               type: string
               example: Discounts
+              enum:
+                - Discounts
+              default: Discounts
           default: null
     Model_creditNotePosResponse:
       title: creditNote position model
@@ -10374,6 +10855,9 @@ components:
           readOnly: true
           nullable: false
           example: CreditNotePos
+          enum:
+            - CreditNotePos
+          default: CreditNotePos
         create:
           description: Date of creditNote position creation
           type: string
@@ -10398,6 +10882,9 @@ components:
               description: Model name, which is 'creditNote'
               type: string
               example: creditNote
+              enum:
+                - CreditNote
+              default: CreditNote
           type: object
         part:
           description: Part from your inventory which is used in the position.
@@ -10413,6 +10900,9 @@ components:
               description: Model name, which is 'Part'
               type: string
               example: Part
+              enum:
+                - Part
+              default: Part
           type: object
         quantity:
           description: Quantity of the article/part
@@ -10461,6 +10951,9 @@ components:
               description: Model name, which is 'Unity'
               type: string
               example: Unity
+              enum:
+                - Unity
+              default: Unity
           type: object
         sevClient:
           description: >-
@@ -10478,6 +10971,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         positionNumber:
@@ -10535,6 +11031,9 @@ components:
           description: Model name, which is 'Discounts'
           type: string
           example: Discounts
+          enum:
+            - Discounts
+          default: Discounts
         create:
           description: Date of discount creation
           type: string
@@ -10583,6 +11082,10 @@ components:
           type: string
           readOnly: true
           nullable: false
+          example: CreditNote
+          enum:
+            - CreditNote
+          default: CreditNote
         create:
           description: Date of creditNote creation
           type: string
@@ -10613,6 +11116,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: true
         creditNoteDate:
@@ -10657,6 +11163,9 @@ components:
               description: Model name, which is 'StaticCountry'
               type: string
               example: StaticCountry
+              enum:
+                - StaticCountry
+              default: StaticCountry
           type: object
           nullable: true
         createUser:
@@ -10672,6 +11181,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
           readOnly: true
         sevClient:
@@ -10687,6 +11199,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         deliveryTerms:
@@ -10728,6 +11243,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
           nullable: true
         taxRate:
@@ -10751,6 +11269,9 @@ components:
               description: Model name, which is 'TaxSet'
               type: string
               example: TaxSet
+              enum:
+                - TaxSet
+              default: TaxSet
           type: object
           nullable: true
         taxText:
@@ -10914,8 +11435,12 @@ components:
           type: integer
           example: 1
         objectName:
+          description: Model name, which is 'Email'
           type: string
           example: Email
+          enum:
+            - Email
+          default: Email
         additionalInformation:
           type: string
           default: null
@@ -10959,6 +11484,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
     Model_Part:
       title: Part model
       description: Part model
@@ -10979,6 +11507,10 @@ components:
           type: string
           readOnly: true
           nullable: false
+          example: Part
+          enum:
+            - Part
+          default: Part
         create:
           description: Date of part creation
           type: string
@@ -11014,6 +11546,9 @@ components:
               description: Model name, which is 'Category'
               type: string
               example: Category
+              enum:
+                - Category
+              default: Category
           type: object
           nullable: true
         stock:
@@ -11040,6 +11575,9 @@ components:
               description: Model name, which is 'Unity'
               type: string
               example: Unity
+              enum:
+                - Unity
+              default: Unity
           type: object
         price:
           description: >-
@@ -11074,6 +11612,10 @@ components:
             objectName:
               description: Model name, which is 'SevClient'
               type: string
+              example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         pricePurchase:
@@ -11114,6 +11656,10 @@ components:
           type: string
           readOnly: true
           nullable: true
+          example: Part
+          enum:
+            - Part
+          default: Part
         create:
           description: Date of part creation
           type: string
@@ -11149,6 +11695,9 @@ components:
               description: Model name, which is 'Category'
               type: string
               example: Category
+              enum:
+                - Category
+              default: Category
           type: object
           nullable: true
         stock:
@@ -11175,6 +11724,9 @@ components:
               description: Model name, which is 'Unity'
               type: string
               example: Unity
+              enum:
+                - Unity
+              default: Unity
           type: object
         price:
           description: >-
@@ -11209,6 +11761,10 @@ components:
             objectName:
               description: Model name, which is 'SevClient'
               type: string
+              example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         pricePurchase:
@@ -11249,6 +11805,9 @@ components:
           type: string
           example: Invoice
           readOnly: true
+          enum:
+            - Invoice
+          default: Invoice
         invoiceNumber:
           description: The invoice number
           type: string
@@ -11286,6 +11845,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         invoiceDate:
@@ -11362,6 +11924,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
           readOnly: true
         deliveryDate:
@@ -11403,6 +11968,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
           readOnly: true
         taxRate:
@@ -11468,6 +12036,9 @@ components:
               description: Model name, which is 'CostCentre'
               type: string
               example: CostCentre
+              enum:
+                - CostCentre
+              default: CostCentre
           type: object
           readOnly: true
         sendDate:
@@ -11489,6 +12060,8 @@ components:
             objectName:
               description: Model name. Could f.e. be 'Order''
               type: string
+              enum:
+                - Order
           type: object
           readOnly: true
           $ref: '#/components/schemas/Model_InvoiceResponse'
@@ -11554,6 +12127,9 @@ components:
               description: Model name, which is 'TaxSet'
               type: string
               example: TaxSet
+              enum:
+                - TaxSet
+              default: TaxSet
           type: object
           readOnly: true
         address:
@@ -11735,6 +12311,9 @@ components:
           type: string
           example: Invoice
           nullable: false
+          enum:
+            - Invoice
+          default: Invoice
         invoiceNumber:
           description: The invoice number
           type: string
@@ -11754,6 +12333,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: false
         contactPerson:
@@ -11769,6 +12351,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
         create:
           description: Date of invoice creation
@@ -11793,6 +12378,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         invoiceDate:
@@ -11857,6 +12445,9 @@ components:
               description: Model name, which is 'StaticCountry'
               type: string
               example: StaticCountry
+              enum:
+                - StaticCountry
+              default: StaticCountry
           type: object
           nullable: false
         payDate:
@@ -11877,6 +12468,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
           readOnly: true
         deliveryDate:
@@ -11963,6 +12557,9 @@ components:
               description: Model name, which is 'TaxSet'
               type: string
               example: TaxSet
+              enum:
+                - TaxSet
+              default: TaxSet
           example: null
           type: object
           nullable: true
@@ -11985,6 +12582,9 @@ components:
               description: Model name, which is 'PaymentMethod'
               type: string
               example: PaymentMethod
+              enum:
+                - PaymentMethod
+              default: PaymentMethod
           type: object
         sendDate:
           description: The date the invoice was sent to the customer
@@ -12134,6 +12734,8 @@ components:
               description: Model name, which could be 'Order'
               type: string
               example: Order
+              enum:
+                - Order
           example: null
           type: object
           nullable: true
@@ -12170,6 +12772,9 @@ components:
           type: string
           example: InvoicePos
           nullable: false
+          enum:
+            - InvoicePos
+          default: InvoicePos
         mapAll:
           type: boolean
           nullable: false
@@ -12198,6 +12803,9 @@ components:
               description: Model name, which is 'Invoice'
               type: string
               example: Invoice
+              enum:
+                - Invoice
+              default: Invoice
           type: object
           readOnly: true
         part:
@@ -12213,6 +12821,9 @@ components:
               description: Model name, which is 'Part'
               type: string
               example: Part
+              enum:
+                - Part
+              default: Part
           type: object
         quantity:
           description: Quantity of the article/part
@@ -12247,6 +12858,9 @@ components:
               description: Model name, which is 'Unity'
               type: string
               example: Unity
+              enum:
+                - Unity
+              default: Unity
           type: object
         sevClient:
           description: >-
@@ -12263,6 +12877,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         positionNumber:
@@ -12351,6 +12968,10 @@ components:
             objectName:
               description: Object name of invoice position
               type: string
+              example: InvoicePos
+              enum:
+                - InvoicePos
+              default: InvoicePos
           default: null
         filename:
           description: Filename of a previously upload file which should be attached.
@@ -12384,6 +13005,9 @@ components:
                 description: Object name of the discount
                 type: string
                 example: Discounts
+                enum:
+                  - Discounts
+                default: Discounts
               mapAll:
                 description: Internal param
                 type: boolean
@@ -12397,6 +13021,9 @@ components:
               description: Object name of discount
               type: string
               example: Discounts
+              enum:
+                - Discounts
+              default: Discounts
           example: null
           type: object
     Model_InvoicePosResponse:
@@ -12412,6 +13039,9 @@ components:
           type: string
           example: InvoicePos
           readOnly: true
+          enum:
+            - InvoicePos
+          default: InvoicePos
         create:
           description: Date of invoice position creation
           type: string
@@ -12438,6 +13068,9 @@ components:
               description: Model name, which is 'Invoice'
               type: string
               example: Invoice
+              enum:
+                - Invoice
+              default: Invoice
           type: object
           readOnly: true
         part:
@@ -12454,6 +13087,9 @@ components:
               description: Model name, which is 'Part'
               type: string
               example: Part
+              enum:
+                - Part
+              default: Part
           type: object
           readOnly: true
         quantity:
@@ -12487,6 +13123,9 @@ components:
               description: Model name, which is 'Unity'
               type: string
               example: Unity
+              enum:
+                - Unity
+              default: Unity
           type: object
           readOnly: true
         sevClient:
@@ -12505,6 +13144,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         positionNumber:
@@ -12596,6 +13238,9 @@ components:
               description: Model name, which is 'Order'
               type: string
               example: Order
+              enum:
+                - Order
+              default: Order
           nullable: false
           type: object
         type:
@@ -12640,6 +13285,10 @@ components:
           type: string
           readOnly: true
           nullable: false
+          example: Email
+          enum:
+            - Email
+          default: Email
         create:
           description: Date of mail creation
           type: string
@@ -12682,6 +13331,10 @@ components:
             objectName:
               description: Model name, which is 'SevClient'
               type: string
+              example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         cc:
@@ -12779,6 +13432,9 @@ components:
           readOnly: true
           nullable: false
           example: Order
+          enum:
+            - Order
+          default: Order
         create:
           description: Date of order creation
           type: string
@@ -12807,6 +13463,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: false
         orderDate:
@@ -12852,6 +13511,10 @@ components:
             objectName:
               description: Model name, which is 'StaticCountry'
               type: string
+              example: StaticCountry
+              enum:
+                - StaticCountry
+              default: StaticCountry
           type: object
           nullable: true
         createUser:
@@ -12868,6 +13531,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
           readOnly: true
         sevClient:
@@ -12884,6 +13550,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         deliveryTerms:
@@ -12908,6 +13577,9 @@ components:
               description: Model name of the object. Could be 'Order'.
               type: string
               example: Order
+              enum:
+                - Order
+              default: Order
           type: object
           nullable: true
         version:
@@ -12934,6 +13606,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
         taxRate:
           description: Is overwritten by order position tax rates
@@ -12956,6 +13631,9 @@ components:
               description: Model name, which is 'TaxSet'
               type: string
               example: TaxSet
+              enum:
+                - TaxSet
+              default: TaxSet
           type: object
           nullable: true
         taxText:
@@ -13100,6 +13778,10 @@ components:
           description: The order object name
           type: string
           nullable: false
+          example: Order
+          enum:
+            - Order
+          default: Order
         mapAll:
           type: boolean
           nullable: false
@@ -13130,6 +13812,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: false
         orderDate:
@@ -13180,6 +13865,9 @@ components:
               description: Model name, which is 'StaticCountry'
               type: string
               example: StaticCountry
+              enum:
+                - StaticCountry
+              default: StaticCountry
           type: object
           nullable: false
         deliveryTerms:
@@ -13218,6 +13906,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
           nullable: false
         taxRate:
@@ -13240,6 +13931,9 @@ components:
               description: Model name, which is 'TaxSet'
               type: string
               example: TaxSet
+              enum:
+                - TaxSet
+              default: TaxSet
           type: object
           nullable: true
         taxText:
@@ -13335,6 +14029,8 @@ components:
             objectName:
               description: Model name of the object. Could be 'Order'.
               type: string
+              enum:
+                - Order
           type: object
           nullable: true
       type: object
@@ -13356,6 +14052,10 @@ components:
           type: string
           readOnly: true
           nullable: false
+          example: OrderPos
+          enum:
+            - OrderPos
+          default: OrderPos
         create:
           description: Date of order position creation
           type: string
@@ -13377,6 +14077,9 @@ components:
               description: Model name, which is 'Order'
               type: string
               example: Order
+              enum:
+                - Order
+              default: Order
           type: object
         part:
           description: Part from your inventory which is used in the position.
@@ -13391,6 +14094,9 @@ components:
               description: Model name, which is 'Part'
               type: string
               example: Part
+              enum:
+                - Part
+              default: Part
           type: object
         quantity:
           description: Quantity of the article/part
@@ -13435,6 +14141,9 @@ components:
               description: Model name, which is 'Unity'
               type: string
               example: Unity
+              enum:
+                - Unity
+              default: Unity
           type: object
         sevClient:
           description: Client to which order position belongs. Will be filled automatically
@@ -13448,6 +14157,10 @@ components:
             objectName:
               description: Model name, which is 'SevClient'
               type: string
+              example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         positionNumber:
@@ -13503,6 +14216,10 @@ components:
             objectName:
               description: Object name of order position
               type: string
+              example: OrderPos
+              enum:
+                - OrderPos
+              default: OrderPos
           default: null
     Model_OrderPosResponse:
       title: Order position model
@@ -13518,6 +14235,9 @@ components:
           description: The order position object name
           type: string
           example: OrderPos
+          enum:
+            - OrderPos
+          default: OrderPos
           readOnly: true
           nullable: false
         create:
@@ -13546,6 +14266,9 @@ components:
               description: Model name, which is 'Order'
               type: string
               example: Order
+              enum:
+                - Order
+              default: Order
           type: object
         part:
           description: Part from your inventory which is used in the position.
@@ -13561,6 +14284,9 @@ components:
               description: Model name, which is 'Part'
               type: string
               example: Part
+              enum:
+                - Part
+              default: Part
           type: object
         quantity:
           description: Quantity of the article/part
@@ -13609,6 +14335,9 @@ components:
               description: Model name, which is 'Unity'
               type: string
               example: Unity
+              enum:
+                - Unity
+              default: Unity
           type: object
         sevClient:
           description: Client to which order position belongs. Will be filled automatically
@@ -13623,6 +14352,10 @@ components:
             objectName:
               description: Model name, which is 'SevClient'
               type: string
+              example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         positionNumber:
@@ -13678,6 +14411,10 @@ components:
           type: string
           readOnly: true
           nullable: false
+          example: Order
+          enum:
+            - Order
+          default: Order
         create:
           description: Date of order creation
           type: string
@@ -13705,6 +14442,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: true
         orderDate:
@@ -13750,6 +14490,10 @@ components:
             objectName:
               description: Model name, which is 'StaticCountry'
               type: string
+              example: StaticCountry
+              enum:
+                - StaticCountry
+              default: StaticCountry
           type: object
           nullable: true
         createUser:
@@ -13764,6 +14508,10 @@ components:
             objectName:
               description: Model name, which is 'SevUser'
               type: string
+              example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
           readOnly: true
         sevClient:
@@ -13778,6 +14526,10 @@ components:
             objectName:
               description: Model name, which is 'SevClient'
               type: string
+              example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         deliveryTerms:
@@ -13800,6 +14552,9 @@ components:
             objectName:
               description: Model name of the object. Could be 'Order'.
               type: string
+              example: Order
+              enum:
+                - Order
           type: object
           nullable: true
         version:
@@ -13825,6 +14580,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
         taxRate:
           description: Is overwritten by order position tax rates
@@ -13845,6 +14603,10 @@ components:
             objectName:
               description: Model name, which is 'TaxSet'
               type: string
+              example: TaxSet
+              enum:
+                - TaxSet
+              default: TaxSet
           type: object
           nullable: true
         taxText:
@@ -13975,6 +14737,9 @@ components:
           description: Model name, which is 'Discounts'
           type: string
           example: Discounts
+          enum:
+            - Discounts
+          default: Discounts
           readOnly: true
         create:
           description: Date of discount creation
@@ -14002,6 +14767,9 @@ components:
               description: Model name, which is 'Order'
               type: string
               example: Order
+              enum:
+                - Order
+              default: Order
           type: object
           readOnly: true
         sevClient:
@@ -14046,6 +14814,10 @@ components:
           type: string
           readOnly: true
           nullable: false
+          example: Email
+          enum:
+            - Email
+          default: Email
         create:
           description: Date of mail creation
           type: string
@@ -14088,6 +14860,10 @@ components:
             objectName:
               description: Model name, which is 'SevClient'
               type: string
+              example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         cc:
@@ -14119,6 +14895,9 @@ components:
           description: Model name, which is 'Order'
           type: string
           example: Order
+          enum:
+            - Order
+          default: Order
       nullable: false
       type: object
     Model_OrderPosUpdate:
@@ -14134,6 +14913,9 @@ components:
           description: The order position object name
           type: string
           example: OrderPos
+          enum:
+            - OrderPos
+          default: OrderPos
           readOnly: true
           nullable: false
         create:
@@ -14161,6 +14943,9 @@ components:
               description: Model name, which is 'Order'
               type: string
               example: Order
+              enum:
+                - Order
+              default: Order
           type: object
         part:
           description: Part from your inventory which is used in the position.
@@ -14175,6 +14960,9 @@ components:
               description: Model name, which is 'Part'
               type: string
               example: Part
+              enum:
+                - Part
+              default: Part
           type: object
         quantity:
           description: Quantity of the article/part
@@ -14219,6 +15007,9 @@ components:
               description: Model name, which is 'Unity'
               type: string
               example: Unity
+              enum:
+                - Unity
+              default: Unity
           type: object
         sevClient:
           description: Client to which order position belongs. Will be filled automatically
@@ -14232,6 +15023,10 @@ components:
             objectName:
               description: Model name, which is 'SevClient'
               type: string
+              example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         positionNumber:
@@ -14284,6 +15079,10 @@ components:
           description: The voucher object name
           type: string
           nullable: false
+          example: Voucher
+          enum:
+            - Voucher
+          default: Voucher
         mapAll:
           type: boolean
           example: true
@@ -14313,6 +15112,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         createUser:
@@ -14328,6 +15130,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
           readOnly: true
         voucherDate:
@@ -14353,6 +15158,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: true
         supplierName:
@@ -14565,6 +15373,9 @@ components:
               description: Model name, which is 'TaxSet'
               type: string
               example: TaxSet
+              enum:
+                - TaxSet
+              default: TaxSet
           type: object
           example: null
           nullable: true
@@ -14599,6 +15410,9 @@ components:
               description: Model name, which is 'Document'
               type: string
               example: Document
+              enum:
+                - Document
+              default: Document
           example: null
           type: object
           nullable: true
@@ -14615,6 +15429,9 @@ components:
               description: Model name, which is 'CostCentre'
               type: string
               example: CostCentre
+              enum:
+                - CostCentre
+              default: CostCentre
           example: null
           type: object
       type: object
@@ -14640,6 +15457,10 @@ components:
           description: The voucher position object name
           type: string
           nullable: false
+          example: VoucherPos
+          enum:
+            - VoucherPos
+          default: VoucherPos
         mapAll:
           type: boolean
           nullable: false
@@ -14667,6 +15488,10 @@ components:
             objectName:
               description: Model name, which is 'SevClient'
               type: string
+              example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         voucher:
@@ -14682,6 +15507,9 @@ components:
               description: Model name, which is 'Voucher'
               type: string
               example: Voucher
+              enum:
+                - Voucher
+              default: Voucher
           type: object
           readOnly: true
         accountingType:
@@ -14697,6 +15525,9 @@ components:
               description: Model name, which is 'AccountingType'
               type: string
               example: AccountingType
+              enum:
+                - AccountingType
+              default: AccountingType
           type: object
         estimatedAccountingType:
           description: "The accounting type to which the position belongs estimated by our voucher recognition.<br>\r\n    An accounting type is the booking account to which the position belongs.<br>\r\n    For more information, please refer to\r\n    <a href='https://api.sevdesk.de/#section/Accounting-type'>this</a> section."
@@ -14711,6 +15542,9 @@ components:
               description: Model name, which is 'AccountingType'
               type: string
               example: AccountingType
+              enum:
+                - AccountingType
+              default: AccountingType
           type: object
           readOnly: true
         taxRate:
@@ -14787,6 +15621,10 @@ components:
             objectName:
               description: Object name of voucher position
               type: string
+              example: VoucherPos
+              enum:
+                - VoucherPos
+              default: VoucherPos
           default: null
         filename:
           description: Filename of a previously upload file which should be attached.
@@ -14807,6 +15645,10 @@ components:
           type: string
           readOnly: true
           nullable: false
+          example: Voucher
+          enum:
+            - Voucher
+          default: Voucher
         mapAll:
           type: boolean
           example: true
@@ -14837,6 +15679,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         createUser:
@@ -14853,6 +15698,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
           readOnly: true
         voucherDate:
@@ -14879,6 +15727,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: true
         supplierName:
@@ -14905,6 +15756,9 @@ components:
               description: Model name, which is 'Document'
               type: string
               example: Document
+              enum:
+                - Document
+              default: Document
           type: object
           nullable: true
         payDate:
@@ -15019,6 +15873,10 @@ components:
             objectName:
               description: Model name, which is 'CostCentre'
               type: string
+              example: CostCentre
+              enum:
+                - CostCentre
+              default: CostCentre
           type: object
         voucherType:
           description: "Type of the voucher. For more information on the different types, check\r\n     <a href='https://api.sevdesk.de/#section/Types-and-status-of-vouchers'>this</a>\r\n"
@@ -15115,6 +15973,9 @@ components:
               description: Model name, which is 'TaxSet'
               type: string
               example: TaxSet
+              enum:
+                - TaxSet
+              default: TaxSet
           type: object
           nullable: true
         paymentDeadline:
@@ -15158,6 +16019,10 @@ components:
           type: string
           readOnly: true
           nullable: false
+          example: VoucherPos
+          enum:
+            - VoucherPos
+          default: VoucherPos
         create:
           description: Date of voucher position creation
           type: string
@@ -15184,6 +16049,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         voucher:
@@ -15200,6 +16068,9 @@ components:
               description: Model name, which is 'Voucher'
               type: string
               example: Voucher
+              enum:
+                - Voucher
+              default: Voucher
           type: object
           readOnly: true
         accountingType:
@@ -15216,6 +16087,9 @@ components:
               description: Model name, which is 'AccountingType'
               type: string
               example: AccountingType
+              enum:
+                - AccountingType
+              default: AccountingType
           type: object
         estimatedAccountingType:
           description: "The accounting type to which the position belongs estimated by our voucher recognition.<br>\r\n    An accounting type is the booking account to which the position belongs.<br>\r\n    For more information, please refer to\r\n    <a href='https://api.sevdesk.de/#section/Accounting-type'>this</a> section."
@@ -15231,6 +16105,9 @@ components:
               description: Model name, which is 'AccountingType'
               type: string
               example: AccountingType
+              enum:
+                - AccountingType
+              default: AccountingType
           type: object
           readOnly: true
         taxRate:
@@ -15332,6 +16209,9 @@ components:
             objectName:
               description: Model name, which is 'Contact'
               type: string
+              example: Contact
+              enum:
+                - Contact
               default: Contact
           type: object
           nullable: true
@@ -15440,6 +16320,9 @@ components:
               description: Model name, which is 'TaxSet'
               type: string
               example: TaxSet
+              enum:
+                - TaxSet
+              default: TaxSet
           type: object
           example: null
           nullable: true
@@ -15473,6 +16356,9 @@ components:
               description: Model name, which is 'Document'
               type: string
               example: Document
+              enum:
+                - Document
+              default: Document
           example: null
           type: object
           nullable: true
@@ -15489,6 +16375,9 @@ components:
               description: Model name, which is 'CostCentre'
               type: string
               example: CostCentre
+              enum:
+                - CostCentre
+              default: CostCentre
           example: null
           type: object
     Model_TagResponse:
@@ -15505,6 +16394,9 @@ components:
           type: string
           example: Tag
           readOnly: true
+          enum:
+            - Tag
+          default: Tag
         additionalInformation:
           type: string
           default: null
@@ -15531,6 +16423,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
     Model_TagCreateResponse:
       title: Tag model
@@ -15546,6 +16441,9 @@ components:
           type: string
           example: TagRelation
           readOnly: true
+          enum:
+            - TagRelation
+          default: TagRelation
         additionalInformation:
           type: string
           default: null
@@ -15568,6 +16466,9 @@ components:
               description: Model name, which is 'Tag'
               type: string
               example: Tag
+              enum:
+                - Tag
+              default: Tag
           type: object
         object:
           required:
@@ -15603,6 +16504,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
     Model_CheckAccountTransactionLogResponse:
       title: CheckAccountTransaction model
@@ -15622,6 +16526,7 @@ components:
           readOnly: true
           enum:
             - CheckAccountTransactionLog
+          default: CheckAccountTransactionLog
         create:
           description: Date of check account transaction creation
           type: string
@@ -15650,6 +16555,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         object:
@@ -15665,6 +16573,9 @@ components:
               description: Model name
               type: string
               example: Invoice
+              enum:
+                - Invoice
+                - Voucher
           type: object
           readOnly: true
         bookingDate:
@@ -15716,6 +16627,9 @@ components:
           type: string
           example: Document
           readOnly: true
+          enum:
+            - Document
+          default: Document
         create:
           description: Date of document creation
           type: string
@@ -15755,6 +16669,9 @@ components:
               description: Model name of the object
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           readOnly: true
         additionalInformation:
@@ -15785,6 +16702,9 @@ components:
               description: Model name, which may be 'Invoice' or 'Order'
               type: string
               example: Invoice
+              enum:
+                - Invoice
+                - Order
           type: object
           readOnly: true
         extension:
@@ -15811,6 +16731,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         contentHash:
@@ -15833,6 +16756,7 @@ components:
               example: SevUser
               enum:
                 - SevUser
+              default: SevUser
           type: object
           readOnly: true
         updateUser:
@@ -15851,6 +16775,7 @@ components:
               example: SevUser
               enum:
                 - SevUser
+              default: SevUser
           type: object
           readOnly: true
         folder:
@@ -15869,6 +16794,7 @@ components:
               example: DocumentFolder
               enum:
                 - DocumentFolder
+              default: DocumentFolder
           type: object
           readOnly: true
       type: object
@@ -15887,6 +16813,9 @@ components:
           example: InvoicePos
           readOnly: true
           nullable: false
+          enum:
+            - InvoicePos
+          default: InvoicePos
         create:
           description: Date of invoice position creation
           type: string
@@ -15912,6 +16841,9 @@ components:
               description: Model name, which is 'Invoice'
               type: string
               example: Invoice
+              enum:
+                - Invoice
+              default: Invoice
           type: object
           nullable: true
           readOnly: false
@@ -15928,6 +16860,9 @@ components:
               description: Model name, which is 'Part'
               type: string
               example: Part
+              enum:
+                - Part
+              default: Part
           type: object
         quantity:
           description: Quantity of the article/part
@@ -15962,6 +16897,9 @@ components:
               description: Model name, which is 'Unity'
               type: string
               example: Unity
+              enum:
+                - Unity
+              default: Unity
           type: object
         sevClient:
           description: >-
@@ -15978,6 +16916,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         positionNumber:
@@ -16055,6 +16996,10 @@ components:
         objectName:
           description: The invoice object name
           type: string
+          example: Invoice
+          enum:
+            - Invoice
+          default: Invoice
           readOnly: true
           nullable: false
         invoiceNumber:
@@ -16075,6 +17020,9 @@ components:
               description: Model name, which is 'Contact'
               type: string
               example: Contact
+              enum:
+                - Contact
+              default: Contact
           type: object
           nullable: true
         create:
@@ -16102,6 +17050,9 @@ components:
               description: Model name, which is 'SevClient'
               type: string
               example: SevClient
+              enum:
+                - SevClient
+              default: SevClient
           type: object
           readOnly: true
         invoiceDate:
@@ -16150,6 +17101,9 @@ components:
               description: Model name, which is 'StaticCountry'
               type: string
               example: StaticCountry
+              enum:
+                - StaticCountry
+              default: StaticCountry
           type: object
           nullable: true
         payDate:
@@ -16171,6 +17125,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
           readOnly: true
         deliveryDate:
@@ -16209,6 +17166,9 @@ components:
               description: Model name, which is 'SevUser'
               type: string
               example: SevUser
+              enum:
+                - SevUser
+              default: SevUser
           type: object
         taxRate:
           description: Is overwritten by invoice position tax rates
@@ -16265,6 +17225,9 @@ components:
               description: Model name, which is 'PaymentMethod'
               type: string
               example: PaymentMethod
+              enum:
+                - PaymentMethod
+              default: PaymentMethod
           type: object
         costCentre:
           description: Cost centre for the invoice
@@ -16279,6 +17242,9 @@ components:
               description: Model name, which is 'CostCentre'
               type: string
               example: CostCentre
+              enum:
+                - CostCentre
+              default: CostCentre
           type: object
         sendDate:
           description: The date the invoice was sent to the customer
@@ -16298,6 +17264,9 @@ components:
             objectName:
               description: Model name. Could f.e. be 'Order''
               type: string
+              example: Order
+              enum:
+                - Order
           type: object
           nullable: true
         invoiceType:
@@ -16358,6 +17327,9 @@ components:
               description: Model name, which is 'TaxSet'
               type: string
               example: TaxSet
+              enum:
+                - TaxSet
+              default: TaxSet
           type: object
           nullable: true
         address:
@@ -16506,6 +17478,7 @@ components:
           example: PaymentMethod
           enum:
             - PaymentMethod
+          default: PaymentMethod
         additionalInformation:
           description: ''
           type: string
@@ -16552,6 +17525,7 @@ components:
           example: StaticCountry
           enum:
             - StaticCountry
+          default: StaticCountry
         additionalInformation:
           description: ''
           type: string

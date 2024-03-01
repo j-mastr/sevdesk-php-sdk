@@ -17656,6 +17656,8 @@ components:
       type: apiKey
       name: Authorization
       in: header
+security:
+  - api_key: []
 x-tagGroups:
   - name: banking
     tags:

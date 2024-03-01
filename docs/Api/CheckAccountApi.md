@@ -15,7 +15,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `createCheckAccount()`
 
 ```php
-createCheckAccount($model_check_account): \Itsmind\Sevdesk\Model\GetCheckAccountById200Response
+createCheckAccount($model_check_account): \Itsmind\Sevdesk\Model\GetCheckAccounts200Response
 ```
 
 Create a new check account
@@ -29,17 +29,11 @@ Creates a new banking account on which transactions can be created.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CheckAccountApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $model_check_account = new \Itsmind\Sevdesk\Model\ModelCheckAccount(); // \Itsmind\Sevdesk\Model\ModelCheckAccount | Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccount model!
 
@@ -59,11 +53,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCheckAccountById200Response**](../Model/GetCheckAccountById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetCheckAccounts200Response**](../Model/GetCheckAccounts200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -77,7 +71,7 @@ try {
 ## `deleteCheckAccount()`
 
 ```php
-deleteCheckAccount($check_account_id): \Itsmind\Sevdesk\Model\DeleteAccountingContact200Response
+deleteCheckAccount($check_account_id): \Itsmind\Sevdesk\Model\DeleteCheckAccount200Response
 ```
 
 Deletes a check account
@@ -89,17 +83,11 @@ Deletes a check account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CheckAccountApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $check_account_id = 56; // int | Id of check account to delete
 
@@ -119,11 +107,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\DeleteAccountingContact200Response**](../Model/DeleteAccountingContact200Response.md)
+[**\Itsmind\Sevdesk\Model\DeleteCheckAccount200Response**](../Model/DeleteCheckAccount200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -151,17 +139,11 @@ Get the balance, calculated as the sum of all transactions sevDesk knows, up to 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CheckAccountApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $check_account_id = 56; // int | ID of check account
 $date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only consider transactions up to this date at 23:59:59
@@ -187,7 +169,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -201,7 +183,7 @@ try {
 ## `getCheckAccountById()`
 
 ```php
-getCheckAccountById($check_account_id): \Itsmind\Sevdesk\Model\GetCheckAccountById200Response
+getCheckAccountById($check_account_id): \Itsmind\Sevdesk\Model\GetCheckAccounts200Response
 ```
 
 Find check account by ID
@@ -215,17 +197,11 @@ Retrieve an existing check account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CheckAccountApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $check_account_id = 56; // int | ID of check account
 
@@ -245,11 +221,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCheckAccountById200Response**](../Model/GetCheckAccountById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetCheckAccounts200Response**](../Model/GetCheckAccounts200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -263,7 +239,7 @@ try {
 ## `getCheckAccounts()`
 
 ```php
-getCheckAccounts(): \Itsmind\Sevdesk\Model\GetCheckAccountById200Response
+getCheckAccounts(): \Itsmind\Sevdesk\Model\GetCheckAccounts200Response
 ```
 
 Retrieve check accounts
@@ -277,17 +253,11 @@ Retrieve all check accounts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CheckAccountApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 
 try {
@@ -304,11 +274,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCheckAccountById200Response**](../Model/GetCheckAccountById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetCheckAccounts200Response**](../Model/GetCheckAccounts200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -322,7 +292,7 @@ This endpoint does not need any parameter.
 ## `updateCheckAccount()`
 
 ```php
-updateCheckAccount($check_account_id, $model_check_account_update): \Itsmind\Sevdesk\Model\GetCheckAccountById200Response
+updateCheckAccount($check_account_id, $model_check_account_update): \Itsmind\Sevdesk\Model\ModelCheckAccountResponse
 ```
 
 Update an existing check account
@@ -336,17 +306,11 @@ Update a check account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CheckAccountApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $check_account_id = 56; // int | ID of check account to update
 $model_check_account_update = new \Itsmind\Sevdesk\Model\ModelCheckAccountUpdate(); // \Itsmind\Sevdesk\Model\ModelCheckAccountUpdate | Update data
@@ -368,11 +332,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCheckAccountById200Response**](../Model/GetCheckAccountById200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelCheckAccountResponse**](../Model/ModelCheckAccountResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 

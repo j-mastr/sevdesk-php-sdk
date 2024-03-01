@@ -15,7 +15,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `createTag()`
 
 ```php
-createTag($create_tag_request): \Itsmind\Sevdesk\Model\GetTagRelations200Response
+createTag($create_tag_request): \Itsmind\Sevdesk\Model\ModelTagCreateResponse
 ```
 
 Create a new tag
@@ -29,17 +29,11 @@ Create a new tag
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\TagApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $create_tag_request = new \Itsmind\Sevdesk\Model\CreateTagRequest(); // \Itsmind\Sevdesk\Model\CreateTagRequest
 
@@ -59,11 +53,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetTagRelations200Response**](../Model/GetTagRelations200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelTagCreateResponse**](../Model/ModelTagCreateResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -77,7 +71,7 @@ try {
 ## `deleteTag()`
 
 ```php
-deleteTag($tag_id): \Itsmind\Sevdesk\Model\DeleteAccountingContact200Response
+deleteTag($tag_id): \Itsmind\Sevdesk\Model\DeleteCheckAccount200Response
 ```
 
 Deletes a tag
@@ -89,17 +83,11 @@ Deletes a tag
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\TagApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tag_id = 56; // int | Id of tag to delete
 
@@ -119,11 +107,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\DeleteAccountingContact200Response**](../Model/DeleteAccountingContact200Response.md)
+[**\Itsmind\Sevdesk\Model\DeleteCheckAccount200Response**](../Model/DeleteCheckAccount200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -137,7 +125,7 @@ try {
 ## `getTagById()`
 
 ```php
-getTagById($tag_id): \Itsmind\Sevdesk\Model\GetTagById200Response
+getTagById($tag_id): \Itsmind\Sevdesk\Model\GetTags200Response
 ```
 
 Find tag by ID
@@ -151,17 +139,11 @@ Returns a single tag
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\TagApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tag_id = 56; // int | ID of tag to return
 
@@ -181,11 +163,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetTagById200Response**](../Model/GetTagById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetTags200Response**](../Model/GetTags200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -213,17 +195,11 @@ Retrieve all tag relations
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\TagApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 
 try {
@@ -244,7 +220,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -258,7 +234,7 @@ This endpoint does not need any parameter.
 ## `getTags()`
 
 ```php
-getTags($id, $name): \Itsmind\Sevdesk\Model\GetTagById200Response
+getTags($id, $name): \Itsmind\Sevdesk\Model\GetTags200Response
 ```
 
 Retrieve tags
@@ -272,17 +248,11 @@ Retrieve all tags
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\TagApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $id = 3.4; // float | ID of the Tag
 $name = 'name_example'; // string | Name of the Tag
@@ -304,11 +274,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetTagById200Response**](../Model/GetTagById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetTags200Response**](../Model/GetTags200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -322,7 +292,7 @@ try {
 ## `updateTag()`
 
 ```php
-updateTag($tag_id, $update_tag_request): \Itsmind\Sevdesk\Model\GetTagById200Response
+updateTag($tag_id, $update_tag_request): \Itsmind\Sevdesk\Model\ModelTagResponse
 ```
 
 Update tag
@@ -336,17 +306,11 @@ Update an existing tag
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\TagApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tag_id = 56; // int | ID of tag you want to update
 $update_tag_request = new \Itsmind\Sevdesk\Model\UpdateTagRequest(); // \Itsmind\Sevdesk\Model\UpdateTagRequest
@@ -368,11 +332,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetTagById200Response**](../Model/GetTagById200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelTagResponse**](../Model/ModelTagResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The order id | [optional] [readonly]
-**object_name** | **string** | The order object name | [optional]
+**object_name** | **string** | The order object name | [optional] [default to 'Order']
 **map_all** | **bool** |  |
 **create** | **\DateTime** | Date of order creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last order update | [optional] [readonly]

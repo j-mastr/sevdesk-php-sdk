@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The voucher id | [optional] [readonly]
-**object_name** | **string** | The voucher object name |
+**object_name** | **string** | The voucher object name | [default to 'Voucher']
 **map_all** | **bool** |  |
 **create** | **\DateTime** | Date of voucher creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last voucher update | [optional] [readonly]
@@ -38,11 +38,11 @@ Name | Type | Description | Notes
 **recurring_last_voucher** | **\DateTime** | The date when the last voucher was generated. | [optional] [readonly]
 **recurring_end_date** | **\DateTime** | The date when the recurring vouchers end being generated.&lt;br&gt;      Necessary attribute for all recurring vouchers. | [optional] [readonly]
 **enshrined** | **\DateTime** | Defines if and when voucher was enshrined. Enshrined vouchers can not be manipulated. | [optional] [readonly]
-**tax_set** | [**\Itsmind\Sevdesk\Model\ModelVoucherUpdateTaxSet**](ModelVoucherUpdateTaxSet.md) |  | [optional]
+**tax_set** | [**\Itsmind\Sevdesk\Model\ModelVoucherTaxSet**](ModelVoucherTaxSet.md) |  | [optional]
 **payment_deadline** | **\DateTime** | Payment deadline of the voucher. | [optional]
 **delivery_date** | **\DateTime** | Needs to be provided as timestamp or dd.mm.yyyy | [optional]
 **delivery_date_until** | **\DateTime** | Needs to be provided as timestamp or dd.mm.yyyy | [optional]
-**document** | [**\Itsmind\Sevdesk\Model\ModelVoucherUpdateDocument**](ModelVoucherUpdateDocument.md) |  | [optional]
-**cost_centre** | [**\Itsmind\Sevdesk\Model\ModelVoucherUpdateCostCentre**](ModelVoucherUpdateCostCentre.md) |  | [optional]
+**document** | [**\Itsmind\Sevdesk\Model\ModelVoucherDocument**](ModelVoucherDocument.md) |  | [optional]
+**cost_centre** | [**\Itsmind\Sevdesk\Model\ModelVoucherCostCentre**](ModelVoucherCostCentre.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

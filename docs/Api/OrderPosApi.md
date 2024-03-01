@@ -13,7 +13,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `deleteOrderPos()`
 
 ```php
-deleteOrderPos($order_pos_id): \Itsmind\Sevdesk\Model\DeleteAccountingContact200Response
+deleteOrderPos($order_pos_id): \Itsmind\Sevdesk\Model\DeleteCheckAccount200Response
 ```
 
 Deletes an order Position
@@ -25,17 +25,11 @@ Deletes an order Position
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderPosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_pos_id = 56; // int | Id of order position resource to delete
 
@@ -55,11 +49,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\DeleteAccountingContact200Response**](../Model/DeleteAccountingContact200Response.md)
+[**\Itsmind\Sevdesk\Model\DeleteCheckAccount200Response**](../Model/DeleteCheckAccount200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -73,7 +67,7 @@ try {
 ## `getOrderPositionById()`
 
 ```php
-getOrderPositionById($order_pos_id): \Itsmind\Sevdesk\Model\GetOrderPositions200Response
+getOrderPositionById($order_pos_id): \Itsmind\Sevdesk\Model\GetOrderPositionsById200Response
 ```
 
 Find order position by ID
@@ -87,17 +81,11 @@ Returns a single order position
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderPosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_pos_id = 56; // int | ID of order position to return
 
@@ -117,11 +105,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetOrderPositions200Response**](../Model/GetOrderPositions200Response.md)
+[**\Itsmind\Sevdesk\Model\GetOrderPositionsById200Response**](../Model/GetOrderPositionsById200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -135,7 +123,7 @@ try {
 ## `getOrderPositions()`
 
 ```php
-getOrderPositions($order_id, $order_object_name): \Itsmind\Sevdesk\Model\GetOrderPositions200Response
+getOrderPositions($order_id, $order_object_name): \Itsmind\Sevdesk\Model\GetOrderPositionsById200Response
 ```
 
 Retrieve order positions
@@ -149,17 +137,11 @@ Retrieve all order positions depending on the filters defined in the query.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderPosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_id = 56; // int | Retrieve all order positions belonging to this order. Must be provided with voucher[objectName]
 $order_object_name = 'order_object_name_example'; // string | Only required if order[id] was provided. 'Order' should be used as value.
@@ -181,11 +163,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetOrderPositions200Response**](../Model/GetOrderPositions200Response.md)
+[**\Itsmind\Sevdesk\Model\GetOrderPositionsById200Response**](../Model/GetOrderPositionsById200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -199,7 +181,7 @@ try {
 ## `updateOrderPosition()`
 
 ```php
-updateOrderPosition($order_pos_id, $model_order_pos_update): \Itsmind\Sevdesk\Model\GetOrderPositions200Response
+updateOrderPosition($order_pos_id, $model_order_pos_update): \Itsmind\Sevdesk\Model\ModelOrderPosResponse
 ```
 
 Update an existing order position
@@ -213,17 +195,11 @@ Update an order position
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderPosApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_pos_id = 56; // int | ID of order position to update
 $model_order_pos_update = new \Itsmind\Sevdesk\Model\ModelOrderPosUpdate(); // \Itsmind\Sevdesk\Model\ModelOrderPosUpdate | Update data
@@ -245,11 +221,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetOrderPositions200Response**](../Model/GetOrderPositions200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelOrderPosResponse**](../Model/ModelOrderPosResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 

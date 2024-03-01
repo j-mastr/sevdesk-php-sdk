@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | The invoice position id | [optional] [readonly]
-**object_name** | **string** | The invoice position object name | [optional] [readonly]
+**object_name** | **string** | The invoice position object name | [optional] [readonly] [default to 'InvoicePos']
 **create** | **\DateTime** | Date of invoice position creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last invoice position update | [optional] [readonly]
 **invoice** | [**\Itsmind\Sevdesk\Model\ModelInvoicePosResponseInvoice**](ModelInvoicePosResponseInvoice.md) |  | [optional]

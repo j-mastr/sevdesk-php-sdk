@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | The creditNote position id | [optional] [readonly]
-**object_name** | **string** | The creditNote position object name | [optional] [readonly]
+**object_name** | **string** | The creditNote position object name | [optional] [readonly] [default to 'CreditNotePos']
 **create** | **string** | Date of creditNote position creation | [optional] [readonly]
 **update** | **string** | Date of last creditNote position update | [optional] [readonly]
 **credit_note** | [**\Itsmind\Sevdesk\Model\ModelCreditNotePosResponseCreditNote**](ModelCreditNotePosResponseCreditNote.md) |  |

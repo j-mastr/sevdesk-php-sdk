@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | The voucher position id | [optional] [readonly]
-**object_name** | **string** | The voucher position object name | [optional] [readonly]
+**object_name** | **string** | The voucher position object name | [optional] [readonly] [default to 'VoucherPos']
 **create** | **string** | Date of voucher position creation | [optional] [readonly]
 **update** | **string** | Date of last voucher position update | [optional] [readonly]
 **sev_client** | [**\Itsmind\Sevdesk\Model\ModelVoucherPosResponseSevClient**](ModelVoucherPosResponseSevClient.md) |  | [optional]

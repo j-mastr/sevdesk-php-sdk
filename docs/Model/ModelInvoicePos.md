@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The invoice position id. &lt;span style&#x3D;&#39;color:red&#39;&gt;Required&lt;/span&gt; if you want to update an invoice position for an existing invoice | [optional]
-**object_name** | **string** | The invoice position object name |
+**object_name** | **string** | The invoice position object name | [default to 'InvoicePos']
 **map_all** | **bool** |  |
 **create** | **\DateTime** | Date of invoice position creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last invoice position update | [optional] [readonly]
 **invoice** | [**\Itsmind\Sevdesk\Model\ModelInvoicePosInvoice**](ModelInvoicePosInvoice.md) |  | [optional]
-**part** | [**\Itsmind\Sevdesk\Model\ModelInvoicePosPart**](ModelInvoicePosPart.md) |  | [optional]
+**part** | [**\Itsmind\Sevdesk\Model\ModelCreditNotePosPart**](ModelCreditNotePosPart.md) |  | [optional]
 **quantity** | **float** | Quantity of the article/part |
 **price** | **float** | Price of the article/part. Is either gross or net, depending on the sevDesk account setting. | [optional]
 **name** | **string** | Name of the article/part. | [optional]

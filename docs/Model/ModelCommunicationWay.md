@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The communication way id | [optional] [readonly]
-**object_name** | **string** | The communication way object name | [optional] [readonly]
+**object_name** | **string** | The communication way object name | [optional] [readonly] [default to 'CommunicationWay']
 **create** | **\DateTime** | Date of communication way creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last communication way update | [optional] [readonly]
 **contact** | [**\Itsmind\Sevdesk\Model\ModelCommunicationWayContact**](ModelCommunicationWayContact.md) |  | [optional]

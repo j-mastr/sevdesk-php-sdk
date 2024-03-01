@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Id of the contact field | [optional] [readonly]
-**object_name** | **string** | Internal object name which is &#39;ContactCustomFieldSetting&#39;. | [optional] [readonly]
+**object_name** | **string** | Internal object name which is &#39;ContactCustomFieldSetting&#39;. | [optional] [readonly] [default to 'ContactCustomFieldSetting']
 **create** | **\DateTime** | Date of contact field creation | [optional] [readonly]
 **update** | **\DateTime** | Date of contact field updated | [optional] [readonly]
 **sev_client** | [**\Itsmind\Sevdesk\Model\ModelContactCustomFieldSettingResponseSevClient**](ModelContactCustomFieldSettingResponseSevClient.md) |  | [optional]

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | The order position id | [optional] [readonly]
-**object_name** | **string** | The order position object name | [optional] [readonly]
+**object_name** | **string** | The order position object name | [optional] [readonly] [default to 'OrderPos']
 **create** | **\DateTime** | Date of order position creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last order position update | [optional] [readonly]
 **order** | [**\Itsmind\Sevdesk\Model\ModelOrderPosResponseOrder**](ModelOrderPosResponseOrder.md) |  | [optional]

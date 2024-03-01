@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | The document id | [optional] [readonly]
-**object_name** | **string** | The document object name | [optional] [readonly]
+**object_name** | **string** | The document object name | [optional] [readonly] [default to 'Document']
 **create** | **\DateTime** | Date of document creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last document update | [optional] [readonly]
 **filename** | **string** | The filename of the document | [optional] [readonly]

@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The creditNote position id. | [optional] [readonly]
-**object_name** | **string** | The creditNote position object name |
+**object_name** | **string** | The creditNote position object name | [default to 'CreditNotePos']
 **map_all** | **bool** |  |
 **create** | **string** | Date of creditNote position creation | [optional] [readonly]
 **update** | **string** | Date of last creditNote position update | [optional] [readonly]
 **credit_note** | [**\Itsmind\Sevdesk\Model\ModelCreditNotePosCreditNote**](ModelCreditNotePosCreditNote.md) |  | [optional]
-**part** | [**\Itsmind\Sevdesk\Model\ModelInvoicePosPart**](ModelInvoicePosPart.md) |  | [optional]
+**part** | [**\Itsmind\Sevdesk\Model\ModelCreditNotePosPart**](ModelCreditNotePosPart.md) |  | [optional]
 **quantity** | **float** | Quantity of the article/part |
 **price** | **float** | Price of the article/part. Is either gross or net, depending on the sevDesk account setting. | [optional]
 **price_net** | **float** | Net price of the part | [optional] [readonly]

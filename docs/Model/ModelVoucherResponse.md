@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | The voucher id | [optional] [readonly]
-**object_name** | **string** | The voucher object name | [optional] [readonly]
+**object_name** | **string** | The voucher object name | [optional] [readonly] [default to 'Voucher']
 **map_all** | **bool** |  | [optional]
 **create** | **\DateTime** | Date of voucher creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last voucher update | [optional] [readonly]
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **sum_discounts** | **string** | Sum of all discounts in the voucher | [optional] [readonly]
 **sum_discounts_foreign_currency** | **string** | Discounts sum of the voucher in the foreign currency | [optional] [readonly]
 **paid_amount** | **float** | Amount which has already been paid for this voucher by the customer | [optional] [readonly]
-**tax_type** | **string** | Tax type of the voucher. There are four tax types: 1. default - Umsatzsteuer ausweisen 2. eu - Steuerfreie innergemeinschaftliche Lieferung (Europäische Union) 3. noteu - Steuerschuldnerschaft des Leistungsempfängers (außerhalb EU, z. B. Schweiz) 4. custom - Using custom tax set 5. ss - Not subject to VAT according to §19 1 UStG  Tax rates are heavily connected to the tax type used. | [optional]
+**tax_type** | **string** | Tax type of the voucher. There are four tax types: 1. default - Umsatzsteuer ausweisen 2. eu - Steuerfreie innergemeinschaftliche Lieferung (Europäische Union) 3. noteu - Steuerschuldnerschaft des Leistungsempfängers (außerhalb EU, z. B. Schweiz) 4. custom - Using custom tax set 5. ss - Not subject to VAT according to §19 1 UStG Tax rates are heavily connected to the tax type used. | [optional]
 **credit_debit** | **string** | Defines if your voucher is a credit (C) or debit (D) | [optional]
 **cost_centre** | [**\Itsmind\Sevdesk\Model\ModelVoucherResponseCostCentre**](ModelVoucherResponseCostCentre.md) |  | [optional]
 **voucher_type** | **string** | Type of the voucher. For more information on the different types, check       &lt;a href&#x3D;&#39;https://api.sevdesk.de/#section/Types-and-status-of-vouchers&#39;&gt;this&lt;/a&gt; | [optional]

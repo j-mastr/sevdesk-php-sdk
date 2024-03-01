@@ -22,7 +22,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `createContractNoteFromOrder()`
 
 ```php
-createContractNoteFromOrder($order_id, $order_object_name, $model_create_packing_list_from_order): \Itsmind\Sevdesk\Model\CreatePackingListFromOrder200Response
+createContractNoteFromOrder($order_id, $order_object_name, $model_create_packing_list_from_order): \Itsmind\Sevdesk\Model\ModelOrderResponse
 ```
 
 Create contract note from order
@@ -36,17 +36,11 @@ Create contract note from order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_id = 56; // int | the id of the order
 $order_object_name = Order; // string | Model name, which is 'Order'
@@ -65,16 +59,16 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **order_id** | **int**| the id of the order | |
-| **order_object_name** | **string**| Model name, which is &#39;Order&#39; | |
+| **order_object_name** | **string**| Model name, which is &#39;Order&#39; | [default to &#39;Order&#39;] |
 | **model_create_packing_list_from_order** | [**\Itsmind\Sevdesk\Model\ModelCreatePackingListFromOrder**](../Model/ModelCreatePackingListFromOrder.md)| Create contract note | [optional] |
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\CreatePackingListFromOrder200Response**](../Model/CreatePackingListFromOrder200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelOrderResponse**](../Model/ModelOrderResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -102,17 +96,11 @@ Creates an order to which positions can be added later.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $save_order = new \Itsmind\Sevdesk\Model\SaveOrder(); // \Itsmind\Sevdesk\Model\SaveOrder | Creation data. Please be aware, that you need to provide at least all required parameter      of the order model!
 
@@ -136,7 +124,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -150,7 +138,7 @@ try {
 ## `createPackingListFromOrder()`
 
 ```php
-createPackingListFromOrder($order_id, $order_object_name, $model_create_packing_list_from_order): \Itsmind\Sevdesk\Model\CreatePackingListFromOrder200Response
+createPackingListFromOrder($order_id, $order_object_name, $model_create_packing_list_from_order): \Itsmind\Sevdesk\Model\ModelOrderResponse
 ```
 
 Create packing list from order
@@ -164,17 +152,11 @@ Create packing list from order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_id = 56; // int | the id of the order
 $order_object_name = Order; // string | Model name, which is 'Order'
@@ -193,16 +175,16 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **order_id** | **int**| the id of the order | |
-| **order_object_name** | **string**| Model name, which is &#39;Order&#39; | |
+| **order_object_name** | **string**| Model name, which is &#39;Order&#39; | [default to &#39;Order&#39;] |
 | **model_create_packing_list_from_order** | [**\Itsmind\Sevdesk\Model\ModelCreatePackingListFromOrder**](../Model/ModelCreatePackingListFromOrder.md)| Create packing list | [optional] |
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\CreatePackingListFromOrder200Response**](../Model/CreatePackingListFromOrder200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelOrderResponse**](../Model/ModelOrderResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -216,7 +198,7 @@ try {
 ## `deleteOrder()`
 
 ```php
-deleteOrder($order_id): \Itsmind\Sevdesk\Model\DeleteAccountingContact200Response
+deleteOrder($order_id): \Itsmind\Sevdesk\Model\DeleteCheckAccount200Response
 ```
 
 Deletes an order
@@ -228,17 +210,11 @@ Deletes an order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_id = 56; // int | Id of order resource to delete
 
@@ -258,11 +234,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\DeleteAccountingContact200Response**](../Model/DeleteAccountingContact200Response.md)
+[**\Itsmind\Sevdesk\Model\DeleteCheckAccount200Response**](../Model/DeleteCheckAccount200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -290,17 +266,11 @@ Returns all discounts of an order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_id = 56; // int | ID of order to return the positions
 $limit = 56; // int | limits the number of entries returned
@@ -330,7 +300,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -344,7 +314,7 @@ try {
 ## `getOrderById()`
 
 ```php
-getOrderById($order_id): \Itsmind\Sevdesk\Model\CreatePackingListFromOrder200Response
+getOrderById($order_id): \Itsmind\Sevdesk\Model\GetOrders200Response
 ```
 
 Find order by ID
@@ -358,17 +328,11 @@ Returns a single order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_id = 56; // int | ID of order to return
 
@@ -388,11 +352,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\CreatePackingListFromOrder200Response**](../Model/CreatePackingListFromOrder200Response.md)
+[**\Itsmind\Sevdesk\Model\GetOrders200Response**](../Model/GetOrders200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -406,7 +370,7 @@ try {
 ## `getOrderPositionsById()`
 
 ```php
-getOrderPositionsById($order_id, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetOrderPositions200Response
+getOrderPositionsById($order_id, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetOrderPositionsById200Response
 ```
 
 Find order positions
@@ -420,17 +384,11 @@ Returns all positions of an order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_id = 56; // int | ID of order to return the positions
 $limit = 56; // int | limits the number of entries returned
@@ -456,11 +414,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetOrderPositions200Response**](../Model/GetOrderPositions200Response.md)
+[**\Itsmind\Sevdesk\Model\GetOrderPositionsById200Response**](../Model/GetOrderPositionsById200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -474,7 +432,7 @@ try {
 ## `getOrders()`
 
 ```php
-getOrders($status, $order_number, $start_date, $end_date, $contact_id, $contact_object_name): \Itsmind\Sevdesk\Model\CreatePackingListFromOrder200Response
+getOrders($status, $order_number, $start_date, $end_date, $contact_id, $contact_object_name): \Itsmind\Sevdesk\Model\GetOrders200Response
 ```
 
 Retrieve orders
@@ -488,17 +446,11 @@ There are a multitude of parameter which can be used to filter. A few of them ar
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $status = 56; // int | Status of the order
 $order_number = 'order_number_example'; // string | Retrieve all orders with this order number
@@ -528,11 +480,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\CreatePackingListFromOrder200Response**](../Model/CreatePackingListFromOrder200Response.md)
+[**\Itsmind\Sevdesk\Model\GetOrders200Response**](../Model/GetOrders200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -546,7 +498,7 @@ try {
 ## `getRelatedObjects()`
 
 ```php
-getRelatedObjects($order_id, $include_itself, $sort_by_type, $embed): \Itsmind\Sevdesk\Model\GetRelatedObjects200Response
+getRelatedObjects($order_id, $include_itself, $sort_by_type, $embed): \Itsmind\Sevdesk\Model\GetOrderPositionsById200Response
 ```
 
 Find related objects
@@ -560,17 +512,11 @@ Get related objects of a specified order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_id = 56; // int | ID of order to return the positions
 $include_itself = True; // bool | Define if the related objects include the order itself
@@ -596,11 +542,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetRelatedObjects200Response**](../Model/GetRelatedObjects200Response.md)
+[**\Itsmind\Sevdesk\Model\GetOrderPositionsById200Response**](../Model/GetOrderPositionsById200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -614,7 +560,7 @@ try {
 ## `orderGetPdf()`
 
 ```php
-orderGetPdf($order_id, $download, $prevent_send_by): \Itsmind\Sevdesk\Model\InvoiceGetPdf200Response
+orderGetPdf($order_id, $download, $prevent_send_by): \Itsmind\Sevdesk\Model\OrderGetPdf200Response
 ```
 
 Retrieve pdf document of an order
@@ -628,17 +574,11 @@ Retrieves the pdf document of an order with additional metadata and commit the o
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_id = 56; // int | ID of order from which you want the pdf
 $download = true; // bool | If u want to download the pdf of the order.
@@ -662,11 +602,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\InvoiceGetPdf200Response**](../Model/InvoiceGetPdf200Response.md)
+[**\Itsmind\Sevdesk\Model\OrderGetPdf200Response**](../Model/OrderGetPdf200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -680,7 +620,7 @@ try {
 ## `orderSendBy()`
 
 ```php
-orderSendBy($order_id, $order_send_by_request): \Itsmind\Sevdesk\Model\OrderSendBy200Response
+orderSendBy($order_id, $order_send_by_request): \Itsmind\Sevdesk\Model\ModelOrderResponse
 ```
 
 Mark order as sent
@@ -694,17 +634,11 @@ Marks an order as sent by a chosen send type.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_id = 56; // int | ID of order to mark as sent
 $order_send_by_request = new \Itsmind\Sevdesk\Model\OrderSendByRequest(); // \Itsmind\Sevdesk\Model\OrderSendByRequest | Specify the send type
@@ -726,11 +660,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\OrderSendBy200Response**](../Model/OrderSendBy200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelOrderResponse**](../Model/ModelOrderResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -758,17 +692,11 @@ This endpoint sends the specified order to a customer via email.<br>      This w
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_id = 56; // int | ID of order to be sent via email
 $send_invoice_via_e_mail_request = new \Itsmind\Sevdesk\Model\SendInvoiceViaEMailRequest(); // \Itsmind\Sevdesk\Model\SendInvoiceViaEMailRequest | Mail data
@@ -794,7 +722,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -808,7 +736,7 @@ try {
 ## `updateOrder()`
 
 ```php
-updateOrder($order_id, $model_order_update): \Itsmind\Sevdesk\Model\CreatePackingListFromOrder200Response
+updateOrder($order_id, $model_order_update): \Itsmind\Sevdesk\Model\ModelOrderResponse
 ```
 
 Update an existing order
@@ -822,17 +750,11 @@ Update an order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $order_id = 56; // int | ID of order to update
 $model_order_update = new \Itsmind\Sevdesk\Model\ModelOrderUpdate(); // \Itsmind\Sevdesk\Model\ModelOrderUpdate | Update data
@@ -854,11 +776,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\CreatePackingListFromOrder200Response**](../Model/CreatePackingListFromOrder200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelOrderResponse**](../Model/ModelOrderResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 

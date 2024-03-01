@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | the id of the discount | [optional] [readonly]
-**object_name** | **string** | Model name, which is &#39;Discounts&#39; | [optional] [readonly]
+**object_name** | **string** | Model name, which is &#39;Discounts&#39; | [optional] [readonly] [default to 'Discounts']
 **create** | **\DateTime** | Date of discount creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last discount update | [optional] [readonly]
 **object** | [**\Itsmind\Sevdesk\Model\ModelDiscountObject**](ModelDiscountObject.md) |  | [optional]

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **zip** | **string** | Zib code | [optional]
 **city** | **string** | City name | [optional]
 **country** | [**\Itsmind\Sevdesk\Model\ModelContactAddressUpdateCountry**](ModelContactAddressUpdateCountry.md) |  | [optional]
-**category** | [**\Itsmind\Sevdesk\Model\ModelContactAddressCategory**](ModelContactAddressCategory.md) |  | [optional]
+**category** | [**\Itsmind\Sevdesk\Model\ModelContactAddressResponseCategory**](ModelContactAddressResponseCategory.md) |  | [optional]
 **name** | **string** | Name in address | [optional]
 **name2** | **string** | Second name in address | [optional]
 **name3** | **string** | Third name in address | [optional]

@@ -91,7 +91,7 @@ try {
 ## `cancelInvoice()`
 
 ```php
-cancelInvoice($invoice_id): \Itsmind\Sevdesk\Model\GetInvoiceById200Response
+cancelInvoice($invoice_id): \Itsmind\Sevdesk\Model\ModelInvoiceResponse
 ```
 
 Cancel an invoice / Create cancellation invoice
@@ -135,7 +135,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetInvoiceById200Response**](../Model/GetInvoiceById200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelInvoiceResponse**](../Model/ModelInvoiceResponse.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ createInvoiceByFactory($save_invoice): \Itsmind\Sevdesk\Model\SaveInvoiceRespons
 
 Create a new invoice
 
-This endpoint offers you the following functionality.       <ul>          <li>Create invoices together with positions and discounts</li>          <li>Delete positions while adding new ones</li>          <li>Delete or add discounts, or both at the same time</li>          <li>Automatically fill the address of the supplied contact into the invoice address</li>       </ul>       To make your own request sample slimmer, you can omit all parameters which are not required and nullable.       However, for a valid and logical bookkeeping document, you will also need some of them to ensure that all the necessary data is in the invoice.<br><br> The list of parameters starts with the invoice array.<br> This array contains all required attributes for a complete invoice.<br> Most of the attributes are covered in the invoice attribute list, there are only two parameters standing out, namely <b>mapAll</b> and <b>objectName</b>.<br> These are just needed for our system and you always need to provide them.<br><br> The list of parameters then continues with the invoice position array.<br> With this array you have the possibility to add multiple positions at once.<br> In the example it only contains one position, again together with the parameters <b>mapAll</b> and <b>objectName</b>, however, you can add more invoice positions by extending the array.<br> So if you wanted to add another position, you would add the same list of parameters with an incremented array index of \"1\" instead of \"0\".<br><br> The list ends with the four parameters invoicePosDelete, discountSave, discountDelete and takeDefaultAddress.<br> They only play a minor role if you only want to create an invoice but we will shortly explain what they can do.<br> With invoicePosDelete you have to option to delete invoice positions as this request can also be used to update invoices.<br> With discountSave you can add discounts to your invoice.<br> With discountDelete you can delete discounts from your invoice.<br> With takeDefaultAddress you can specify that the first address of the contact you are using for the invoice is taken for the invoice address attribute automatically, so you don't need to provide the address yourself.<br> If you want to know more about these parameters, for example if you want to use this request to update invoices, feel free to contact our support.<br><br> Finally, after covering all parameters, they only important information left, is that the order of the last four attributes always needs to be kept.<br> You will also always need to provide all of them, as otherwise the request won't work properly.<br><br> <b>Warning\":\"</b> You can not create a regular invoice with the <b>deliveryDate</b> being later than the <b>invoiceDate</b>.<br> To do that you will need to create a so called <b>Abschlagsrechnung</b> by setting the <b>invoiceType</b> parameter to <b>AR</b>.
+This endpoint offers you the following functionality.       <ul>          <li>Create invoices together with positions and discounts</li>          <li>Delete positions while adding new ones</li>          <li>Delete or add discounts, or both at the same time</li>          <li>Automatically fill the address of the supplied contact into the invoice address</li>       </ul>       To make your own request sample slimmer, you can omit all parameters which are not required and nullable.       However, for a valid and logical bookkeeping document, you will also need some of them to ensure that all the necessary data is in the invoice.<br><br> The list of parameters starts with the invoice array.<br> This array contains all required attributes for a complete invoice.<br> Most of the attributes are covered in the invoice attribute list, there are only two parameters standing out, namely <b>mapAll</b> and <b>objectName</b>.<br> These are just needed for our system and you always need to provide them.<br><br> The list of parameters then continues with the invoice position array.<br> With this array you have the possibility to add multiple positions at once.<br> In the example it only contains one position, again together with the parameters <b>mapAll</b> and <b>objectName</b>, however, you can add more invoice positions by extending the array.<br> So if you wanted to add another position, you would add the same list of parameters with an incremented array index of \"1\" instead of \"0\".<br><br> The list ends with the four parameters invoicePosDelete, discountSave, discountDelete and takeDefaultAddress.<br> They only play a minor role if you only want to create an invoice but we will shortly explain what they can do.<br> With invoicePosDelete you have to option to delete invoice positions as this request can also be used to update invoices.<br> With discountSave you can add discounts to your invoice.<br> With discountDelete you can delete discounts from your invoice.<br> With takeDefaultAddress you can specify that the first address of the contact you are using for the invoice is taken for the invoice address attribute automatically, so you don't need to provide the address yourself.<br> If you want to know more about these parameters, for example if you want to use this request to update invoices, feel free to contact our support.<br><br> Finally, after covering all parameters, they only important information left, is that the order of the last four attributes always needs to be kept.<br> You will also always need to provide all of them, as otherwise the request won't work properly.<br><br> <b>Warning:</b> You can not create a regular invoice with the <b>deliveryDate</b> being later than the <b>invoiceDate</b>.<br> To do that you will need to create a so called <b>Abschlagsrechnung</b> by setting the <b>invoiceType</b> parameter to <b>AR</b>.
 
 ### Example
 
@@ -215,7 +215,7 @@ try {
 ## `createInvoiceFromOrder()`
 
 ```php
-createInvoiceFromOrder($invoice_id, $invoice_object_name, $model_create_invoice_from_order): \Itsmind\Sevdesk\Model\GetInvoiceById200Response
+createInvoiceFromOrder($invoice_id, $invoice_object_name, $model_create_invoice_from_order): \Itsmind\Sevdesk\Model\ModelInvoiceResponse
 ```
 
 Create invoice from order
@@ -258,12 +258,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **invoice_id** | **int**| the id of the invoice | |
-| **invoice_object_name** | **string**| Model name, which is &#39;Invoice&#39; | |
+| **invoice_object_name** | **string**| Model name, which is &#39;Invoice&#39; | [default to &#39;Invoice&#39;] |
 | **model_create_invoice_from_order** | [**\Itsmind\Sevdesk\Model\ModelCreateInvoiceFromOrder**](../Model/ModelCreateInvoiceFromOrder.md)| Create invoice | [optional] |
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetInvoiceById200Response**](../Model/GetInvoiceById200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelInvoiceResponse**](../Model/ModelInvoiceResponse.md)
 
 ### Authorization
 
@@ -281,7 +281,7 @@ try {
 ## `createInvoiceReminder()`
 
 ```php
-createInvoiceReminder($invoice_id, $invoice_object_name, $create_invoice_reminder_request): \Itsmind\Sevdesk\Model\UpdateInvoiceById200Response
+createInvoiceReminder($invoice_id, $invoice_object_name, $create_invoice_reminder_request): \Itsmind\Sevdesk\Model\ModelInvoiceResponse
 ```
 
 Create invoice reminder
@@ -324,12 +324,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **invoice_id** | **int**| the id of the invoice | |
-| **invoice_object_name** | **string**| Model name, which is &#39;Invoice&#39; | |
+| **invoice_object_name** | **string**| Model name, which is &#39;Invoice&#39; | [default to &#39;Invoice&#39;] |
 | **create_invoice_reminder_request** | [**\Itsmind\Sevdesk\Model\CreateInvoiceReminderRequest**](../Model/CreateInvoiceReminderRequest.md)| Create invoice | [optional] |
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\UpdateInvoiceById200Response**](../Model/UpdateInvoiceById200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelInvoiceResponse**](../Model/ModelInvoiceResponse.md)
 
 ### Authorization
 
@@ -361,17 +361,11 @@ Deletes a single invoice
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $invoice_id = 56; // int | ID of invoice to return
 
@@ -394,7 +388,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -472,7 +466,7 @@ try {
 ## `getInvoicePositionsById()`
 
 ```php
-getInvoicePositionsById($invoice_id, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetInvoicePos200Response
+getInvoicePositionsById($invoice_id, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response
 ```
 
 Find invoice positions
@@ -522,7 +516,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetInvoicePos200Response**](../Model/GetInvoicePos200Response.md)
+[**\Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response**](../Model/GetInvoicePositionsById200Response.md)
 
 ### Authorization
 
@@ -540,7 +534,7 @@ try {
 ## `getInvoices()`
 
 ```php
-getInvoices($count_all, $invoice_type, $offset, $limit, $partially_paid, $canceled, $status, $invoice_number, $start_date, $end_date, $contact, $payment_method, $embed): \Itsmind\Sevdesk\Model\GetInvoices200Response
+getInvoices($status, $invoice_number, $start_date, $end_date, $count_all, $invoice_type, $offset, $limit, $partially_paid, $canceled, $contact, $payment_method, $embed): \Itsmind\Sevdesk\Model\GetInvoices200Response
 ```
 
 Retrieve invoices
@@ -566,22 +560,22 @@ $apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
     new GuzzleHttp\Client(),
     $config
 );
+$status = 3.4; // float | Status of the invoices
+$invoice_number = 'invoice_number_example'; // string | Retrieve all invoices with this invoice number
+$start_date = 56; // int | Retrieve all invoices with a date equal or higher
+$end_date = 56; // int | Retrieve all invoices with a date equal or lower
 $count_all = True; // bool | If all invoices should be counted
 $invoice_type = array('key' => 'invoice_type_example'); // array<string,string> | The type of invoice
 $offset = 56; // int | Which offset to start with
 $limit = 56; // int | The max number of invoices
 $partially_paid = True; // bool | Limit to partially paid invoices
 $canceled = True; // bool | Limit to canceled invoices
-$status = 3.4; // float | Status of the invoices
-$invoice_number = 'invoice_number_example'; // string | Retrieve all invoices with this invoice number
-$start_date = 56; // int | Retrieve all invoices with a date equal or higher
-$end_date = 56; // int | Retrieve all invoices with a date equal or lower
 $contact = new \Itsmind\Sevdesk\Model\GetInvoicesContactParameter(); // GetInvoicesContactParameter | Retrieve all invoices with this contact. The value of contact[objectName] must be 'Contact'.
 $payment_method = new \Itsmind\Sevdesk\Model\GetInvoicesPaymentMethodParameter(); // GetInvoicesPaymentMethodParameter | Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be 'PaymentMethod'.
 $embed = array('embed_example'); // string[]
 
 try {
-    $result = $apiInstance->getInvoices($count_all, $invoice_type, $offset, $limit, $partially_paid, $canceled, $status, $invoice_number, $start_date, $end_date, $contact, $payment_method, $embed);
+    $result = $apiInstance->getInvoices($status, $invoice_number, $start_date, $end_date, $count_all, $invoice_type, $offset, $limit, $partially_paid, $canceled, $contact, $payment_method, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoiceApi->getInvoices: ', $e->getMessage(), PHP_EOL;
@@ -592,16 +586,16 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **status** | **float**| Status of the invoices | [optional] |
+| **invoice_number** | **string**| Retrieve all invoices with this invoice number | [optional] |
+| **start_date** | **int**| Retrieve all invoices with a date equal or higher | [optional] |
+| **end_date** | **int**| Retrieve all invoices with a date equal or lower | [optional] |
 | **count_all** | **bool**| If all invoices should be counted | [optional] |
 | **invoice_type** | [**array<string,string>**](../Model/string.md)| The type of invoice | [optional] |
 | **offset** | **int**| Which offset to start with | [optional] |
 | **limit** | **int**| The max number of invoices | [optional] |
 | **partially_paid** | **bool**| Limit to partially paid invoices | [optional] |
 | **canceled** | **bool**| Limit to canceled invoices | [optional] |
-| **status** | **float**| Status of the invoices | [optional] |
-| **invoice_number** | **string**| Retrieve all invoices with this invoice number | [optional] |
-| **start_date** | **int**| Retrieve all invoices with a date equal or higher | [optional] |
-| **end_date** | **int**| Retrieve all invoices with a date equal or lower | [optional] |
 | **contact** | [**GetInvoicesContactParameter**](../Model/.md)| Retrieve all invoices with this contact. The value of contact[objectName] must be &#39;Contact&#39;. | [optional] |
 | **payment_method** | [**GetInvoicesPaymentMethodParameter**](../Model/.md)| Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be &#39;PaymentMethod&#39;. | [optional] |
 | **embed** | [**string[]**](../Model/string.md)|  | [optional] |
@@ -626,7 +620,7 @@ try {
 ## `getIsInvoicePartiallyPaid()`
 
 ```php
-getIsInvoicePartiallyPaid($invoice_id): \Itsmind\Sevdesk\Model\GetIsInvoicePartiallyPaid200Response
+getIsInvoicePartiallyPaid($invoice_id): \Itsmind\Sevdesk\Model\ContactCustomerNumberAvailabilityCheck200Response
 ```
 
 Check if an invoice is already partially paid
@@ -670,7 +664,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetIsInvoicePartiallyPaid200Response**](../Model/GetIsInvoicePartiallyPaid200Response.md)
+[**\Itsmind\Sevdesk\Model\ContactCustomerNumberAvailabilityCheck200Response**](../Model/ContactCustomerNumberAvailabilityCheck200Response.md)
 
 ### Authorization
 
@@ -702,17 +696,11 @@ Using this endpoint you can render the pdf document of an invoice.<br>       Use
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $invoice_id = 56; // int | ID of invoice to get last dunning for
 
@@ -736,7 +724,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -764,17 +752,11 @@ Using this endpoint you can render the pdf document of an invoice.<br>       Use
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $invoice = new \Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebitInvoiceParameter(); // GetOpenInvoiceReminderDebitInvoiceParameter | Retrieve the open reminder debit for this invoice. The value of invoice[objectName] must be 'Invoice'.
 
@@ -798,7 +780,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -942,7 +924,7 @@ try {
 ## `invoiceSendBy()`
 
 ```php
-invoiceSendBy($invoice_id, $invoice_send_by_request): \Itsmind\Sevdesk\Model\UpdateInvoiceById200Response
+invoiceSendBy($invoice_id, $invoice_send_by_request): \Itsmind\Sevdesk\Model\ModelInvoiceResponse
 ```
 
 Mark invoice as sent
@@ -988,7 +970,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\UpdateInvoiceById200Response**](../Model/UpdateInvoiceById200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelInvoiceResponse**](../Model/ModelInvoiceResponse.md)
 
 ### Authorization
 
@@ -1006,7 +988,7 @@ try {
 ## `sendInvoiceViaEMail()`
 
 ```php
-sendInvoiceViaEMail($invoice_id, $send_invoice_via_e_mail_request): \Itsmind\Sevdesk\Model\SendInvoiceViaEMail201Response
+sendInvoiceViaEMail($invoice_id, $send_invoice_via_e_mail_request): \Itsmind\Sevdesk\Model\ModelEmail
 ```
 
 Send invoice via email
@@ -1052,7 +1034,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\SendInvoiceViaEMail201Response**](../Model/SendInvoiceViaEMail201Response.md)
+[**\Itsmind\Sevdesk\Model\ModelEmail**](../Model/ModelEmail.md)
 
 ### Authorization
 
@@ -1084,17 +1066,11 @@ Updates a single invoice
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $invoice_id = 56; // int | ID of invoice to return
 $embed = array('embed_example'); // string[]
@@ -1122,7 +1098,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -1150,17 +1126,11 @@ Update the status of an invoice
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $invoice_id = 56; // int | ID of invoice to update
 $update_status_request = new \Itsmind\Sevdesk\Model\UpdateStatusRequest(); // \Itsmind\Sevdesk\Model\UpdateStatusRequest | Update the status of an invoice.
@@ -1186,7 +1156,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The check account transaction id | [optional] [readonly]
-**object_name** | **string** | The check account transaction object name | [optional] [readonly]
+**object_name** | **string** | The check account transaction object name | [optional] [readonly] [default to 'CheckAccountTransaction']
 **create** | **\DateTime** | Date of check account transaction creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last check account transaction update | [optional] [readonly]
 **sev_client** | [**\Itsmind\Sevdesk\Model\ModelCheckAccountTransactionSevClient**](ModelCheckAccountTransactionSevClient.md) |  | [optional]

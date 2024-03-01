@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The voucher position id | [optional] [readonly]
-**object_name** | **string** | The voucher position object name |
+**object_name** | **string** | The voucher position object name | [default to 'VoucherPos']
 **map_all** | **bool** |  |
 **create** | **string** | Date of voucher position creation | [optional] [readonly]
 **update** | **string** | Date of last voucher position update | [optional] [readonly]

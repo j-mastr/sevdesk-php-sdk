@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The order position id | [optional] [readonly]
-**object_name** | **string** | The order position object name | [optional] [readonly]
+**object_name** | **string** | The order position object name | [optional] [readonly] [default to 'OrderPos']
 **create** | **\DateTime** | Date of order position creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last order position update | [optional] [readonly]
 **order** | [**\Itsmind\Sevdesk\Model\ModelOrderPosOrder**](ModelOrderPosOrder.md) |  | [optional]
-**part** | [**\Itsmind\Sevdesk\Model\ModelInvoicePosPart**](ModelInvoicePosPart.md) |  | [optional]
+**part** | [**\Itsmind\Sevdesk\Model\ModelCreditNotePosPart**](ModelCreditNotePosPart.md) |  | [optional]
 **quantity** | **float** | Quantity of the article/part | [optional]
 **price** | **float** | Price of the article/part. Is either gross or net, depending on the sevDesk account setting. | [optional]
 **price_net** | **float** | Net price of the part | [optional] [readonly]

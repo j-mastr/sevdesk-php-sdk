@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Unique identifier of the payment method |
-**object_name** | **string** | Model name, which is &#39;PaymentMethod&#39; |
+**object_name** | **string** | Model name, which is &#39;PaymentMethod&#39; | [default to 'PaymentMethod']
 **additional_information** | **string** |  | [optional]
 **create** | **\DateTime** |  | [optional]
 **update** | **\DateTime** |  | [optional]

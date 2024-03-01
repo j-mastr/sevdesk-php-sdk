@@ -5,15 +5,17 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**bookCreditNote()**](CreditNoteApi.md#bookCreditNote) | **PUT** /CreditNote/{creditNoteId}/bookAmount | Book a credit note |
+| [**createCreditNoteFromInvoice()**](CreditNoteApi.md#createCreditNoteFromInvoice) | **POST** /CreditNote/Factory/createFromInvoice | Creates a new creditNote from an invoice |
+| [**createCreditNoteFromVoucher()**](CreditNoteApi.md#createCreditNoteFromVoucher) | **POST** /CreditNote/Factory/createFromVoucher | Creates a new creditNote from a voucher |
 | [**createcreditNote()**](CreditNoteApi.md#createcreditNote) | **POST** /CreditNote/Factory/saveCreditNote | Create a new creditNote |
 | [**creditNoteGetPdf()**](CreditNoteApi.md#creditNoteGetPdf) | **GET** /CreditNote/{creditNoteId}/getPdf | Retrieve pdf document of a credit note |
 | [**creditNoteSendBy()**](CreditNoteApi.md#creditNoteSendBy) | **PUT** /CreditNote/{creditNoteId}/sendBy | Mark credit note as sent |
-| [**deletecreditNote()**](CreditNoteApi.md#deletecreditNote) | **DELETE** /creditNote/{creditNoteId} | Deletes an creditNote |
+| [**deletecreditNote()**](CreditNoteApi.md#deletecreditNote) | **DELETE** /CreditNote/{creditNoteId} | Deletes an creditNote |
 | [**getCreditNotes()**](CreditNoteApi.md#getCreditNotes) | **GET** /CreditNote | Retrieve CreditNote |
-| [**getcreditNoteById()**](CreditNoteApi.md#getcreditNoteById) | **GET** /creditNote/{creditNoteId} | Find creditNote by ID |
-| [**sendCreditNoteByPrinting()**](CreditNoteApi.md#sendCreditNoteByPrinting) | **GET** /creditNote/{creditNoteId}/sendByWithRender | Send credit note by printing |
+| [**getcreditNoteById()**](CreditNoteApi.md#getcreditNoteById) | **GET** /CreditNote/{creditNoteId} | Find creditNote by ID |
+| [**sendCreditNoteByPrinting()**](CreditNoteApi.md#sendCreditNoteByPrinting) | **GET** /CreditNote/{creditNoteId}/sendByWithRender | Send credit note by printing |
 | [**sendCreditNoteViaEMail()**](CreditNoteApi.md#sendCreditNoteViaEMail) | **POST** /CreditNote/{creditNoteId}/sendViaEmail | Send credit note via email |
-| [**updatecreditNote()**](CreditNoteApi.md#updatecreditNote) | **PUT** /creditNote/{creditNoteId} | Update an existing creditNote |
+| [**updatecreditNote()**](CreditNoteApi.md#updatecreditNote) | **PUT** /CreditNote/{creditNoteId} | Update an existing creditNote |
 
 
 ## `bookCreditNote()`
@@ -33,17 +35,11 @@ Booking the credit note with a transaction is probably the most important part i
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $credit_note_id = 56; // int | ID of credit note to book
 $book_credit_note_request = new \Itsmind\Sevdesk\Model\BookCreditNoteRequest(); // \Itsmind\Sevdesk\Model\BookCreditNoteRequest | Booking data
@@ -69,7 +65,119 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createCreditNoteFromInvoice()`
+
+```php
+createCreditNoteFromInvoice($create_credit_note_from_invoice_request): \Itsmind\Sevdesk\Model\CreateCreditNoteFromInvoice201Response
+```
+
+Creates a new creditNote from an invoice
+
+Use this endpoint to create a new creditNote from an invoice.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$create_credit_note_from_invoice_request = new \Itsmind\Sevdesk\Model\CreateCreditNoteFromInvoiceRequest(); // \Itsmind\Sevdesk\Model\CreateCreditNoteFromInvoiceRequest
+
+try {
+    $result = $apiInstance->createCreditNoteFromInvoice($create_credit_note_from_invoice_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CreditNoteApi->createCreditNoteFromInvoice: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_credit_note_from_invoice_request** | [**\Itsmind\Sevdesk\Model\CreateCreditNoteFromInvoiceRequest**](../Model/CreateCreditNoteFromInvoiceRequest.md)|  | [optional] |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\CreateCreditNoteFromInvoice201Response**](../Model/CreateCreditNoteFromInvoice201Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createCreditNoteFromVoucher()`
+
+```php
+createCreditNoteFromVoucher($create_credit_note_from_voucher_request): \Itsmind\Sevdesk\Model\CreateCreditNoteFromInvoice201Response
+```
+
+Creates a new creditNote from a voucher
+
+Use this endpoint to create a new creditNote from a voucher.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$create_credit_note_from_voucher_request = new \Itsmind\Sevdesk\Model\CreateCreditNoteFromVoucherRequest(); // \Itsmind\Sevdesk\Model\CreateCreditNoteFromVoucherRequest
+
+try {
+    $result = $apiInstance->createCreditNoteFromVoucher($create_credit_note_from_voucher_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CreditNoteApi->createCreditNoteFromVoucher: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_credit_note_from_voucher_request** | [**\Itsmind\Sevdesk\Model\CreateCreditNoteFromVoucherRequest**](../Model/CreateCreditNoteFromVoucherRequest.md)|  | [optional] |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\CreateCreditNoteFromInvoice201Response**](../Model/CreateCreditNoteFromInvoice201Response.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -97,17 +205,11 @@ The list of parameters starts with the credit note array.<br> This array contain
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $save_credit_note = new \Itsmind\Sevdesk\Model\SaveCreditNote(); // \Itsmind\Sevdesk\Model\SaveCreditNote | Creation data. Please be aware, that you need to provide at least all required parameter      of the credit note model!
 
@@ -131,7 +233,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -145,7 +247,7 @@ try {
 ## `creditNoteGetPdf()`
 
 ```php
-creditNoteGetPdf($credit_note_id, $download, $prevent_send_by): \Itsmind\Sevdesk\Model\InvoiceGetPdf200Response
+creditNoteGetPdf($credit_note_id, $download, $prevent_send_by): \Itsmind\Sevdesk\Model\CreditNoteGetPdf200Response
 ```
 
 Retrieve pdf document of a credit note
@@ -159,17 +261,11 @@ Retrieves the pdf document of a credit note with additional metadata.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $credit_note_id = 56; // int | ID of credit note from which you want the pdf
 $download = true; // bool | If u want to download the pdf of the credit note.
@@ -193,11 +289,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\InvoiceGetPdf200Response**](../Model/InvoiceGetPdf200Response.md)
+[**\Itsmind\Sevdesk\Model\CreditNoteGetPdf200Response**](../Model/CreditNoteGetPdf200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -211,7 +307,7 @@ try {
 ## `creditNoteSendBy()`
 
 ```php
-creditNoteSendBy($credit_note_id, $credit_note_send_by_request): \Itsmind\Sevdesk\Model\CreditNoteSendBy200Response
+creditNoteSendBy($credit_note_id, $credit_note_send_by_request): \Itsmind\Sevdesk\Model\ModelCreditNoteResponse
 ```
 
 Mark credit note as sent
@@ -225,17 +321,11 @@ Marks an credit note as sent by a chosen send type.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $credit_note_id = 56; // int | ID of credit note to mark as sent
 $credit_note_send_by_request = new \Itsmind\Sevdesk\Model\CreditNoteSendByRequest(); // \Itsmind\Sevdesk\Model\CreditNoteSendByRequest | Specify the send type
@@ -257,11 +347,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\CreditNoteSendBy200Response**](../Model/CreditNoteSendBy200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelCreditNoteResponse**](../Model/ModelCreditNoteResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -275,7 +365,7 @@ try {
 ## `deletecreditNote()`
 
 ```php
-deletecreditNote($credit_note_id): \Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response
+deletecreditNote($credit_note_id): \Itsmind\Sevdesk\Model\GetCreditNotes200Response
 ```
 
 Deletes an creditNote
@@ -287,17 +377,11 @@ Deletes an creditNote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $credit_note_id = 56; // int | Id of creditNote resource to delete
 
@@ -317,11 +401,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response**](../Model/SendCreditNoteByPrinting200Response.md)
+[**\Itsmind\Sevdesk\Model\GetCreditNotes200Response**](../Model/GetCreditNotes200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -335,7 +419,7 @@ try {
 ## `getCreditNotes()`
 
 ```php
-getCreditNotes($status, $credit_note_number, $start_date, $end_date, $contact_id, $contact_object_name): \Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response
+getCreditNotes($status, $credit_note_number, $start_date, $end_date, $contact_id, $contact_object_name): \Itsmind\Sevdesk\Model\GetCreditNotes200Response
 ```
 
 Retrieve CreditNote
@@ -349,17 +433,11 @@ There are a multitude of parameter which can be used to filter.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $status = 'status_example'; // string | Status of the CreditNote
 $credit_note_number = 'credit_note_number_example'; // string | Retrieve all CreditNotes with this creditNote number
@@ -389,11 +467,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response**](../Model/SendCreditNoteByPrinting200Response.md)
+[**\Itsmind\Sevdesk\Model\GetCreditNotes200Response**](../Model/GetCreditNotes200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -407,7 +485,7 @@ try {
 ## `getcreditNoteById()`
 
 ```php
-getcreditNoteById($credit_note_id): \Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response
+getcreditNoteById($credit_note_id): \Itsmind\Sevdesk\Model\GetCreditNotes200Response
 ```
 
 Find creditNote by ID
@@ -421,17 +499,11 @@ Returns a single creditNote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $credit_note_id = 56; // int | ID of creditNote to return
 
@@ -451,11 +523,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response**](../Model/SendCreditNoteByPrinting200Response.md)
+[**\Itsmind\Sevdesk\Model\GetCreditNotes200Response**](../Model/GetCreditNotes200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -469,7 +541,7 @@ try {
 ## `sendCreditNoteByPrinting()`
 
 ```php
-sendCreditNoteByPrinting($credit_note_id, $send_type): \Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response
+sendCreditNoteByPrinting($credit_note_id, $send_type): \Itsmind\Sevdesk\Model\ModelCreditNoteSendByWithRender
 ```
 
 Send credit note by printing
@@ -483,17 +555,11 @@ Sending a credit note to end-customers is an important part of the bookkeeping p
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $credit_note_id = 56; // int | ID of creditNote to return
 $send_type = PRN; // string | the type you want to print.
@@ -515,11 +581,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response**](../Model/SendCreditNoteByPrinting200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelCreditNoteSendByWithRender**](../Model/ModelCreditNoteSendByWithRender.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -533,7 +599,7 @@ try {
 ## `sendCreditNoteViaEMail()`
 
 ```php
-sendCreditNoteViaEMail($credit_note_id, $send_invoice_via_e_mail_request): \Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response
+sendCreditNoteViaEMail($credit_note_id, $send_credit_note_via_e_mail_request): \Itsmind\Sevdesk\Model\SendCreditNoteViaEMail201Response
 ```
 
 Send credit note via email
@@ -547,23 +613,17 @@ This endpoint sends the specified credit note to a customer via email.<br>      
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $credit_note_id = 56; // int | ID of credit note to be sent via email
-$send_invoice_via_e_mail_request = new \Itsmind\Sevdesk\Model\SendInvoiceViaEMailRequest(); // \Itsmind\Sevdesk\Model\SendInvoiceViaEMailRequest | Mail data
+$send_credit_note_via_e_mail_request = new \Itsmind\Sevdesk\Model\SendCreditNoteViaEMailRequest(); // \Itsmind\Sevdesk\Model\SendCreditNoteViaEMailRequest | Mail data
 
 try {
-    $result = $apiInstance->sendCreditNoteViaEMail($credit_note_id, $send_invoice_via_e_mail_request);
+    $result = $apiInstance->sendCreditNoteViaEMail($credit_note_id, $send_credit_note_via_e_mail_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreditNoteApi->sendCreditNoteViaEMail: ', $e->getMessage(), PHP_EOL;
@@ -575,15 +635,15 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **credit_note_id** | **int**| ID of credit note to be sent via email | |
-| **send_invoice_via_e_mail_request** | [**\Itsmind\Sevdesk\Model\SendInvoiceViaEMailRequest**](../Model/SendInvoiceViaEMailRequest.md)| Mail data | [optional] |
+| **send_credit_note_via_e_mail_request** | [**\Itsmind\Sevdesk\Model\SendCreditNoteViaEMailRequest**](../Model/SendCreditNoteViaEMailRequest.md)| Mail data | [optional] |
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response**](../Model/SendCreditNoteByPrinting200Response.md)
+[**\Itsmind\Sevdesk\Model\SendCreditNoteViaEMail201Response**](../Model/SendCreditNoteViaEMail201Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -597,7 +657,7 @@ try {
 ## `updatecreditNote()`
 
 ```php
-updatecreditNote($credit_note_id, $model_credit_note_update): \Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response
+updatecreditNote($credit_note_id, $model_credit_note_update): \Itsmind\Sevdesk\Model\GetCreditNotes200Response
 ```
 
 Update an existing creditNote
@@ -611,17 +671,11 @@ Update a creditNote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $credit_note_id = 56; // int | ID of creditNote to update
 $model_credit_note_update = new \Itsmind\Sevdesk\Model\ModelCreditNoteUpdate(); // \Itsmind\Sevdesk\Model\ModelCreditNoteUpdate | Update data
@@ -643,11 +697,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response**](../Model/SendCreditNoteByPrinting200Response.md)
+[**\Itsmind\Sevdesk\Model\GetCreditNotes200Response**](../Model/GetCreditNotes200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 

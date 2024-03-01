@@ -13,7 +13,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `reportContact()`
 
 ```php
-reportContact($sev_query, $download): object
+reportContact($sev_query, $download): \Itsmind\Sevdesk\Model\ReportContact200Response
 ```
 
 Export contact list
@@ -27,17 +27,11 @@ Export contact list
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\ReportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $sev_query = new \Itsmind\Sevdesk\Model\ReportContactSevQueryParameter(); // ReportContactSevQueryParameter
 $download = True; // bool
@@ -59,11 +53,11 @@ try {
 
 ### Return type
 
-**object**
+[**\Itsmind\Sevdesk\Model\ReportContact200Response**](../Model/ReportContact200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -77,7 +71,7 @@ try {
 ## `reportInvoice()`
 
 ```php
-reportInvoice($sev_query, $download): object
+reportInvoice($view, $sev_query, $download): \Itsmind\Sevdesk\Model\ReportInvoice200Response
 ```
 
 Export invoice list
@@ -91,23 +85,18 @@ Export invoice list
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\ReportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
+$view = all; // string
 $sev_query = new \Itsmind\Sevdesk\Model\ReportInvoiceSevQueryParameter(); // ReportInvoiceSevQueryParameter
 $download = True; // bool
 
 try {
-    $result = $apiInstance->reportInvoice($sev_query, $download);
+    $result = $apiInstance->reportInvoice($view, $sev_query, $download);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportApi->reportInvoice: ', $e->getMessage(), PHP_EOL;
@@ -118,16 +107,17 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **view** | **string**|  | |
 | **sev_query** | [**ReportInvoiceSevQueryParameter**](../Model/.md)|  | |
 | **download** | **bool**|  | [optional] |
 
 ### Return type
 
-**object**
+[**\Itsmind\Sevdesk\Model\ReportInvoice200Response**](../Model/ReportInvoice200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -141,7 +131,7 @@ try {
 ## `reportOrder()`
 
 ```php
-reportOrder($sev_query, $download): object
+reportOrder($view, $sev_query, $download): \Itsmind\Sevdesk\Model\ReportOrder200Response
 ```
 
 Export order list
@@ -155,23 +145,18 @@ Export order list
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\ReportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
+$view = all; // string
 $sev_query = new \Itsmind\Sevdesk\Model\ReportOrderSevQueryParameter(); // ReportOrderSevQueryParameter
 $download = True; // bool
 
 try {
-    $result = $apiInstance->reportOrder($sev_query, $download);
+    $result = $apiInstance->reportOrder($view, $sev_query, $download);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportApi->reportOrder: ', $e->getMessage(), PHP_EOL;
@@ -182,16 +167,17 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **view** | **string**|  | |
 | **sev_query** | [**ReportOrderSevQueryParameter**](../Model/.md)|  | |
 | **download** | **bool**|  | [optional] |
 
 ### Return type
 
-**object**
+[**\Itsmind\Sevdesk\Model\ReportOrder200Response**](../Model/ReportOrder200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -205,7 +191,7 @@ try {
 ## `reportVoucher()`
 
 ```php
-reportVoucher($sev_query, $download): object
+reportVoucher($sev_query, $download): \Itsmind\Sevdesk\Model\ReportVoucher200Response
 ```
 
 Export voucher list
@@ -219,17 +205,11 @@ Export voucher list
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\ReportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $sev_query = new \Itsmind\Sevdesk\Model\ReportVoucherSevQueryParameter(); // ReportVoucherSevQueryParameter
 $download = True; // bool
@@ -251,11 +231,11 @@ try {
 
 ### Return type
 
-**object**
+[**\Itsmind\Sevdesk\Model\ReportVoucher200Response**](../Model/ReportVoucher200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 

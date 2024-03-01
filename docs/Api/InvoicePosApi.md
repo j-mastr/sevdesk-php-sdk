@@ -10,7 +10,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `getInvoicePos()`
 
 ```php
-getInvoicePos($id, $invoice_id, $invoice_object_name, $part_id, $part_object_name): \Itsmind\Sevdesk\Model\GetInvoicePos200Response
+getInvoicePos($id, $invoice_id, $invoice_object_name, $part_id, $part_object_name): \Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response
 ```
 
 Retrieve InvoicePos
@@ -62,7 +62,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetInvoicePos200Response**](../Model/GetInvoicePos200Response.md)
+[**\Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response**](../Model/GetInvoicePositionsById200Response.md)
 
 ### Authorization
 

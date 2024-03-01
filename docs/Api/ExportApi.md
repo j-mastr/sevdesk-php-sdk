@@ -12,12 +12,13 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 | [**exportTransactions()**](ExportApi.md#exportTransactions) | **GET** /Export/transactionsCsv | Export transaction |
 | [**exportVoucher()**](ExportApi.md#exportVoucher) | **GET** /Export/voucherListCsv | Export voucher as zip |
 | [**exportVoucherZip()**](ExportApi.md#exportVoucherZip) | **GET** /Export/voucherZip | Export voucher zip |
+| [**updateExportConfig()**](ExportApi.md#updateExportConfig) | **PUT** /SevClient/{SevClientId}/updateExportConfig | Update export config |
 
 
 ## `exportContact()`
 
 ```php
-exportContact($sev_query, $download): object
+exportContact($sev_query, $download): \Itsmind\Sevdesk\Model\ExportContact200Response
 ```
 
 Export contact
@@ -31,17 +32,11 @@ Contact export as csv
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $sev_query = new \Itsmind\Sevdesk\Model\ExportContactSevQueryParameter(); // ExportContactSevQueryParameter
 $download = True; // bool
@@ -63,11 +58,11 @@ try {
 
 ### Return type
 
-**object**
+[**\Itsmind\Sevdesk\Model\ExportContact200Response**](../Model/ExportContact200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -81,7 +76,7 @@ try {
 ## `exportCreditNote()`
 
 ```php
-exportCreditNote($sev_query, $download): object
+exportCreditNote($sev_query, $download): \Itsmind\Sevdesk\Model\ExportCreditNote200Response
 ```
 
 Export creditNote
@@ -95,17 +90,11 @@ Export all credit notes as csv
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $sev_query = new \Itsmind\Sevdesk\Model\ExportCreditNoteSevQueryParameter(); // ExportCreditNoteSevQueryParameter
 $download = True; // bool
@@ -127,11 +116,11 @@ try {
 
 ### Return type
 
-**object**
+[**\Itsmind\Sevdesk\Model\ExportCreditNote200Response**](../Model/ExportCreditNote200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -150,7 +139,7 @@ exportDatev($start_date, $end_date, $scope, $download, $with_unpaid_documents, $
 
 Export datev
 
-Datev export as zip with csv´s
+Datev export as zip with csv´s. Before you can perform the datev export,  you must first set the \"accountingYearBegin\". To do this, you must use the  <a href='https://api.sevdesk.de/#tag/Export/operation/updateExportConfig'>updateExportConfig</a> endpoint.
 
 ### Example
 
@@ -159,17 +148,11 @@ Datev export as zip with csv´s
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $start_date = 1641032867; // int | the start date of the export as timestamp
 $end_date = 1648805267; // int | the end date of the export as timestamp
@@ -205,7 +188,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -219,7 +202,7 @@ try {
 ## `exportInvoice()`
 
 ```php
-exportInvoice($sev_query, $download): object
+exportInvoice($sev_query, $download): \Itsmind\Sevdesk\Model\ExportInvoice200Response
 ```
 
 Export invoice
@@ -233,17 +216,11 @@ Export all invoices as csv
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $sev_query = new \Itsmind\Sevdesk\Model\ExportInvoiceSevQueryParameter(); // ExportInvoiceSevQueryParameter
 $download = True; // bool
@@ -265,11 +242,11 @@ try {
 
 ### Return type
 
-**object**
+[**\Itsmind\Sevdesk\Model\ExportInvoice200Response**](../Model/ExportInvoice200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -283,7 +260,7 @@ try {
 ## `exportInvoiceZip()`
 
 ```php
-exportInvoiceZip($sev_query, $download): object
+exportInvoiceZip($sev_query, $download): \Itsmind\Sevdesk\Model\ExportInvoiceZip200Response
 ```
 
 Export Invoice as zip
@@ -297,17 +274,11 @@ Export all invoices as zip
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $sev_query = new \Itsmind\Sevdesk\Model\ExportInvoiceSevQueryParameter(); // ExportInvoiceSevQueryParameter
 $download = True; // bool
@@ -329,11 +300,11 @@ try {
 
 ### Return type
 
-**object**
+[**\Itsmind\Sevdesk\Model\ExportInvoiceZip200Response**](../Model/ExportInvoiceZip200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -347,7 +318,7 @@ try {
 ## `exportTransactions()`
 
 ```php
-exportTransactions($sev_query, $download): object
+exportTransactions($sev_query, $download): \Itsmind\Sevdesk\Model\ExportTransactions200Response
 ```
 
 Export transaction
@@ -361,17 +332,11 @@ Export all transactions as csv
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $sev_query = new \Itsmind\Sevdesk\Model\ExportTransactionsSevQueryParameter(); // ExportTransactionsSevQueryParameter
 $download = True; // bool
@@ -393,11 +358,11 @@ try {
 
 ### Return type
 
-**object**
+[**\Itsmind\Sevdesk\Model\ExportTransactions200Response**](../Model/ExportTransactions200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -411,7 +376,7 @@ try {
 ## `exportVoucher()`
 
 ```php
-exportVoucher($sev_query, $download): object
+exportVoucher($sev_query, $download): \Itsmind\Sevdesk\Model\ExportVoucher200Response
 ```
 
 Export voucher as zip
@@ -425,17 +390,11 @@ Export all vouchers as zip
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $sev_query = new \Itsmind\Sevdesk\Model\ExportVoucherSevQueryParameter(); // ExportVoucherSevQueryParameter
 $download = True; // bool
@@ -457,11 +416,11 @@ try {
 
 ### Return type
 
-**object**
+[**\Itsmind\Sevdesk\Model\ExportVoucher200Response**](../Model/ExportVoucher200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -475,7 +434,7 @@ try {
 ## `exportVoucherZip()`
 
 ```php
-exportVoucherZip($sev_query, $download): object
+exportVoucherZip($sev_query, $download): \Itsmind\Sevdesk\Model\ExportVoucherZip200Response
 ```
 
 Export voucher zip
@@ -489,19 +448,13 @@ export all vouchers as zip
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$sev_query = new \Itsmind\Sevdesk\Model\ExportVoucherSevQueryParameter(); // ExportVoucherSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\ExportVoucherZipSevQueryParameter(); // ExportVoucherZipSevQueryParameter
 $download = True; // bool
 
 try {
@@ -516,20 +469,78 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sev_query** | [**ExportVoucherSevQueryParameter**](../Model/.md)|  | |
+| **sev_query** | [**ExportVoucherZipSevQueryParameter**](../Model/.md)|  | |
 | **download** | **bool**|  | [optional] |
 
 ### Return type
 
-**object**
+[**\Itsmind\Sevdesk\Model\ExportVoucherZip200Response**](../Model/ExportVoucherZip200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateExportConfig()`
+
+```php
+updateExportConfig($sev_client_id, $update_export_config_request): \Itsmind\Sevdesk\Model\UpdateExportConfig200Response
+```
+
+Update export config
+
+Update export config to export datev CSV
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$sev_client_id = 3.4; // float | id of sevClient
+$update_export_config_request = new \Itsmind\Sevdesk\Model\UpdateExportConfigRequest(); // \Itsmind\Sevdesk\Model\UpdateExportConfigRequest | Specify the update
+
+try {
+    $result = $apiInstance->updateExportConfig($sev_client_id, $update_export_config_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ExportApi->updateExportConfig: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **sev_client_id** | **float**| id of sevClient | |
+| **update_export_config_request** | [**\Itsmind\Sevdesk\Model\UpdateExportConfigRequest**](../Model/UpdateExportConfigRequest.md)| Specify the update | [optional] |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\UpdateExportConfig200Response**](../Model/UpdateExportConfig200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

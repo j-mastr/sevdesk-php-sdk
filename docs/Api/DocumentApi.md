@@ -24,19 +24,13 @@ There are a multitude of parameter which can be used to filter.<br>       A few 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\DocumentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$contact = new \Itsmind\Sevdesk\Model\GetInvoicesContactParameter(); // GetInvoicesContactParameter | Retrieve all documents for this contact. The value of contact[objectName] must be 'Contact'.
+$contact = new \Itsmind\Sevdesk\Model\GetDocumentsContactParameter(); // GetDocumentsContactParameter | Retrieve all documents for this contact. The value of contact[objectName] must be 'Contact'.
 $count_all = True; // bool | If all contacts should be counted
 
 try {
@@ -51,7 +45,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contact** | [**GetInvoicesContactParameter**](../Model/.md)| Retrieve all documents for this contact. The value of contact[objectName] must be &#39;Contact&#39;. | [optional] |
+| **contact** | [**GetDocumentsContactParameter**](../Model/.md)| Retrieve all documents for this contact. The value of contact[objectName] must be &#39;Contact&#39;. | [optional] |
 | **count_all** | **bool**| If all contacts should be counted | [optional] |
 
 ### Return type
@@ -60,7 +54,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 

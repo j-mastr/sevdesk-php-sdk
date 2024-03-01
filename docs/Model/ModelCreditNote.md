@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The creditNote id. &lt;span style&#x3D;&#39;color:red&#39;&gt;Required&lt;/span&gt; if you want to create/update an credit note position for an existing credit note\&quot; | [optional]
-**object_name** | **string** | The creditNote object name |
+**object_name** | **string** | The creditNote object name | [default to 'CreditNote']
 **map_all** | **bool** |  |
 **create** | **\DateTime** | Date of creditNote creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last creditNote update | [optional] [readonly]
@@ -28,7 +28,6 @@ Name | Type | Description | Notes
 **tax_set** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteTaxSet**](ModelCreditNoteTaxSet.md) |  | [optional]
 **tax_text** | **string** | A common tax text would be &#39;Umsatzsteuer 19%&#39; |
 **tax_type** | **string** | Tax type of the creditNote. There are four tax types: 1. default - Umsatzsteuer ausweisen 2. eu - Steuerfreie innergemeinschaftliche Lieferung (Europäische Union) 3. noteu - Steuerschuldnerschaft des Leistungsempfängers (außerhalb EU, z. B. Schweiz) 4. custom - Using custom tax set 5. ss - Not subject to VAT according to §19 1 UStG Tax rates are heavily connected to the tax type used. |
-**credit_note_type** | **string** | Type of the creditNote. | [optional]
 **send_date** | **\DateTime** | The date the creditNote was sent to the customer | [optional]
 **address** | **string** | Complete address of the recipient including name, street, city, zip and country.&lt;br&gt;       Line breaks can be used and will be displayed on the invoice pdf. | [optional]
 **booking_category** | **string** | defines the booking category, for more information see the section \&quot;&lt;a href&#x3D;&#39;https://api.sevdesk.de/#section/Credit-note-booking-categories&#39;&gt;Credit note booking categories&lt;/a&gt;\&quot; | [optional]
@@ -44,5 +43,6 @@ Name | Type | Description | Notes
 **customer_internal_note** | **string** | Internal note of the customer. Contains data entered into field &#39;Referenz/Bestellnummer&#39; | [optional]
 **show_net** | **bool** | If true, the net amount of each position will be shown on the creditNote. Otherwise gross amount | [optional]
 **send_type** | **string** | Type which was used to send the creditNote. IMPORTANT: Please refer to the creditNote section of the       *     API-Overview to understand how this attribute can be used before using it! | [optional]
+**credit_note_type** | **string** | Type of the creditNote. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

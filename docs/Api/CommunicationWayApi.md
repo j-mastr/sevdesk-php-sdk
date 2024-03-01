@@ -15,7 +15,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `createCommunicationWay()`
 
 ```php
-createCommunicationWay($model_communication_way): \Itsmind\Sevdesk\Model\GetCommunicationWayById200Response
+createCommunicationWay($model_communication_way): \Itsmind\Sevdesk\Model\ModelCommunicationWayResponse
 ```
 
 Create a new contact communication way
@@ -29,17 +29,11 @@ Creates a new contact communication way.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CommunicationWayApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $model_communication_way = new \Itsmind\Sevdesk\Model\ModelCommunicationWay(); // \Itsmind\Sevdesk\Model\ModelCommunicationWay | Creation data
 
@@ -59,11 +53,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCommunicationWayById200Response**](../Model/GetCommunicationWayById200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelCommunicationWayResponse**](../Model/ModelCommunicationWayResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -77,7 +71,7 @@ try {
 ## `deleteCommunicationWay()`
 
 ```php
-deleteCommunicationWay($communication_way_id): \Itsmind\Sevdesk\Model\DeleteAccountingContact200Response
+deleteCommunicationWay($communication_way_id): \Itsmind\Sevdesk\Model\DeleteCheckAccount200Response
 ```
 
 Deletes a communication way
@@ -89,17 +83,11 @@ Deletes a communication way
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CommunicationWayApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $communication_way_id = 56; // int | Id of communication way resource to delete
 
@@ -119,11 +107,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\DeleteAccountingContact200Response**](../Model/DeleteAccountingContact200Response.md)
+[**\Itsmind\Sevdesk\Model\DeleteCheckAccount200Response**](../Model/DeleteCheckAccount200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -137,7 +125,7 @@ try {
 ## `getCommunicationWayById()`
 
 ```php
-getCommunicationWayById($communication_way_id): \Itsmind\Sevdesk\Model\GetCommunicationWayById200Response
+getCommunicationWayById($communication_way_id): \Itsmind\Sevdesk\Model\GetCommunicationWays200Response
 ```
 
 Find communication way by ID
@@ -151,17 +139,11 @@ Returns a single communication way
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CommunicationWayApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $communication_way_id = 56; // int | ID of communication way to return
 
@@ -181,11 +163,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCommunicationWayById200Response**](../Model/GetCommunicationWayById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetCommunicationWays200Response**](../Model/GetCommunicationWays200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -213,17 +195,11 @@ Returns all communication way keys.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CommunicationWayApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 
 try {
@@ -244,7 +220,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -258,7 +234,7 @@ This endpoint does not need any parameter.
 ## `getCommunicationWays()`
 
 ```php
-getCommunicationWays($contact_id, $contact_object_name, $type, $main): \Itsmind\Sevdesk\Model\GetCommunicationWayById200Response
+getCommunicationWays($contact_id, $contact_object_name, $type, $main): \Itsmind\Sevdesk\Model\GetCommunicationWays200Response
 ```
 
 Retrieve communication ways
@@ -272,17 +248,11 @@ Returns all communication ways which have been added up until now. Filters can b
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CommunicationWayApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $contact_id = 'contact_id_example'; // string | ID of contact for which you want the communication ways.
 $contact_object_name = Contact; // string | Object name. Only needed if you also defined the ID of a contact.
@@ -302,17 +272,17 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **contact_id** | **string**| ID of contact for which you want the communication ways. | [optional] |
-| **contact_object_name** | **string**| Object name. Only needed if you also defined the ID of a contact. | [optional] |
+| **contact_object_name** | **string**| Object name. Only needed if you also defined the ID of a contact. | [optional] [default to &#39;Contact&#39;] |
 | **type** | **string**| Type of the communication ways you want to get. | [optional] |
 | **main** | **string**| Define if you only want the main communication way. | [optional] |
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCommunicationWayById200Response**](../Model/GetCommunicationWayById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetCommunicationWays200Response**](../Model/GetCommunicationWays200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -326,7 +296,7 @@ try {
 ## `updateCommunicationWay()`
 
 ```php
-updateCommunicationWay($communication_way_id, $model_communication_way_update): \Itsmind\Sevdesk\Model\GetCommunicationWayById200Response
+updateCommunicationWay($communication_way_id, $model_communication_way_update): \Itsmind\Sevdesk\Model\ModelCommunicationWayResponse
 ```
 
 Update a existing communication way
@@ -340,17 +310,11 @@ Update a communication way
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\CommunicationWayApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $communication_way_id = 56; // int | ID of CommunicationWay to update
 $model_communication_way_update = new \Itsmind\Sevdesk\Model\ModelCommunicationWayUpdate(); // \Itsmind\Sevdesk\Model\ModelCommunicationWayUpdate | Update data
@@ -372,11 +336,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCommunicationWayById200Response**](../Model/GetCommunicationWayById200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelCommunicationWayResponse**](../Model/ModelCommunicationWayResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **credit_note** | [**\Itsmind\Sevdesk\Model\ModelCreditNote**](ModelCreditNote.md) |  |
-**credit_note_pos_save** | [**\Itsmind\Sevdesk\Model\ModelCreditNotePos**](ModelCreditNotePos.md) |  | [optional]
+**credit_note_pos_save** | [**\Itsmind\Sevdesk\Model\ModelCreditNotePos[]**](ModelCreditNotePos.md) |  | [optional]
 **credit_note_pos_delete** | [**\Itsmind\Sevdesk\Model\SaveCreditNoteCreditNotePosDelete**](SaveCreditNoteCreditNotePosDelete.md) |  | [optional]
 **filename** | **\SplFileObject** | Filename of a previously upload file which should be attached. | [optional]
 **discount_save** | [**\Itsmind\Sevdesk\Model\SaveCreditNoteDiscountSave**](SaveCreditNoteDiscountSave.md) |  | [optional]

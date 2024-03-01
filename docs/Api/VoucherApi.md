@@ -29,17 +29,11 @@ Booking the voucher with a transaction is probably the most important part in th
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\VoucherApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $voucher_id = 56; // int | ID of voucher to book
 $book_voucher_request = new \Itsmind\Sevdesk\Model\BookVoucherRequest(); // \Itsmind\Sevdesk\Model\BookVoucherRequest | Booking data
@@ -65,7 +59,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -79,12 +73,12 @@ try {
 ## `createVoucherByFactory()`
 
 ```php
-createVoucherByFactory($save_voucher): \Itsmind\Sevdesk\Model\CreateVoucherByFactory201Response
+createVoucherByFactory($save_voucher): \Itsmind\Sevdesk\Model\SaveVoucherResponse
 ```
 
 Create a new voucher
 
-Generally there are two ways to create vouchers.<br> You can create vouchers by either POSTing to the <b>Voucher</b> and <b>VoucherPos</b> endpoints with the necessary parameters (see attribute lists) or you can use a special endpoint which bundles the requests in one.<br> <br> The list of parameters starts with the voucher array.<br> This array contains all required attributes for a complete voucher.<br> Most of the attributes are covered in the voucher attribute list, there are only two parameters standing out, namely <b>mapAll</b> and <b>objectName</b>.<br> These are just needed for our system and you always need to provide them.<br><br> The list of parameters then continues with the voucher position array.<br> With this array you have the possibility to add multiple positions at once.<br> In the example it only contains one position, again together with the parameters <b>mapAll</b> and <b>objectName</b>, however, you can add more voucher positions by extending the array.<br> So if you wanted to add another position, you would add the same list of parameters with an incrementedcomponents/schemas/saveVoucher\" array index of \\\"1\\\" instead of \\\"0\\\".<br><br> The list ends with the two parameters voucherPosDelete and filename.<br> We will shortly explain what they can do.<br> With voucherPosDelete you have to option to delete voucher positions as this request can also be used to update vouchers.<br> With filename you can attach a file to the voucher.<br> For most of our customers this is a really important step, as they need to digitize their receipts.<br> Finally, after covering all parameters, they only important information left, is that the order of the last two attributes always needs to be kept.
+Bundles the creation or updating of voucher and voucher position.<br> The list of parameters starts with the voucher array.<br> This array contains all required attributes for a complete voucher.<br> Most of the attributes are covered in the voucher attribute list, there are only two parameters standing out, namely <b>mapAll</b> and <b>objectName</b>.<br> These are just needed for our system and you always need to provide them.<br><br> The list of parameters then continues with the voucher position array.<br> With this array you have the possibility to add multiple positions at once.<br> In the example it only contains one position, again together with the parameters <b>mapAll</b> and <b>objectName</b>, however, you can add more voucher positions by extending the array.<br> So if you wanted to add another position, you would add the same list of parameters with an incremented array index of \\\"1\\\" instead of \\\"0\\\".<br><br> The list ends with the two parameters voucherPosDelete and filename.<br> We will shortly explain what they can do.<br> With voucherPosDelete you have to option to delete voucher positions as this request can also be used to update vouchers.<br> With filename you can attach a file to the voucher.<br> For most of our customers this is a really important step, as they need to digitize their receipts.<br> Finally, after covering all parameters, they only important information left, is that the order of the last two attributes always needs to be kept.
 
 ### Example
 
@@ -93,17 +87,11 @@ Generally there are two ways to create vouchers.<br> You can create vouchers by 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\VoucherApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $save_voucher = new \Itsmind\Sevdesk\Model\SaveVoucher(); // \Itsmind\Sevdesk\Model\SaveVoucher | Creation data. Please be aware, that you need to provide at least all required parameter      of the voucher and voucher position model!
 
@@ -123,11 +111,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\CreateVoucherByFactory201Response**](../Model/CreateVoucherByFactory201Response.md)
+[**\Itsmind\Sevdesk\Model\SaveVoucherResponse**](../Model/SaveVoucherResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -141,7 +129,7 @@ try {
 ## `getVoucherById()`
 
 ```php
-getVoucherById($voucher_id): \Itsmind\Sevdesk\Model\GetVoucherById200Response
+getVoucherById($voucher_id): \Itsmind\Sevdesk\Model\GetVouchers200Response
 ```
 
 Find voucher by ID
@@ -155,17 +143,11 @@ Returns a single voucher
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\VoucherApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $voucher_id = 56; // int | ID of voucher to return
 
@@ -185,11 +167,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetVoucherById200Response**](../Model/GetVoucherById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetVouchers200Response**](../Model/GetVouchers200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -203,7 +185,7 @@ try {
 ## `getVouchers()`
 
 ```php
-getVouchers($status, $credit_debit, $description_like, $start_date, $end_date, $contact_id, $contact_object_name): \Itsmind\Sevdesk\Model\GetVoucherById200Response
+getVouchers($status, $credit_debit, $description_like, $start_date, $end_date, $contact_id, $contact_object_name): \Itsmind\Sevdesk\Model\GetVouchers200Response
 ```
 
 Retrieve vouchers
@@ -217,17 +199,11 @@ There are a multitude of parameter which can be used to filter. A few of them ar
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\VoucherApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $status = 3.4; // float | Status of the vouchers to retrieve.
 $credit_debit = 'credit_debit_example'; // string | Define if you only want credit or debit vouchers.
@@ -259,11 +235,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetVoucherById200Response**](../Model/GetVoucherById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetVouchers200Response**](../Model/GetVouchers200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -277,7 +253,7 @@ try {
 ## `updateVoucher()`
 
 ```php
-updateVoucher($voucher_id, $model_voucher_update): \Itsmind\Sevdesk\Model\GetVoucherById200Response
+updateVoucher($voucher_id, $model_voucher_update): \Itsmind\Sevdesk\Model\ModelVoucherResponse
 ```
 
 Update an existing voucher
@@ -291,17 +267,11 @@ Update a voucher
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\VoucherApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $voucher_id = 56; // int | ID of voucher to update
 $model_voucher_update = new \Itsmind\Sevdesk\Model\ModelVoucherUpdate(); // \Itsmind\Sevdesk\Model\ModelVoucherUpdate | Update data
@@ -323,11 +293,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetVoucherById200Response**](../Model/GetVoucherById200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelVoucherResponse**](../Model/ModelVoucherResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -355,17 +325,11 @@ To attach a document to a voucher, you will need to upload it first for later us
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\VoucherApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $voucher_upload_file_request = new \Itsmind\Sevdesk\Model\VoucherUploadFileRequest(); // \Itsmind\Sevdesk\Model\VoucherUploadFileRequest | File to upload
 
@@ -389,7 +353,7 @@ try {
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 

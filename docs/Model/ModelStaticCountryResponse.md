@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Unique identifier of the country |
-**object_name** | **string** | Model name, which is &#39;StaticCountry&#39; |
+**object_name** | **string** | Model name, which is &#39;StaticCountry&#39; | [default to 'StaticCountry']
 **additional_information** | **string** |  | [optional]
 **code** | **string** |  | [optional]
 **name** | **string** |  | [optional]

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | The accounting contact id | [optional] [readonly]
-**object_name** | **string** | The accounting contact object name | [optional] [readonly]
+**object_name** | **string** | The accounting contact object name | [optional] [readonly] [default to 'AccountingContact']
 **create** | **\DateTime** | Date of accounting contact creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last accounting contact update | [optional] [readonly]
 **contact** | [**\Itsmind\Sevdesk\Model\ModelAccountingContactResponseContact**](ModelAccountingContactResponseContact.md) |  | [optional]

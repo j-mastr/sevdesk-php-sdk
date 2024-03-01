@@ -14,7 +14,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `createAccountingContact()`
 
 ```php
-createAccountingContact($model_accounting_contact): \Itsmind\Sevdesk\Model\GetAccountingContactById200Response
+createAccountingContact($model_accounting_contact): \Itsmind\Sevdesk\Model\ModelAccountingContactResponse
 ```
 
 Create a new accounting contact
@@ -28,17 +28,11 @@ Creates a new accounting contact.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\AccountingContactApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $model_accounting_contact = new \Itsmind\Sevdesk\Model\ModelAccountingContact(); // \Itsmind\Sevdesk\Model\ModelAccountingContact | Creation data
 
@@ -58,11 +52,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetAccountingContactById200Response**](../Model/GetAccountingContactById200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelAccountingContactResponse**](../Model/ModelAccountingContactResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -76,10 +70,12 @@ try {
 ## `deleteAccountingContact()`
 
 ```php
-deleteAccountingContact($accounting_contact_id): \Itsmind\Sevdesk\Model\DeleteAccountingContact200Response
+deleteAccountingContact($accounting_contact_id): \Itsmind\Sevdesk\Model\DeleteCheckAccount200Response
 ```
 
 Deletes an accounting contact
+
+Attention, deleting an existing AccountingContact can lead to **booking errors**, especially in the **DATEV export**. Compatibility of sevDesk with DATEV is no longer guaranteed.
 
 ### Example
 
@@ -88,17 +84,11 @@ Deletes an accounting contact
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\AccountingContactApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $accounting_contact_id = 56; // int | Id of accounting contact resource to delete
 
@@ -118,11 +108,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\DeleteAccountingContact200Response**](../Model/DeleteAccountingContact200Response.md)
+[**\Itsmind\Sevdesk\Model\DeleteCheckAccount200Response**](../Model/DeleteCheckAccount200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -136,7 +126,7 @@ try {
 ## `getAccountingContact()`
 
 ```php
-getAccountingContact($contact_id, $contact_object_name): \Itsmind\Sevdesk\Model\GetAccountingContactById200Response
+getAccountingContact($contact_id, $contact_object_name): \Itsmind\Sevdesk\Model\GetAccountingContact200Response
 ```
 
 Retrieve accounting contact
@@ -150,17 +140,11 @@ Returns all accounting contact which have been added up until now. Filters can b
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\AccountingContactApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $contact_id = 'contact_id_example'; // string | ID of contact for which you want the accounting contact.
 $contact_object_name = Contact; // string | Object name. Only needed if you also defined the ID of a contact.
@@ -178,15 +162,15 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **contact_id** | **string**| ID of contact for which you want the accounting contact. | [optional] |
-| **contact_object_name** | **string**| Object name. Only needed if you also defined the ID of a contact. | [optional] |
+| **contact_object_name** | **string**| Object name. Only needed if you also defined the ID of a contact. | [optional] [default to &#39;Contact&#39;] |
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetAccountingContactById200Response**](../Model/GetAccountingContactById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetAccountingContact200Response**](../Model/GetAccountingContact200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -200,7 +184,7 @@ try {
 ## `getAccountingContactById()`
 
 ```php
-getAccountingContactById($accounting_contact_id): \Itsmind\Sevdesk\Model\GetAccountingContactById200Response
+getAccountingContactById($accounting_contact_id): \Itsmind\Sevdesk\Model\GetAccountingContact200Response
 ```
 
 Find accounting contact by ID
@@ -214,17 +198,11 @@ Returns a single accounting contac
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\AccountingContactApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $accounting_contact_id = 56; // int | ID of accounting contact to return
 
@@ -244,11 +222,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetAccountingContactById200Response**](../Model/GetAccountingContactById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetAccountingContact200Response**](../Model/GetAccountingContact200Response.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 
@@ -262,12 +240,12 @@ try {
 ## `updateAccountingContact()`
 
 ```php
-updateAccountingContact($accounting_contact_id, $model_accounting_contact_update): \Itsmind\Sevdesk\Model\GetAccountingContactById200Response
+updateAccountingContact($accounting_contact_id, $model_accounting_contact_update): \Itsmind\Sevdesk\Model\ModelAccountingContactResponse
 ```
 
 Update an existing accounting contact
 
-Update an accounting contact
+Attention, updating an existing AccountingContact can lead to **booking errors**, especially in the **DATEV export**. Compatibility of sevDesk with DATEV is no longer guaranteed.
 
 ### Example
 
@@ -276,17 +254,11 @@ Update an accounting contact
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new Itsmind\Sevdesk\Api\AccountingContactApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $accounting_contact_id = 56; // int | ID of accounting contact to update
 $model_accounting_contact_update = new \Itsmind\Sevdesk\Model\ModelAccountingContactUpdate(); // \Itsmind\Sevdesk\Model\ModelAccountingContactUpdate | Update data
@@ -308,11 +280,11 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetAccountingContactById200Response**](../Model/GetAccountingContactById200Response.md)
+[**\Itsmind\Sevdesk\Model\ModelAccountingContactResponse**](../Model/ModelAccountingContactResponse.md)
 
 ### Authorization
 
-[api_key](../../README.md#api_key)
+No authorization required
 
 ### HTTP request headers
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The part id | [optional] [readonly]
-**object_name** | **string** | The part object name | [optional] [readonly]
+**object_name** | **string** | The part object name | [optional] [readonly] [default to 'Part']
 **create** | **\DateTime** | Date of part creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last part update | [optional] [readonly]
 **name** | **string** | Name of the part | [optional]

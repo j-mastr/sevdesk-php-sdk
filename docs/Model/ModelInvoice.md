@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The invoice id. &lt;span style&#x3D;&#39;color:red&#39;&gt;Required&lt;/span&gt; if you want to create or update an invoice position for an existing invoice | [optional]
-**object_name** | **string** | The invoice object name. | [optional]
+**object_name** | **string** | The invoice object name. | [optional] [default to 'Invoice']
 **invoice_number** | **string** | The invoice number | [optional]
 **contact** | [**\Itsmind\Sevdesk\Model\ModelInvoiceContact**](ModelInvoiceContact.md) |  |
-**contact_person** | [**\Itsmind\Sevdesk\Model\ModelInvoiceUpdateContactPerson**](ModelInvoiceUpdateContactPerson.md) |  |
+**contact_person** | [**\Itsmind\Sevdesk\Model\ModelInvoiceContactPerson**](ModelInvoiceContactPerson.md) |  |
 **create** | **\DateTime** | Date of invoice creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last invoice update | [optional] [readonly]
-**sev_client** | [**\Itsmind\Sevdesk\Model\ModelInvoiceUpdateSevClient**](ModelInvoiceUpdateSevClient.md) |  | [optional]
-**invoice_date** | **string** | Needs to be provided as timestamp or dd.mm.yyyy |
+**sev_client** | [**\Itsmind\Sevdesk\Model\ModelInvoiceSevClient**](ModelInvoiceSevClient.md) |  | [optional]
+**invoice_date** | **string** | Needs to be provided as timestamp or dd.mm.yyyy  **Requirements:** * For final invoices (invoiceType &#x3D; &#39;ER&#39;), the invoiceDate must be later than or equal to the invoiceDate of related advance (invoiceType &#x3D; &#39;AR&#39;) / partial (invoiceType &#x3D; &#39;TR&#39;) invoices.&lt;/li&gt; |
 **header** | **string** | Normally consist of prefix plus the invoice number | [optional]
 **head_text** | **string** | Certain html tags can be used here to format your text | [optional]
 **foot_text** | **string** | Certain html tags can be used here to format your text | [optional]

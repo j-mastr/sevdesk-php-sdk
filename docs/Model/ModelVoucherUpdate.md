@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **voucher_date** | **\DateTime** | Needs to be provided as timestamp or dd.mm.yyyy | [optional]
-**supplier** | [**\Itsmind\Sevdesk\Model\ModelVoucherUpdateSupplier**](ModelVoucherUpdateSupplier.md) |  | [optional]
+**supplier** | [**\Itsmind\Sevdesk\Model\ModelVoucherSupplier**](ModelVoucherSupplier.md) |  | [optional]
 **supplier_name** | **string** | The supplier name.&lt;br&gt;       The value you provide here will determine what supplier name is shown for the voucher in case you did not provide a supplier. | [optional]
 **description** | **string** | The description of the voucher. Essentially the voucher number. | [optional]
 **pay_date** | **\DateTime** | Needs to be timestamp or dd.mm.yyyy | [optional]
@@ -17,11 +17,11 @@ Name | Type | Description | Notes
 **currency** | **string** | specifies which currency the voucher should have. Attention: If the currency differs from the default currency stored in the account, then either the \&quot;propertyForeignCurrencyDeadline\&quot; or \&quot;propertyExchangeRate\&quot; parameter must be specified. If both parameters are specified, then the \&quot;propertyForeignCurrencyDeadline\&quot; parameter is preferred | [optional]
 **property_foreign_currency_deadline** | **\DateTime** | Defines the exchange rate day and and then the exchange rate is set from sevDesk. Needs to be provided as timestamp or dd.mm.yyyy | [optional]
 **property_exchange_rate** | **float** | Defines the exchange rate | [optional]
-**tax_set** | [**\Itsmind\Sevdesk\Model\ModelVoucherUpdateTaxSet**](ModelVoucherUpdateTaxSet.md) |  | [optional]
+**tax_set** | [**\Itsmind\Sevdesk\Model\ModelVoucherTaxSet**](ModelVoucherTaxSet.md) |  | [optional]
 **payment_deadline** | **\DateTime** | Payment deadline of the voucher. | [optional]
 **delivery_date** | **\DateTime** | Needs to be provided as timestamp or dd.mm.yyyy | [optional]
 **delivery_date_until** | **\DateTime** | Needs to be provided as timestamp or dd.mm.yyyy | [optional]
-**document** | [**\Itsmind\Sevdesk\Model\ModelVoucherUpdateDocument**](ModelVoucherUpdateDocument.md) |  | [optional]
-**cost_centre** | [**\Itsmind\Sevdesk\Model\ModelVoucherUpdateCostCentre**](ModelVoucherUpdateCostCentre.md) |  | [optional]
+**document** | [**\Itsmind\Sevdesk\Model\ModelVoucherDocument**](ModelVoucherDocument.md) |  | [optional]
+**cost_centre** | [**\Itsmind\Sevdesk\Model\ModelVoucherCostCentre**](ModelVoucherCostCentre.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The invoice id | [optional] [readonly]
-**object_name** | **string** | The invoice object name | [optional] [readonly]
+**object_name** | **string** | The invoice object name | [optional] [readonly] [default to 'Invoice']
 **invoice_number** | **string** | The invoice number | [optional]
 **contact** | [**\Itsmind\Sevdesk\Model\ModelInvoiceUpdateContact**](ModelInvoiceUpdateContact.md) |  | [optional]
 **create** | **\DateTime** | Date of invoice creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last invoice update | [optional] [readonly]
-**sev_client** | [**\Itsmind\Sevdesk\Model\ModelInvoiceUpdateSevClient**](ModelInvoiceUpdateSevClient.md) |  | [optional]
+**sev_client** | [**\Itsmind\Sevdesk\Model\ModelInvoiceSevClient**](ModelInvoiceSevClient.md) |  | [optional]
 **invoice_date** | **string** | Needs to be provided as timestamp or dd.mm.yyyy | [optional]
 **header** | **string** | Normally consist of prefix plus the invoice number | [optional]
 **head_text** | **string** | Certain html tags can be used here to format your text | [optional]
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **delivery_date** | **\DateTime** | Timestamp. This can also be a date range if you also use the attribute deliveryDateUntil | [optional]
 **status** | **string** | Please have a look in our       &lt;a href&#x3D;&#39;https://api.sevdesk.de/#section/Types-and-status-of-invoices&#39;&gt;Types and status of invoice&lt;/a&gt;       to see what the different status codes mean | [optional]
 **small_settlement** | **bool** | Defines if the client uses the small settlement scheme.      If yes, the invoice must not contain any vat | [optional]
-**contact_person** | [**\Itsmind\Sevdesk\Model\ModelInvoiceUpdateContactPerson**](ModelInvoiceUpdateContactPerson.md) |  | [optional]
+**contact_person** | [**\Itsmind\Sevdesk\Model\ModelInvoiceContactPerson**](ModelInvoiceContactPerson.md) |  | [optional]
 **tax_rate** | **float** | Is overwritten by invoice position tax rates | [optional]
 **tax_text** | **string** | A common tax text would be &#39;Umsatzsteuer 19%&#39; | [optional]
 **dunning_level** | **int** | Defines how many reminders have already been sent for the invoice.      Starts with 1 (Payment reminder) and should be incremented by one every time another reminder is sent. | [optional]

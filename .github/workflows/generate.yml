@@ -1,0 +1,33 @@
+name: Generate Code from OpenAPI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+  release:
+    types: [created]
+
+jobs:
+  generate_code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: "recursive"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "21.x"
+          cache: "yarn"
+      - run: yarn
+      - run: yarn openapi-generator-cli version-manager set stable
+      - run: ./scripts/generate.sh
+      - name: Commit update
+        run: |
+          git diff --exit-code || exit 0
+          git config --global user.name 'Janik Strace'
+          git config --global user.email 'j-mastr@users.noreply.github.com'
+          git commit -am "feat: update generated code from OpenAPI"
+          git push

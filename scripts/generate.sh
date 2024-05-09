@@ -9,4 +9,4 @@ yarn openapi-generator-cli generate\
           --git-user-id j-mastr\
           --git-repo-id sevdesk-php-sdk
 
-git apply patches/*.patch
+git apply --unidiff-zero patches/*.patch

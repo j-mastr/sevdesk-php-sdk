@@ -1,0 +1,4 @@
+disallowAdditionalPropertiesIfNotPresent: false
+invokerPackage: Itsmind\Sevdesk
+packageName: itsmind/sevdesk-php-sdk
+composerPackageName: itsmind/sevdesk-php-sdk

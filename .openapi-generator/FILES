@@ -1,8 +1,6 @@
-.gitignore
 .php-cs-fixer.dist.php
 .travis.yml
 README.md
-composer.json
 docs/Api/AccountingContactApi.md
 docs/Api/CheckAccountApi.md
 docs/Api/CheckAccountTransactionApi.md

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **price_net** | **float** | Net price of the part | [optional] [readonly]
 **price_tax** | **float** | Tax on the price of the part | [optional]
 **price_gross** | **float** | Gross price of the part | [optional]
-**name** | **float** | Name of the article/part. | [optional]
+**name** | **string** | Name of the article/part. | [optional]
 **unity** | [**\Itsmind\Sevdesk\Model\ModelCreditNotePosUnity**](ModelCreditNotePosUnity.md) |  | [optional]
 **sev_client** | [**\Itsmind\Sevdesk\Model\ModelOrderPosSevClient**](ModelOrderPosSevClient.md) |  | [optional]
 **position_number** | **int** | Position number of your position. Can be used to order multiple positions. | [optional]

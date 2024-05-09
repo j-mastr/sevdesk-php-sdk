@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **head_text** | **string** | Certain html tags can be used here to format your text | [optional]
 **foot_text** | **string** | Certain html tags can be used here to format your text | [optional]
 **address_country** | [**\Itsmind\Sevdesk\Model\ModelOrderResponseAddressCountry**](ModelOrderResponseAddressCountry.md) |  | [optional]
-**create_user** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteResponseCreateUser**](ModelCreditNoteResponseCreateUser.md) |  | [optional]
+**create_user** | [**\Itsmind\Sevdesk\Model\ModelOrderResponseCreateUser**](ModelOrderResponseCreateUser.md) |  | [optional]
 **sev_client** | [**\Itsmind\Sevdesk\Model\ModelOrderResponseSevClient**](ModelOrderResponseSevClient.md) |  | [optional]
 **delivery_terms** | **string** | Delivery terms of the order | [optional]
 **payment_terms** | **string** | Payment terms of the order | [optional]

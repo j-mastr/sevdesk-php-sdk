@@ -9,6 +9,8 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 | [**createCreditNoteFromVoucher()**](CreditNoteApi.md#createCreditNoteFromVoucher) | **POST** /CreditNote/Factory/createFromVoucher | Creates a new creditNote from a voucher |
 | [**createcreditNote()**](CreditNoteApi.md#createcreditNote) | **POST** /CreditNote/Factory/saveCreditNote | Create a new creditNote |
 | [**creditNoteGetPdf()**](CreditNoteApi.md#creditNoteGetPdf) | **GET** /CreditNote/{creditNoteId}/getPdf | Retrieve pdf document of a credit note |
+| [**creditNoteResetToDraft()**](CreditNoteApi.md#creditNoteResetToDraft) | **PUT** /CreditNote/{creditNoteId}/resetToDraft | Reset status to draft |
+| [**creditNoteResetToOpen()**](CreditNoteApi.md#creditNoteResetToOpen) | **PUT** /CreditNote/{creditNoteId}/resetToOpen | Reset status to open |
 | [**creditNoteSendBy()**](CreditNoteApi.md#creditNoteSendBy) | **PUT** /CreditNote/{creditNoteId}/sendBy | Mark credit note as sent |
 | [**deletecreditNote()**](CreditNoteApi.md#deletecreditNote) | **DELETE** /CreditNote/{creditNoteId} | Deletes an creditNote |
 | [**getCreditNotes()**](CreditNoteApi.md#getCreditNotes) | **GET** /CreditNote | Retrieve CreditNote |
@@ -26,7 +28,7 @@ bookCreditNote($credit_note_id, $book_credit_note_request): \Itsmind\Sevdesk\Mod
 
 Book a credit note
 
-Booking the credit note with a transaction is probably the most important part in the bookkeeping process.<br> There are several ways on correctly booking a credit note, all by using the same endpoint.<br> Conveniently, the booking process is exactly the same as the process for invoices and vouchers.<br> For this reason, you can have a look at it in the <a href='https://api.sevdesk.de/#section/How-to-book-an-invoice'>invoice chapter</a> and all you need to do is to change \"Invoice\" into \"CreditNote\" in the URL.
+Booking the credit note with a transaction is probably the most important part in the bookkeeping  process.<br> There are several ways on correctly booking a credit note, all by using the same endpoint.<br> Conveniently, the booking process is exactly the same as the process for invoices and vouchers.<br> For this reason, you can have a look at it in the  <a href='https://api.sevdesk.de/#section/How-to-book-an-invoice'>invoice chapter</a> and all you need to do is to change \"Invoice\" into \"CreditNote\" in the URL.
 
 ### Example
 
@@ -320,6 +322,130 @@ try {
 ### Return type
 
 [**\Itsmind\Sevdesk\Model\CreditNoteGetPdf200Response**](../Model/CreditNoteGetPdf200Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `creditNoteResetToDraft()`
+
+```php
+creditNoteResetToDraft($credit_note_id): \Itsmind\Sevdesk\Model\CreditNoteResetToDraft200Response
+```
+
+Reset status to draft
+
+Resets the status to \"Draft\" (`\"status\": \"100\"`).<br> This is only possible if the credit note has the status \"Open\" (`\"status\": \"200\"`).<br> If it has a higher status use [CreditNote/{creditNoteId}/resetToOpen](#tag/CreditNote/operation/creditNoteResetToOpen) first.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$credit_note_id = 56; // int | ID of the credit note to reset
+
+try {
+    $result = $apiInstance->creditNoteResetToDraft($credit_note_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CreditNoteApi->creditNoteResetToDraft: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **credit_note_id** | **int**| ID of the credit note to reset | |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\CreditNoteResetToDraft200Response**](../Model/CreditNoteResetToDraft200Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `creditNoteResetToOpen()`
+
+```php
+creditNoteResetToOpen($credit_note_id): \Itsmind\Sevdesk\Model\CreditNoteResetToOpen200Response
+```
+
+Reset status to open
+
+Resets the status \"Open\" (`\"status\": \"200\"`). Linked transactions will be unlinked.<br> This is not possible if the credit note itself or one of its transactions (CheckAccountTransaction) is already enshrined.  This endpoint cannot be used to increase the status to \"Open\" (`\"status\": \"200\"`).<br> Use [CreditNote/{creditNoteId}/sendBy](#tag/CreditNote/operation/creditNoteSendBy) / [CreditNote/{creditNoteId}/sendViaEmail](#tag/CreditNote/operation/sendCreditNoteViaEMail) instead.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$credit_note_id = 56; // int | ID of the credit note to reset
+
+try {
+    $result = $apiInstance->creditNoteResetToOpen($credit_note_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CreditNoteApi->creditNoteResetToOpen: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **credit_note_id** | **int**| ID of the credit note to reset | |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\CreditNoteResetToOpen200Response**](../Model/CreditNoteResetToOpen200Response.md)
 
 ### Authorization
 

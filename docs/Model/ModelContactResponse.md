@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **bank_account** | **string** | Bank account number (IBAN) of the contact. | [optional] [readonly]
 **bank_number** | **string** | Bank number of the bank used by the contact. | [optional] [readonly]
 **default_cashback_time** | **string** | Absolute time in days which the contact has to pay his invoices and subsequently get a cashback. | [optional] [readonly]
-**default_cashback_percent** | **float** | Percentage of the invoice sum the contact gets back if he payed invoices in time. | [optional] [readonly]
+**default_cashback_percent** | **float** | Percentage of the invoice sum the contact gets back if he paid invoices in time. | [optional] [readonly]
 **default_time_to_pay** | **string** | The payment goal in days which is set for every invoice of the contact. | [optional] [readonly]
 **tax_number** | **string** | The tax number of the contact. | [optional] [readonly]
 **tax_office** | **string** | The tax office of the contact (only for greek customers). | [optional] [readonly]

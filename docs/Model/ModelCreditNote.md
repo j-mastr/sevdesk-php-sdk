@@ -19,9 +19,6 @@ Name | Type | Description | Notes
 **address_country** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteAddressCountry**](ModelCreditNoteAddressCountry.md) |  |
 **create_user** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteCreateUser**](ModelCreditNoteCreateUser.md) |  | [optional]
 **sev_client** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteSevClient**](ModelCreditNoteSevClient.md) |  | [optional]
-**delivery_terms** | **string** | Delivery terms of the creditNote | [optional]
-**payment_terms** | **string** | Payment terms of the creditNote | [optional]
-**version** | **int** | Version of the creditNote.&lt;br&gt;      Can be used if you have multiple drafts for the same creditNote.&lt;br&gt;      Should start with 0 | [optional]
 **small_settlement** | **bool** | Defines if the client uses the small settlement scheme.      If yes, the creditNote must not contain any vat | [optional]
 **contact_person** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteContactPerson**](ModelCreditNoteContactPerson.md) |  |
 **tax_rate** | **float** | Is overwritten by creditNote position tax rates |

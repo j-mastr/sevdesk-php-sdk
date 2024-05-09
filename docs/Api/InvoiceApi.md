@@ -18,6 +18,8 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 | [**getOpenInvoiceReminderDebit()**](InvoiceApi.md#getOpenInvoiceReminderDebit) | **GET** /Invoice/Factory/getOpenInvoiceReminderDebit | Get the oben reminder debit for an invoice |
 | [**invoiceGetPdf()**](InvoiceApi.md#invoiceGetPdf) | **GET** /Invoice/{invoiceId}/getPdf | Retrieve pdf document of an invoice |
 | [**invoiceRender()**](InvoiceApi.md#invoiceRender) | **POST** /Invoice/{invoiceId}/render | Render the pdf document of an invoice |
+| [**invoiceResetToDraft()**](InvoiceApi.md#invoiceResetToDraft) | **PUT** /Invoice/{invoiceId}/resetToDraft | Reset status to draft |
+| [**invoiceResetToOpen()**](InvoiceApi.md#invoiceResetToOpen) | **PUT** /Invoice/{invoiceId}/resetToOpen | Reset status to open |
 | [**invoiceSendBy()**](InvoiceApi.md#invoiceSendBy) | **PUT** /Invoice/{invoiceId}/sendBy | Mark invoice as sent |
 | [**sendInvoiceViaEMail()**](InvoiceApi.md#sendInvoiceViaEMail) | **POST** /Invoice/{invoiceId}/sendViaEmail | Send invoice via email |
 | [**updateInvoiceById()**](InvoiceApi.md#updateInvoiceById) | **PUT** /Invoice/{invoiceId} | Update invoice by ID |
@@ -933,6 +935,130 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `invoiceResetToDraft()`
+
+```php
+invoiceResetToDraft($invoice_id): \Itsmind\Sevdesk\Model\InvoiceResetToDraft200Response
+```
+
+Reset status to draft
+
+Resets the status to \"Draft\" (`\"status\": \"100\"`).<br> This is only possible if the invoice has the status \"Open\" (`\"status\": \"200\"`).<br> If it has a higher status use [Invoice/{invoiceId}/resetToOpen](#tag/Invoice/operation/invoiceResetToOpen) first.  This endpoint cannot be used for recurring invoices (`\"invoiceType\": \"WKR\"`).<br> Use [Invoice/Factory/saveInvoice](#tag/Invoice/operation/createInvoiceByFactory) instead.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$invoice_id = 56; // int | ID of the invoice to reset
+
+try {
+    $result = $apiInstance->invoiceResetToDraft($invoice_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoiceApi->invoiceResetToDraft: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoice_id** | **int**| ID of the invoice to reset | |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\InvoiceResetToDraft200Response**](../Model/InvoiceResetToDraft200Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `invoiceResetToOpen()`
+
+```php
+invoiceResetToOpen($invoice_id): \Itsmind\Sevdesk\Model\InvoiceResetToOpen200Response
+```
+
+Reset status to open
+
+Resets the status \"Open\" (`\"status\": \"200\"`). Linked transactions will be unlinked.<br> This is not possible if the invoice itself or one of its transactions (CheckAccountTransaction) is already enshrined.  This endpoint cannot be used to increase the status to \"Open\" (`\"status\": \"200\"`).<br> Use [Invoice/{invoiceId}/sendBy](#tag/Invoice/operation/invoiceSendBy) / [Invoice/{invoiceId}/sendViaEmail](#tag/Invoice/operation/sendInvoiceViaEMail) instead.  This endpoint cannot be used for recurring invoices (`\"invoiceType\": \"WKR\"`). Use [Invoice/Factory/saveInvoice](#tag/Invoice/operation/createInvoiceByFactory) instead.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$invoice_id = 56; // int | ID of the invoice to reset
+
+try {
+    $result = $apiInstance->invoiceResetToOpen($invoice_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoiceApi->invoiceResetToOpen: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoice_id** | **int**| ID of the invoice to reset | |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\InvoiceResetToOpen200Response**](../Model/InvoiceResetToOpen200Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

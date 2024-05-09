@@ -1,7 +1,7 @@
 #!/bin/sh
 
 openapi-generator generate\
-    -i schema.yaml\
+    -i sevdesk-api/openapi.yaml\
     -g php\
     -o ./\
     --package-name itsmind/sevdesk-php-client\

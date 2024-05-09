@@ -8,3 +8,5 @@ yarn openapi-generator-cli generate\
           --config config.yaml\
           --git-user-id j-mastr\
           --git-repo-id sevdesk-php-sdk
+
+git apply patches/*.patch

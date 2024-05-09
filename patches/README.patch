@@ -1,0 +1,14 @@
+diff --git a/README.md b/README.md
+index e6ada23..778e058 100644
+--- a/README.md
++++ b/README.md
+@@ -1,5 +1,9 @@
+ # itsmind/sevdesk-php-sdk
+ 
++> This unofficial package provides an SDK to access the [sevDesk API](https://api.sevdesk.de/) using PHP. It is auto-generated using the [OpenAPI-Generator](https://openapi-generator.tech), based on the tweaks provided by the [sevdesk-api project](https://github.com/j-mastr/sevdesk-api).
++>
++> For support regarding the API, please contact the sevDesk support directly.
++
+ <b>Contact:</b> To contact our support click  <a href='https://landing.sevdesk.de/service-support-center-technik'>here</a><br><br> 
+ # General information
+ Welcome to our API!<br>

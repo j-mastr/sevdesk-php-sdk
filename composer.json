@@ -1,7 +1,7 @@
 {
-    "name": "itsmind/sevdesk-php-client",
+    "name": "itsmind/sevdesk-php-sdk",
     "type": "library",
-    "description": "An unofficial PHP client for the official sevDesk API",
+    "description": "An unofficial SDK for the official sevDesk API",
     "keywords": [
         "php",
         "sdk",

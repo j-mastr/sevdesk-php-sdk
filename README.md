@@ -1,4 +1,4 @@
-# itsmind/sevdesk-php-client
+# itsmind/sevdesk-php-sdk
 
 > This unofficial package provides an SDK to access the [sevDesk API](https://api.sevdesk.de/) using PHP. It is auto-generated using the [OpenAPI-Generator](https://openapi-generator.tech), based on the tweaks provided by the [sevdesk-api project](https://github.com/j-mastr/sevdesk-api).
 >
@@ -61,11 +61,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/itsmindcom/sevdesk-php-client.git"
+      "url": "https://github.com/j-mastr/sevdesk-php-sdk.git"
     }
   ],
   "require": {
-    "itsmindcom/sevdesk-php-client": "*@dev"
+    "j-mastr/sevdesk-php-sdk": "*@dev"
   }
 }
 ```
@@ -78,7 +78,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/itsmind/sevdesk-php-client/vendor/autoload.php');
+require_once('/path/to/itsmind/sevdesk-php-sdk/vendor/autoload.php');
 ```
 
 ## Getting Started

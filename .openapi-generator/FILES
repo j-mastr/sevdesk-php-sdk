@@ -818,15 +818,3 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/CreditNoteResetToDraft200ResponseObjectsTest.php
-test/Model/CreditNoteResetToDraft200ResponseTest.php
-test/Model/CreditNoteResetToOpen200ResponseObjectsTest.php
-test/Model/CreditNoteResetToOpen200ResponseTest.php
-test/Model/InvoiceResetToDraft200ResponseObjectsTest.php
-test/Model/InvoiceResetToDraft200ResponseTest.php
-test/Model/InvoiceResetToOpen200ResponseObjectsTest.php
-test/Model/InvoiceResetToOpen200ResponseTest.php
-test/Model/ModelInvoiceResponseSevClientTest.php
-test/Model/ModelOrderPosResponsePartTest.php
-test/Model/ModelOrderPosResponseUnityTest.php
-test/Model/ModelOrderResponseCreateUserTest.php

@@ -16705,6 +16705,7 @@ components:
               enum:
                 - Invoice
                 - Order
+                - CreditNote
           type: object
           readOnly: true
         extension:

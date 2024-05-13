@@ -35,6 +35,9 @@ jobs:
           git config user.name "$user_name"
           git config user.email "$user_email"
         env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Commit update
-        run: ./scripts/commit.sh
+        run: |
+          git add .
+          git commit -m "feat: update generated code from OpenAPI" || exit 0
+          git push

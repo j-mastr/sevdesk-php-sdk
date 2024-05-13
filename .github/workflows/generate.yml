@@ -6,8 +6,10 @@ on:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
-  release:
-    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   generate_code:
@@ -17,6 +19,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: "recursive"
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: "21.x"
@@ -24,10 +28,13 @@ jobs:
       - run: yarn
       - run: yarn openapi-generator-cli version-manager set stable
       - run: ./scripts/generate.sh
+      - run: |
+          user=$(gh api /user)
+          user_name=$(jq -r '.login' <<<"$user")
+          user_email=$(jq -r ".email | \"$user_name@users.noreply.github.com\"" <<<"$user")
+          git config user.name "$user_name"
+          git config user.email "$user_email"
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
       - name: Commit update
-        run: |
-          git diff --exit-code || exit 0
-          git config --global user.name 'Janik Strace'
-          git config --global user.email 'j-mastr@users.noreply.github.com'
-          git commit -am "feat: update generated code from OpenAPI"
-          git push
+        run: ./scripts/commit.sh

@@ -24,9 +24,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "21.x"
-          cache: "yarn"
-      - run: yarn
-      - run: yarn openapi-generator-cli version-manager set stable
+      - run: npx --yes @openapitools/openapi-generator-cli version-manager set stable
       - run: ./scripts/generate.sh
       - run: |
           user=$(gh api /user)

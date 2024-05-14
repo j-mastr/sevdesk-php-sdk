@@ -2,7 +2,12 @@
 
 > This unofficial package provides an SDK to access the [sevDesk API](https://api.sevdesk.de/) using PHP. It is auto-generated using the [OpenAPI-Generator](https://openapi-generator.tech), based on the tweaks provided by the [sevdesk-api project](https://github.com/j-mastr/sevdesk-api).
 >
-> For support regarding the API, please contact the sevDesk support directly.
+> ### Where to get Support
+> If you have problems, are missing parameters or receive unexpected responses, please report an issue or a pull request in [the sevdesk-api project.](https://github.com/j-mastr/sevdesk-api)
+>
+> For support regarding the API, please contact [the sevDesk support directly.](https://landing.sevdesk.de/service-support-center-technik)
+>
+> This project is exclusively for the SDK and application-related issues.
 
 <b>Contact:</b> To contact our support click  <a href='https://landing.sevdesk.de/service-support-center-technik'>here</a><br><br> 
 # General information

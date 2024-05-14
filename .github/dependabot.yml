@@ -6,11 +6,11 @@ updates:
       interval: "daily"
     commit-message:
       include: scope
-      prefix: "build(api)"
+      prefix: "build"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
     commit-message:
       include: scope
-      prefix: "build(deps)"
+      prefix: "build"

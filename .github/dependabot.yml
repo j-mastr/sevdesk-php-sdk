@@ -14,10 +14,3 @@ updates:
     commit-message:
       include: scope
       prefix: "build(deps)"
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    commit-message:
-      include: scope
-      prefix: "build(deps)"

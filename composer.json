@@ -11,7 +11,7 @@
         "accounting"
     ],
     "homepage": "https://api.sevdesk.de/",
-    "license": "unlicense",
+    "license": "MIT",
     "authors": [
         {
             "name": "OpenAPI-Generator contributors",

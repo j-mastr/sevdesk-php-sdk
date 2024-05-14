@@ -70,7 +70,7 @@ class ApiException extends Exception
      */
     public function __construct($message = "", $code = 0, $responseHeaders = [], $responseBody = null)
     {
-        parent::__construct($message, $code);
+        parent::__construct($message . " - please file an issue or PR on https://github.com/j-mastr/sevdesk-api", $code);
         $this->responseHeaders = $responseHeaders;
         $this->responseBody = $responseBody;
     }

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-yarn openapi-generator-cli generate\
+npx @openapitools/openapi-generator-cli generate\
           -i sevdesk-api/openapi.yaml\
           -g php\
           -o ./\

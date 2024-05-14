@@ -24,3 +24,5 @@
 
 .gitignore
 composer.json
+.travis.yml
+git_push.sh

@@ -1,5 +1,4 @@
 .php-cs-fixer.dist.php
-.travis.yml
 README.md
 docs/Api/AccountingContactApi.md
 docs/Api/CheckAccountApi.md
@@ -405,7 +404,6 @@ docs/Model/ValidationErrorError.md
 docs/Model/VoucherUploadFile201Response.md
 docs/Model/VoucherUploadFile201ResponseObjects.md
 docs/Model/VoucherUploadFileRequest.md
-git_push.sh
 lib/Api/AccountingContactApi.php
 lib/Api/CheckAccountApi.php
 lib/Api/CheckAccountTransactionApi.php

@@ -1,7 +1,7 @@
 {
     "name": "itsmind/sevdesk-php-sdk",
     "type": "library",
-    "description": "An unofficial SDK for the official sevDesk API. Always up to date, powered by [sevdesk-api](https://github.com/j-mastr/sevdesk-api) and the OpenAPI Generator.",
+    "description": "An unofficial SDK for the official sevDesk API. Always up to date, powered by j-mastr/sevdesk-api and the OpenAPI Generator.",
     "keywords": [
         "php",
         "sdk",
@@ -41,6 +41,9 @@
     "require-dev": {
         "phpunit/phpunit": "^8.0 || ^9.0",
         "friendsofphp/php-cs-fixer": "^3.5"
+    },
+    "replace": {
+        "itsmind/sevdesk-php-client": "*"
     },
     "autoload": {
         "psr-4": {

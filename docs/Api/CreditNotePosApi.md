@@ -10,7 +10,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `getcreditNotePositions()`
 
 ```php
-getcreditNotePositions($credit_note_id, $credit_note_object_name): \Itsmind\Sevdesk\Model\GetcreditNotePositions200Response
+getcreditNotePositions($credit_note_id, $credit_note_object_name, $count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetcreditNotePositions200Response
 ```
 
 Retrieve creditNote positions
@@ -38,9 +38,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\CreditNotePosApi(
 );
 $credit_note_id = 56; // int | Retrieve all creditNote positions belonging to this creditNote. Must be provided with creditNote[objectName]
 $credit_note_object_name = 'credit_note_object_name_example'; // string | Only required if creditNote[id] was provided. 'creditNote' should be used as value.
+$count_all = True; // bool | If all credit note pos should be counted
+$limit = 56; // int | The max number of credit note pos
+$offset = 56; // int | Which offset to start with
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getcreditNotePositions($credit_note_id, $credit_note_object_name);
+    $result = $apiInstance->getcreditNotePositions($credit_note_id, $credit_note_object_name, $count_all, $limit, $offset, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreditNotePosApi->getcreditNotePositions: ', $e->getMessage(), PHP_EOL;
@@ -53,6 +57,10 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **credit_note_id** | **int**| Retrieve all creditNote positions belonging to this creditNote. Must be provided with creditNote[objectName] | [optional] |
 | **credit_note_object_name** | **string**| Only required if creditNote[id] was provided. &#39;creditNote&#39; should be used as value. | [optional] |
+| **count_all** | **bool**| If all credit note pos should be counted | [optional] |
+| **limit** | **int**| The max number of credit note pos | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

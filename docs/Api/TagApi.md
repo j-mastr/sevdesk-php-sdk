@@ -199,7 +199,7 @@ try {
 ## `getTagRelations()`
 
 ```php
-getTagRelations(): \Itsmind\Sevdesk\Model\GetTagRelations200Response
+getTagRelations($count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetTagRelations200Response
 ```
 
 Retrieve tag relations
@@ -225,9 +225,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\TagApi(
     new GuzzleHttp\Client(),
     $config
 );
+$count_all = True; // bool | If all tag relations should be counted
+$limit = 56; // int | The max number of tag relations
+$offset = 56; // int | Which offset to start with
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getTagRelations();
+    $result = $apiInstance->getTagRelations($count_all, $limit, $offset, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TagApi->getTagRelations: ', $e->getMessage(), PHP_EOL;
@@ -236,7 +240,12 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **count_all** | **bool**| If all tag relations should be counted | [optional] |
+| **limit** | **int**| The max number of tag relations | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 
@@ -258,7 +267,7 @@ This endpoint does not need any parameter.
 ## `getTags()`
 
 ```php
-getTags($id, $name): \Itsmind\Sevdesk\Model\GetTags200Response
+getTags($id, $name, $count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetTags200Response
 ```
 
 Retrieve tags
@@ -286,9 +295,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\TagApi(
 );
 $id = 3.4; // float | ID of the Tag
 $name = 'name_example'; // string | Name of the Tag
+$count_all = True; // bool | If all tags should be counted
+$limit = 56; // int | The max number of tags
+$offset = 56; // int | Which offset to start with
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getTags($id, $name);
+    $result = $apiInstance->getTags($id, $name, $count_all, $limit, $offset, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TagApi->getTags: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +314,10 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **float**| ID of the Tag | [optional] |
 | **name** | **string**| Name of the Tag | [optional] |
+| **count_all** | **bool**| If all tags should be counted | [optional] |
+| **limit** | **int**| The max number of tags | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

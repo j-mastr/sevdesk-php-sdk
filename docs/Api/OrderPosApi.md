@@ -135,7 +135,7 @@ try {
 ## `getOrderPositions()`
 
 ```php
-getOrderPositions($order_id, $order_object_name): \Itsmind\Sevdesk\Model\GetOrderPositionsById200Response
+getOrderPositions($order_id, $order_object_name, $count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetOrderPositionsById200Response
 ```
 
 Retrieve order positions
@@ -163,9 +163,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\OrderPosApi(
 );
 $order_id = 56; // int | Retrieve all order positions belonging to this order. Must be provided with voucher[objectName]
 $order_object_name = 'order_object_name_example'; // string | Only required if order[id] was provided. 'Order' should be used as value.
+$count_all = True; // bool | If all order pos should be counted
+$limit = 56; // int | The max number of order pos
+$offset = 56; // int | Which offset to start with
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getOrderPositions($order_id, $order_object_name);
+    $result = $apiInstance->getOrderPositions($order_id, $order_object_name, $count_all, $limit, $offset, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderPosApi->getOrderPositions: ', $e->getMessage(), PHP_EOL;
@@ -178,6 +182,10 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **order_id** | **int**| Retrieve all order positions belonging to this order. Must be provided with voucher[objectName] | [optional] |
 | **order_object_name** | **string**| Only required if order[id] was provided. &#39;Order&#39; should be used as value. | [optional] |
+| **count_all** | **bool**| If all order pos should be counted | [optional] |
+| **limit** | **int**| The max number of order pos | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

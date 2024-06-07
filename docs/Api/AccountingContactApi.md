@@ -138,7 +138,7 @@ try {
 ## `getAccountingContact()`
 
 ```php
-getAccountingContact($contact_id, $contact_object_name): \Itsmind\Sevdesk\Model\GetAccountingContact200Response
+getAccountingContact($contact_id, $contact_object_name, $count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetAccountingContact200Response
 ```
 
 Retrieve accounting contact
@@ -166,9 +166,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\AccountingContactApi(
 );
 $contact_id = 'contact_id_example'; // string | ID of contact for which you want the accounting contact.
 $contact_object_name = Contact; // string | Object name. Only needed if you also defined the ID of a contact.
+$count_all = True; // bool | If all accounting contacts should be counted
+$limit = 56; // int | The max number of accounting contacts
+$offset = 56; // int | Which offset to start with
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getAccountingContact($contact_id, $contact_object_name);
+    $result = $apiInstance->getAccountingContact($contact_id, $contact_object_name, $count_all, $limit, $offset, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingContactApi->getAccountingContact: ', $e->getMessage(), PHP_EOL;
@@ -181,6 +185,10 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **contact_id** | **string**| ID of contact for which you want the accounting contact. | [optional] |
 | **contact_object_name** | **string**| Object name. Only needed if you also defined the ID of a contact. | [optional] [default to &#39;Contact&#39;] |
+| **count_all** | **bool**| If all accounting contacts should be counted | [optional] |
+| **limit** | **int**| The max number of accounting contacts | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

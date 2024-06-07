@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **update** | **string** | Date of last voucher position update | [optional] [readonly]
 **sev_client** | [**\Itsmind\Sevdesk\Model\ModelVoucherPosResponseSevClient**](ModelVoucherPosResponseSevClient.md) |  | [optional]
 **voucher** | [**\Itsmind\Sevdesk\Model\ModelVoucherPosResponseVoucher**](ModelVoucherPosResponseVoucher.md) |  |
+**account_datev** | [**\Itsmind\Sevdesk\Model\ModelVoucherPosResponseAccountDatev**](ModelVoucherPosResponseAccountDatev.md) |  |
 **accounting_type** | [**\Itsmind\Sevdesk\Model\ModelVoucherPosResponseAccountingType**](ModelVoucherPosResponseAccountingType.md) |  |
 **estimated_accounting_type** | [**\Itsmind\Sevdesk\Model\ModelVoucherPosResponseEstimatedAccountingType**](ModelVoucherPosResponseEstimatedAccountingType.md) |  | [optional]
 **tax_rate** | **string** | Tax rate of the voucher position. |

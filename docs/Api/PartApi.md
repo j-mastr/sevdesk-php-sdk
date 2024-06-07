@@ -138,7 +138,7 @@ try {
 ## `getParts()`
 
 ```php
-getParts($part_number, $name): \Itsmind\Sevdesk\Model\GetParts200Response
+getParts($part_number, $name, $count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetParts200Response
 ```
 
 Retrieve parts
@@ -166,9 +166,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\PartApi(
 );
 $part_number = 'part_number_example'; // string | Retrieve all parts with this part number
 $name = 'name_example'; // string | Retrieve all parts with this name
+$count_all = True; // bool | If all parts should be counted
+$limit = 56; // int | The max number of parts
+$offset = 56; // int | Which offset to start with
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getParts($part_number, $name);
+    $result = $apiInstance->getParts($part_number, $name, $count_all, $limit, $offset, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PartApi->getParts: ', $e->getMessage(), PHP_EOL;
@@ -181,6 +185,10 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **part_number** | **string**| Retrieve all parts with this part number | [optional] |
 | **name** | **string**| Retrieve all parts with this name | [optional] |
+| **count_all** | **bool**| If all parts should be counted | [optional] |
+| **limit** | **int**| The max number of parts | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

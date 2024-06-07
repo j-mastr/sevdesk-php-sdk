@@ -327,7 +327,7 @@ try {
 ## `getContactFieldSettings()`
 
 ```php
-getContactFieldSettings(): \Itsmind\Sevdesk\Model\GetContactFieldSettings200Response
+getContactFieldSettings($count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetContactFieldSettings200Response
 ```
 
 Retrieve contact field settings
@@ -353,9 +353,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\ContactFieldApi(
     new GuzzleHttp\Client(),
     $config
 );
+$count_all = True; // bool | If all contact custom field settings should be counted
+$limit = 56; // int | The max number of contact custom field settings
+$offset = 56; // int | Which offset to start with
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getContactFieldSettings();
+    $result = $apiInstance->getContactFieldSettings($count_all, $limit, $offset, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactFieldApi->getContactFieldSettings: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,12 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **count_all** | **bool**| If all contact custom field settings should be counted | [optional] |
+| **limit** | **int**| The max number of contact custom field settings | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 
@@ -386,7 +395,7 @@ This endpoint does not need any parameter.
 ## `getContactFields()`
 
 ```php
-getContactFields(): \Itsmind\Sevdesk\Model\GetContactFields200Response
+getContactFields($count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetContactFields200Response
 ```
 
 Retrieve contact fields
@@ -412,9 +421,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\ContactFieldApi(
     new GuzzleHttp\Client(),
     $config
 );
+$count_all = True; // bool | If all contact custom fields should be counted
+$limit = 56; // int | The max number of contact custom fields
+$offset = 56; // int | Which offset to start with
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getContactFields();
+    $result = $apiInstance->getContactFields($count_all, $limit, $offset, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactFieldApi->getContactFields: ', $e->getMessage(), PHP_EOL;
@@ -423,7 +436,12 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **count_all** | **bool**| If all contact custom fields should be counted | [optional] |
+| **limit** | **int**| The max number of contact custom fields | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

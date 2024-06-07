@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **name** | **string** | The organization name.&lt;br&gt; Be aware that the type of contact will depend on this attribute.&lt;br&gt; If it holds a value, the contact will be regarded as an organization. | [optional]
 **status** | **int** | Defines the status of the contact. 100 &lt;-&gt; Lead - 500 &lt;-&gt; Pending - 1000 &lt;-&gt; Active. | [optional] [default to 100]
 **customer_number** | **string** | The customer number | [optional]
-**parent** | [**\Itsmind\Sevdesk\Model\ModelContactParent**](ModelContactParent.md) |  | [optional]
+**parent** | [**\Itsmind\Sevdesk\Model\ModelContactUpdateParent**](ModelContactUpdateParent.md) |  | [optional]
 **surename** | **string** | The &lt;b&gt;first&lt;/b&gt; name of the contact.&lt;br&gt; Yeah... not quite right in literally every way. We know.&lt;br&gt; Not to be used for organizations. | [optional]
 **familyname** | **string** | The last name of the contact.&lt;br&gt; Not to be used for organizations. | [optional]
 **titel** | **string** | A non-academic title for the contact. Not to be used for organizations. | [optional]

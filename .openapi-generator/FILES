@@ -192,7 +192,6 @@ docs/Model/ModelCommunicationWay.md
 docs/Model/ModelCommunicationWayContact.md
 docs/Model/ModelCommunicationWayKey.md
 docs/Model/ModelCommunicationWayResponse.md
-docs/Model/ModelCommunicationWayResponseContact.md
 docs/Model/ModelCommunicationWayResponseKey.md
 docs/Model/ModelCommunicationWayResponseSevClient.md
 docs/Model/ModelCommunicationWaySevClient.md
@@ -221,7 +220,6 @@ docs/Model/ModelContactCustomFieldSettingResponse.md
 docs/Model/ModelContactCustomFieldSettingResponseSevClient.md
 docs/Model/ModelContactCustomFieldSettingUpdate.md
 docs/Model/ModelContactCustomFieldUpdate.md
-docs/Model/ModelContactParent.md
 docs/Model/ModelContactResponse.md
 docs/Model/ModelContactResponseCategory.md
 docs/Model/ModelContactResponseParent.md
@@ -230,6 +228,7 @@ docs/Model/ModelContactResponseTaxSet.md
 docs/Model/ModelContactTaxSet.md
 docs/Model/ModelContactUpdate.md
 docs/Model/ModelContactUpdateCategory.md
+docs/Model/ModelContactUpdateParent.md
 docs/Model/ModelCreateInvoiceFromOrder.md
 docs/Model/ModelCreateInvoiceFromOrderOrder.md
 docs/Model/ModelCreatePackingListFromOrder.md
@@ -627,7 +626,6 @@ lib/Model/ModelCommunicationWay.php
 lib/Model/ModelCommunicationWayContact.php
 lib/Model/ModelCommunicationWayKey.php
 lib/Model/ModelCommunicationWayResponse.php
-lib/Model/ModelCommunicationWayResponseContact.php
 lib/Model/ModelCommunicationWayResponseKey.php
 lib/Model/ModelCommunicationWayResponseSevClient.php
 lib/Model/ModelCommunicationWaySevClient.php
@@ -656,7 +654,6 @@ lib/Model/ModelContactCustomFieldSettingResponse.php
 lib/Model/ModelContactCustomFieldSettingResponseSevClient.php
 lib/Model/ModelContactCustomFieldSettingUpdate.php
 lib/Model/ModelContactCustomFieldUpdate.php
-lib/Model/ModelContactParent.php
 lib/Model/ModelContactResponse.php
 lib/Model/ModelContactResponseCategory.php
 lib/Model/ModelContactResponseParent.php
@@ -665,6 +662,7 @@ lib/Model/ModelContactResponseTaxSet.php
 lib/Model/ModelContactTaxSet.php
 lib/Model/ModelContactUpdate.php
 lib/Model/ModelContactUpdateCategory.php
+lib/Model/ModelContactUpdateParent.php
 lib/Model/ModelCreateInvoiceFromOrder.php
 lib/Model/ModelCreateInvoiceFromOrderOrder.php
 lib/Model/ModelCreatePackingListFromOrder.php
@@ -870,6 +868,3 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/CreateContactFieldSetting200ResponseTest.php
-test/Model/GetOrderById200ResponseTest.php
-test/Model/GetcreditNoteById200ResponseTest.php

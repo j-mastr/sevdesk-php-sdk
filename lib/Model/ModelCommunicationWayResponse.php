@@ -62,7 +62,7 @@ class ModelCommunicationWayResponse implements ModelInterface, ArrayAccess, \Jso
         'object_name' => 'string',
         'create' => '\DateTime',
         'update' => '\DateTime',
-        'contact' => '\Itsmind\Sevdesk\Model\ModelCommunicationWayResponseContact',
+        'contact' => '\Itsmind\Sevdesk\Model\ModelContact',
         'type' => 'string',
         'value' => 'string',
         'key' => '\Itsmind\Sevdesk\Model\ModelCommunicationWayResponseKey',
@@ -524,7 +524,7 @@ class ModelCommunicationWayResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets contact
      *
-     * @return \Itsmind\Sevdesk\Model\ModelCommunicationWayResponseContact|null
+     * @return \Itsmind\Sevdesk\Model\ModelContact|null
      */
     public function getContact()
     {
@@ -534,7 +534,7 @@ class ModelCommunicationWayResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets contact
      *
-     * @param \Itsmind\Sevdesk\Model\ModelCommunicationWayResponseContact|null $contact contact
+     * @param \Itsmind\Sevdesk\Model\ModelContact|null $contact contact
      *
      * @return self
      */

@@ -61,7 +61,7 @@ class ModelContactUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'string',
         'status' => 'int',
         'customer_number' => 'string',
-        'parent' => '\Itsmind\Sevdesk\Model\ModelContactParent',
+        'parent' => '\Itsmind\Sevdesk\Model\ModelContactUpdateParent',
         'surename' => 'string',
         'familyname' => 'string',
         'titel' => 'string',
@@ -614,7 +614,7 @@ class ModelContactUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets parent
      *
-     * @return \Itsmind\Sevdesk\Model\ModelContactParent|null
+     * @return \Itsmind\Sevdesk\Model\ModelContactUpdateParent|null
      */
     public function getParent()
     {
@@ -624,7 +624,7 @@ class ModelContactUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets parent
      *
-     * @param \Itsmind\Sevdesk\Model\ModelContactParent|null $parent parent
+     * @param \Itsmind\Sevdesk\Model\ModelContactUpdateParent|null $parent parent
      *
      * @return self
      */

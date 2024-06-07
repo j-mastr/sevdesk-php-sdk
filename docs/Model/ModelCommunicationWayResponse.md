@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **object_name** | **string** | The communication way object name | [optional] [readonly] [default to 'CommunicationWay']
 **create** | **\DateTime** | Date of communication way creation | [optional] [readonly]
 **update** | **\DateTime** | Date of last communication way update | [optional] [readonly]
-**contact** | [**\Itsmind\Sevdesk\Model\ModelCommunicationWayResponseContact**](ModelCommunicationWayResponseContact.md) |  | [optional]
+**contact** | [**\Itsmind\Sevdesk\Model\ModelContact**](.md) |  | [optional]
 **type** | **string** | Type of the communication way | [optional] [readonly]
 **value** | **string** | The value of the communication way.&lt;br&gt;       For example the phone number, e-mail address or website. | [optional] [readonly]
 **key** | [**\Itsmind\Sevdesk\Model\ModelCommunicationWayResponseKey**](ModelCommunicationWayResponseKey.md) |  | [optional]

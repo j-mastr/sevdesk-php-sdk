@@ -61,7 +61,7 @@ class ModelContact implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'status' => 'int',
         'customer_number' => 'string',
-        'parent' => '\Itsmind\Sevdesk\Model\ModelContactParent',
+        'parent' => '\Itsmind\Sevdesk\Model\ModelContact',
         'surename' => 'string',
         'familyname' => 'string',
         'titel' => 'string',
@@ -135,7 +135,7 @@ class ModelContact implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => true,
         'status' => true,
         'customer_number' => true,
-        'parent' => true,
+        'parent' => false,
         'surename' => true,
         'familyname' => true,
         'titel' => true,
@@ -617,7 +617,7 @@ class ModelContact implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets parent
      *
-     * @return \Itsmind\Sevdesk\Model\ModelContactParent|null
+     * @return \Itsmind\Sevdesk\Model\ModelContact|null
      */
     public function getParent()
     {
@@ -627,21 +627,14 @@ class ModelContact implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets parent
      *
-     * @param \Itsmind\Sevdesk\Model\ModelContactParent|null $parent parent
+     * @param \Itsmind\Sevdesk\Model\ModelContact|null $parent parent
      *
      * @return self
      */
     public function setParent($parent)
     {
         if (is_null($parent)) {
-            array_push($this->openAPINullablesSetToNull, 'parent');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('parent', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable parent cannot be null');
         }
         $this->container['parent'] = $parent;
 

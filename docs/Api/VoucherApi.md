@@ -388,7 +388,7 @@ try {
 ## `getVoucherById()`
 
 ```php
-getVoucherById($voucher_id): \Itsmind\Sevdesk\Model\GetVouchers200Response
+getVoucherById($voucher_id): \Itsmind\Sevdesk\Model\GetVoucherById200Response
 ```
 
 Find voucher by ID
@@ -432,7 +432,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetVouchers200Response**](../Model/GetVouchers200Response.md)
+[**\Itsmind\Sevdesk\Model\GetVoucherById200Response**](../Model/GetVoucherById200Response.md)
 
 ### Authorization
 

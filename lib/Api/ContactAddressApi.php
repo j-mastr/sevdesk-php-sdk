@@ -144,7 +144,7 @@ class ContactAddressApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetContactAddresses200Response
+     * @return \Itsmind\Sevdesk\Model\ContactAddressId200Response
      */
     public function contactAddressId($contact_address_id, string $contentType = self::contentTypes['contactAddressId'][0])
     {
@@ -162,7 +162,7 @@ class ContactAddressApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetContactAddresses200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\ContactAddressId200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function contactAddressIdWithHttpInfo($contact_address_id, string $contentType = self::contentTypes['contactAddressId'][0])
     {
@@ -205,11 +205,11 @@ class ContactAddressApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetContactAddresses200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\ContactAddressId200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetContactAddresses200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\ContactAddressId200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -227,13 +227,13 @@ class ContactAddressApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetContactAddresses200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\ContactAddressId200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetContactAddresses200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\ContactAddressId200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -266,7 +266,7 @@ class ContactAddressApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetContactAddresses200Response',
+                        '\Itsmind\Sevdesk\Model\ContactAddressId200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -310,7 +310,7 @@ class ContactAddressApi
      */
     public function contactAddressIdAsyncWithHttpInfo($contact_address_id, string $contentType = self::contentTypes['contactAddressId'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetContactAddresses200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\ContactAddressId200Response';
         $request = $this->contactAddressIdRequest($contact_address_id, $contentType);
 
         return $this->client

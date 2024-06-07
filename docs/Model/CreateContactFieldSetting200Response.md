@@ -1,10 +1,9 @@
-# # GetCreditNotes200Response
+# # CreateContactFieldSetting200Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**objects** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteResponse[]**](ModelCreditNoteResponse.md) |  |
-**total** | **int** |  | [optional]
+**objects** | [**\Itsmind\Sevdesk\Model\ModelContactCustomFieldSettingResponse[]**](ModelContactCustomFieldSettingResponse.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

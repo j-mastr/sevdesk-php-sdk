@@ -470,7 +470,7 @@ class ContactFieldApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetContactFieldSettings200Response
+     * @return \Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response
      */
     public function createContactFieldSetting($model_contact_custom_field_setting = null, string $contentType = self::contentTypes['createContactFieldSetting'][0])
     {
@@ -488,7 +488,7 @@ class ContactFieldApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetContactFieldSettings200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createContactFieldSettingWithHttpInfo($model_contact_custom_field_setting = null, string $contentType = self::contentTypes['createContactFieldSetting'][0])
     {
@@ -531,11 +531,11 @@ class ContactFieldApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -553,13 +553,13 @@ class ContactFieldApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -592,7 +592,7 @@ class ContactFieldApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response',
+                        '\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -636,7 +636,7 @@ class ContactFieldApi
      */
     public function createContactFieldSettingAsyncWithHttpInfo($model_contact_custom_field_setting = null, string $contentType = self::contentTypes['createContactFieldSetting'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response';
         $request = $this->createContactFieldSettingRequest($model_contact_custom_field_setting, $contentType);
 
         return $this->client
@@ -1399,7 +1399,7 @@ class ContactFieldApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetContactFieldSettings200Response
+     * @return \Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response
      */
     public function getContactFieldSettingById($contact_custom_field_setting_id, string $contentType = self::contentTypes['getContactFieldSettingById'][0])
     {
@@ -1417,7 +1417,7 @@ class ContactFieldApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetContactFieldSettings200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactFieldSettingByIdWithHttpInfo($contact_custom_field_setting_id, string $contentType = self::contentTypes['getContactFieldSettingById'][0])
     {
@@ -1460,11 +1460,11 @@ class ContactFieldApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1482,13 +1482,13 @@ class ContactFieldApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1521,7 +1521,7 @@ class ContactFieldApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response',
+                        '\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1565,7 +1565,7 @@ class ContactFieldApi
      */
     public function getContactFieldSettingByIdAsyncWithHttpInfo($contact_custom_field_setting_id, string $contentType = self::contentTypes['getContactFieldSettingById'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response';
         $request = $this->getContactFieldSettingByIdRequest($contact_custom_field_setting_id, $contentType);
 
         return $this->client
@@ -2415,7 +2415,7 @@ class ContactFieldApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetContactFields200Response
+     * @return \Itsmind\Sevdesk\Model\GetContactFieldsById200Response
      */
     public function getContactFieldsById($contact_custom_field_id, string $contentType = self::contentTypes['getContactFieldsById'][0])
     {
@@ -2433,7 +2433,7 @@ class ContactFieldApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetContactFields200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\GetContactFieldsById200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactFieldsByIdWithHttpInfo($contact_custom_field_id, string $contentType = self::contentTypes['getContactFieldsById'][0])
     {
@@ -2476,11 +2476,11 @@ class ContactFieldApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetContactFields200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\GetContactFieldsById200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetContactFields200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\GetContactFieldsById200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2498,13 +2498,13 @@ class ContactFieldApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetContactFields200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetContactFieldsById200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetContactFields200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\GetContactFieldsById200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2537,7 +2537,7 @@ class ContactFieldApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetContactFields200Response',
+                        '\Itsmind\Sevdesk\Model\GetContactFieldsById200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2581,7 +2581,7 @@ class ContactFieldApi
      */
     public function getContactFieldsByIdAsyncWithHttpInfo($contact_custom_field_id, string $contentType = self::contentTypes['getContactFieldsById'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetContactFields200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\GetContactFieldsById200Response';
         $request = $this->getContactFieldsByIdRequest($contact_custom_field_id, $contentType);
 
         return $this->client

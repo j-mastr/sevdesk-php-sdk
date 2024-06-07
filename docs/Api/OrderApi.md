@@ -344,7 +344,7 @@ try {
 ## `getOrderById()`
 
 ```php
-getOrderById($order_id): \Itsmind\Sevdesk\Model\GetOrders200Response
+getOrderById($order_id): \Itsmind\Sevdesk\Model\GetOrderById200Response
 ```
 
 Find order by ID
@@ -388,7 +388,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetOrders200Response**](../Model/GetOrders200Response.md)
+[**\Itsmind\Sevdesk\Model\GetOrderById200Response**](../Model/GetOrderById200Response.md)
 
 ### Authorization
 

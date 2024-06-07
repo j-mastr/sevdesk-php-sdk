@@ -137,7 +137,7 @@ try {
 ## `getTagById()`
 
 ```php
-getTagById($tag_id): \Itsmind\Sevdesk\Model\GetTags200Response
+getTagById($tag_id): \Itsmind\Sevdesk\Model\GetTagById200Response
 ```
 
 Find tag by ID
@@ -181,7 +181,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetTags200Response**](../Model/GetTags200Response.md)
+[**\Itsmind\Sevdesk\Model\GetTagById200Response**](../Model/GetTagById200Response.md)
 
 ### Authorization
 

@@ -281,6 +281,9 @@ class GetTransactions200Response implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        if ($this->container['objects'] === null) {
+            $invalidProperties[] = "'objects' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -299,7 +302,7 @@ class GetTransactions200Response implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets objects
      *
-     * @return \Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponse[]|null
+     * @return \Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponse[]
      */
     public function getObjects()
     {
@@ -309,7 +312,7 @@ class GetTransactions200Response implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets objects
      *
-     * @param \Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponse[]|null $objects objects
+     * @param \Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponse[] $objects objects
      *
      * @return self
      */

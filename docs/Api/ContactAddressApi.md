@@ -14,7 +14,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `contactAddressId()`
 
 ```php
-contactAddressId($contact_address_id): \Itsmind\Sevdesk\Model\GetContactAddresses200Response
+contactAddressId($contact_address_id): \Itsmind\Sevdesk\Model\ContactAddressId200Response
 ```
 
 Find contact address by ID
@@ -58,7 +58,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetContactAddresses200Response**](../Model/GetContactAddresses200Response.md)
+[**\Itsmind\Sevdesk\Model\ContactAddressId200Response**](../Model/ContactAddressId200Response.md)
 
 ### Authorization
 

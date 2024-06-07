@@ -76,7 +76,7 @@ try {
 ## `getPartById()`
 
 ```php
-getPartById($part_id): \Itsmind\Sevdesk\Model\GetParts200Response
+getPartById($part_id): \Itsmind\Sevdesk\Model\GetPartById200Response
 ```
 
 Find part by ID
@@ -120,7 +120,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetParts200Response**](../Model/GetParts200Response.md)
+[**\Itsmind\Sevdesk\Model\GetPartById200Response**](../Model/GetPartById200Response.md)
 
 ### Authorization
 

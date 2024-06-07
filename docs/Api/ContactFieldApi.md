@@ -83,7 +83,7 @@ try {
 ## `createContactFieldSetting()`
 
 ```php
-createContactFieldSetting($model_contact_custom_field_setting): \Itsmind\Sevdesk\Model\GetContactFieldSettings200Response
+createContactFieldSetting($model_contact_custom_field_setting): \Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response
 ```
 
 Create contact field setting
@@ -127,7 +127,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response**](../Model/GetContactFieldSettings200Response.md)
+[**\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response**](../Model/CreateContactFieldSetting200Response.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ try {
 ## `getContactFieldSettingById()`
 
 ```php
-getContactFieldSettingById($contact_custom_field_setting_id): \Itsmind\Sevdesk\Model\GetContactFieldSettings200Response
+getContactFieldSettingById($contact_custom_field_setting_id): \Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response
 ```
 
 Find contact field setting by ID
@@ -309,7 +309,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response**](../Model/GetContactFieldSettings200Response.md)
+[**\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response**](../Model/CreateContactFieldSetting200Response.md)
 
 ### Authorization
 
@@ -463,7 +463,7 @@ try {
 ## `getContactFieldsById()`
 
 ```php
-getContactFieldsById($contact_custom_field_id): \Itsmind\Sevdesk\Model\GetContactFields200Response
+getContactFieldsById($contact_custom_field_id): \Itsmind\Sevdesk\Model\GetContactFieldsById200Response
 ```
 
 Retrieve contact fields
@@ -507,7 +507,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetContactFields200Response**](../Model/GetContactFields200Response.md)
+[**\Itsmind\Sevdesk\Model\GetContactFieldsById200Response**](../Model/GetContactFieldsById200Response.md)
 
 ### Authorization
 

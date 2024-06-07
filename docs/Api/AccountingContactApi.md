@@ -210,7 +210,7 @@ try {
 ## `getAccountingContactById()`
 
 ```php
-getAccountingContactById($accounting_contact_id): \Itsmind\Sevdesk\Model\GetAccountingContact200Response
+getAccountingContactById($accounting_contact_id): \Itsmind\Sevdesk\Model\GetAccountingContactById200Response
 ```
 
 Find accounting contact by ID
@@ -254,7 +254,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetAccountingContact200Response**](../Model/GetAccountingContact200Response.md)
+[**\Itsmind\Sevdesk\Model\GetAccountingContactById200Response**](../Model/GetAccountingContactById200Response.md)
 
 ### Authorization
 

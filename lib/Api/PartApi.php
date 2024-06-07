@@ -449,7 +449,7 @@ class PartApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetParts200Response
+     * @return \Itsmind\Sevdesk\Model\GetPartById200Response
      */
     public function getPartById($part_id, string $contentType = self::contentTypes['getPartById'][0])
     {
@@ -467,7 +467,7 @@ class PartApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetParts200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\GetPartById200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPartByIdWithHttpInfo($part_id, string $contentType = self::contentTypes['getPartById'][0])
     {
@@ -510,11 +510,11 @@ class PartApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetParts200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\GetPartById200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetParts200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\GetPartById200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -532,13 +532,13 @@ class PartApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetParts200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetPartById200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetParts200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\GetPartById200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -571,7 +571,7 @@ class PartApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetParts200Response',
+                        '\Itsmind\Sevdesk\Model\GetPartById200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -615,7 +615,7 @@ class PartApi
      */
     public function getPartByIdAsyncWithHttpInfo($part_id, string $contentType = self::contentTypes['getPartById'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetParts200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\GetPartById200Response';
         $request = $this->getPartByIdRequest($part_id, $contentType);
 
         return $this->client

@@ -1143,7 +1143,7 @@ class AccountingContactApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetAccountingContact200Response
+     * @return \Itsmind\Sevdesk\Model\GetAccountingContactById200Response
      */
     public function getAccountingContactById($accounting_contact_id, string $contentType = self::contentTypes['getAccountingContactById'][0])
     {
@@ -1161,7 +1161,7 @@ class AccountingContactApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetAccountingContact200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\GetAccountingContactById200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAccountingContactByIdWithHttpInfo($accounting_contact_id, string $contentType = self::contentTypes['getAccountingContactById'][0])
     {
@@ -1204,11 +1204,11 @@ class AccountingContactApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetAccountingContact200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\GetAccountingContactById200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetAccountingContact200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\GetAccountingContactById200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1226,13 +1226,13 @@ class AccountingContactApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetAccountingContact200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetAccountingContactById200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetAccountingContact200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\GetAccountingContactById200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1265,7 +1265,7 @@ class AccountingContactApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetAccountingContact200Response',
+                        '\Itsmind\Sevdesk\Model\GetAccountingContactById200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1309,7 +1309,7 @@ class AccountingContactApi
      */
     public function getAccountingContactByIdAsyncWithHttpInfo($accounting_contact_id, string $contentType = self::contentTypes['getAccountingContactById'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetAccountingContact200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\GetAccountingContactById200Response';
         $request = $this->getAccountingContactByIdRequest($accounting_contact_id, $contentType);
 
         return $this->client

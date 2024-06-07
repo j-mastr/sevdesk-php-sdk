@@ -57,7 +57,8 @@ class GetContactAddresses200Response implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'objects' => '\Itsmind\Sevdesk\Model\ModelContactAddressResponse[]'
+        'objects' => '\Itsmind\Sevdesk\Model\ModelContactAddressResponse[]',
+        'total' => 'int'
     ];
 
     /**
@@ -68,7 +69,8 @@ class GetContactAddresses200Response implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'objects' => null
+        'objects' => null,
+        'total' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class GetContactAddresses200Response implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'objects' => false
+        'objects' => false,
+        'total' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class GetContactAddresses200Response implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'objects' => 'objects'
+        'objects' => 'objects',
+        'total' => 'total'
     ];
 
     /**
@@ -175,7 +179,8 @@ class GetContactAddresses200Response implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'objects' => 'setObjects'
+        'objects' => 'setObjects',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -184,7 +189,8 @@ class GetContactAddresses200Response implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'objects' => 'getObjects'
+        'objects' => 'getObjects',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -245,6 +251,7 @@ class GetContactAddresses200Response implements ModelInterface, ArrayAccess, \Js
     public function __construct(array $data = null)
     {
         $this->setIfExists('objects', $data ?? [], null);
+        $this->setIfExists('total', $data ?? [], null);
     }
 
     /**
@@ -274,6 +281,9 @@ class GetContactAddresses200Response implements ModelInterface, ArrayAccess, \Js
     {
         $invalidProperties = [];
 
+        if ($this->container['objects'] === null) {
+            $invalidProperties[] = "'objects' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +302,7 @@ class GetContactAddresses200Response implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets objects
      *
-     * @return \Itsmind\Sevdesk\Model\ModelContactAddressResponse[]|null
+     * @return \Itsmind\Sevdesk\Model\ModelContactAddressResponse[]
      */
     public function getObjects()
     {
@@ -302,7 +312,7 @@ class GetContactAddresses200Response implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets objects
      *
-     * @param \Itsmind\Sevdesk\Model\ModelContactAddressResponse[]|null $objects objects
+     * @param \Itsmind\Sevdesk\Model\ModelContactAddressResponse[] $objects objects
      *
      * @return self
      */
@@ -312,6 +322,33 @@ class GetContactAddresses200Response implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable objects cannot be null');
         }
         $this->container['objects'] = $objects;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int|null
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int|null $total total
+     *
+     * @return self
+     */
+    public function setTotal($total)
+    {
+        if (is_null($total)) {
+            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        }
+        $this->container['total'] = $total;
 
         return $this;
     }

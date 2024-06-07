@@ -764,7 +764,7 @@ class TagApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetTags200Response
+     * @return \Itsmind\Sevdesk\Model\GetTagById200Response
      */
     public function getTagById($tag_id, string $contentType = self::contentTypes['getTagById'][0])
     {
@@ -782,7 +782,7 @@ class TagApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetTags200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\GetTagById200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTagByIdWithHttpInfo($tag_id, string $contentType = self::contentTypes['getTagById'][0])
     {
@@ -825,11 +825,11 @@ class TagApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetTags200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\GetTagById200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetTags200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\GetTagById200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -847,13 +847,13 @@ class TagApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetTags200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetTagById200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetTags200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\GetTagById200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -886,7 +886,7 @@ class TagApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetTags200Response',
+                        '\Itsmind\Sevdesk\Model\GetTagById200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -930,7 +930,7 @@ class TagApi
      */
     public function getTagByIdAsyncWithHttpInfo($tag_id, string $contentType = self::contentTypes['getTagById'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetTags200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\GetTagById200Response';
         $request = $this->getTagByIdRequest($tag_id, $contentType);
 
         return $this->client

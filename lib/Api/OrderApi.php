@@ -1836,7 +1836,7 @@ class OrderApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetOrders200Response
+     * @return \Itsmind\Sevdesk\Model\GetOrderById200Response
      */
     public function getOrderById($order_id, string $contentType = self::contentTypes['getOrderById'][0])
     {
@@ -1854,7 +1854,7 @@ class OrderApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetOrders200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\GetOrderById200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrderByIdWithHttpInfo($order_id, string $contentType = self::contentTypes['getOrderById'][0])
     {
@@ -1897,11 +1897,11 @@ class OrderApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetOrders200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\GetOrderById200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetOrders200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\GetOrderById200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1919,13 +1919,13 @@ class OrderApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetOrders200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetOrderById200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetOrders200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\GetOrderById200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1958,7 +1958,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetOrders200Response',
+                        '\Itsmind\Sevdesk\Model\GetOrderById200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2002,7 +2002,7 @@ class OrderApi
      */
     public function getOrderByIdAsyncWithHttpInfo($order_id, string $contentType = self::contentTypes['getOrderById'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetOrders200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\GetOrderById200Response';
         $request = $this->getOrderByIdRequest($order_id, $contentType);
 
         return $this->client

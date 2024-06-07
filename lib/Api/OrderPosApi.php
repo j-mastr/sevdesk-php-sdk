@@ -770,7 +770,7 @@ class OrderPosApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetOrderPositionsById200Response
+     * @return \Itsmind\Sevdesk\Model\GetOrderPositions200Response
      */
     public function getOrderPositions($order_id = null, $order_object_name = null, $count_all = null, $limit = null, $offset = null, $embed = null, string $contentType = self::contentTypes['getOrderPositions'][0])
     {
@@ -793,7 +793,7 @@ class OrderPosApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetOrderPositionsById200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\GetOrderPositions200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrderPositionsWithHttpInfo($order_id = null, $order_object_name = null, $count_all = null, $limit = null, $offset = null, $embed = null, string $contentType = self::contentTypes['getOrderPositions'][0])
     {
@@ -836,11 +836,11 @@ class OrderPosApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetOrderPositionsById200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\GetOrderPositions200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetOrderPositionsById200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\GetOrderPositions200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -858,13 +858,13 @@ class OrderPosApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetOrderPositionsById200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetOrderPositions200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetOrderPositionsById200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\GetOrderPositions200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -897,7 +897,7 @@ class OrderPosApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetOrderPositionsById200Response',
+                        '\Itsmind\Sevdesk\Model\GetOrderPositions200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -951,7 +951,7 @@ class OrderPosApi
      */
     public function getOrderPositionsAsyncWithHttpInfo($order_id = null, $order_object_name = null, $count_all = null, $limit = null, $offset = null, $embed = null, string $contentType = self::contentTypes['getOrderPositions'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetOrderPositionsById200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\GetOrderPositions200Response';
         $request = $this->getOrderPositionsRequest($order_id, $order_object_name, $count_all, $limit, $offset, $embed, $contentType);
 
         return $this->client

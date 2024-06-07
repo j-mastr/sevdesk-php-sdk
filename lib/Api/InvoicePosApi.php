@@ -140,7 +140,7 @@ class InvoicePosApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response
+     * @return \Itsmind\Sevdesk\Model\GetInvoicePos200Response
      */
     public function getInvoicePos($id = null, $invoice_id = null, $invoice_object_name = null, $part_id = null, $part_object_name = null, $count_all = null, $limit = null, $offset = null, $embed = null, string $contentType = self::contentTypes['getInvoicePos'][0])
     {
@@ -166,7 +166,7 @@ class InvoicePosApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\GetInvoicePos200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getInvoicePosWithHttpInfo($id = null, $invoice_id = null, $invoice_object_name = null, $part_id = null, $part_object_name = null, $count_all = null, $limit = null, $offset = null, $embed = null, string $contentType = self::contentTypes['getInvoicePos'][0])
     {
@@ -209,11 +209,11 @@ class InvoicePosApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\GetInvoicePos200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\GetInvoicePos200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -231,13 +231,13 @@ class InvoicePosApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetInvoicePos200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\GetInvoicePos200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -270,7 +270,7 @@ class InvoicePosApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response',
+                        '\Itsmind\Sevdesk\Model\GetInvoicePos200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -330,7 +330,7 @@ class InvoicePosApi
      */
     public function getInvoicePosAsyncWithHttpInfo($id = null, $invoice_id = null, $invoice_object_name = null, $part_id = null, $part_object_name = null, $count_all = null, $limit = null, $offset = null, $embed = null, string $contentType = self::contentTypes['getInvoicePos'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\GetInvoicePos200Response';
         $request = $this->getInvoicePosRequest($id, $invoice_id, $invoice_object_name, $part_id, $part_object_name, $count_all, $limit, $offset, $embed, $contentType);
 
         return $this->client

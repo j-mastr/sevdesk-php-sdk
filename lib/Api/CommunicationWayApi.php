@@ -764,7 +764,7 @@ class CommunicationWayApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\GetCommunicationWays200Response
+     * @return \Itsmind\Sevdesk\Model\GetCommunicationWayById200Response
      */
     public function getCommunicationWayById($communication_way_id, string $contentType = self::contentTypes['getCommunicationWayById'][0])
     {
@@ -782,7 +782,7 @@ class CommunicationWayApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\GetCommunicationWays200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\GetCommunicationWayById200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCommunicationWayByIdWithHttpInfo($communication_way_id, string $contentType = self::contentTypes['getCommunicationWayById'][0])
     {
@@ -825,11 +825,11 @@ class CommunicationWayApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\GetCommunicationWays200Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\GetCommunicationWayById200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\GetCommunicationWays200Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\GetCommunicationWayById200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -847,13 +847,13 @@ class CommunicationWayApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetCommunicationWays200Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetCommunicationWayById200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\GetCommunicationWays200Response';
+            $returnType = '\Itsmind\Sevdesk\Model\GetCommunicationWayById200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -886,7 +886,7 @@ class CommunicationWayApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\GetCommunicationWays200Response',
+                        '\Itsmind\Sevdesk\Model\GetCommunicationWayById200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -930,7 +930,7 @@ class CommunicationWayApi
      */
     public function getCommunicationWayByIdAsyncWithHttpInfo($communication_way_id, string $contentType = self::contentTypes['getCommunicationWayById'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\GetCommunicationWays200Response';
+        $returnType = '\Itsmind\Sevdesk\Model\GetCommunicationWayById200Response';
         $request = $this->getCommunicationWayByIdRequest($communication_way_id, $contentType);
 
         return $this->client

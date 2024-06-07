@@ -135,7 +135,7 @@ try {
 ## `getOrderPositions()`
 
 ```php
-getOrderPositions($order_id, $order_object_name, $count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetOrderPositionsById200Response
+getOrderPositions($order_id, $order_object_name, $count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetOrderPositions200Response
 ```
 
 Retrieve order positions
@@ -189,7 +189,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetOrderPositionsById200Response**](../Model/GetOrderPositionsById200Response.md)
+[**\Itsmind\Sevdesk\Model\GetOrderPositions200Response**](../Model/GetOrderPositions200Response.md)
 
 ### Authorization
 

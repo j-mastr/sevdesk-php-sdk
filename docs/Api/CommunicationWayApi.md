@@ -137,7 +137,7 @@ try {
 ## `getCommunicationWayById()`
 
 ```php
-getCommunicationWayById($communication_way_id): \Itsmind\Sevdesk\Model\GetCommunicationWays200Response
+getCommunicationWayById($communication_way_id): \Itsmind\Sevdesk\Model\GetCommunicationWayById200Response
 ```
 
 Find communication way by ID
@@ -181,7 +181,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCommunicationWays200Response**](../Model/GetCommunicationWays200Response.md)
+[**\Itsmind\Sevdesk\Model\GetCommunicationWayById200Response**](../Model/GetCommunicationWayById200Response.md)
 
 ### Authorization
 

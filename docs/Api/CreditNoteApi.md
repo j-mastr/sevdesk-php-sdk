@@ -590,7 +590,7 @@ try {
 ## `deletecreditNote()`
 
 ```php
-deletecreditNote($credit_note_id): \Itsmind\Sevdesk\Model\GetCreditNotes200Response
+deletecreditNote($credit_note_id): \Itsmind\Sevdesk\Model\GetcreditNoteById200Response
 ```
 
 Deletes an creditNote
@@ -632,7 +632,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCreditNotes200Response**](../Model/GetCreditNotes200Response.md)
+[**\Itsmind\Sevdesk\Model\GetcreditNoteById200Response**](../Model/GetcreditNoteById200Response.md)
 
 ### Authorization
 
@@ -730,7 +730,7 @@ try {
 ## `getcreditNoteById()`
 
 ```php
-getcreditNoteById($credit_note_id): \Itsmind\Sevdesk\Model\GetCreditNotes200Response
+getcreditNoteById($credit_note_id): \Itsmind\Sevdesk\Model\GetcreditNoteById200Response
 ```
 
 Find creditNote by ID
@@ -774,7 +774,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCreditNotes200Response**](../Model/GetCreditNotes200Response.md)
+[**\Itsmind\Sevdesk\Model\GetcreditNoteById200Response**](../Model/GetcreditNoteById200Response.md)
 
 ### Authorization
 
@@ -920,7 +920,7 @@ try {
 ## `updatecreditNote()`
 
 ```php
-updatecreditNote($credit_note_id, $model_credit_note_update): \Itsmind\Sevdesk\Model\GetCreditNotes200Response
+updatecreditNote($credit_note_id, $model_credit_note_update): \Itsmind\Sevdesk\Model\GetcreditNoteById200Response
 ```
 
 Update an existing creditNote
@@ -966,7 +966,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCreditNotes200Response**](../Model/GetCreditNotes200Response.md)
+[**\Itsmind\Sevdesk\Model\GetcreditNoteById200Response**](../Model/GetcreditNoteById200Response.md)
 
 ### Authorization
 

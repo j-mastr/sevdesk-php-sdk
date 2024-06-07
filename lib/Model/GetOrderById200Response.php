@@ -1,6 +1,6 @@
 <?php
 /**
- * GetTextTemplate200Response
+ * GetOrderById200Response
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Itsmind\Sevdesk\ObjectSerializer;
 
 /**
- * GetTextTemplate200Response Class Doc Comment
+ * GetOrderById200Response Class Doc Comment
  *
  * @category Class
  * @package  Itsmind\Sevdesk
@@ -40,7 +40,7 @@ use \Itsmind\Sevdesk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetTextTemplate200Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetOrderById200Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetTextTemplate200Response implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'getTextTemplate_200_response';
+    protected static $openAPIModelName = 'getOrderById_200_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class GetTextTemplate200Response implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'objects' => '\Itsmind\Sevdesk\Model\ModelTextTemplateResponse[]',
-        'total' => 'int'
+        'objects' => '\Itsmind\Sevdesk\Model\ModelOrderResponse[]'
     ];
 
     /**
@@ -69,8 +68,7 @@ class GetTextTemplate200Response implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'objects' => null,
-        'total' => null
+        'objects' => null
     ];
 
     /**
@@ -79,8 +77,7 @@ class GetTextTemplate200Response implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'objects' => false,
-        'total' => false
+        'objects' => false
     ];
 
     /**
@@ -169,8 +166,7 @@ class GetTextTemplate200Response implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'objects' => 'objects',
-        'total' => 'total'
+        'objects' => 'objects'
     ];
 
     /**
@@ -179,8 +175,7 @@ class GetTextTemplate200Response implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'objects' => 'setObjects',
-        'total' => 'setTotal'
+        'objects' => 'setObjects'
     ];
 
     /**
@@ -189,8 +184,7 @@ class GetTextTemplate200Response implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'objects' => 'getObjects',
-        'total' => 'getTotal'
+        'objects' => 'getObjects'
     ];
 
     /**
@@ -251,7 +245,6 @@ class GetTextTemplate200Response implements ModelInterface, ArrayAccess, \JsonSe
     public function __construct(array $data = null)
     {
         $this->setIfExists('objects', $data ?? [], null);
-        $this->setIfExists('total', $data ?? [], null);
     }
 
     /**
@@ -281,9 +274,6 @@ class GetTextTemplate200Response implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['objects'] === null) {
-            $invalidProperties[] = "'objects' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -302,7 +292,7 @@ class GetTextTemplate200Response implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets objects
      *
-     * @return \Itsmind\Sevdesk\Model\ModelTextTemplateResponse[]
+     * @return \Itsmind\Sevdesk\Model\ModelOrderResponse[]|null
      */
     public function getObjects()
     {
@@ -312,7 +302,7 @@ class GetTextTemplate200Response implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets objects
      *
-     * @param \Itsmind\Sevdesk\Model\ModelTextTemplateResponse[] $objects objects
+     * @param \Itsmind\Sevdesk\Model\ModelOrderResponse[]|null $objects objects
      *
      * @return self
      */
@@ -322,33 +312,6 @@ class GetTextTemplate200Response implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable objects cannot be null');
         }
         $this->container['objects'] = $objects;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return int|null
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param int|null $total total
-     *
-     * @return self
-     */
-    public function setTotal($total)
-    {
-        if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
-        }
-        $this->container['total'] = $total;
 
         return $this;
     }

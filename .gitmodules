@@ -1,4 +1,3 @@
 [submodule "sevdesk-api"]
 	path = sevdesk-api
 	url = https://github.com/j-mastr/sevdesk-api.git
-	branch = release

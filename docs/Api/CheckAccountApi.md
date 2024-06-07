@@ -263,7 +263,7 @@ try {
 ## `getCheckAccounts()`
 
 ```php
-getCheckAccounts(): \Itsmind\Sevdesk\Model\GetCheckAccounts200Response
+getCheckAccounts($embed): \Itsmind\Sevdesk\Model\GetCheckAccounts200Response
 ```
 
 Retrieve check accounts
@@ -289,9 +289,10 @@ $apiInstance = new Itsmind\Sevdesk\Api\CheckAccountApi(
     new GuzzleHttp\Client(),
     $config
 );
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getCheckAccounts();
+    $result = $apiInstance->getCheckAccounts($embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckAccountApi->getCheckAccounts: ', $e->getMessage(), PHP_EOL;
@@ -300,7 +301,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

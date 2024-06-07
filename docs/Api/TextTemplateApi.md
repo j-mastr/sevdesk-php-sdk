@@ -136,7 +136,7 @@ void (empty response body)
 ## `getTextTemplate()`
 
 ```php
-getTextTemplate($limit, $offset, $embed, $category, $object_type, $text_type): \Itsmind\Sevdesk\Model\GetTextTemplate200Response
+getTextTemplate($limit, $offset, $embed, $category, $object_type, $text_type, $count_all): \Itsmind\Sevdesk\Model\GetTextTemplate200Response
 ```
 
 Get an overview of all text template
@@ -168,9 +168,10 @@ $embed = array('embed_example'); // string[] | Get some additional information. 
 $category = 'category_example'; // string | The category of the new Text Template.
 $object_type = 'object_type_example'; // string | object type for which you want to use the text template
 $text_type = 'text_type_example'; // string | type of your text
+$count_all = True; // bool | If all text templates should be counted
 
 try {
-    $result = $apiInstance->getTextTemplate($limit, $offset, $embed, $category, $object_type, $text_type);
+    $result = $apiInstance->getTextTemplate($limit, $offset, $embed, $category, $object_type, $text_type, $count_all);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TextTemplateApi->getTextTemplate: ', $e->getMessage(), PHP_EOL;
@@ -187,6 +188,7 @@ try {
 | **category** | **string**| The category of the new Text Template. | [optional] |
 | **object_type** | **string**| object type for which you want to use the text template | [optional] |
 | **text_type** | **string**| type of your text | [optional] |
+| **count_all** | **bool**| If all text templates should be counted | [optional] |
 
 ### Return type
 

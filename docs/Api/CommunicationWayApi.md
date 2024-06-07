@@ -199,7 +199,7 @@ try {
 ## `getCommunicationWayKeys()`
 
 ```php
-getCommunicationWayKeys(): \Itsmind\Sevdesk\Model\GetCommunicationWayKeys200Response
+getCommunicationWayKeys($count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetCommunicationWayKeys200Response
 ```
 
 Retrieve communication way keys
@@ -225,9 +225,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\CommunicationWayApi(
     new GuzzleHttp\Client(),
     $config
 );
+$count_all = True; // bool | If all communication way keys should be counted
+$limit = 56; // int | The max number of communication way keys
+$offset = 56; // int | Which offset to start with
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getCommunicationWayKeys();
+    $result = $apiInstance->getCommunicationWayKeys($count_all, $limit, $offset, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommunicationWayApi->getCommunicationWayKeys: ', $e->getMessage(), PHP_EOL;
@@ -236,7 +240,12 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **count_all** | **bool**| If all communication way keys should be counted | [optional] |
+| **limit** | **int**| The max number of communication way keys | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 
@@ -258,7 +267,7 @@ This endpoint does not need any parameter.
 ## `getCommunicationWays()`
 
 ```php
-getCommunicationWays($contact_id, $contact_object_name, $type, $main): \Itsmind\Sevdesk\Model\GetCommunicationWays200Response
+getCommunicationWays($contact, $type, $main, $count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetCommunicationWays200Response
 ```
 
 Retrieve communication ways
@@ -284,13 +293,16 @@ $apiInstance = new Itsmind\Sevdesk\Api\CommunicationWayApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contact_id = 'contact_id_example'; // string | ID of contact for which you want the communication ways.
-$contact_object_name = Contact; // string | Object name. Only needed if you also defined the ID of a contact.
+$contact = new \Itsmind\Sevdesk\Model\GetCommunicationWaysContactParameter(); // GetCommunicationWaysContactParameter | Retrieve all communication ways with this contact. The value of contact[objectName] must be 'Contact'.
 $type = 'type_example'; // string | Type of the communication ways you want to get.
 $main = 'main_example'; // string | Define if you only want the main communication way.
+$count_all = True; // bool | If all communication ways should be counted
+$limit = 56; // int | The max number of communication ways
+$offset = 56; // int | Which offset to start with
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getCommunicationWays($contact_id, $contact_object_name, $type, $main);
+    $result = $apiInstance->getCommunicationWays($contact, $type, $main, $count_all, $limit, $offset, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommunicationWayApi->getCommunicationWays: ', $e->getMessage(), PHP_EOL;
@@ -301,10 +313,13 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contact_id** | **string**| ID of contact for which you want the communication ways. | [optional] |
-| **contact_object_name** | **string**| Object name. Only needed if you also defined the ID of a contact. | [optional] [default to &#39;Contact&#39;] |
+| **contact** | [**GetCommunicationWaysContactParameter**](../Model/.md)| Retrieve all communication ways with this contact. The value of contact[objectName] must be &#39;Contact&#39;. | [optional] |
 | **type** | **string**| Type of the communication ways you want to get. | [optional] |
 | **main** | **string**| Define if you only want the main communication way. | [optional] |
+| **count_all** | **bool**| If all communication ways should be counted | [optional] |
+| **limit** | **int**| The max number of communication ways | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **update** | **string** | Date of last voucher position update | [optional] [readonly]
 **sev_client** | [**\Itsmind\Sevdesk\Model\ModelVoucherPosSevClient**](ModelVoucherPosSevClient.md) |  | [optional]
 **voucher** | [**\Itsmind\Sevdesk\Model\ModelVoucherPosVoucher**](ModelVoucherPosVoucher.md) |  |
+**account_datev** | [**\Itsmind\Sevdesk\Model\ModelVoucherPosAccountDatev**](ModelVoucherPosAccountDatev.md) |  |
 **accounting_type** | [**\Itsmind\Sevdesk\Model\ModelVoucherPosAccountingType**](ModelVoucherPosAccountingType.md) |  |
 **estimated_accounting_type** | [**\Itsmind\Sevdesk\Model\ModelVoucherPosEstimatedAccountingType**](ModelVoucherPosEstimatedAccountingType.md) |  | [optional]
 **tax_rate** | **float** | Tax rate of the voucher position. |

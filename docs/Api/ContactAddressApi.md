@@ -198,7 +198,7 @@ try {
 ## `getContactAddresses()`
 
 ```php
-getContactAddresses(): \Itsmind\Sevdesk\Model\GetContactAddresses200Response
+getContactAddresses($count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetContactAddresses200Response
 ```
 
 Retrieve contact addresses
@@ -224,9 +224,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\ContactAddressApi(
     new GuzzleHttp\Client(),
     $config
 );
+$count_all = True; // bool | If all contact addresses should be counted
+$limit = 56; // int | The max number of contact addresses
+$offset = 56; // int | Which offset to start with
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getContactAddresses();
+    $result = $apiInstance->getContactAddresses($count_all, $limit, $offset, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactAddressApi->getContactAddresses: ', $e->getMessage(), PHP_EOL;
@@ -235,7 +239,12 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **count_all** | **bool**| If all contact addresses should be counted | [optional] |
+| **limit** | **int**| The max number of contact addresses | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

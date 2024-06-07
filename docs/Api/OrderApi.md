@@ -474,12 +474,12 @@ try {
 ## `getOrders()`
 
 ```php
-getOrders($status, $order_number, $start_date, $end_date, $contact_id, $contact_object_name): \Itsmind\Sevdesk\Model\GetOrders200Response
+getOrders($status, $order_number, $start_date, $end_date, $contact_id, $contact_object_name, $count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetOrders200Response
 ```
 
 Retrieve orders
 
-There are a multitude of parameter which can be used to filter. A few of them are attached but      for a complete list please check out <a href='https://api.sevdesk.de/#section/How-to-filter-for-certain-orders'>this</a> list
+There are a multitude of parameter which can be used to filter. A few of them are attached but      for a complete list please check out <a href='#tag/Order/How-to-filter-for-certain-orders'>this</a> list
 
 ### Example
 
@@ -506,9 +506,13 @@ $start_date = 56; // int | Retrieve all orders with a date equal or higher
 $end_date = 56; // int | Retrieve all orders with a date equal or lower
 $contact_id = 56; // int | Retrieve all orders with this contact. Must be provided with contact[objectName]
 $contact_object_name = 'contact_object_name_example'; // string | Only required if contact[id] was provided. 'Contact' should be used as value.
+$count_all = True; // bool | If all orders should be counted
+$limit = 56; // int | The max number of orders
+$offset = 56; // int | Which offset to start with
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getOrders($status, $order_number, $start_date, $end_date, $contact_id, $contact_object_name);
+    $result = $apiInstance->getOrders($status, $order_number, $start_date, $end_date, $contact_id, $contact_object_name, $count_all, $limit, $offset, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->getOrders: ', $e->getMessage(), PHP_EOL;
@@ -525,6 +529,10 @@ try {
 | **end_date** | **int**| Retrieve all orders with a date equal or lower | [optional] |
 | **contact_id** | **int**| Retrieve all orders with this contact. Must be provided with contact[objectName] | [optional] |
 | **contact_object_name** | **string**| Only required if contact[id] was provided. &#39;Contact&#39; should be used as value. | [optional] |
+| **count_all** | **bool**| If all orders should be counted | [optional] |
+| **limit** | **int**| The max number of orders | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

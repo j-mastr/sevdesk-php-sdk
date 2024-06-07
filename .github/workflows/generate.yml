@@ -34,6 +34,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Commit update
         run: |
+          VERSION=$(cd sevdesk-api && git describe --tags --abbrev=0)
           git add .
-          git commit -m "feat: update generated code from OpenAPI" || exit 0
+          git commit -m "feat: update generated code from OpenAPI" -m "Release-As: $VERSION" || exit 0
           git push

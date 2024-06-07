@@ -394,12 +394,12 @@ try {
 ## `getContacts()`
 
 ```php
-getContacts($depth, $customer_number, $count_all, $limit, $offset): \Itsmind\Sevdesk\Model\GetContacts200Response
+getContacts($depth, $customer_number, $count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetContacts200Response
 ```
 
 Retrieve contacts
 
-There are a multitude of parameter which can be used to filter.<br>       A few of them are attached but       for a complete list please check out <a href='https://api.sevdesk.de/#section/How-to-filter-for-certain-contacts'>this</a> list
+There are a multitude of parameter which can be used to filter.<br>       A few of them are attached but       for a complete list please check out <a href='#tag/Contact/How-to-filter-for-certain-contacts'>this</a> list
 
 ### Example
 
@@ -425,9 +425,10 @@ $customer_number = 'customer_number_example'; // string | Retrieve all contacts 
 $count_all = True; // bool | If all contacts should be counted
 $limit = 56; // int | The max number of contacts
 $offset = 56; // int | Which offset to start with
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getContacts($depth, $customer_number, $count_all, $limit, $offset);
+    $result = $apiInstance->getContacts($depth, $customer_number, $count_all, $limit, $offset, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactApi->getContacts: ', $e->getMessage(), PHP_EOL;
@@ -443,6 +444,7 @@ try {
 | **count_all** | **bool**| If all contacts should be counted | [optional] |
 | **limit** | **int**| The max number of contacts | [optional] |
 | **offset** | **int**| Which offset to start with | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

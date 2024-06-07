@@ -26,11 +26,11 @@ Name | Type | Description | Notes
 **tax_number** | **string** | The tax number of the contact. | [optional]
 **tax_office** | **string** | The tax office of the contact (only for greek customers). | [optional]
 **exempt_vat** | **bool** | Defines if the contact is freed from paying vat. | [optional]
-**tax_type** | **string** | Defines which tax regulation the contact is using. | [optional]
-**tax_set** | [**\Itsmind\Sevdesk\Model\ModelContactTaxSet**](ModelContactTaxSet.md) |  | [optional]
 **default_discount_amount** | **float** | The default discount the contact gets for every invoice.&lt;br&gt; Depending on defaultDiscountPercentage attribute, in percent or absolute value. | [optional]
 **default_discount_percentage** | **bool** | Defines if the discount is a percentage (true) or an absolute value (false). | [optional]
 **buyer_reference** | **string** | Buyer reference of the contact. | [optional]
 **government_agency** | **bool** | Defines whether the contact is a government agency (true) or not (false). | [optional]
+**tax_set** | [**\Itsmind\Sevdesk\Model\ModelContactTaxSet**](ModelContactTaxSet.md) |  | [optional]
+**tax_type** | **string** | Defines which tax regulation the contact is using. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

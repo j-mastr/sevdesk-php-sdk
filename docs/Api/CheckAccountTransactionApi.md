@@ -4,12 +4,75 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**checkAccountTransactionEnshrine()**](CheckAccountTransactionApi.md#checkAccountTransactionEnshrine) | **PUT** /CheckAccountTransaction/{checkAccountTransactionId}/enshrine | Enshrine |
 | [**createTransaction()**](CheckAccountTransactionApi.md#createTransaction) | **POST** /CheckAccountTransaction | Create a new transaction |
 | [**deleteCheckAccountTransaction()**](CheckAccountTransactionApi.md#deleteCheckAccountTransaction) | **DELETE** /CheckAccountTransaction/{checkAccountTransactionId} | Deletes a check account transaction |
 | [**getCheckAccountTransactionById()**](CheckAccountTransactionApi.md#getCheckAccountTransactionById) | **GET** /CheckAccountTransaction/{checkAccountTransactionId} | Find check account transaction by ID |
 | [**getTransactions()**](CheckAccountTransactionApi.md#getTransactions) | **GET** /CheckAccountTransaction | Retrieve transactions |
 | [**updateCheckAccountTransaction()**](CheckAccountTransactionApi.md#updateCheckAccountTransaction) | **PUT** /CheckAccountTransaction/{checkAccountTransactionId} | Update an existing check account transaction |
 
+
+## `checkAccountTransactionEnshrine()`
+
+```php
+checkAccountTransactionEnshrine($check_account_transaction_id): \Itsmind\Sevdesk\Model\CheckAccountTransactionEnshrine200Response
+```
+
+Enshrine
+
+Sets the current date and time as a value for the property `enshrined`.<br> This operation is only possible if the status is \"Linked\" (`\"status\": \"200\"`) or higher.  Linked invoices, credit notes or vouchers cannot be changed when the transaction is enshrined.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\CheckAccountTransactionApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$check_account_transaction_id = 56; // int | ID of the transaction to enshrine
+
+try {
+    $result = $apiInstance->checkAccountTransactionEnshrine($check_account_transaction_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CheckAccountTransactionApi->checkAccountTransactionEnshrine: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **check_account_transaction_id** | **int**| ID of the transaction to enshrine | |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\CheckAccountTransactionEnshrine200Response**](../Model/CheckAccountTransactionEnshrine200Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `createTransaction()`
 
@@ -198,7 +261,7 @@ try {
 ## `getTransactions()`
 
 ```php
-getTransactions($check_account_id, $check_account_object_name, $is_booked, $paymt_purpose, $start_date, $end_date, $payee_payer_name, $only_credit, $only_debit, $count_all, $limit, $offset, $status, $hide_fees, $search_for_invoice_and_voucher): \Itsmind\Sevdesk\Model\GetTransactions200Response
+getTransactions($check_account_id, $check_account_object_name, $is_booked, $paymt_purpose, $start_date, $end_date, $payee_payer_name, $only_credit, $only_debit, $count_all, $limit, $offset, $status, $hide_fees, $search_for_invoice_and_voucher, $embed): \Itsmind\Sevdesk\Model\GetTransactions200Response
 ```
 
 Retrieve transactions
@@ -239,9 +302,10 @@ $offset = 56; // int | Which offset to start with
 $status = 3.4; // float | Status of the transaction
 $hide_fees = True; // bool | Do not include fees for financial transactions
 $search_for_invoice_and_voucher = 'search_for_invoice_and_voucher_example'; // string | Search for transactions linked with a given invoice or voucher
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getTransactions($check_account_id, $check_account_object_name, $is_booked, $paymt_purpose, $start_date, $end_date, $payee_payer_name, $only_credit, $only_debit, $count_all, $limit, $offset, $status, $hide_fees, $search_for_invoice_and_voucher);
+    $result = $apiInstance->getTransactions($check_account_id, $check_account_object_name, $is_booked, $paymt_purpose, $start_date, $end_date, $payee_payer_name, $only_credit, $only_debit, $count_all, $limit, $offset, $status, $hide_fees, $search_for_invoice_and_voucher, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckAccountTransactionApi->getTransactions: ', $e->getMessage(), PHP_EOL;
@@ -267,6 +331,7 @@ try {
 | **status** | **float**| Status of the transaction | [optional] |
 | **hide_fees** | **bool**| Do not include fees for financial transactions | [optional] |
 | **search_for_invoice_and_voucher** | **string**| Search for transactions linked with a given invoice or voucher | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

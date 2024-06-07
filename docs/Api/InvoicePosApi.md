@@ -10,7 +10,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `getInvoicePos()`
 
 ```php
-getInvoicePos($id, $invoice_id, $invoice_object_name, $part_id, $part_object_name): \Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response
+getInvoicePos($id, $invoice_id, $invoice_object_name, $part_id, $part_object_name, $count_all, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response
 ```
 
 Retrieve InvoicePos
@@ -41,9 +41,13 @@ $invoice_id = 3.4; // float | Retrieve all invoices positions with this invoice.
 $invoice_object_name = 'invoice_object_name_example'; // string | Only required if invoice[id] was provided. 'Invoice' should be used as value.
 $part_id = 3.4; // float | Retrieve all invoices positions with this part. Must be provided with part[objectName]
 $part_object_name = 'part_object_name_example'; // string | Only required if part[id] was provided. 'Part' should be used as value.
+$count_all = True; // bool | If all invoice pos should be counted
+$limit = 56; // int | The max number of invoice pos
+$offset = 56; // int | Which offset to start with
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getInvoicePos($id, $invoice_id, $invoice_object_name, $part_id, $part_object_name);
+    $result = $apiInstance->getInvoicePos($id, $invoice_id, $invoice_object_name, $part_id, $part_object_name, $count_all, $limit, $offset, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicePosApi->getInvoicePos: ', $e->getMessage(), PHP_EOL;
@@ -59,6 +63,10 @@ try {
 | **invoice_object_name** | **string**| Only required if invoice[id] was provided. &#39;Invoice&#39; should be used as value. | [optional] |
 | **part_id** | **float**| Retrieve all invoices positions with this part. Must be provided with part[objectName] | [optional] |
 | **part_object_name** | **string**| Only required if part[id] was provided. &#39;Part&#39; should be used as value. | [optional] |
+| **count_all** | **bool**| If all invoice pos should be counted | [optional] |
+| **limit** | **int**| The max number of invoice pos | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

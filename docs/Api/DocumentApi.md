@@ -10,7 +10,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `getDocuments()`
 
 ```php
-getDocuments($contact, $count_all): \Itsmind\Sevdesk\Model\GetDocuments200Response
+getDocuments($contact, $count_all, $offset, $limit, $embed): \Itsmind\Sevdesk\Model\GetDocuments200Response
 ```
 
 Retrieve documents
@@ -37,10 +37,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\DocumentApi(
     $config
 );
 $contact = new \Itsmind\Sevdesk\Model\GetDocumentsContactParameter(); // GetDocumentsContactParameter | Retrieve all documents for this contact. The value of contact[objectName] must be 'Contact'.
-$count_all = True; // bool | If all contacts should be counted
+$count_all = True; // bool | If all documents should be counted
+$offset = 56; // int | Which offset to start with
+$limit = 56; // int | The max number of objects to return
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getDocuments($contact, $count_all);
+    $result = $apiInstance->getDocuments($contact, $count_all, $offset, $limit, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentApi->getDocuments: ', $e->getMessage(), PHP_EOL;
@@ -52,7 +55,10 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **contact** | [**GetDocumentsContactParameter**](../Model/.md)| Retrieve all documents for this contact. The value of contact[objectName] must be &#39;Contact&#39;. | [optional] |
-| **count_all** | **bool**| If all contacts should be counted | [optional] |
+| **count_all** | **bool**| If all documents should be counted | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **limit** | **int**| The max number of objects to return | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

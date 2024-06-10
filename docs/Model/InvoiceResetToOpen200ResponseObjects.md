@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 **cost_centre** | [**\Itsmind\Sevdesk\Model\ModelInvoiceResponseCostCentre**](ModelInvoiceResponseCostCentre.md) |  | [optional]
 **send_date** | **\DateTime** | The date the invoice was sent to the customer | [optional] [readonly]
 **origin** | [**\Itsmind\Sevdesk\Model\ModelInvoiceResponse**](.md) |  | [optional]
-**invoice_type** | **string** | Type of the invoice. For more information on the different types, check       &lt;a href&#x3D;&#39;https://api.sevdesk.de/#section/Types-and-status-of-invoices&#39;&gt;this&lt;/a&gt; section | [optional] [readonly]
+**invoice_type** | **string** | Type of the invoice. For more information on the different types, check       &lt;a href&#x3D;&#39;#tag/Invoice/Types-and-status-of-invoices&#39;&gt;this&lt;/a&gt; section | [optional] [readonly]
 **account_intervall** | **mixed** |  | [optional]
 **account_next_invoice** | **mixed** |  | [optional]
 **reminder_total** | **string** | Total reminder amount | [optional] [readonly]

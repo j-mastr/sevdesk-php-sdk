@@ -76,7 +76,7 @@ try {
 ## `getPartById()`
 
 ```php
-getPartById($part_id): \Itsmind\Sevdesk\Model\GetParts200Response
+getPartById($part_id): \Itsmind\Sevdesk\Model\GetPartById200Response
 ```
 
 Find part by ID
@@ -120,7 +120,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetParts200Response**](../Model/GetParts200Response.md)
+[**\Itsmind\Sevdesk\Model\GetPartById200Response**](../Model/GetPartById200Response.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ try {
 ## `getParts()`
 
 ```php
-getParts($part_number, $name): \Itsmind\Sevdesk\Model\GetParts200Response
+getParts($part_number, $name, $count_all, $offset, $limit, $embed): \Itsmind\Sevdesk\Model\GetParts200Response
 ```
 
 Retrieve parts
@@ -166,9 +166,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\PartApi(
 );
 $part_number = 'part_number_example'; // string | Retrieve all parts with this part number
 $name = 'name_example'; // string | Retrieve all parts with this name
+$count_all = True; // bool | If all objects should be counted
+$offset = 56; // int | Which offset to start with
+$limit = 56; // int | The max number of objects to return
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getParts($part_number, $name);
+    $result = $apiInstance->getParts($part_number, $name, $count_all, $offset, $limit, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PartApi->getParts: ', $e->getMessage(), PHP_EOL;
@@ -181,6 +185,10 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **part_number** | **string**| Retrieve all parts with this part number | [optional] |
 | **name** | **string**| Retrieve all parts with this name | [optional] |
+| **count_all** | **bool**| If all objects should be counted | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **limit** | **int**| The max number of objects to return | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

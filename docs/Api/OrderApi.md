@@ -276,7 +276,7 @@ try {
 ## `getDiscounts()`
 
 ```php
-getDiscounts($order_id, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetDiscounts200Response
+getDiscounts($order_id, $limit, $offset, $embed, $count_all): \Itsmind\Sevdesk\Model\GetDiscounts200Response
 ```
 
 Find order discounts
@@ -306,9 +306,10 @@ $order_id = 56; // int | ID of order to return the positions
 $limit = 56; // int | limits the number of entries returned
 $offset = 56; // int | set the index where the returned entries start
 $embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
+$count_all = True; // bool | If all objects should be counted
 
 try {
-    $result = $apiInstance->getDiscounts($order_id, $limit, $offset, $embed);
+    $result = $apiInstance->getDiscounts($order_id, $limit, $offset, $embed, $count_all);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->getDiscounts: ', $e->getMessage(), PHP_EOL;
@@ -323,6 +324,7 @@ try {
 | **limit** | **int**| limits the number of entries returned | [optional] |
 | **offset** | **int**| set the index where the returned entries start | [optional] |
 | **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
+| **count_all** | **bool**| If all objects should be counted | [optional] |
 
 ### Return type
 
@@ -344,7 +346,7 @@ try {
 ## `getOrderById()`
 
 ```php
-getOrderById($order_id): \Itsmind\Sevdesk\Model\GetOrders200Response
+getOrderById($order_id): \Itsmind\Sevdesk\Model\GetOrderById200Response
 ```
 
 Find order by ID
@@ -388,7 +390,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetOrders200Response**](../Model/GetOrders200Response.md)
+[**\Itsmind\Sevdesk\Model\GetOrderById200Response**](../Model/GetOrderById200Response.md)
 
 ### Authorization
 
@@ -406,7 +408,7 @@ try {
 ## `getOrderPositionsById()`
 
 ```php
-getOrderPositionsById($order_id, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetOrderPositionsById200Response
+getOrderPositionsById($order_id, $limit, $offset, $embed, $count_all): \Itsmind\Sevdesk\Model\GetOrderPositionsById200Response
 ```
 
 Find order positions
@@ -436,9 +438,10 @@ $order_id = 56; // int | ID of order to return the positions
 $limit = 56; // int | limits the number of entries returned
 $offset = 56; // int | set the index where the returned entries start
 $embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
+$count_all = True; // bool | If all objects should be counted
 
 try {
-    $result = $apiInstance->getOrderPositionsById($order_id, $limit, $offset, $embed);
+    $result = $apiInstance->getOrderPositionsById($order_id, $limit, $offset, $embed, $count_all);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->getOrderPositionsById: ', $e->getMessage(), PHP_EOL;
@@ -453,6 +456,7 @@ try {
 | **limit** | **int**| limits the number of entries returned | [optional] |
 | **offset** | **int**| set the index where the returned entries start | [optional] |
 | **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
+| **count_all** | **bool**| If all objects should be counted | [optional] |
 
 ### Return type
 
@@ -474,12 +478,12 @@ try {
 ## `getOrders()`
 
 ```php
-getOrders($status, $order_number, $start_date, $end_date, $contact_id, $contact_object_name): \Itsmind\Sevdesk\Model\GetOrders200Response
+getOrders($status, $order_number, $start_date, $end_date, $contact_id, $contact_object_name, $count_all, $offset, $limit, $embed): \Itsmind\Sevdesk\Model\GetOrders200Response
 ```
 
 Retrieve orders
 
-There are a multitude of parameter which can be used to filter. A few of them are attached but      for a complete list please check out <a href='https://api.sevdesk.de/#section/How-to-filter-for-certain-orders'>this</a> list
+There are a multitude of parameter which can be used to filter. A few of them are attached but      for a complete list please check out <a href='#tag/Order/How-to-filter-for-certain-orders'>this</a> list
 
 ### Example
 
@@ -506,9 +510,13 @@ $start_date = 56; // int | Retrieve all orders with a date equal or higher
 $end_date = 56; // int | Retrieve all orders with a date equal or lower
 $contact_id = 56; // int | Retrieve all orders with this contact. Must be provided with contact[objectName]
 $contact_object_name = 'contact_object_name_example'; // string | Only required if contact[id] was provided. 'Contact' should be used as value.
+$count_all = True; // bool | If all objects should be counted
+$offset = 56; // int | Which offset to start with
+$limit = 56; // int | The max number of objects to return
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getOrders($status, $order_number, $start_date, $end_date, $contact_id, $contact_object_name);
+    $result = $apiInstance->getOrders($status, $order_number, $start_date, $end_date, $contact_id, $contact_object_name, $count_all, $offset, $limit, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->getOrders: ', $e->getMessage(), PHP_EOL;
@@ -525,6 +533,10 @@ try {
 | **end_date** | **int**| Retrieve all orders with a date equal or lower | [optional] |
 | **contact_id** | **int**| Retrieve all orders with this contact. Must be provided with contact[objectName] | [optional] |
 | **contact_object_name** | **string**| Only required if contact[id] was provided. &#39;Contact&#39; should be used as value. | [optional] |
+| **count_all** | **bool**| If all objects should be counted | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **limit** | **int**| The max number of objects to return | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 
@@ -546,7 +558,7 @@ try {
 ## `getRelatedObjects()`
 
 ```php
-getRelatedObjects($order_id, $include_itself, $sort_by_type, $embed): \Itsmind\Sevdesk\Model\GetOrderPositionsById200Response
+getRelatedObjects($order_id, $include_itself, $sort_by_type, $embed, $count_all, $offset, $limit): \Itsmind\Sevdesk\Model\GetOrderPositionsById200Response
 ```
 
 Find related objects
@@ -576,9 +588,12 @@ $order_id = 56; // int | ID of order to return the positions
 $include_itself = True; // bool | Define if the related objects include the order itself
 $sort_by_type = True; // bool | Define if you want the related objects sorted by type
 $embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
+$count_all = True; // bool | If all objects should be counted
+$offset = 56; // int | Which offset to start with
+$limit = 56; // int | The max number of objects to return
 
 try {
-    $result = $apiInstance->getRelatedObjects($order_id, $include_itself, $sort_by_type, $embed);
+    $result = $apiInstance->getRelatedObjects($order_id, $include_itself, $sort_by_type, $embed, $count_all, $offset, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->getRelatedObjects: ', $e->getMessage(), PHP_EOL;
@@ -593,6 +608,9 @@ try {
 | **include_itself** | **bool**| Define if the related objects include the order itself | [optional] |
 | **sort_by_type** | **bool**| Define if you want the related objects sorted by type | [optional] |
 | **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
+| **count_all** | **bool**| If all objects should be counted | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **limit** | **int**| The max number of objects to return | [optional] |
 
 ### Return type
 

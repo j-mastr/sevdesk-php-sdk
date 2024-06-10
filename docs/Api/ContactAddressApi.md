@@ -14,7 +14,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `contactAddressId()`
 
 ```php
-contactAddressId($contact_address_id): \Itsmind\Sevdesk\Model\GetContactAddresses200Response
+contactAddressId($contact_address_id): \Itsmind\Sevdesk\Model\ContactAddressId200Response
 ```
 
 Find contact address by ID
@@ -58,7 +58,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetContactAddresses200Response**](../Model/GetContactAddresses200Response.md)
+[**\Itsmind\Sevdesk\Model\ContactAddressId200Response**](../Model/ContactAddressId200Response.md)
 
 ### Authorization
 
@@ -198,7 +198,7 @@ try {
 ## `getContactAddresses()`
 
 ```php
-getContactAddresses(): \Itsmind\Sevdesk\Model\GetContactAddresses200Response
+getContactAddresses($count_all, $offset, $limit, $embed): \Itsmind\Sevdesk\Model\GetContactAddresses200Response
 ```
 
 Retrieve contact addresses
@@ -224,9 +224,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\ContactAddressApi(
     new GuzzleHttp\Client(),
     $config
 );
+$count_all = True; // bool | If all objects should be counted
+$offset = 56; // int | Which offset to start with
+$limit = 56; // int | The max number of objects to return
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getContactAddresses();
+    $result = $apiInstance->getContactAddresses($count_all, $offset, $limit, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactAddressApi->getContactAddresses: ', $e->getMessage(), PHP_EOL;
@@ -235,7 +239,12 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **count_all** | **bool**| If all objects should be counted | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **limit** | **int**| The max number of objects to return | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

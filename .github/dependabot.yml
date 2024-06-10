@@ -5,7 +5,6 @@ updates:
     schedule:
       interval: "daily"
     commit-message:
-      include: scope
       prefix: "build"
   - package-ecosystem: "github-actions"
     directory: "/"

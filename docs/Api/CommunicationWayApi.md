@@ -137,7 +137,7 @@ try {
 ## `getCommunicationWayById()`
 
 ```php
-getCommunicationWayById($communication_way_id): \Itsmind\Sevdesk\Model\GetCommunicationWays200Response
+getCommunicationWayById($communication_way_id, $embed): \Itsmind\Sevdesk\Model\GetCommunicationWayById200Response
 ```
 
 Find communication way by ID
@@ -164,9 +164,10 @@ $apiInstance = new Itsmind\Sevdesk\Api\CommunicationWayApi(
     $config
 );
 $communication_way_id = 56; // int | ID of communication way to return
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getCommunicationWayById($communication_way_id);
+    $result = $apiInstance->getCommunicationWayById($communication_way_id, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommunicationWayApi->getCommunicationWayById: ', $e->getMessage(), PHP_EOL;
@@ -178,10 +179,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **communication_way_id** | **int**| ID of communication way to return | |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCommunicationWays200Response**](../Model/GetCommunicationWays200Response.md)
+[**\Itsmind\Sevdesk\Model\GetCommunicationWayById200Response**](../Model/GetCommunicationWayById200Response.md)
 
 ### Authorization
 
@@ -199,7 +201,7 @@ try {
 ## `getCommunicationWayKeys()`
 
 ```php
-getCommunicationWayKeys(): \Itsmind\Sevdesk\Model\GetCommunicationWayKeys200Response
+getCommunicationWayKeys($count_all, $offset, $limit, $embed): \Itsmind\Sevdesk\Model\GetCommunicationWayKeys200Response
 ```
 
 Retrieve communication way keys
@@ -225,9 +227,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\CommunicationWayApi(
     new GuzzleHttp\Client(),
     $config
 );
+$count_all = True; // bool | If all objects should be counted
+$offset = 56; // int | Which offset to start with
+$limit = 56; // int | The max number of objects to return
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getCommunicationWayKeys();
+    $result = $apiInstance->getCommunicationWayKeys($count_all, $offset, $limit, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommunicationWayApi->getCommunicationWayKeys: ', $e->getMessage(), PHP_EOL;
@@ -236,7 +242,12 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **count_all** | **bool**| If all objects should be counted | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **limit** | **int**| The max number of objects to return | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 
@@ -258,7 +269,7 @@ This endpoint does not need any parameter.
 ## `getCommunicationWays()`
 
 ```php
-getCommunicationWays($contact_id, $contact_object_name, $type, $main): \Itsmind\Sevdesk\Model\GetCommunicationWays200Response
+getCommunicationWays($type, $main, $contact, $count_all, $offset, $limit, $embed): \Itsmind\Sevdesk\Model\GetCommunicationWays200Response
 ```
 
 Retrieve communication ways
@@ -284,13 +295,16 @@ $apiInstance = new Itsmind\Sevdesk\Api\CommunicationWayApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contact_id = 'contact_id_example'; // string | ID of contact for which you want the communication ways.
-$contact_object_name = Contact; // string | Object name. Only needed if you also defined the ID of a contact.
 $type = 'type_example'; // string | Type of the communication ways you want to get.
 $main = 'main_example'; // string | Define if you only want the main communication way.
+$contact = new \Itsmind\Sevdesk\Model\GetCommunicationWaysContactParameter(); // GetCommunicationWaysContactParameter | Retrieve all communication ways with this contact. The value of contact[objectName] must be 'Contact'.
+$count_all = True; // bool | If all objects should be counted
+$offset = 56; // int | Which offset to start with
+$limit = 56; // int | The max number of objects to return
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getCommunicationWays($contact_id, $contact_object_name, $type, $main);
+    $result = $apiInstance->getCommunicationWays($type, $main, $contact, $count_all, $offset, $limit, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommunicationWayApi->getCommunicationWays: ', $e->getMessage(), PHP_EOL;
@@ -301,10 +315,13 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contact_id** | **string**| ID of contact for which you want the communication ways. | [optional] |
-| **contact_object_name** | **string**| Object name. Only needed if you also defined the ID of a contact. | [optional] [default to &#39;Contact&#39;] |
 | **type** | **string**| Type of the communication ways you want to get. | [optional] |
 | **main** | **string**| Define if you only want the main communication way. | [optional] |
+| **contact** | [**GetCommunicationWaysContactParameter**](../Model/.md)| Retrieve all communication ways with this contact. The value of contact[objectName] must be &#39;Contact&#39;. | [optional] |
+| **count_all** | **bool**| If all objects should be counted | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **limit** | **int**| The max number of objects to return | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

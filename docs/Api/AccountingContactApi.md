@@ -138,7 +138,7 @@ try {
 ## `getAccountingContact()`
 
 ```php
-getAccountingContact($contact_id, $contact_object_name): \Itsmind\Sevdesk\Model\GetAccountingContact200Response
+getAccountingContact($contact_id, $contact_object_name, $count_all, $offset, $limit, $embed): \Itsmind\Sevdesk\Model\GetAccountingContact200Response
 ```
 
 Retrieve accounting contact
@@ -166,9 +166,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\AccountingContactApi(
 );
 $contact_id = 'contact_id_example'; // string | ID of contact for which you want the accounting contact.
 $contact_object_name = Contact; // string | Object name. Only needed if you also defined the ID of a contact.
+$count_all = True; // bool | If all objects should be counted
+$offset = 56; // int | Which offset to start with
+$limit = 56; // int | The max number of objects to return
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getAccountingContact($contact_id, $contact_object_name);
+    $result = $apiInstance->getAccountingContact($contact_id, $contact_object_name, $count_all, $offset, $limit, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingContactApi->getAccountingContact: ', $e->getMessage(), PHP_EOL;
@@ -181,6 +185,10 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **contact_id** | **string**| ID of contact for which you want the accounting contact. | [optional] |
 | **contact_object_name** | **string**| Object name. Only needed if you also defined the ID of a contact. | [optional] [default to &#39;Contact&#39;] |
+| **count_all** | **bool**| If all objects should be counted | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **limit** | **int**| The max number of objects to return | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 
@@ -202,7 +210,7 @@ try {
 ## `getAccountingContactById()`
 
 ```php
-getAccountingContactById($accounting_contact_id): \Itsmind\Sevdesk\Model\GetAccountingContact200Response
+getAccountingContactById($accounting_contact_id): \Itsmind\Sevdesk\Model\GetAccountingContactById200Response
 ```
 
 Find accounting contact by ID
@@ -246,7 +254,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetAccountingContact200Response**](../Model/GetAccountingContact200Response.md)
+[**\Itsmind\Sevdesk\Model\GetAccountingContactById200Response**](../Model/GetAccountingContactById200Response.md)
 
 ### Authorization
 

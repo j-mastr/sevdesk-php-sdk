@@ -151,7 +151,7 @@ exportDatev($start_date, $end_date, $scope, $download, $with_unpaid_documents, $
 
 Export datev
 
-Datev export as zip with csv´s. Before you can perform the datev export,  you must first set the \"accountingYearBegin\". To do this, you must use the  <a href='https://api.sevdesk.de/#tag/Export/operation/updateExportConfig'>updateExportConfig</a> endpoint.
+Datev export as zip with csv´s. Before you can perform the datev export, you must first set the \"accountingYearBegin\". To do this, you must use the <a href='#tag/Export/operation/updateExportConfig'>updateExportConfig</a> endpoint.
 
 ### Example
 
@@ -174,7 +174,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
 );
 $start_date = 1641032867; // int | the start date of the export as timestamp
 $end_date = 1648805267; // int | the end date of the export as timestamp
-$scope = EXTCD; // string | Define what you want to include in the datev export. This parameter takes a string of  5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the datev export. Some combinations are: ‘EXTCD’, ‘EXTD’ …
+$scope = EXTCD; // string | Define what you want to include in the datev export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the datev export. Some combinations are: ‘EXTCD’, ‘EXTD’ …
 $download = true; // bool | Specifies if the document is downloaded
 $with_unpaid_documents = true; // bool | include unpaid documents
 $with_enshrined_documents = true; // bool | include enshrined documents
@@ -194,7 +194,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **start_date** | **int**| the start date of the export as timestamp | |
 | **end_date** | **int**| the end date of the export as timestamp | |
-| **scope** | **string**| Define what you want to include in the datev export. This parameter takes a string of  5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the datev export. Some combinations are: ‘EXTCD’, ‘EXTD’ … | |
+| **scope** | **string**| Define what you want to include in the datev export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the datev export. Some combinations are: ‘EXTCD’, ‘EXTD’ … | |
 | **download** | **bool**| Specifies if the document is downloaded | [optional] |
 | **with_unpaid_documents** | **bool**| include unpaid documents | [optional] |
 | **with_enshrined_documents** | **bool**| include enshrined documents | [optional] |
@@ -540,7 +540,7 @@ try {
 ## `updateExportConfig()`
 
 ```php
-updateExportConfig($sev_client_id, $update_export_config_request): \Itsmind\Sevdesk\Model\UpdateExportConfig200Response
+updateExportConfig($sev_client_id, $update_export_config_request): \Itsmind\Sevdesk\Model\CheckAccountTransactionEnshrine200Response
 ```
 
 Update export config
@@ -586,7 +586,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\UpdateExportConfig200Response**](../Model/UpdateExportConfig200Response.md)
+[**\Itsmind\Sevdesk\Model\CheckAccountTransactionEnshrine200Response**](../Model/CheckAccountTransactionEnshrine200Response.md)
 
 ### Authorization
 

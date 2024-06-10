@@ -37,7 +37,81 @@ Multiple nested resources are also possible by providing multiple names, separat
  In our case, REST API requests need to be build by combining the following components. <table> <tr> <th><b>Component</b></th> <th><b>Description</b></th> </tr> <tr> <td>HTTP-Methods</td> <td> <ul> <li>GET (retrieve a resource)</li> <li>POST (create a resource)</li> <li>PUT (update a resource)</li> <li>DELETE (delete a resource)</li> </ul> </td> </tr> <tr> <td>URL of the API</td> <td><span style='color: #2aa198'>ht</span><span style='color: #2aa198'>tps://my.sevdesk.de/api/v1</span></td> </tr> <tr> <td>URI of the resource</td> <td>The resource to query.<br>For example contacts in sevDesk:<br><br> <span style='color:red'>/Contact</span><br><br> Which will result in the following complete URL:<br><br> <span style='color: #2aa198'>ht</span><span style='color: #2aa198'>tps://my.sevdesk.de/api/v1</span><span style='color:red'>/Contact</span> </td> </tr> <tr> <td>Query parameters</td> <td>Are attached by using the connectives <b>?</b> and <b>&</b> in the URL.<br></td> </tr> <tr> <td>Request headers</td> <td>Typical request headers are for example:<br> <div> <br> <ul> <li>Content-type</li> <li>Authorization</li> <li>Accept-Encoding</li> <li>User-Agent</li> <li>X-Version: Used for resource versioning see information below</li> <li>...</li> </ul> </div> </td> </tr> <tr>  <td>Response headers</td> <td> Typical response headers are for example:<br><br> <div> <ul>  <li>Deprecation: If a resource is deprecated we return true or a timestamp since when</li> <li>...</li> </ul> </div> </td> </tr> <tr> <td>Request body</td> <td>Mostly required in POST and PUT requests.<br> Often the request body contains json, in our case, it also accepts url-encoded data. </td> </tr> </table><br> <span style='color:red'>Note</span>: please pass a meaningful entry at the header \"User-Agent\".  If the \"User-Agent\" is set meaningfully, we can offer better support in case of queries from customers.<br> An example how such a \"User-Agent\" can look like: \"Integration-name by abc\". <br><br> This is a sample request for retrieving existing contacts in sevDesk using curl:<br><br> <img src='openAPI/img/GETRequest.PNG' alt='Get Request' height='150'><br><br> As you can see, the request contains all the components mentioned above.<br> It's HTTP method is GET, it has a correct endpoint  (<span style='color: #2aa198'>ht</span><span style='color: #2aa198'>tps://my.sevdesk.de/api/v1</span><span style='color:red'>/Contact</span>), query parameters like <b>token</b> and additional <b>header</b> information!<br><br> <b>Query Parameters</b><br><br> As you might have seen in the sample request above, there are several other parameters besides \"token\", located in the url.<br> Those are mostly optional but prove to be very useful for a lot of requests as they can limit, extend, sort or filter the data you will get as a response.<br><br> These are the most used query parameter for the sevDesk API. <table> <tr> <th><b>Parameter</b></th> <th><b>Description</b></th> </tr> <tr> <td>embed</td> <td>Will extend some of the returned data.<br> A brief example can be found below.</td> </tr> <tr> <td>countAll</td> <td>\"countAll=true\" returns the number of items</td> </tr> </table> This is an example for the usage of the embed parameter.<br> The following first request will return all company contact entries in sevDesk up to a limit of 100 without any additional information and no offset.<br><br> <img src='openAPI/img/ContactQueryWithoutEmbed.PNG' width='900' height='850'><br><br> Now have a look at the category attribute located in the response.<br> Naturally, it just contains the id and the object name of the object but no further information.<br> We will now use the parameter embed with the value \"category\".<br><br> <img src='openAPI/img/ContactQueryWithEmbed.PNG' width='900' height='850'><br><br> As you can see, the category object is now extended and shows all the attributes and their corresponding values.<br><br> There are lot of other query parameters that can be used to filter the returned data for objects that match a certain pattern, however, those will not be mentioned here and instead can be found at the detail documentation of the most used API endpoints like contact, invoice or voucher.<br><br>
 <b>Pagination</b><br> <table> <tr> <th><b>Parameter</b></th> <th><b>Description</b></th> </tr> <tr> <td>limit</td> <td>Limits the number of entries that are returned.<br> Most useful in GET requests which will most likely deliver big sets of data like country or currency lists.<br> In this case, you can bypass the default limitation on returned entries by providing a high number. </td> </tr> <tr> <td>offset</td> <td>Specifies a certain offset for the data that will be returned.<br> As an example, you can specify \"offset=2\" if you want all entries except for the first two.</td> </tr> </table> Example: <ul><li><code>ht<span>tps://my.sevdesk.de/api/v1/Invoice?offset=20&limit=10<span></code></li></ul> <b>Request Headers</b><br><br> The HTTP request (response) headers allow the client as well as the server to pass additional information with the request.<br> They transfer the parameters and arguments which are important for transmitting data over HTTP.<br> Three headers which are useful / necessary when using the sevDesk API are \"Authorization, \"Accept\" and  \"Content-type\".<br> Underneath is a brief description of why and how they should be used.<br><br> <b>Authorization</b><br><br> Can be used if you want to provide your API token in the header instead of having it in the url. <ul> <li>Authorization:<span style='color:red'>yourApiToken</span></li> </ul> <b>Accept</b><br><br> Specifies the format of the response.<br> Required for operations with a response body. <ul> <li>Accept:application/<span style='color:red'>format</span> </li> </ul> In our case, <code><span style='color:red'>format</span></code> could be replaced with <code>json</code> or <code>xml</code><br><br> <b>Content-type</b><br><br> Specifies which format is used in the request.<br> Is required for operations with a request body. <ul> <li>Content-type:application/<span style='color:red'>format</span></li> </ul> In our case,<code><span style='color:red'>format</span></code>could be replaced with <code>json</code> or <code>x-www-form-urlencoded</code> <br><br><b>API Responses</b><br><br> HTTP status codes<br> When calling the sevDesk API it is very likely that you will get a HTTP status code in the response.<br> Some API calls will also return JSON response bodies which will contain information about the resource.<br> Each status code which is returned will either be a <b>success</b> code or an <b>error</b> code.<br><br> Success codes <table> <tr> <th><b>Status code</b></th> <th><b>Description</b></th> </tr> <tr> <td><code>200 OK</code></td> <td>The request was successful</td> </tr> <tr> <td><code>201 Created</code></td> <td>Most likely to be found in the response of a <b>POST</b> request.<br> This code indicates that the desired resource was successfully created.</td> </tr> </table> <br>Error codes <table> <tr> <th><b>Status code</b></th> <th><b>Description</b></th> </tr> <tr> <td><code>400 Bad request</code></td> <td>The request you sent is most likely syntactically incorrect.<br> You should check if the parameters in the request body or the url are correct.</td> </tr> <tr> <td><code>401 Unauthorized</code></td> <td>The authentication failed.<br> Most likely caused by a missing or wrong API token.</td> </tr> <tr> <td><code>403 Forbidden</code></td> <td>You do not have the permission the access the resource which is requested.</td> </tr> <tr> <td><code>404 Not found</code></td> <td>The resource you specified does not exist.</td> </tr> <tr> <td><code>500 Internal server error</code></td> <td>An internal server error has occurred.<br> Normally this means that something went wrong on our side.<br> However, sometimes this error will appear if we missed to catch an error which is normally a 400 status code! </td> </tr> </table> <br><br> <b>Resource Versioning</b> <br><br> We use resource versioning to handle breaking changes for our endpoints, these are rarely used and will be communicated before we remove older versions.<br> To call a different version we use a specific header <code>X-Version</code> that should be filled with the desired version.<br> <ul>  <li>If you do not specify any version we assume <code>default</code></li> <li>If you specify a version that does not exist or was removed, you will get an error with information which versions are available</li> </ul> <table> <tr> <th>X-Version</th> <th>Description</th> </tr> <tr> <td><code>default</code></td> <td>Should always reference the oldest version.<br> If a specific resource is updated with a new version, <br> then the default version stays the same until the old version is deleted</td> </tr> <tr> <td><code>1.0</code> ... <code>1.9</code></td> <td>Our incrementally version for each resource independent<br> <b>Important</b>: A resource can be available via <code>default</code> but not <code>1.0</code></td> </tr> </table> 
 # Your First Request
- After reading the introduction to our API, you should now be able to make your first call.<br> For testing our API, we would always recommend to create a trial account for sevDesk to prevent unwanted changes to your main account.<br> A trial account will be in the highest tariff (materials management), so every sevDesk function can be tested! <br><br>To start testing we would recommend one of the following tools: <ul> <li><a href='https://www.getpostman.com/'>Postman</a></li> <li><a href='https://curl.haxx.se/download.html'>cURL</a></li> </ul> This example will illustrate your first request, which is creating a new Contact in sevDesk.<br> <ol> <li>Download <a href='https://www.getpostman.com/'><b>Postman</b></a> for your desired system and start the application</li> <li>Enter <span><b>ht</span>tps://my.sevdesk.de/api/v1/Contact</b> as the url</li> <li>Use the connective <b>?</b> to append <b>token=</b> to the end of the url, or create an authorization header. Insert your API token as the value</li> <li>For this test, select <b>POST</b> as the HTTP method</li> <li>Go to <b>Headers</b> and enter the key-value pair <b>Content-type</b> + <b>application/x-www-form-urlencoded</b><br> As an alternative, you can just go to <b>Body</b> and select <b>x-www-form-urlencoded</b></li> <li>Now go to <b>Body</b> (if you are not there yet) and enter the key-value pairs as shown in the following picture<br><br> <img src='openAPI/img/FirstRequestPostman.PNG' width='900'><br><br></li> <li>Click on <b>Send</b>. Your response should now look like this:<br><br> <img src='openAPI/img/FirstRequestResponse.PNG' width='900'></li> </ol> As you can see, a successful response in this case returns a JSON-formatted response body containing the contact you just created.<br> For keeping it simple, this was only a minimal example of creating a contact.<br> There are however numerous combinations of parameters that you can provide which add information to your contact.
+ After reading the introduction to our API, you should now be able to make your first call.<br> For testing our API, we would always recommend to create a trial account for sevDesk to prevent unwanted changes to your main account.<br> A trial account will be in the highest tariff (materials management), so every sevDesk function can be tested! 
+
+To start testing we would recommend one of the following tools: <ul> <li><a href='https://www.getpostman.com/'>Postman</a></li> <li><a href='https://curl.haxx.se/download.html'>cURL</a></li> </ul> This example will illustrate your first request, which is creating a new Contact in sevDesk.<br> <ol> <li>Download <a href='https://www.getpostman.com/'><b>Postman</b></a> for your desired system and start the application</li> <li>Enter <span><b>ht</span>tps://my.sevdesk.de/api/v1/Contact</b> as the url</li> <li>Use the connective <b>?</b> to append <b>token=</b> to the end of the url, or create an authorization header. Insert your API token as the value</li> <li>For this test, select <b>POST</b> as the HTTP method</li> <li>Go to <b>Headers</b> and enter the key-value pair <b>Content-type</b> + <b>application/x-www-form-urlencoded</b><br> As an alternative, you can just go to <b>Body</b> and select <b>x-www-form-urlencoded</b></li> <li>Now go to <b>Body</b> (if you are not there yet) and enter the key-value pairs as shown in the following picture<br><br> <img src='openAPI/img/FirstRequestPostman.PNG' width='900'><br><br></li> <li>Click on <b>Send</b>. Your response should now look like this:<br><br> <img src='openAPI/img/FirstRequestResponse.PNG' width='900'></li> </ol> As you can see, a successful response in this case returns a JSON-formatted response body containing the contact you just created.<br> For keeping it simple, this was only a minimal example of creating a contact.<br> There are however numerous combinations of parameters that you can provide which add information to your contact. 
+# sevDesk-Update 2.0
+ Started in 2024 we introduced a new era of bookkeeping in sevDesk. You can check if you already received the update by clicking on your profile in the top right in the sevDesk WebApp or by using the [Tools/bookkeepingSystemVersion endpoint](#tag/Basics/operation/bookkeepingSystemVersion).<br> The old version will be available for some customers until the end of 2024. In this short list we have outlined the changed endpoints with links to jump to the descriptions. If you received the [api newsletter](https://landing.sevdesk.de/api-newsletter) you already know what changed. Otherwise you can check the api changes [here](https://tech.sevdesk.com/api_news/posts/2024_04_04-system-update-breaking-changes/). 
+## Check your bookkeeping system version
+ With this endpoint you can check which version you / your client uses. On that basis you must use the old or new versions of the endpoints. [Tools/bookkeepingSystemVersion Endpoint](#tag/Basics/operation/bookkeepingSystemVersion) 
+## Tax Rules
+ <I><b>(affects the properties taxType and taxSet)</b></I><br> With sevDesk-Update 2.0 we changed the available tax rules. Due to a low level of usage, we won't support the following tax type with the sevDesk-Update 2.0 anymore:
+ `taxType = noteu`
+ Due to a high likeliness of non-compliant accounting, we won't support the following tax type with the sevDesk-Update 2.0 anymore:
+ `taxType = custom (this includes 'taxSet': ... )`
+ If you only use <code>taxType = default</code>, <code>taxType = eu</code> and / or <code>taxType = ss</code>, these tax types will automatically be mapped to the new tax rules for a transition period, but you have to make sure the taxRate used in positions is within the allowed ones (you may use the [ReceiptGuidance endpoint](#tag/Voucher/operation/forAllAccounts) for that), otherwise the API will return a validation error (HTTP status code 422). For [orders](#tag/Order), [invoices](#tag/Invoice), [vouchers](#tag/Voucher) and [credit notes](#tag/CreditNote) that were created within sevDesk-Update 2.0 the response will change in all endpoints in which these objects are returned.<br> So orders, invoices, vouchers and credit notes created within sevDesk system version 1.0 still have a taxType in the response. When they are created in sevDesk-Update 2.0 they will have a taxRule instead.<br> You can continue to use taxType at first, but we recommend switching to taxRule as there are new options available that were not previously supported.<br> For orders, invoices, vouchers and credit notes that were created within sevDesk-Update 2.0 the response will change in all endpoints in which these objects are returned. This documentation holds the most current version of the endpoints.<br> Here are lists of the currently available tax rules, sorted by their use case, structured into revenue/expense and 'Regelbesteuerer'/'Kleinunternehmer'. 
+#### VAT rules for 'Regelbesteuerung' in sevDesk-Update 2.0 (Revenue)
+ <table> <tr> <th>VAT Rule</th> <th>New Property</th> <th>Allowed taxRate in positions</th> <th>Old property (deprecated)</th> </tr> <tr> <td>Umsatzsteuerpflichtige Umsätze</td> <td><code>'taxRule': 1</code></td> <td> <ul> <li>0.0</li> <li>7.0</li> <li>19.0</li> </ul> </td> <td><code>'taxType': 'default'</code></td> </tr> <tr> <td>Ausfuhren</td> <td><code>'taxRule': 2</code></td> <td> <ul> <li>0.0</li> </ul> </td> <td>-</td> </tr> <tr> <td>Innergemeinschaftliche Lieferungen</td> <td><code>'taxRule': 3</code></td> <td> <ul> <li>0.0</li> <li>7.0</li> <li>19.0</li> </ul> </td> <td><code>'taxType': 'eu'</code></td> </tr> <tr> <td>Steuerfreie Umsätze §4 UStG</td> <td><code>'taxRule': 4</code></td> <td> <ul> <li>0.0</li> </ul> </td> <td>-</td> </tr> <tr> <td>Reverse Charge gem. §13b UStG</td> <td><code>'taxRule': 5</code></td> <td> <ul> <li>0.0</li> </ul> </td> <td>-</td> </tr> </table> 
+ 
+#### VAT rules for 'Regelbesteuerung' in sevDesk-Update 2.0 (Expense)
+ <table> <tr> <th>VAT Rule</th> <th>New Property</th> <th>Allowed taxRate in positions</th> <th>Old property (deprecated)</th> </tr> <tr> <td>Innergemeinschaftliche Erwerbe</td> <td><code>'taxRule': 8</code></td> <td> <ul> <li>0.0</li> <li>7.0</li> <li>19.0</li> </ul> </td> <td>-</td> </tr> <tr> <td>Vorsteuerabziehbare Aufwendungen</td> <td><code>'taxRule': 9</code></td> <td> <ul> <li>0.0</li> <li>7.0</li> <li>19.0</li> </ul> </td> <td><code>'taxType': 'default'</code></td> </tr> <tr> <td>Nicht vorsteuerabziehbare Aufwendungen</td> <td><code>'taxRule': 10</code></td> <td> <ul> <li>0.0</li> </ul> </td> <td>-</td> </tr> <tr> <td>Reverse Charge gem. §13b Abs. 2 UStG mit Vorsteuerabzug 0% (19%)</td> <td><code>'taxRule': 12</code></td> <td> <ul> <li>0.0</li> </ul> </td> <td>-</td> </tr> <tr> <td>Reverse Charge gem. §13b UStG ohne Vorsteuerabzug 0% (19%)</td> <td><code>'taxRule': 13</code></td> <td> <ul> <li>0.0</li> </ul> </td> <td>-</td> </tr> <tr> <td>Reverse Charge gem. §13b Abs. 1 EU Umsätze 0% (19%)</td> <td><code>'taxRule': 14</code></td> <td> <ul> <li>0.0</li> </ul> </td> <td>-</td> </tr> </table> 
+ 
+#### VAT rules for small business owner ('Kleinunternehmer') in sevDesk-Update 2.0 (Revenue)
+ <table> <tr> <th>VAT Rule</th> <th>New Property</th> <th>Allowed taxRate in positions</th> <th>Old property (deprecated)</th> </tr> <tr> <td>Steuer nicht erhoben nach §19UStG</td> <td><code>'taxRule': 11</code></td> <td> <ul> <li>0.0</li> </ul> </td> <td><code>'taxType': 'ss'</code></td> </tr> </table> 
+ 
+#### VAT rules for small business owner ('Kleinunternehmer') in sevDesk-Update 2.0 (Expense)
+ <table> <tr> <th>VAT Rule</th> <th>New Property</th> <th>Allowed taxRate in positions</th> <th>Old property (deprecated)</th> </tr> <tr> <td>Nicht vorsteuerabziehbare Aufwendungen</td> <td><code>'taxRule': 10</code></td> <td> <ul> <li>0.0</li> </ul> </td> <td><code>'taxType': 'ss'</code></td> </tr> <tr> <td>Reverse Charge gem. §13b UStG ohne Vorsteuerabzug 0% (19%)</td> <td><code>'taxRule': 13</code></td> <td> <ul> <li>0.0</li> </ul> </td> <td>-</td> </tr> </table> 
+ 
+## Booking Accounts
+ <I><b>(affects the property accountingType)</b></I><br> With sevDesk-Update 2.0 we changed the available booking accounts and their combinatorics. If you use accountingTypes with SKR numbers that are still available in our receipt guidance, you do not have to change anything in your requests. These booking accounts will automatically be mapped to the new representation (Account Datev). But you have to make sure the taxRate used in positions and taxRule used in the voucher is within the allowed ones (check the [ReceiptGuidance](#tag/Voucher/operation/forAllAccounts)) of the provided booking account, otherwise the API will return a validation error (HTTP status code 422). For orders, invoices, vouchers and credit notes in that were created within sevDesk-Update 2.0 the response will change in all endpoints were these objects are returned. 
+## Receipt Guidance
+ To help you decide which account can be used in conjunction with which tax rules, tax rates and documents, we created several guidance endpoints just there for you to get helpful information. You can find the descriptions in the changes section for Vouchers below or jump directly to the endpoint description by using this link: [Receipt Guidance](#tag/Voucher/operation/forAllAccounts).<br> Receipt Guidance is planned to give you guidance in which account you can pick (depending on your filter criteria and the client settings (e.g. 'Kleinunternehmer')) and which tax rate and [tax rules](#section/sevDesk-Update-2.0/Tax-Rules) are comptaible with them.  
+## Vouchers
+ 
+### Saving a new voucher ([Voucher/Factory/saveVoucher](#tag/Voucher/operation/voucherFactorySaveVoucher))
+ Following use cases do not work anymore or have changed: <ol> <li>Custom vat regulations (taxType = custom and provided taxSet)</li> <li>Only specific tax rates and booking accounts are available. Check [ReceiptGuidance](#tag/Voucher/operation/forAllAccounts)</li> <li>Custom accounting types do not work anymore</li> <li>Using an asset booking account without creating an asset is no longer possible</li> <li>A voucher can not be directly set to paid anymore, therefore only status <code>DRAFT (50)</code> or <code>UNPAID / DUE (100)</code> are possible when creating a new voucher. Use the [/api/v1/Voucher/{voucherId}/bookAmount endpoint](#tag/Voucher/operation/bookVoucher) to set a voucher to paid</li> <li>Setting or changing the property enshrined. Use our new endpoint [/api/v1/Voucher/{voucherId}/enshrine](#tag/Voucher/operation/voucherEnshrine) to enshrine a voucher</li> </ol> 
+### Get or update an existing voucher ([Voucher/{voucherId}](#tag/Voucher/operation/updateVoucher))
+ Following use cases do not work anymore or have changed: <ol> <li>Custom vat regulations (taxType = custom and provided taxSet)</li> <li>See [ReceiptGuidance](#tag/Voucher/operation/forAllAccounts) to check which tax rates are available in conjunction with which tax rules</li> </ol> 
+### Book a voucher ([Voucher/{voucherId}](#tag/Voucher/operation/bookVoucher))
+ Following use cases do not work anymore or have changed: <ol> <li>Voucher with negative voucher positions can not use 'cash discount' as a payment difference anymore</li> <li>A Voucher can only be booked when it was registered beforehand (see above)</li> <li>Based on the combination of voucher positions some payment difference reasons are not possible anymore</li> <li>The currency fluctuation (CF) type is no longer supported as a payment difference reason</li> </ol> 
+## Banking
+ Following use cases do not work anymore or have changed: <ol> <li>Setting or changing the property enshrined will now only be available by using the [appropriate enshrine endpoint](#tag/CheckAccountTransaction/operation/checkAccountTransactionEnshrine)</li> </ol> 
+## Invoicing
+ The changes to the vat rules also apply here. Check the documentation of voucher above as the changes are the same. 
+### General stricter validation in PUT and POST endpoints
+ We added stricter validation to ensure only correct invoices are created which than can be further processed in sevDesk. Following use cases do not work anymore or have changed: <ol> <li>Creating an invoice with taxType <code>noteu</code> does not work anymore</li> <li>Creating an invoice with taxType <code>custom</code> does not work anymore</li> <li>Processing an invoice beyond status <code>DRAFT (100)</code> without a contact does not work anymore</li> <li>Advanced invoices (<code>invoiceType: 'AR'</code>) and partial invoices (<code>invoiceType: 'TR'</code>) can only be created with the tax rule 'Umsatzsteuerpflichtige Umsätze (taxRule: 1)'(for Regelbesteuerer) or 'Steuer nicht erhoben nach §19 UStG (taxRule: 11)'(for Kleinunternehmer)</li> <li>Creating a dunning (<code>invoiceType: 'MA'</code>) with the value of property <code>reminderCharge</code> greater than 0 does not work anymore</li> <li>Creating an advanced invoice (<code>invoiceType: 'AR'</code>), a partial invoice (<code>invoiceType: 'TR'</code>) or a final invoice (<code>invoiceType: 'ER'</code>) with a currency deviating from the clients <code>defaultCurrency</code> is not possible anymore</li> <li>Changing the status manually does not work anymore (see 'Removed endpoint /Invoice/{invoiceId}/changeStatus' below)</li> <li>Enshrining now has to be done by using the [enshrine endpoint](#tag/Invoice/operation/invoiceEnshrine) (see below)</li> </ol> 
+### Saving an invoice ([Invoice/Factory/saveInvoice](#tag/Invoice/operation/createInvoiceByFactory))
+ Following use cases do not work anymore or have changed: <ol> <li>Invoices can only be created with the status <code>DRAFT (100)</code> and can not be changed manually. Use the matching endpoints (e.g. [sendViaEmail](#tag/Invoice/operation/sendInvoiceViaEMail)) to automatically change the status accordingly</li> <li>Setting or changing the property <code>enshrined</code> is now only possible by using the [enshrine endpoint](#tag/CheckAccountTransaction/operation/checkAccountTransactionEnshrine)</li> </ol> 
+### Using an order to create an invoice ([Invoice/Factory/createInvoiceFromOrder](#tag/Invoice/operation/createInvoiceFromOrder))
+ Following use cases do not work anymore or have changed: <ol> <li>Creating a final invoice (partialType: 'ER') is not possible if an advanced invoice (partialType: 'AR') or partial invoice (partialType: 'TR') exists. This functionality will be added in a later update</li> </ol> 
+### Removed endpoint /Invoice/{invoiceId}/changeStatus
+ This endpoint will be completely removed (including sevDesk system version 1.0!). Using these endpoints will automatically change the status accordingly: <ul> <li>[Invoice/{invoiceId}/sendViaEmail](#tag/Invoice/operation/sendInvoiceViaEMail)</li> <li>[Invoice/{invoiceId}/sendBy](#tag/Invoice/operation/invoiceSendBy)</li> <li>[Invoice/{invoiceId}/bookAmount](#tag/Invoice/operation/bookInvoice)</li> <li>[Invoice/{invoiceId}/resetToDraft](#tag/Invoice/operation/invoiceResetToDraft)</li> <li>[Invoice/{invoiceId}/resetToOpen](#tag/Invoice/operation/invoiceResetToOpen)</li> </ul> 
+### New endpoint [Invoice/{invoiceId}/resetToDraft](#tag/Invoice/operation/invoiceResetToDraft)
+ This new endpoint can be used to reset the status of an invoice to <code>DRAFT (100)</code>. 
+### New endpoint [Invoice/{invoiceId}/resetToOpen](#tag/Invoice/operation/invoiceResetToOpen)
+ This new endpoint can be used to reset the status of an invoice to <code>OPEN (200)</code>. 
+### New endpoint [Invoice/{invoiceId}/enshrine]((#tag/Invoice/operation/invoiceEnshrine))
+ The enshrine endpoint is now used to set the property <code>enshrined</code>. <b>This operation CAN NOT be undone due to legal reasons!</b> 
+## Credit Notes
+ The changes to the vat rules also apply here. Check the documentation of voucher above as the changes are the same. 
+### General stricter validation in PUT and POST endpoints
+ We added stricter validation to ensure only correct credit notes are created which than can be further processed in sevDesk. Due to the move from taxTypes/taxSets to taxRules you need to check the compatibility of the taxRules in combination with the tax rates. Following use cases do not work anymore or have changed: <ol> <li>Creating a credit note without a date of delivery (<code>deliveryDateUntil</code>) for an invoice that has a date of delivery (<code>deliveryDateUntil</code>) is no longer possible</li> <li>Creating a credit note with a date of delivery (<code>deliveryDateUntil</code>) for an invoice that has no date of delivery (<code>deliveryDateUntil</code>) is no longer possible</li> <li>Creating a credit note with a date of delivery (<code>deliveryDateUntil</code>) that is before the date of delivery (<code>deliveryDateUntil</code>) of the invoice is no longer possible</li> <li>Creating a credit note for an advanced invoice (<code>invoiceType: 'AR'</code>) or partial invoice (<code>invoiceType: 'TR'</code>) is no longer possible</li> <li>Creating a credit note for a voucher is no longer possible</li> <li>Creating a credit note with a <code>bookingCategory</code> other than <code>UNDERACHIEVEMENT</code> is no longer possible</li> <li>Currency fluctuation (CF) is no longer supported as a payment difference</li> </ol> 
+### Saving a credit note ([CreditNote/Factory/saveCreditNote](#tag/CreditNote/operation/createcreditNote))
+ Following use cases do not work anymore or have changed: <ol> <li>Credit notes can only be created with the status <code>DRAFT (100)</code> and can not be changed manually. Use the matching endpoints (e.g. [sendViaEmail](#tag/CreditNote/operation/sendCreditNoteViaEMail)) to automatically change the status accordingly</li> <li>Enshrining now has to be done by using the enshrine endpoint (see below)</li> </ol> 
+### Removed endpoint /CreditNote/Factory/createFromVoucher
+ The endpoint will be removed. It is not possible anymore to create credit notes for vouchers within sevDesk-Update 2.0. The endpoint continues to stay available for existing sevDesk system version 1.0 clients. 
+### Removed endpoint /CreditNote/{creditNoteId}/changeStatus
+ This endpoint will be completely removed (including sevDesk system version 1.0!). Using these endpoints will automatically change the status accordingly: <ul> <li>[CreditNote/{creditNoteId}/sendViaEmail](#tag/CreditNote/operation/sendCreditNoteViaEMail)</li> <li>[CreditNote/{creditNoteId}/sendBy](#tag/CreditNote/operation/creditNoteSendBy)</li> <li>[CreditNote/{creditNoteId}/bookAmount](#tag/CreditNote/operation/bookCreditNote)</li> <li>[CreditNote/{creditNoteId}/resetToDraft](#tag/CreditNote/operation/creditNoteResetToDraft)</li> <li>[CreditNote/{creditNoteId}/resetToOpen](#tag/CreditNote/operation/creditNoteResetToOpen)</li> </ul> 
+### New endpoint CreditNote/{creditNoteId}/resetToDraft
+ This new endpoint can be used to reset the status of a credit note to <code>DRAFT (100)</code>. You can find the documentation [here](#tag/CreditNote/operation/creditNoteResetToDraft). 
+### New endpoint CreditNote/{creditNoteId}/resetToOpen
+ This new endpoint can be used to reset the status of a credit note to <code>OPEN (200)</code>. You can find the documentation [here](#tag/CreditNote/operation/creditNoteResetToOpen). 
+### New endpoint CreditNote/{creditNoteId}/enshrine
+ [The enshrine endpoint](#tag/CreditNote/operation/creditNoteEnshrine) is now used to set the property <code>enshrined</code>. <b>This operation CAN NOT be undone due to legal reasons!</b>
+## Parts
+ 
+### General stricter validation in PUT and POST endpoints
+ Following use cases do not work anymore or have changed: <ol> <li>Creating products with a tax rate other than 0.0, 7.0 and 19.0 is no longer possible</li> </ol> 
 
 
 ## Installation & Usage
@@ -120,12 +194,14 @@ Class | Method | HTTP request | Description
 *AccountingContactApi* | [**getAccountingContact**](docs/Api/AccountingContactApi.md#getaccountingcontact) | **GET** /AccountingContact | Retrieve accounting contact
 *AccountingContactApi* | [**getAccountingContactById**](docs/Api/AccountingContactApi.md#getaccountingcontactbyid) | **GET** /AccountingContact/{accountingContactId} | Find accounting contact by ID
 *AccountingContactApi* | [**updateAccountingContact**](docs/Api/AccountingContactApi.md#updateaccountingcontact) | **PUT** /AccountingContact/{accountingContactId} | Update an existing accounting contact
+*BasicsApi* | [**bookkeepingSystemVersion**](docs/Api/BasicsApi.md#bookkeepingsystemversion) | **GET** /Tools/bookkeepingSystemVersion | Retrieve bookkeeping system version
 *CheckAccountApi* | [**createCheckAccount**](docs/Api/CheckAccountApi.md#createcheckaccount) | **POST** /CheckAccount | Create a new check account
 *CheckAccountApi* | [**deleteCheckAccount**](docs/Api/CheckAccountApi.md#deletecheckaccount) | **DELETE** /CheckAccount/{checkAccountId} | Deletes a check account
 *CheckAccountApi* | [**getBalanceAtDate**](docs/Api/CheckAccountApi.md#getbalanceatdate) | **GET** /CheckAccount/{checkAccountId}/getBalanceAtDate | Get the balance at a given date
 *CheckAccountApi* | [**getCheckAccountById**](docs/Api/CheckAccountApi.md#getcheckaccountbyid) | **GET** /CheckAccount/{checkAccountId} | Find check account by ID
 *CheckAccountApi* | [**getCheckAccounts**](docs/Api/CheckAccountApi.md#getcheckaccounts) | **GET** /CheckAccount | Retrieve check accounts
 *CheckAccountApi* | [**updateCheckAccount**](docs/Api/CheckAccountApi.md#updatecheckaccount) | **PUT** /CheckAccount/{checkAccountId} | Update an existing check account
+*CheckAccountTransactionApi* | [**checkAccountTransactionEnshrine**](docs/Api/CheckAccountTransactionApi.md#checkaccounttransactionenshrine) | **PUT** /CheckAccountTransaction/{checkAccountTransactionId}/enshrine | Enshrine
 *CheckAccountTransactionApi* | [**createTransaction**](docs/Api/CheckAccountTransactionApi.md#createtransaction) | **POST** /CheckAccountTransaction | Create a new transaction
 *CheckAccountTransactionApi* | [**deleteCheckAccountTransaction**](docs/Api/CheckAccountTransactionApi.md#deletecheckaccounttransaction) | **DELETE** /CheckAccountTransaction/{checkAccountTransactionId} | Deletes a check account transaction
 *CheckAccountTransactionApi* | [**getCheckAccountTransactionById**](docs/Api/CheckAccountTransactionApi.md#getcheckaccounttransactionbyid) | **GET** /CheckAccountTransaction/{checkAccountTransactionId} | Find check account transaction by ID
@@ -167,6 +243,7 @@ Class | Method | HTTP request | Description
 *CreditNoteApi* | [**createCreditNoteFromInvoice**](docs/Api/CreditNoteApi.md#createcreditnotefrominvoice) | **POST** /CreditNote/Factory/createFromInvoice | Creates a new creditNote from an invoice
 *CreditNoteApi* | [**createCreditNoteFromVoucher**](docs/Api/CreditNoteApi.md#createcreditnotefromvoucher) | **POST** /CreditNote/Factory/createFromVoucher | Creates a new creditNote from a voucher
 *CreditNoteApi* | [**createcreditNote**](docs/Api/CreditNoteApi.md#createcreditnote) | **POST** /CreditNote/Factory/saveCreditNote | Create a new creditNote
+*CreditNoteApi* | [**creditNoteEnshrine**](docs/Api/CreditNoteApi.md#creditnoteenshrine) | **PUT** /CreditNote/{creditNoteId}/enshrine | Enshrine
 *CreditNoteApi* | [**creditNoteGetPdf**](docs/Api/CreditNoteApi.md#creditnotegetpdf) | **GET** /CreditNote/{creditNoteId}/getPdf | Retrieve pdf document of a credit note
 *CreditNoteApi* | [**creditNoteResetToDraft**](docs/Api/CreditNoteApi.md#creditnoteresettodraft) | **PUT** /CreditNote/{creditNoteId}/resetToDraft | Reset status to draft
 *CreditNoteApi* | [**creditNoteResetToOpen**](docs/Api/CreditNoteApi.md#creditnoteresettoopen) | **PUT** /CreditNote/{creditNoteId}/resetToOpen | Reset status to open
@@ -178,6 +255,7 @@ Class | Method | HTTP request | Description
 *CreditNoteApi* | [**sendCreditNoteViaEMail**](docs/Api/CreditNoteApi.md#sendcreditnoteviaemail) | **POST** /CreditNote/{creditNoteId}/sendViaEmail | Send credit note via email
 *CreditNoteApi* | [**updatecreditNote**](docs/Api/CreditNoteApi.md#updatecreditnote) | **PUT** /CreditNote/{creditNoteId} | Update an existing creditNote
 *CreditNotePosApi* | [**getcreditNotePositions**](docs/Api/CreditNotePosApi.md#getcreditnotepositions) | **GET** /CreditNotePos | Retrieve creditNote positions
+*DefaultApi* | [**updateStatus**](docs/Api/DefaultApi.md#updatestatus) | **PUT** /Invoice/{invoiceId}/changeStatus | Update the status of an invoice
 *DocumentApi* | [**getDocuments**](docs/Api/DocumentApi.md#getdocuments) | **GET** /Document | Retrieve documents
 *ExportApi* | [**exportContact**](docs/Api/ExportApi.md#exportcontact) | **GET** /Export/contactListCsv | Export contact
 *ExportApi* | [**exportCreditNote**](docs/Api/ExportApi.md#exportcreditnote) | **GET** /Export/creditNoteCsv | Export creditNote
@@ -200,6 +278,7 @@ Class | Method | HTTP request | Description
 *InvoiceApi* | [**getIsInvoicePartiallyPaid**](docs/Api/InvoiceApi.md#getisinvoicepartiallypaid) | **GET** /Invoice/{invoiceId}/getIsPartiallyPaid | Check if an invoice is already partially paid
 *InvoiceApi* | [**getLastDunning**](docs/Api/InvoiceApi.md#getlastdunning) | **GET** /Invoice/{invoiceId}/getLastDunning | Get the last dunning of an invoice
 *InvoiceApi* | [**getOpenInvoiceReminderDebit**](docs/Api/InvoiceApi.md#getopeninvoicereminderdebit) | **GET** /Invoice/Factory/getOpenInvoiceReminderDebit | Get the oben reminder debit for an invoice
+*InvoiceApi* | [**invoiceEnshrine**](docs/Api/InvoiceApi.md#invoiceenshrine) | **PUT** /Invoice/{invoiceId}/enshrine | Enshrine
 *InvoiceApi* | [**invoiceGetPdf**](docs/Api/InvoiceApi.md#invoicegetpdf) | **GET** /Invoice/{invoiceId}/getPdf | Retrieve pdf document of an invoice
 *InvoiceApi* | [**invoiceRender**](docs/Api/InvoiceApi.md#invoicerender) | **POST** /Invoice/{invoiceId}/render | Render the pdf document of an invoice
 *InvoiceApi* | [**invoiceResetToDraft**](docs/Api/InvoiceApi.md#invoiceresettodraft) | **PUT** /Invoice/{invoiceId}/resetToDraft | Reset status to draft
@@ -207,7 +286,6 @@ Class | Method | HTTP request | Description
 *InvoiceApi* | [**invoiceSendBy**](docs/Api/InvoiceApi.md#invoicesendby) | **PUT** /Invoice/{invoiceId}/sendBy | Mark invoice as sent
 *InvoiceApi* | [**sendInvoiceViaEMail**](docs/Api/InvoiceApi.md#sendinvoiceviaemail) | **POST** /Invoice/{invoiceId}/sendViaEmail | Send invoice via email
 *InvoiceApi* | [**updateInvoiceById**](docs/Api/InvoiceApi.md#updateinvoicebyid) | **PUT** /Invoice/{invoiceId} | Update invoice by ID
-*InvoiceApi* | [**updateStatus**](docs/Api/InvoiceApi.md#updatestatus) | **PUT** /Invoice/{invoiceId}/changeStatus | Update the status of an invoice
 *InvoicePosApi* | [**getInvoicePos**](docs/Api/InvoicePosApi.md#getinvoicepos) | **GET** /InvoicePos | Retrieve InvoicePos
 *LayoutApi* | [**getLetterpapersWithThumb**](docs/Api/LayoutApi.md#getletterpaperswiththumb) | **GET** /DocServer/getLetterpapersWithThumb | Retrieve letterpapers
 *LayoutApi* | [**getTemplates**](docs/Api/LayoutApi.md#gettemplates) | **GET** /DocServer/getTemplatesWithThumb | Retrieve templates
@@ -251,10 +329,18 @@ Class | Method | HTTP request | Description
 *TextTemplateApi* | [**getTextTemplate**](docs/Api/TextTemplateApi.md#gettexttemplate) | **GET** /TextTemplate | Get an overview of all text template
 *TextTemplateApi* | [**updateTextTemplate**](docs/Api/TextTemplateApi.md#updatetexttemplate) | **PUT** /TextTemplate/{id} | Update an existing text template
 *VoucherApi* | [**bookVoucher**](docs/Api/VoucherApi.md#bookvoucher) | **PUT** /Voucher/{voucherId}/bookAmount | Book a voucher
-*VoucherApi* | [**createVoucherByFactory**](docs/Api/VoucherApi.md#createvoucherbyfactory) | **POST** /Voucher/Factory/saveVoucher | Create a new voucher
+*VoucherApi* | [**forAccountNumber**](docs/Api/VoucherApi.md#foraccountnumber) | **GET** /ReceiptGuidance/forAccountNumber | Get guidance by account number
+*VoucherApi* | [**forAllAccounts**](docs/Api/VoucherApi.md#forallaccounts) | **GET** /ReceiptGuidance/forAllAccounts | Get all account guides
+*VoucherApi* | [**forExpense**](docs/Api/VoucherApi.md#forexpense) | **GET** /ReceiptGuidance/forExpense | Get guidance for expense accounts
+*VoucherApi* | [**forRevenue**](docs/Api/VoucherApi.md#forrevenue) | **GET** /ReceiptGuidance/forRevenue | Get guidance for revenue accounts
+*VoucherApi* | [**forTaxRule**](docs/Api/VoucherApi.md#fortaxrule) | **GET** /ReceiptGuidance/forTaxRule | Get guidance by Tax Rule
 *VoucherApi* | [**getVoucherById**](docs/Api/VoucherApi.md#getvoucherbyid) | **GET** /Voucher/{voucherId} | Find voucher by ID
 *VoucherApi* | [**getVouchers**](docs/Api/VoucherApi.md#getvouchers) | **GET** /Voucher | Retrieve vouchers
 *VoucherApi* | [**updateVoucher**](docs/Api/VoucherApi.md#updatevoucher) | **PUT** /Voucher/{voucherId} | Update an existing voucher
+*VoucherApi* | [**voucherEnshrine**](docs/Api/VoucherApi.md#voucherenshrine) | **PUT** /Voucher/{voucherId}/enshrine | Enshrine
+*VoucherApi* | [**voucherFactorySaveVoucher**](docs/Api/VoucherApi.md#voucherfactorysavevoucher) | **POST** /Voucher/Factory/saveVoucher | Create a new voucher
+*VoucherApi* | [**voucherResetToDraft**](docs/Api/VoucherApi.md#voucherresettodraft) | **PUT** /Voucher/{voucherId}/resetToDraft | Reset status to draft
+*VoucherApi* | [**voucherResetToOpen**](docs/Api/VoucherApi.md#voucherresettoopen) | **PUT** /Voucher/{voucherId}/resetToOpen | Reset status to open
 *VoucherApi* | [**voucherUploadFile**](docs/Api/VoucherApi.md#voucheruploadfile) | **POST** /Voucher/Factory/uploadTempFile | Upload voucher file
 *VoucherPosApi* | [**getVoucherPositions**](docs/Api/VoucherPosApi.md#getvoucherpositions) | **GET** /VoucherPos | Retrieve voucher positions
 
@@ -275,7 +361,13 @@ Class | Method | HTTP request | Description
 - [BookVoucher200ResponseCreditNote](docs/Model/BookVoucher200ResponseCreditNote.md)
 - [BookVoucherRequest](docs/Model/BookVoucherRequest.md)
 - [BookVoucherRequestCheckAccountTransaction](docs/Model/BookVoucherRequestCheckAccountTransaction.md)
+- [BookkeepingSystemVersion200Response](docs/Model/BookkeepingSystemVersion200Response.md)
+- [BookkeepingSystemVersion200ResponseObjects](docs/Model/BookkeepingSystemVersion200ResponseObjects.md)
+- [CheckAccountTransactionEnshrine200Response](docs/Model/CheckAccountTransactionEnshrine200Response.md)
+- [ContactAddressId200Response](docs/Model/ContactAddressId200Response.md)
 - [ContactCustomerNumberAvailabilityCheck200Response](docs/Model/ContactCustomerNumberAvailabilityCheck200Response.md)
+- [CreateCheckAccount201Response](docs/Model/CreateCheckAccount201Response.md)
+- [CreateContactFieldSetting200Response](docs/Model/CreateContactFieldSetting200Response.md)
 - [CreateCreditNoteFromInvoice201Response](docs/Model/CreateCreditNoteFromInvoice201Response.md)
 - [CreateCreditNoteFromInvoice201ResponseObjects](docs/Model/CreateCreditNoteFromInvoice201ResponseObjects.md)
 - [CreateCreditNoteFromInvoiceRequest](docs/Model/CreateCreditNoteFromInvoiceRequest.md)
@@ -325,16 +417,21 @@ Class | Method | HTTP request | Description
 - [ExportVoucherZipSevQueryParameterFilter](docs/Model/ExportVoucherZipSevQueryParameterFilter.md)
 - [ExportVoucherZipSevQueryParameterFilterContact](docs/Model/ExportVoucherZipSevQueryParameterFilterContact.md)
 - [FindContactsByCustomFieldValue200Response](docs/Model/FindContactsByCustomFieldValue200Response.md)
+- [ForAllAccounts200Response](docs/Model/ForAllAccounts200Response.md)
 - [GetAccountingContact200Response](docs/Model/GetAccountingContact200Response.md)
+- [GetAccountingContactById200Response](docs/Model/GetAccountingContactById200Response.md)
 - [GetBalanceAtDate200Response](docs/Model/GetBalanceAtDate200Response.md)
 - [GetCheckAccountTransactionById200Response](docs/Model/GetCheckAccountTransactionById200Response.md)
 - [GetCheckAccounts200Response](docs/Model/GetCheckAccounts200Response.md)
+- [GetCommunicationWayById200Response](docs/Model/GetCommunicationWayById200Response.md)
 - [GetCommunicationWayKeys200Response](docs/Model/GetCommunicationWayKeys200Response.md)
 - [GetCommunicationWayKeys200ResponseObjectsInner](docs/Model/GetCommunicationWayKeys200ResponseObjectsInner.md)
 - [GetCommunicationWays200Response](docs/Model/GetCommunicationWays200Response.md)
+- [GetCommunicationWaysContactParameter](docs/Model/GetCommunicationWaysContactParameter.md)
 - [GetContactAddresses200Response](docs/Model/GetContactAddresses200Response.md)
 - [GetContactFieldSettings200Response](docs/Model/GetContactFieldSettings200Response.md)
 - [GetContactFields200Response](docs/Model/GetContactFields200Response.md)
+- [GetContactFieldsById200Response](docs/Model/GetContactFieldsById200Response.md)
 - [GetContactTabsItemCountById200Response](docs/Model/GetContactTabsItemCountById200Response.md)
 - [GetContacts200Response](docs/Model/GetContacts200Response.md)
 - [GetCreditNotes200Response](docs/Model/GetCreditNotes200Response.md)
@@ -351,19 +448,25 @@ Class | Method | HTTP request | Description
 - [GetNextCustomerNumber200Response](docs/Model/GetNextCustomerNumber200Response.md)
 - [GetOpenInvoiceReminderDebit200Response](docs/Model/GetOpenInvoiceReminderDebit200Response.md)
 - [GetOpenInvoiceReminderDebitInvoiceParameter](docs/Model/GetOpenInvoiceReminderDebitInvoiceParameter.md)
+- [GetOrderById200Response](docs/Model/GetOrderById200Response.md)
+- [GetOrderPositionById200Response](docs/Model/GetOrderPositionById200Response.md)
 - [GetOrderPositionsById200Response](docs/Model/GetOrderPositionsById200Response.md)
 - [GetOrders200Response](docs/Model/GetOrders200Response.md)
+- [GetPartById200Response](docs/Model/GetPartById200Response.md)
 - [GetParts200Response](docs/Model/GetParts200Response.md)
 - [GetPlaceholder200Response](docs/Model/GetPlaceholder200Response.md)
 - [GetReferenceCount200Response](docs/Model/GetReferenceCount200Response.md)
+- [GetTagById200Response](docs/Model/GetTagById200Response.md)
 - [GetTagRelations200Response](docs/Model/GetTagRelations200Response.md)
 - [GetTags200Response](docs/Model/GetTags200Response.md)
 - [GetTemplates200Response](docs/Model/GetTemplates200Response.md)
 - [GetTemplates200ResponseTemplatesInner](docs/Model/GetTemplates200ResponseTemplatesInner.md)
 - [GetTextTemplate200Response](docs/Model/GetTextTemplate200Response.md)
 - [GetTransactions200Response](docs/Model/GetTransactions200Response.md)
+- [GetVoucherById200Response](docs/Model/GetVoucherById200Response.md)
 - [GetVoucherPositions200Response](docs/Model/GetVoucherPositions200Response.md)
 - [GetVouchers200Response](docs/Model/GetVouchers200Response.md)
+- [GetcreditNoteById200Response](docs/Model/GetcreditNoteById200Response.md)
 - [GetcreditNotePositions200Response](docs/Model/GetcreditNotePositions200Response.md)
 - [InvoiceGetPdf200Response](docs/Model/InvoiceGetPdf200Response.md)
 - [InvoiceRender201Response](docs/Model/InvoiceRender201Response.md)
@@ -412,6 +515,7 @@ Class | Method | HTTP request | Description
 - [ModelCommunicationWayKey](docs/Model/ModelCommunicationWayKey.md)
 - [ModelCommunicationWayResponse](docs/Model/ModelCommunicationWayResponse.md)
 - [ModelCommunicationWayResponseContact](docs/Model/ModelCommunicationWayResponseContact.md)
+- [ModelCommunicationWayResponseContactAnyOf](docs/Model/ModelCommunicationWayResponseContactAnyOf.md)
 - [ModelCommunicationWayResponseKey](docs/Model/ModelCommunicationWayResponseKey.md)
 - [ModelCommunicationWayResponseSevClient](docs/Model/ModelCommunicationWayResponseSevClient.md)
 - [ModelCommunicationWaySevClient](docs/Model/ModelCommunicationWaySevClient.md)
@@ -429,6 +533,8 @@ Class | Method | HTTP request | Description
 - [ModelContactAddressUpdateContact](docs/Model/ModelContactAddressUpdateContact.md)
 - [ModelContactAddressUpdateCountry](docs/Model/ModelContactAddressUpdateCountry.md)
 - [ModelContactCategory](docs/Model/ModelContactCategory.md)
+- [ModelContactCommunicationWaysInner](docs/Model/ModelContactCommunicationWaysInner.md)
+- [ModelContactCommunicationWaysInnerAnyOf](docs/Model/ModelContactCommunicationWaysInnerAnyOf.md)
 - [ModelContactCustomField](docs/Model/ModelContactCustomField.md)
 - [ModelContactCustomFieldContact](docs/Model/ModelContactCustomFieldContact.md)
 - [ModelContactCustomFieldContactCustomFieldSetting](docs/Model/ModelContactCustomFieldContactCustomFieldSetting.md)
@@ -441,6 +547,7 @@ Class | Method | HTTP request | Description
 - [ModelContactCustomFieldSettingUpdate](docs/Model/ModelContactCustomFieldSettingUpdate.md)
 - [ModelContactCustomFieldUpdate](docs/Model/ModelContactCustomFieldUpdate.md)
 - [ModelContactParent](docs/Model/ModelContactParent.md)
+- [ModelContactParentAnyOf](docs/Model/ModelContactParentAnyOf.md)
 - [ModelContactResponse](docs/Model/ModelContactResponse.md)
 - [ModelContactResponseCategory](docs/Model/ModelContactResponseCategory.md)
 - [ModelContactResponseParent](docs/Model/ModelContactResponseParent.md)
@@ -475,6 +582,7 @@ Class | Method | HTTP request | Description
 - [ModelCreditNoteResponseContactPerson](docs/Model/ModelCreditNoteResponseContactPerson.md)
 - [ModelCreditNoteResponseCreateUser](docs/Model/ModelCreditNoteResponseCreateUser.md)
 - [ModelCreditNoteResponseSevClient](docs/Model/ModelCreditNoteResponseSevClient.md)
+- [ModelCreditNoteResponseTaxRule](docs/Model/ModelCreditNoteResponseTaxRule.md)
 - [ModelCreditNoteResponseTaxSet](docs/Model/ModelCreditNoteResponseTaxSet.md)
 - [ModelCreditNoteSendByWithRender](docs/Model/ModelCreditNoteSendByWithRender.md)
 - [ModelCreditNoteSevClient](docs/Model/ModelCreditNoteSevClient.md)
@@ -524,6 +632,7 @@ Class | Method | HTTP request | Description
 - [ModelInvoiceUpdateCostCentre](docs/Model/ModelInvoiceUpdateCostCentre.md)
 - [ModelInvoiceUpdateOrigin](docs/Model/ModelInvoiceUpdateOrigin.md)
 - [ModelInvoiceUpdatePaymentMethod](docs/Model/ModelInvoiceUpdatePaymentMethod.md)
+- [ModelInvoiceUpdateTaxRule](docs/Model/ModelInvoiceUpdateTaxRule.md)
 - [ModelInvoiceUpdateTaxSet](docs/Model/ModelInvoiceUpdateTaxSet.md)
 - [ModelOrder](docs/Model/ModelOrder.md)
 - [ModelOrderAddressCountry](docs/Model/ModelOrderAddressCountry.md)
@@ -575,9 +684,11 @@ Class | Method | HTTP request | Description
 - [ModelVoucherCreateUser](docs/Model/ModelVoucherCreateUser.md)
 - [ModelVoucherDocument](docs/Model/ModelVoucherDocument.md)
 - [ModelVoucherPos](docs/Model/ModelVoucherPos.md)
+- [ModelVoucherPosAccountDatev](docs/Model/ModelVoucherPosAccountDatev.md)
 - [ModelVoucherPosAccountingType](docs/Model/ModelVoucherPosAccountingType.md)
 - [ModelVoucherPosEstimatedAccountingType](docs/Model/ModelVoucherPosEstimatedAccountingType.md)
 - [ModelVoucherPosResponse](docs/Model/ModelVoucherPosResponse.md)
+- [ModelVoucherPosResponseAccountDatev](docs/Model/ModelVoucherPosResponseAccountDatev.md)
 - [ModelVoucherPosResponseAccountingType](docs/Model/ModelVoucherPosResponseAccountingType.md)
 - [ModelVoucherPosResponseEstimatedAccountingType](docs/Model/ModelVoucherPosResponseEstimatedAccountingType.md)
 - [ModelVoucherPosResponseSevClient](docs/Model/ModelVoucherPosResponseSevClient.md)
@@ -593,11 +704,15 @@ Class | Method | HTTP request | Description
 - [ModelVoucherResponseTaxSet](docs/Model/ModelVoucherResponseTaxSet.md)
 - [ModelVoucherSevClient](docs/Model/ModelVoucherSevClient.md)
 - [ModelVoucherSupplier](docs/Model/ModelVoucherSupplier.md)
+- [ModelVoucherTaxRule](docs/Model/ModelVoucherTaxRule.md)
 - [ModelVoucherTaxSet](docs/Model/ModelVoucherTaxSet.md)
 - [ModelVoucherUpdate](docs/Model/ModelVoucherUpdate.md)
+- [ModelVoucherUpdateTaxSet](docs/Model/ModelVoucherUpdateTaxSet.md)
 - [OrderGetPdf200Response](docs/Model/OrderGetPdf200Response.md)
 - [OrderSendByRequest](docs/Model/OrderSendByRequest.md)
 - [PartGetStock200Response](docs/Model/PartGetStock200Response.md)
+- [ReceiptGuideDto](docs/Model/ReceiptGuideDto.md)
+- [ReceiptGuideDtoAllowedTaxRulesInner](docs/Model/ReceiptGuideDtoAllowedTaxRulesInner.md)
 - [ReportContact200Response](docs/Model/ReportContact200Response.md)
 - [ReportContact200ResponseObjects](docs/Model/ReportContact200ResponseObjects.md)
 - [ReportContactSevQueryParameter](docs/Model/ReportContactSevQueryParameter.md)
@@ -632,13 +747,14 @@ Class | Method | HTTP request | Description
 - [SendCreditNoteViaEMailRequest](docs/Model/SendCreditNoteViaEMailRequest.md)
 - [SendInvoiceViaEMailRequest](docs/Model/SendInvoiceViaEMailRequest.md)
 - [SendorderViaEMail201Response](docs/Model/SendorderViaEMail201Response.md)
-- [UpdateExportConfig200Response](docs/Model/UpdateExportConfig200Response.md)
 - [UpdateExportConfigRequest](docs/Model/UpdateExportConfigRequest.md)
 - [UpdateInvoiceById200Response](docs/Model/UpdateInvoiceById200Response.md)
 - [UpdateStatusRequest](docs/Model/UpdateStatusRequest.md)
 - [UpdateTagRequest](docs/Model/UpdateTagRequest.md)
 - [ValidationError](docs/Model/ValidationError.md)
 - [ValidationErrorError](docs/Model/ValidationErrorError.md)
+- [VoucherResetToOpen200Response](docs/Model/VoucherResetToOpen200Response.md)
+- [VoucherResetToOpen200ResponseObjects](docs/Model/VoucherResetToOpen200ResponseObjects.md)
 - [VoucherUploadFile201Response](docs/Model/VoucherUploadFile201Response.md)
 - [VoucherUploadFile201ResponseObjects](docs/Model/VoucherUploadFile201ResponseObjects.md)
 - [VoucherUploadFileRequest](docs/Model/VoucherUploadFileRequest.md)
@@ -671,5 +787,5 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `2.0.0`
-    - Generator version: `7.5.0`
+    - Generator version: `7.6.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

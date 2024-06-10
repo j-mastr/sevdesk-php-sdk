@@ -8,6 +8,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 | [**createCreditNoteFromInvoice()**](CreditNoteApi.md#createCreditNoteFromInvoice) | **POST** /CreditNote/Factory/createFromInvoice | Creates a new creditNote from an invoice |
 | [**createCreditNoteFromVoucher()**](CreditNoteApi.md#createCreditNoteFromVoucher) | **POST** /CreditNote/Factory/createFromVoucher | Creates a new creditNote from a voucher |
 | [**createcreditNote()**](CreditNoteApi.md#createcreditNote) | **POST** /CreditNote/Factory/saveCreditNote | Create a new creditNote |
+| [**creditNoteEnshrine()**](CreditNoteApi.md#creditNoteEnshrine) | **PUT** /CreditNote/{creditNoteId}/enshrine | Enshrine |
 | [**creditNoteGetPdf()**](CreditNoteApi.md#creditNoteGetPdf) | **GET** /CreditNote/{creditNoteId}/getPdf | Retrieve pdf document of a credit note |
 | [**creditNoteResetToDraft()**](CreditNoteApi.md#creditNoteResetToDraft) | **PUT** /CreditNote/{creditNoteId}/resetToDraft | Reset status to draft |
 | [**creditNoteResetToOpen()**](CreditNoteApi.md#creditNoteResetToOpen) | **PUT** /CreditNote/{creditNoteId}/resetToOpen | Reset status to open |
@@ -28,7 +29,7 @@ bookCreditNote($credit_note_id, $book_credit_note_request): \Itsmind\Sevdesk\Mod
 
 Book a credit note
 
-Booking the credit note with a transaction is probably the most important part in the bookkeeping  process.<br> There are several ways on correctly booking a credit note, all by using the same endpoint.<br> Conveniently, the booking process is exactly the same as the process for invoices and vouchers.<br> For this reason, you can have a look at it in the  <a href='https://api.sevdesk.de/#section/How-to-book-an-invoice'>invoice chapter</a> and all you need to do is to change \"Invoice\" into \"CreditNote\" in the URL.
+Booking the credit note with a transaction is probably the most important part in the bookkeeping process.<br> There are several ways on correctly booking a credit note, all by using the same endpoint.<br> Conveniently, the booking process is exactly the same as the process for invoices and vouchers.<br> For this reason, you can have a look at it in the <a href='#tag/Invoice/How-to-book-an-invoice'>invoice chapter</a> and all you need to do is to change \"Invoice\" into \"CreditNote\" in the URL.
 
 ### Example
 
@@ -154,7 +155,7 @@ createCreditNoteFromVoucher($create_credit_note_from_voucher_request): \Itsmind\
 
 Creates a new creditNote from a voucher
 
-Use this endpoint to create a new creditNote from a voucher.
+**Not supported with sevDesk-Update 2.0**  Use this endpoint to create a new creditNote from a voucher.
 
 ### Example
 
@@ -264,6 +265,68 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `creditNoteEnshrine()`
+
+```php
+creditNoteEnshrine($credit_note_id): \Itsmind\Sevdesk\Model\CheckAccountTransactionEnshrine200Response
+```
+
+Enshrine
+
+Sets the current date and time as a value for the property `enshrined`.<br> This operation is only possible if the status is \"Open\" (`\"status\": \"200\"`) or higher.  Enshrined credit notes cannot be changed. This operation cannot be undone.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$credit_note_id = 56; // int | ID of the credit note to enshrine
+
+try {
+    $result = $apiInstance->creditNoteEnshrine($credit_note_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CreditNoteApi->creditNoteEnshrine: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **credit_note_id** | **int**| ID of the credit note to enshrine | |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\CheckAccountTransactionEnshrine200Response**](../Model/CheckAccountTransactionEnshrine200Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -527,7 +590,7 @@ try {
 ## `deletecreditNote()`
 
 ```php
-deletecreditNote($credit_note_id): \Itsmind\Sevdesk\Model\GetCreditNotes200Response
+deletecreditNote($credit_note_id): \Itsmind\Sevdesk\Model\GetcreditNoteById200Response
 ```
 
 Deletes an creditNote
@@ -569,7 +632,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCreditNotes200Response**](../Model/GetCreditNotes200Response.md)
+[**\Itsmind\Sevdesk\Model\GetcreditNoteById200Response**](../Model/GetcreditNoteById200Response.md)
 
 ### Authorization
 
@@ -587,7 +650,7 @@ try {
 ## `getCreditNotes()`
 
 ```php
-getCreditNotes($status, $credit_note_number, $start_date, $end_date, $contact_id, $contact_object_name): \Itsmind\Sevdesk\Model\GetCreditNotes200Response
+getCreditNotes($status, $credit_note_number, $start_date, $end_date, $contact_id, $contact_object_name, $count_all, $offset, $limit, $embed): \Itsmind\Sevdesk\Model\GetCreditNotes200Response
 ```
 
 Retrieve CreditNote
@@ -619,9 +682,13 @@ $start_date = 01.01.2020; // int | Retrieve all CreditNotes with a date equal or
 $end_date = 01.01.2021; // int | Retrieve all CreditNotes with a date equal or lower
 $contact_id = 56; // int | Retrieve all CreditNotes with this contact. Must be provided with contact[objectName]
 $contact_object_name = 'contact_object_name_example'; // string | Only required if contact[id] was provided. 'Contact' should be used as value.
+$count_all = True; // bool | If all objects should be counted
+$offset = 56; // int | Which offset to start with
+$limit = 56; // int | The max number of objects to return
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getCreditNotes($status, $credit_note_number, $start_date, $end_date, $contact_id, $contact_object_name);
+    $result = $apiInstance->getCreditNotes($status, $credit_note_number, $start_date, $end_date, $contact_id, $contact_object_name, $count_all, $offset, $limit, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreditNoteApi->getCreditNotes: ', $e->getMessage(), PHP_EOL;
@@ -638,6 +705,10 @@ try {
 | **end_date** | **int**| Retrieve all CreditNotes with a date equal or lower | [optional] |
 | **contact_id** | **int**| Retrieve all CreditNotes with this contact. Must be provided with contact[objectName] | [optional] |
 | **contact_object_name** | **string**| Only required if contact[id] was provided. &#39;Contact&#39; should be used as value. | [optional] |
+| **count_all** | **bool**| If all objects should be counted | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **limit** | **int**| The max number of objects to return | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 
@@ -659,7 +730,7 @@ try {
 ## `getcreditNoteById()`
 
 ```php
-getcreditNoteById($credit_note_id): \Itsmind\Sevdesk\Model\GetCreditNotes200Response
+getcreditNoteById($credit_note_id): \Itsmind\Sevdesk\Model\GetcreditNoteById200Response
 ```
 
 Find creditNote by ID
@@ -703,7 +774,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCreditNotes200Response**](../Model/GetCreditNotes200Response.md)
+[**\Itsmind\Sevdesk\Model\GetcreditNoteById200Response**](../Model/GetcreditNoteById200Response.md)
 
 ### Authorization
 
@@ -849,7 +920,7 @@ try {
 ## `updatecreditNote()`
 
 ```php
-updatecreditNote($credit_note_id, $model_credit_note_update): \Itsmind\Sevdesk\Model\GetCreditNotes200Response
+updatecreditNote($credit_note_id, $model_credit_note_update): \Itsmind\Sevdesk\Model\GetcreditNoteById200Response
 ```
 
 Update an existing creditNote
@@ -895,7 +966,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCreditNotes200Response**](../Model/GetCreditNotes200Response.md)
+[**\Itsmind\Sevdesk\Model\GetcreditNoteById200Response**](../Model/GetcreditNoteById200Response.md)
 
 ### Authorization
 

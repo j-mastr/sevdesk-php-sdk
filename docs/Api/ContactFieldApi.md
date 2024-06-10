@@ -83,7 +83,7 @@ try {
 ## `createContactFieldSetting()`
 
 ```php
-createContactFieldSetting($model_contact_custom_field_setting): \Itsmind\Sevdesk\Model\GetContactFieldSettings200Response
+createContactFieldSetting($model_contact_custom_field_setting): \Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response
 ```
 
 Create contact field setting
@@ -127,7 +127,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response**](../Model/GetContactFieldSettings200Response.md)
+[**\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response**](../Model/CreateContactFieldSetting200Response.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ try {
 ## `getContactFieldSettingById()`
 
 ```php
-getContactFieldSettingById($contact_custom_field_setting_id): \Itsmind\Sevdesk\Model\GetContactFieldSettings200Response
+getContactFieldSettingById($contact_custom_field_setting_id): \Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response
 ```
 
 Find contact field setting by ID
@@ -309,7 +309,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetContactFieldSettings200Response**](../Model/GetContactFieldSettings200Response.md)
+[**\Itsmind\Sevdesk\Model\CreateContactFieldSetting200Response**](../Model/CreateContactFieldSetting200Response.md)
 
 ### Authorization
 
@@ -327,7 +327,7 @@ try {
 ## `getContactFieldSettings()`
 
 ```php
-getContactFieldSettings(): \Itsmind\Sevdesk\Model\GetContactFieldSettings200Response
+getContactFieldSettings($count_all, $offset, $limit, $embed): \Itsmind\Sevdesk\Model\GetContactFieldSettings200Response
 ```
 
 Retrieve contact field settings
@@ -353,9 +353,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\ContactFieldApi(
     new GuzzleHttp\Client(),
     $config
 );
+$count_all = True; // bool | If all objects should be counted
+$offset = 56; // int | Which offset to start with
+$limit = 56; // int | The max number of objects to return
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getContactFieldSettings();
+    $result = $apiInstance->getContactFieldSettings($count_all, $offset, $limit, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactFieldApi->getContactFieldSettings: ', $e->getMessage(), PHP_EOL;
@@ -364,7 +368,12 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **count_all** | **bool**| If all objects should be counted | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **limit** | **int**| The max number of objects to return | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 
@@ -386,7 +395,7 @@ This endpoint does not need any parameter.
 ## `getContactFields()`
 
 ```php
-getContactFields(): \Itsmind\Sevdesk\Model\GetContactFields200Response
+getContactFields($count_all, $offset, $limit, $embed): \Itsmind\Sevdesk\Model\GetContactFields200Response
 ```
 
 Retrieve contact fields
@@ -412,9 +421,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\ContactFieldApi(
     new GuzzleHttp\Client(),
     $config
 );
+$count_all = True; // bool | If all objects should be counted
+$offset = 56; // int | Which offset to start with
+$limit = 56; // int | The max number of objects to return
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getContactFields();
+    $result = $apiInstance->getContactFields($count_all, $offset, $limit, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactFieldApi->getContactFields: ', $e->getMessage(), PHP_EOL;
@@ -423,7 +436,12 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **count_all** | **bool**| If all objects should be counted | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **limit** | **int**| The max number of objects to return | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 
@@ -445,7 +463,7 @@ This endpoint does not need any parameter.
 ## `getContactFieldsById()`
 
 ```php
-getContactFieldsById($contact_custom_field_id): \Itsmind\Sevdesk\Model\GetContactFields200Response
+getContactFieldsById($contact_custom_field_id): \Itsmind\Sevdesk\Model\GetContactFieldsById200Response
 ```
 
 Retrieve contact fields
@@ -489,7 +507,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetContactFields200Response**](../Model/GetContactFields200Response.md)
+[**\Itsmind\Sevdesk\Model\GetContactFieldsById200Response**](../Model/GetContactFieldsById200Response.md)
 
 ### Authorization
 

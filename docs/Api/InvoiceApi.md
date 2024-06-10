@@ -16,6 +16,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 | [**getIsInvoicePartiallyPaid()**](InvoiceApi.md#getIsInvoicePartiallyPaid) | **GET** /Invoice/{invoiceId}/getIsPartiallyPaid | Check if an invoice is already partially paid |
 | [**getLastDunning()**](InvoiceApi.md#getLastDunning) | **GET** /Invoice/{invoiceId}/getLastDunning | Get the last dunning of an invoice |
 | [**getOpenInvoiceReminderDebit()**](InvoiceApi.md#getOpenInvoiceReminderDebit) | **GET** /Invoice/Factory/getOpenInvoiceReminderDebit | Get the oben reminder debit for an invoice |
+| [**invoiceEnshrine()**](InvoiceApi.md#invoiceEnshrine) | **PUT** /Invoice/{invoiceId}/enshrine | Enshrine |
 | [**invoiceGetPdf()**](InvoiceApi.md#invoiceGetPdf) | **GET** /Invoice/{invoiceId}/getPdf | Retrieve pdf document of an invoice |
 | [**invoiceRender()**](InvoiceApi.md#invoiceRender) | **POST** /Invoice/{invoiceId}/render | Render the pdf document of an invoice |
 | [**invoiceResetToDraft()**](InvoiceApi.md#invoiceResetToDraft) | **PUT** /Invoice/{invoiceId}/resetToDraft | Reset status to draft |
@@ -23,7 +24,6 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 | [**invoiceSendBy()**](InvoiceApi.md#invoiceSendBy) | **PUT** /Invoice/{invoiceId}/sendBy | Mark invoice as sent |
 | [**sendInvoiceViaEMail()**](InvoiceApi.md#sendInvoiceViaEMail) | **POST** /Invoice/{invoiceId}/sendViaEmail | Send invoice via email |
 | [**updateInvoiceById()**](InvoiceApi.md#updateInvoiceById) | **PUT** /Invoice/{invoiceId} | Update invoice by ID |
-| [**updateStatus()**](InvoiceApi.md#updateStatus) | **PUT** /Invoice/{invoiceId}/changeStatus | Update the status of an invoice |
 
 
 ## `bookInvoice()`
@@ -34,7 +34,7 @@ bookInvoice($invoice_id, $book_invoice_request): \Itsmind\Sevdesk\Model\BookInvo
 
 Book an invoice
 
-Booking the invoice with a transaction is probably the most important part in the bookkeeping process.<br> There are several ways on correctly booking an invoice, all by using the same endpoint.<br> for more information look <a href='https://api.sevdesk.de/#section/How-to-book-an-invoice'>here</a>.
+Booking the invoice with a transaction is probably the most important part in the bookkeeping process.<br> There are several ways on correctly booking an invoice, all by using the same endpoint.<br> for more information look <a href='#tag/Invoice/How-to-book-an-invoice'>here</a>.
 
 ### Example
 
@@ -283,7 +283,7 @@ try {
 ## `createInvoiceReminder()`
 
 ```php
-createInvoiceReminder($invoice_id, $invoice_object_name, $create_invoice_reminder_request): \Itsmind\Sevdesk\Model\ModelInvoiceResponse
+createInvoiceReminder($invoice_id, $invoice_object_name, $create_invoice_reminder_request): \Itsmind\Sevdesk\Model\UpdateInvoiceById200Response
 ```
 
 Create invoice reminder
@@ -331,7 +331,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelInvoiceResponse**](../Model/ModelInvoiceResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateInvoiceById200Response**](../Model/UpdateInvoiceById200Response.md)
 
 ### Authorization
 
@@ -474,7 +474,7 @@ try {
 ## `getInvoicePositionsById()`
 
 ```php
-getInvoicePositionsById($invoice_id, $limit, $offset, $embed): \Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response
+getInvoicePositionsById($invoice_id, $limit, $offset, $embed, $count_all): \Itsmind\Sevdesk\Model\GetInvoicePositionsById200Response
 ```
 
 Find invoice positions
@@ -504,9 +504,10 @@ $invoice_id = 56; // int | ID of invoice to return the positions
 $limit = 56; // int | limits the number of entries returned
 $offset = 56; // int | set the index where the returned entries start
 $embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
+$count_all = True; // bool | If all objects should be counted
 
 try {
-    $result = $apiInstance->getInvoicePositionsById($invoice_id, $limit, $offset, $embed);
+    $result = $apiInstance->getInvoicePositionsById($invoice_id, $limit, $offset, $embed, $count_all);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoiceApi->getInvoicePositionsById: ', $e->getMessage(), PHP_EOL;
@@ -521,6 +522,7 @@ try {
 | **limit** | **int**| limits the number of entries returned | [optional] |
 | **offset** | **int**| set the index where the returned entries start | [optional] |
 | **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
+| **count_all** | **bool**| If all objects should be counted | [optional] |
 
 ### Return type
 
@@ -547,7 +549,7 @@ getInvoices($status, $invoice_number, $start_date, $end_date, $count_all, $invoi
 
 Retrieve invoices
 
-There are a multitude of parameter which can be used to filter. A few of them are attached but       for a complete list please check out <a href='https://api.sevdesk.de/#section/How-to-filter-for-certain-invoices'>this</a> list
+There are a multitude of parameter which can be used to filter. A few of them are attached but       for a complete list please check out <a href='#tag/Invoice/How-to-filter-for-certain-invoices'>this</a> list
 
 ### Example
 
@@ -797,6 +799,68 @@ try {
 ### Return type
 
 [**\Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebit200Response**](../Model/GetOpenInvoiceReminderDebit200Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `invoiceEnshrine()`
+
+```php
+invoiceEnshrine($invoice_id): \Itsmind\Sevdesk\Model\CheckAccountTransactionEnshrine200Response
+```
+
+Enshrine
+
+Sets the current date and time as a value for the property `enshrined`.<br> This operation is only possible if the status is \"Open\" (`\"status\": \"200\"`) or higher.  Enshrined invoices cannot be changed. This operation cannot be undone.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$invoice_id = 56; // int | ID of the invoice to enshrine
+
+try {
+    $result = $apiInstance->invoiceEnshrine($invoice_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoiceApi->invoiceEnshrine: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoice_id** | **int**| ID of the invoice to enshrine | |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\CheckAccountTransactionEnshrine200Response**](../Model/CheckAccountTransactionEnshrine200Response.md)
 
 ### Authorization
 
@@ -1241,70 +1305,6 @@ try {
 | **invoice_id** | **int**| ID of invoice to return | |
 | **embed** | [**string[]**](../Model/string.md)|  | [optional] |
 | **model_invoice_update** | [**\Itsmind\Sevdesk\Model\ModelInvoiceUpdate**](../Model/ModelInvoiceUpdate.md)| Update data | [optional] |
-
-### Return type
-
-[**\Itsmind\Sevdesk\Model\UpdateInvoiceById200Response**](../Model/UpdateInvoiceById200Response.md)
-
-### Authorization
-
-[api_key](../../README.md#api_key)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `updateStatus()`
-
-```php
-updateStatus($invoice_id, $update_status_request): \Itsmind\Sevdesk\Model\UpdateInvoiceById200Response
-```
-
-Update the status of an invoice
-
-Update the status of an invoice
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$invoice_id = 56; // int | ID of invoice to update
-$update_status_request = new \Itsmind\Sevdesk\Model\UpdateStatusRequest(); // \Itsmind\Sevdesk\Model\UpdateStatusRequest | Update the status of an invoice.
-
-try {
-    $result = $apiInstance->updateStatus($invoice_id, $update_status_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling InvoiceApi->updateStatus: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **invoice_id** | **int**| ID of invoice to update | |
-| **update_status_request** | [**\Itsmind\Sevdesk\Model\UpdateStatusRequest**](../Model/UpdateStatusRequest.md)| Update the status of an invoice. | [optional] |
 
 ### Return type
 

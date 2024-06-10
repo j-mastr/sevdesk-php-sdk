@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **zip** | **string** | Zib code | [optional]
 **city** | **string** | City name | [optional]
 **country** | [**\Itsmind\Sevdesk\Model\ModelContactAddressResponseCountry**](ModelContactAddressResponseCountry.md) |  |
-**category** | [**\Itsmind\Sevdesk\Model\ModelContactAddressResponseCategory**](ModelContactAddressResponseCategory.md) |  | [optional]
+**category** | [**\Itsmind\Sevdesk\Model\ModelContactAddressResponseCategory**](ModelContactAddressResponseCategory.md) |  |
 **name** | **string** | Name in address | [optional]
 **sev_client** | [**\Itsmind\Sevdesk\Model\ModelContactAddressResponseSevClient**](ModelContactAddressResponseSevClient.md) |  | [optional]
 **name2** | **string** | Second name in address | [optional]

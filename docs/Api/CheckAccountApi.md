@@ -15,7 +15,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `createCheckAccount()`
 
 ```php
-createCheckAccount($model_check_account): \Itsmind\Sevdesk\Model\GetCheckAccounts200Response
+createCheckAccount($model_check_account): \Itsmind\Sevdesk\Model\CreateCheckAccount201Response
 ```
 
 Create a new check account
@@ -59,7 +59,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCheckAccounts200Response**](../Model/GetCheckAccounts200Response.md)
+[**\Itsmind\Sevdesk\Model\CreateCheckAccount201Response**](../Model/CreateCheckAccount201Response.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ try {
 ## `getCheckAccountById()`
 
 ```php
-getCheckAccountById($check_account_id): \Itsmind\Sevdesk\Model\GetCheckAccounts200Response
+getCheckAccountById($check_account_id): \Itsmind\Sevdesk\Model\CreateCheckAccount201Response
 ```
 
 Find check account by ID
@@ -245,7 +245,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\GetCheckAccounts200Response**](../Model/GetCheckAccounts200Response.md)
+[**\Itsmind\Sevdesk\Model\CreateCheckAccount201Response**](../Model/CreateCheckAccount201Response.md)
 
 ### Authorization
 
@@ -263,7 +263,7 @@ try {
 ## `getCheckAccounts()`
 
 ```php
-getCheckAccounts(): \Itsmind\Sevdesk\Model\GetCheckAccounts200Response
+getCheckAccounts($count_all, $offset, $limit, $embed): \Itsmind\Sevdesk\Model\GetCheckAccounts200Response
 ```
 
 Retrieve check accounts
@@ -289,9 +289,13 @@ $apiInstance = new Itsmind\Sevdesk\Api\CheckAccountApi(
     new GuzzleHttp\Client(),
     $config
 );
+$count_all = True; // bool | If all objects should be counted
+$offset = 56; // int | Which offset to start with
+$limit = 56; // int | The max number of objects to return
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getCheckAccounts();
+    $result = $apiInstance->getCheckAccounts($count_all, $offset, $limit, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckAccountApi->getCheckAccounts: ', $e->getMessage(), PHP_EOL;
@@ -300,7 +304,12 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **count_all** | **bool**| If all objects should be counted | [optional] |
+| **offset** | **int**| Which offset to start with | [optional] |
+| **limit** | **int**| The max number of objects to return | [optional] |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 

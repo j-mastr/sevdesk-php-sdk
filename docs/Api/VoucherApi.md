@@ -658,7 +658,7 @@ try {
 ## `voucherFactorySaveVoucher()`
 
 ```php
-voucherFactorySaveVoucher($save_voucher): \Itsmind\Sevdesk\Model\SaveVoucherResponse
+voucherFactorySaveVoucher($save_voucher): \Itsmind\Sevdesk\Model\VoucherFactorySaveVoucher201Response
 ```
 
 Create a new voucher
@@ -702,7 +702,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\SaveVoucherResponse**](../Model/SaveVoucherResponse.md)
+[**\Itsmind\Sevdesk\Model\VoucherFactorySaveVoucher201Response**](../Model/VoucherFactorySaveVoucher201Response.md)
 
 ### Authorization
 

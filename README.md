@@ -757,6 +757,7 @@ Class | Method | HTTP request | Description
 - [UpdateTagRequest](docs/Model/UpdateTagRequest.md)
 - [ValidationError](docs/Model/ValidationError.md)
 - [ValidationErrorError](docs/Model/ValidationErrorError.md)
+- [VoucherFactorySaveVoucher201Response](docs/Model/VoucherFactorySaveVoucher201Response.md)
 - [VoucherResetToOpen200Response](docs/Model/VoucherResetToOpen200Response.md)
 - [VoucherResetToOpen200ResponseObjects](docs/Model/VoucherResetToOpen200ResponseObjects.md)
 - [VoucherUploadFile201Response](docs/Model/VoucherUploadFile201Response.md)

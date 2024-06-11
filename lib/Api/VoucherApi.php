@@ -3439,7 +3439,7 @@ class VoucherApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\SaveVoucherResponse|\Itsmind\Sevdesk\Model\ValidationError
+     * @return \Itsmind\Sevdesk\Model\VoucherFactorySaveVoucher201Response|\Itsmind\Sevdesk\Model\ValidationError
      */
     public function voucherFactorySaveVoucher($save_voucher = null, string $contentType = self::contentTypes['voucherFactorySaveVoucher'][0])
     {
@@ -3457,7 +3457,7 @@ class VoucherApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\SaveVoucherResponse|\Itsmind\Sevdesk\Model\ValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\VoucherFactorySaveVoucher201Response|\Itsmind\Sevdesk\Model\ValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function voucherFactorySaveVoucherWithHttpInfo($save_voucher = null, string $contentType = self::contentTypes['voucherFactorySaveVoucher'][0])
     {
@@ -3500,11 +3500,11 @@ class VoucherApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Itsmind\Sevdesk\Model\SaveVoucherResponse' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\VoucherFactorySaveVoucher201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\SaveVoucherResponse' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\VoucherFactorySaveVoucher201Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3522,7 +3522,7 @@ class VoucherApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\SaveVoucherResponse', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\VoucherFactorySaveVoucher201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3555,7 +3555,7 @@ class VoucherApi
                     ];
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\SaveVoucherResponse';
+            $returnType = '\Itsmind\Sevdesk\Model\VoucherFactorySaveVoucher201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3588,7 +3588,7 @@ class VoucherApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\SaveVoucherResponse',
+                        '\Itsmind\Sevdesk\Model\VoucherFactorySaveVoucher201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3640,7 +3640,7 @@ class VoucherApi
      */
     public function voucherFactorySaveVoucherAsyncWithHttpInfo($save_voucher = null, string $contentType = self::contentTypes['voucherFactorySaveVoucher'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\SaveVoucherResponse';
+        $returnType = '\Itsmind\Sevdesk\Model\VoucherFactorySaveVoucher201Response';
         $request = $this->voucherFactorySaveVoucherRequest($save_voucher, $contentType);
 
         return $this->client

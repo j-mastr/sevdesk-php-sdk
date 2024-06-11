@@ -20,6 +20,7 @@ docs/Api/OrderApi.md
 docs/Api/OrderPosApi.md
 docs/Api/PartApi.md
 docs/Api/ReportApi.md
+docs/Api/SevUserApi.md
 docs/Api/TagApi.md
 docs/Api/TextTemplateApi.md
 docs/Api/VoucherApi.md
@@ -134,6 +135,9 @@ docs/Model/GetPartById200Response.md
 docs/Model/GetParts200Response.md
 docs/Model/GetPlaceholder200Response.md
 docs/Model/GetReferenceCount200Response.md
+docs/Model/GetSevUserById200Response.md
+docs/Model/GetSevUsers200Response.md
+docs/Model/GetSevUsersIgnoreRolesParameter.md
 docs/Model/GetTagById200Response.md
 docs/Model/GetTagRelations200Response.md
 docs/Model/GetTags200Response.md
@@ -351,6 +355,7 @@ docs/Model/ModelPartSevClient.md
 docs/Model/ModelPartUnity.md
 docs/Model/ModelPartUpdate.md
 docs/Model/ModelPaymentMethodResponse.md
+docs/Model/ModelSevUserResponse.md
 docs/Model/ModelStaticCountryResponse.md
 docs/Model/ModelTagCreateResponse.md
 docs/Model/ModelTagCreateResponseObject.md
@@ -461,6 +466,7 @@ lib/Api/OrderApi.php
 lib/Api/OrderPosApi.php
 lib/Api/PartApi.php
 lib/Api/ReportApi.php
+lib/Api/SevUserApi.php
 lib/Api/TagApi.php
 lib/Api/TextTemplateApi.php
 lib/Api/VoucherApi.php
@@ -578,6 +584,9 @@ lib/Model/GetPartById200Response.php
 lib/Model/GetParts200Response.php
 lib/Model/GetPlaceholder200Response.php
 lib/Model/GetReferenceCount200Response.php
+lib/Model/GetSevUserById200Response.php
+lib/Model/GetSevUsers200Response.php
+lib/Model/GetSevUsersIgnoreRolesParameter.php
 lib/Model/GetTagById200Response.php
 lib/Model/GetTagRelations200Response.php
 lib/Model/GetTags200Response.php
@@ -796,6 +805,7 @@ lib/Model/ModelPartSevClient.php
 lib/Model/ModelPartUnity.php
 lib/Model/ModelPartUpdate.php
 lib/Model/ModelPaymentMethodResponse.php
+lib/Model/ModelSevUserResponse.php
 lib/Model/ModelStaticCountryResponse.php
 lib/Model/ModelTagCreateResponse.php
 lib/Model/ModelTagCreateResponseObject.php
@@ -888,4 +898,8 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/VoucherFactorySaveVoucher201ResponseTest.php
+test/Api/SevUserApiTest.php
+test/Model/GetSevUserById200ResponseTest.php
+test/Model/GetSevUsers200ResponseTest.php
+test/Model/GetSevUsersIgnoreRolesParameterTest.php
+test/Model/ModelSevUserResponseTest.php

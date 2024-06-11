@@ -35,7 +35,6 @@ use \Itsmind\Sevdesk\ObjectSerializer;
  * ModelContactAddressResponseContact Class Doc Comment
  *
  * @category Class
- * @description The contact to which this contact address belongs.
  * @package  Itsmind\Sevdesk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,6 +57,37 @@ class ModelContactAddressResponseContact implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
+        'name' => 'string',
+        'status' => 'int',
+        'customer_number' => 'string',
+        'parent' => '\Itsmind\Sevdesk\Model\ModelContactParent',
+        'surename' => 'string',
+        'familyname' => 'string',
+        'titel' => 'string',
+        'category' => '\Itsmind\Sevdesk\Model\ModelContactCategory',
+        'description' => 'string',
+        'academic_title' => 'string',
+        'gender' => 'string',
+        'name2' => 'string',
+        'birthday' => '\DateTime',
+        'vat_number' => 'string',
+        'bank_account' => 'string',
+        'bank_number' => 'string',
+        'default_cashback_time' => 'int',
+        'default_cashback_percent' => 'float',
+        'default_time_to_pay' => 'int',
+        'tax_number' => 'string',
+        'tax_office' => 'string',
+        'exempt_vat' => 'bool',
+        'default_discount_amount' => 'float',
+        'default_discount_percentage' => 'bool',
+        'buyer_reference' => 'string',
+        'government_agency' => 'bool',
+        'tax_set' => '\Itsmind\Sevdesk\Model\ModelContactTaxSet',
+        'tax_type' => 'string',
+        'addresses' => '\Itsmind\Sevdesk\Model\ModelContactResponseAddressesInner[]',
+        'communication_ways' => '\Itsmind\Sevdesk\Model\ModelContactResponseCommunicationWaysInner[]',
+        'main_address' => '\Itsmind\Sevdesk\Model\ModelContactAddress',
         'id' => 'int',
         'object_name' => 'string'
     ];
@@ -70,6 +100,37 @@ class ModelContactAddressResponseContact implements ModelInterface, ArrayAccess,
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'name' => null,
+        'status' => null,
+        'customer_number' => null,
+        'parent' => null,
+        'surename' => null,
+        'familyname' => null,
+        'titel' => null,
+        'category' => null,
+        'description' => null,
+        'academic_title' => null,
+        'gender' => null,
+        'name2' => null,
+        'birthday' => 'date',
+        'vat_number' => null,
+        'bank_account' => null,
+        'bank_number' => null,
+        'default_cashback_time' => null,
+        'default_cashback_percent' => 'float',
+        'default_time_to_pay' => null,
+        'tax_number' => null,
+        'tax_office' => null,
+        'exempt_vat' => null,
+        'default_discount_amount' => 'float',
+        'default_discount_percentage' => null,
+        'buyer_reference' => null,
+        'government_agency' => null,
+        'tax_set' => null,
+        'tax_type' => null,
+        'addresses' => null,
+        'communication_ways' => null,
+        'main_address' => null,
         'id' => null,
         'object_name' => null
     ];
@@ -80,6 +141,37 @@ class ModelContactAddressResponseContact implements ModelInterface, ArrayAccess,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'name' => true,
+        'status' => true,
+        'customer_number' => true,
+        'parent' => false,
+        'surename' => true,
+        'familyname' => true,
+        'titel' => true,
+        'category' => false,
+        'description' => true,
+        'academic_title' => true,
+        'gender' => true,
+        'name2' => true,
+        'birthday' => true,
+        'vat_number' => true,
+        'bank_account' => true,
+        'bank_number' => true,
+        'default_cashback_time' => true,
+        'default_cashback_percent' => true,
+        'default_time_to_pay' => true,
+        'tax_number' => true,
+        'tax_office' => true,
+        'exempt_vat' => true,
+        'default_discount_amount' => true,
+        'default_discount_percentage' => true,
+        'buyer_reference' => true,
+        'government_agency' => true,
+        'tax_set' => true,
+        'tax_type' => true,
+        'addresses' => false,
+        'communication_ways' => false,
+        'main_address' => false,
         'id' => false,
         'object_name' => false
     ];
@@ -170,6 +262,37 @@ class ModelContactAddressResponseContact implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $attributeMap = [
+        'name' => 'name',
+        'status' => 'status',
+        'customer_number' => 'customerNumber',
+        'parent' => 'parent',
+        'surename' => 'surename',
+        'familyname' => 'familyname',
+        'titel' => 'titel',
+        'category' => 'category',
+        'description' => 'description',
+        'academic_title' => 'academicTitle',
+        'gender' => 'gender',
+        'name2' => 'name2',
+        'birthday' => 'birthday',
+        'vat_number' => 'vatNumber',
+        'bank_account' => 'bankAccount',
+        'bank_number' => 'bankNumber',
+        'default_cashback_time' => 'defaultCashbackTime',
+        'default_cashback_percent' => 'defaultCashbackPercent',
+        'default_time_to_pay' => 'defaultTimeToPay',
+        'tax_number' => 'taxNumber',
+        'tax_office' => 'taxOffice',
+        'exempt_vat' => 'exemptVat',
+        'default_discount_amount' => 'defaultDiscountAmount',
+        'default_discount_percentage' => 'defaultDiscountPercentage',
+        'buyer_reference' => 'buyerReference',
+        'government_agency' => 'governmentAgency',
+        'tax_set' => 'taxSet',
+        'tax_type' => 'taxType',
+        'addresses' => 'addresses',
+        'communication_ways' => 'communicationWays',
+        'main_address' => 'mainAddress',
         'id' => 'id',
         'object_name' => 'objectName'
     ];
@@ -180,6 +303,37 @@ class ModelContactAddressResponseContact implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $setters = [
+        'name' => 'setName',
+        'status' => 'setStatus',
+        'customer_number' => 'setCustomerNumber',
+        'parent' => 'setParent',
+        'surename' => 'setSurename',
+        'familyname' => 'setFamilyname',
+        'titel' => 'setTitel',
+        'category' => 'setCategory',
+        'description' => 'setDescription',
+        'academic_title' => 'setAcademicTitle',
+        'gender' => 'setGender',
+        'name2' => 'setName2',
+        'birthday' => 'setBirthday',
+        'vat_number' => 'setVatNumber',
+        'bank_account' => 'setBankAccount',
+        'bank_number' => 'setBankNumber',
+        'default_cashback_time' => 'setDefaultCashbackTime',
+        'default_cashback_percent' => 'setDefaultCashbackPercent',
+        'default_time_to_pay' => 'setDefaultTimeToPay',
+        'tax_number' => 'setTaxNumber',
+        'tax_office' => 'setTaxOffice',
+        'exempt_vat' => 'setExemptVat',
+        'default_discount_amount' => 'setDefaultDiscountAmount',
+        'default_discount_percentage' => 'setDefaultDiscountPercentage',
+        'buyer_reference' => 'setBuyerReference',
+        'government_agency' => 'setGovernmentAgency',
+        'tax_set' => 'setTaxSet',
+        'tax_type' => 'setTaxType',
+        'addresses' => 'setAddresses',
+        'communication_ways' => 'setCommunicationWays',
+        'main_address' => 'setMainAddress',
         'id' => 'setId',
         'object_name' => 'setObjectName'
     ];
@@ -190,6 +344,37 @@ class ModelContactAddressResponseContact implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $getters = [
+        'name' => 'getName',
+        'status' => 'getStatus',
+        'customer_number' => 'getCustomerNumber',
+        'parent' => 'getParent',
+        'surename' => 'getSurename',
+        'familyname' => 'getFamilyname',
+        'titel' => 'getTitel',
+        'category' => 'getCategory',
+        'description' => 'getDescription',
+        'academic_title' => 'getAcademicTitle',
+        'gender' => 'getGender',
+        'name2' => 'getName2',
+        'birthday' => 'getBirthday',
+        'vat_number' => 'getVatNumber',
+        'bank_account' => 'getBankAccount',
+        'bank_number' => 'getBankNumber',
+        'default_cashback_time' => 'getDefaultCashbackTime',
+        'default_cashback_percent' => 'getDefaultCashbackPercent',
+        'default_time_to_pay' => 'getDefaultTimeToPay',
+        'tax_number' => 'getTaxNumber',
+        'tax_office' => 'getTaxOffice',
+        'exempt_vat' => 'getExemptVat',
+        'default_discount_amount' => 'getDefaultDiscountAmount',
+        'default_discount_percentage' => 'getDefaultDiscountPercentage',
+        'buyer_reference' => 'getBuyerReference',
+        'government_agency' => 'getGovernmentAgency',
+        'tax_set' => 'getTaxSet',
+        'tax_type' => 'getTaxType',
+        'addresses' => 'getAddresses',
+        'communication_ways' => 'getCommunicationWays',
+        'main_address' => 'getMainAddress',
         'id' => 'getId',
         'object_name' => 'getObjectName'
     ];
@@ -235,7 +420,28 @@ class ModelContactAddressResponseContact implements ModelInterface, ArrayAccess,
         return self::$openAPIModelName;
     }
 
+    public const TAX_TYPE_CUSTOM = 'custom';
+    public const TAX_TYPE__DEFAULT = 'default';
+    public const TAX_TYPE_EU = 'eu';
+    public const TAX_TYPE_NOTEU = 'noteu';
+    public const TAX_TYPE_SS = 'ss';
     public const OBJECT_NAME_CONTACT = 'Contact';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTaxTypeAllowableValues()
+    {
+        return [
+            self::TAX_TYPE_CUSTOM,
+            self::TAX_TYPE__DEFAULT,
+            self::TAX_TYPE_EU,
+            self::TAX_TYPE_NOTEU,
+            self::TAX_TYPE_SS,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -264,6 +470,37 @@ class ModelContactAddressResponseContact implements ModelInterface, ArrayAccess,
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], 100);
+        $this->setIfExists('customer_number', $data ?? [], null);
+        $this->setIfExists('parent', $data ?? [], null);
+        $this->setIfExists('surename', $data ?? [], null);
+        $this->setIfExists('familyname', $data ?? [], null);
+        $this->setIfExists('titel', $data ?? [], null);
+        $this->setIfExists('category', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('academic_title', $data ?? [], null);
+        $this->setIfExists('gender', $data ?? [], null);
+        $this->setIfExists('name2', $data ?? [], null);
+        $this->setIfExists('birthday', $data ?? [], null);
+        $this->setIfExists('vat_number', $data ?? [], null);
+        $this->setIfExists('bank_account', $data ?? [], null);
+        $this->setIfExists('bank_number', $data ?? [], null);
+        $this->setIfExists('default_cashback_time', $data ?? [], null);
+        $this->setIfExists('default_cashback_percent', $data ?? [], null);
+        $this->setIfExists('default_time_to_pay', $data ?? [], null);
+        $this->setIfExists('tax_number', $data ?? [], null);
+        $this->setIfExists('tax_office', $data ?? [], null);
+        $this->setIfExists('exempt_vat', $data ?? [], null);
+        $this->setIfExists('default_discount_amount', $data ?? [], null);
+        $this->setIfExists('default_discount_percentage', $data ?? [], null);
+        $this->setIfExists('buyer_reference', $data ?? [], null);
+        $this->setIfExists('government_agency', $data ?? [], null);
+        $this->setIfExists('tax_set', $data ?? [], null);
+        $this->setIfExists('tax_type', $data ?? [], null);
+        $this->setIfExists('addresses', $data ?? [], null);
+        $this->setIfExists('communication_ways', $data ?? [], null);
+        $this->setIfExists('main_address', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object_name', $data ?? [], 'Contact');
     }
@@ -295,6 +532,18 @@ class ModelContactAddressResponseContact implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
+        if ($this->container['category'] === null) {
+            $invalidProperties[] = "'category' can't be null";
+        }
+        $allowedValues = $this->getTaxTypeAllowableValues();
+        if (!is_null($this->container['tax_type']) && !in_array($this->container['tax_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tax_type', must be one of '%s'",
+                $this->container['tax_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
@@ -324,6 +573,1035 @@ class ModelContactAddressResponseContact implements ModelInterface, ArrayAccess,
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name The organization name.<br> Be aware that the type of contact will depend on this attribute.<br> If it holds a value, the contact will be regarded as an organization.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return int|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param int|null $status Defines the status of the contact. 100 <-> Lead - 500 <-> Pending - 1000 <-> Active.
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_number
+     *
+     * @return string|null
+     */
+    public function getCustomerNumber()
+    {
+        return $this->container['customer_number'];
+    }
+
+    /**
+     * Sets customer_number
+     *
+     * @param string|null $customer_number The customer number
+     *
+     * @return self
+     */
+    public function setCustomerNumber($customer_number)
+    {
+        if (is_null($customer_number)) {
+            array_push($this->openAPINullablesSetToNull, 'customer_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customer_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['customer_number'] = $customer_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets parent
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelContactParent|null
+     */
+    public function getParent()
+    {
+        return $this->container['parent'];
+    }
+
+    /**
+     * Sets parent
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelContactParent|null $parent parent
+     *
+     * @return self
+     */
+    public function setParent($parent)
+    {
+        if (is_null($parent)) {
+            throw new \InvalidArgumentException('non-nullable parent cannot be null');
+        }
+        $this->container['parent'] = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Gets surename
+     *
+     * @return string|null
+     */
+    public function getSurename()
+    {
+        return $this->container['surename'];
+    }
+
+    /**
+     * Sets surename
+     *
+     * @param string|null $surename The <b>first</b> name of the contact.<br> Yeah... not quite right in literally every way. We know.<br> Not to be used for organizations.
+     *
+     * @return self
+     */
+    public function setSurename($surename)
+    {
+        if (is_null($surename)) {
+            array_push($this->openAPINullablesSetToNull, 'surename');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('surename', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['surename'] = $surename;
+
+        return $this;
+    }
+
+    /**
+     * Gets familyname
+     *
+     * @return string|null
+     */
+    public function getFamilyname()
+    {
+        return $this->container['familyname'];
+    }
+
+    /**
+     * Sets familyname
+     *
+     * @param string|null $familyname The last name of the contact.<br> Not to be used for organizations.
+     *
+     * @return self
+     */
+    public function setFamilyname($familyname)
+    {
+        if (is_null($familyname)) {
+            array_push($this->openAPINullablesSetToNull, 'familyname');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('familyname', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['familyname'] = $familyname;
+
+        return $this;
+    }
+
+    /**
+     * Gets titel
+     *
+     * @return string|null
+     */
+    public function getTitel()
+    {
+        return $this->container['titel'];
+    }
+
+    /**
+     * Sets titel
+     *
+     * @param string|null $titel A non-academic title for the contact. Not to be used for organizations.
+     *
+     * @return self
+     */
+    public function setTitel($titel)
+    {
+        if (is_null($titel)) {
+            array_push($this->openAPINullablesSetToNull, 'titel');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('titel', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['titel'] = $titel;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelContactCategory
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelContactCategory $category category
+     *
+     * @return self
+     */
+    public function setCategory($category)
+    {
+        if (is_null($category)) {
+            throw new \InvalidArgumentException('non-nullable category cannot be null');
+        }
+        $this->container['category'] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description A description for the contact.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets academic_title
+     *
+     * @return string|null
+     */
+    public function getAcademicTitle()
+    {
+        return $this->container['academic_title'];
+    }
+
+    /**
+     * Sets academic_title
+     *
+     * @param string|null $academic_title A academic title for the contact. Not to be used for organizations.
+     *
+     * @return self
+     */
+    public function setAcademicTitle($academic_title)
+    {
+        if (is_null($academic_title)) {
+            array_push($this->openAPINullablesSetToNull, 'academic_title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('academic_title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['academic_title'] = $academic_title;
+
+        return $this;
+    }
+
+    /**
+     * Gets gender
+     *
+     * @return string|null
+     */
+    public function getGender()
+    {
+        return $this->container['gender'];
+    }
+
+    /**
+     * Sets gender
+     *
+     * @param string|null $gender Gender of the contact.<br> Not to be used for organizations.
+     *
+     * @return self
+     */
+    public function setGender($gender)
+    {
+        if (is_null($gender)) {
+            array_push($this->openAPINullablesSetToNull, 'gender');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gender', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['gender'] = $gender;
+
+        return $this;
+    }
+
+    /**
+     * Gets name2
+     *
+     * @return string|null
+     */
+    public function getName2()
+    {
+        return $this->container['name2'];
+    }
+
+    /**
+     * Sets name2
+     *
+     * @param string|null $name2 Second name of the contact.<br> Not to be used for organizations.
+     *
+     * @return self
+     */
+    public function setName2($name2)
+    {
+        if (is_null($name2)) {
+            array_push($this->openAPINullablesSetToNull, 'name2');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name2', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['name2'] = $name2;
+
+        return $this;
+    }
+
+    /**
+     * Gets birthday
+     *
+     * @return \DateTime|null
+     */
+    public function getBirthday()
+    {
+        return $this->container['birthday'];
+    }
+
+    /**
+     * Sets birthday
+     *
+     * @param \DateTime|null $birthday Birthday of the contact.<br> Not to be used for organizations.
+     *
+     * @return self
+     */
+    public function setBirthday($birthday)
+    {
+        if (is_null($birthday)) {
+            array_push($this->openAPINullablesSetToNull, 'birthday');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('birthday', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['birthday'] = $birthday;
+
+        return $this;
+    }
+
+    /**
+     * Gets vat_number
+     *
+     * @return string|null
+     */
+    public function getVatNumber()
+    {
+        return $this->container['vat_number'];
+    }
+
+    /**
+     * Sets vat_number
+     *
+     * @param string|null $vat_number Vat number of the contact.
+     *
+     * @return self
+     */
+    public function setVatNumber($vat_number)
+    {
+        if (is_null($vat_number)) {
+            array_push($this->openAPINullablesSetToNull, 'vat_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('vat_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['vat_number'] = $vat_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets bank_account
+     *
+     * @return string|null
+     */
+    public function getBankAccount()
+    {
+        return $this->container['bank_account'];
+    }
+
+    /**
+     * Sets bank_account
+     *
+     * @param string|null $bank_account Bank account number (IBAN) of the contact.
+     *
+     * @return self
+     */
+    public function setBankAccount($bank_account)
+    {
+        if (is_null($bank_account)) {
+            array_push($this->openAPINullablesSetToNull, 'bank_account');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bank_account', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['bank_account'] = $bank_account;
+
+        return $this;
+    }
+
+    /**
+     * Gets bank_number
+     *
+     * @return string|null
+     */
+    public function getBankNumber()
+    {
+        return $this->container['bank_number'];
+    }
+
+    /**
+     * Sets bank_number
+     *
+     * @param string|null $bank_number Bank number of the bank used by the contact.
+     *
+     * @return self
+     */
+    public function setBankNumber($bank_number)
+    {
+        if (is_null($bank_number)) {
+            array_push($this->openAPINullablesSetToNull, 'bank_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bank_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['bank_number'] = $bank_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_cashback_time
+     *
+     * @return int|null
+     */
+    public function getDefaultCashbackTime()
+    {
+        return $this->container['default_cashback_time'];
+    }
+
+    /**
+     * Sets default_cashback_time
+     *
+     * @param int|null $default_cashback_time Absolute time in days which the contact has to pay his invoices and subsequently get a cashback.
+     *
+     * @return self
+     */
+    public function setDefaultCashbackTime($default_cashback_time)
+    {
+        if (is_null($default_cashback_time)) {
+            array_push($this->openAPINullablesSetToNull, 'default_cashback_time');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('default_cashback_time', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['default_cashback_time'] = $default_cashback_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_cashback_percent
+     *
+     * @return float|null
+     */
+    public function getDefaultCashbackPercent()
+    {
+        return $this->container['default_cashback_percent'];
+    }
+
+    /**
+     * Sets default_cashback_percent
+     *
+     * @param float|null $default_cashback_percent Percentage of the invoice sum the contact gets back if he paid invoices in time.
+     *
+     * @return self
+     */
+    public function setDefaultCashbackPercent($default_cashback_percent)
+    {
+        if (is_null($default_cashback_percent)) {
+            array_push($this->openAPINullablesSetToNull, 'default_cashback_percent');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('default_cashback_percent', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['default_cashback_percent'] = $default_cashback_percent;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_time_to_pay
+     *
+     * @return int|null
+     */
+    public function getDefaultTimeToPay()
+    {
+        return $this->container['default_time_to_pay'];
+    }
+
+    /**
+     * Sets default_time_to_pay
+     *
+     * @param int|null $default_time_to_pay The payment goal in days which is set for every invoice of the contact.
+     *
+     * @return self
+     */
+    public function setDefaultTimeToPay($default_time_to_pay)
+    {
+        if (is_null($default_time_to_pay)) {
+            array_push($this->openAPINullablesSetToNull, 'default_time_to_pay');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('default_time_to_pay', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['default_time_to_pay'] = $default_time_to_pay;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_number
+     *
+     * @return string|null
+     */
+    public function getTaxNumber()
+    {
+        return $this->container['tax_number'];
+    }
+
+    /**
+     * Sets tax_number
+     *
+     * @param string|null $tax_number The tax number of the contact.
+     *
+     * @return self
+     */
+    public function setTaxNumber($tax_number)
+    {
+        if (is_null($tax_number)) {
+            array_push($this->openAPINullablesSetToNull, 'tax_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tax_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['tax_number'] = $tax_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_office
+     *
+     * @return string|null
+     */
+    public function getTaxOffice()
+    {
+        return $this->container['tax_office'];
+    }
+
+    /**
+     * Sets tax_office
+     *
+     * @param string|null $tax_office The tax office of the contact (only for greek customers).
+     *
+     * @return self
+     */
+    public function setTaxOffice($tax_office)
+    {
+        if (is_null($tax_office)) {
+            array_push($this->openAPINullablesSetToNull, 'tax_office');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tax_office', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['tax_office'] = $tax_office;
+
+        return $this;
+    }
+
+    /**
+     * Gets exempt_vat
+     *
+     * @return bool|null
+     */
+    public function getExemptVat()
+    {
+        return $this->container['exempt_vat'];
+    }
+
+    /**
+     * Sets exempt_vat
+     *
+     * @param bool|null $exempt_vat Defines if the contact is freed from paying vat.
+     *
+     * @return self
+     */
+    public function setExemptVat($exempt_vat)
+    {
+        if (is_null($exempt_vat)) {
+            array_push($this->openAPINullablesSetToNull, 'exempt_vat');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('exempt_vat', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['exempt_vat'] = $exempt_vat;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_discount_amount
+     *
+     * @return float|null
+     */
+    public function getDefaultDiscountAmount()
+    {
+        return $this->container['default_discount_amount'];
+    }
+
+    /**
+     * Sets default_discount_amount
+     *
+     * @param float|null $default_discount_amount The default discount the contact gets for every invoice.<br> Depending on defaultDiscountPercentage attribute, in percent or absolute value.
+     *
+     * @return self
+     */
+    public function setDefaultDiscountAmount($default_discount_amount)
+    {
+        if (is_null($default_discount_amount)) {
+            array_push($this->openAPINullablesSetToNull, 'default_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('default_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['default_discount_amount'] = $default_discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_discount_percentage
+     *
+     * @return bool|null
+     */
+    public function getDefaultDiscountPercentage()
+    {
+        return $this->container['default_discount_percentage'];
+    }
+
+    /**
+     * Sets default_discount_percentage
+     *
+     * @param bool|null $default_discount_percentage Defines if the discount is a percentage (true) or an absolute value (false).
+     *
+     * @return self
+     */
+    public function setDefaultDiscountPercentage($default_discount_percentage)
+    {
+        if (is_null($default_discount_percentage)) {
+            array_push($this->openAPINullablesSetToNull, 'default_discount_percentage');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('default_discount_percentage', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['default_discount_percentage'] = $default_discount_percentage;
+
+        return $this;
+    }
+
+    /**
+     * Gets buyer_reference
+     *
+     * @return string|null
+     */
+    public function getBuyerReference()
+    {
+        return $this->container['buyer_reference'];
+    }
+
+    /**
+     * Sets buyer_reference
+     *
+     * @param string|null $buyer_reference Buyer reference of the contact.
+     *
+     * @return self
+     */
+    public function setBuyerReference($buyer_reference)
+    {
+        if (is_null($buyer_reference)) {
+            array_push($this->openAPINullablesSetToNull, 'buyer_reference');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('buyer_reference', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['buyer_reference'] = $buyer_reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets government_agency
+     *
+     * @return bool|null
+     */
+    public function getGovernmentAgency()
+    {
+        return $this->container['government_agency'];
+    }
+
+    /**
+     * Sets government_agency
+     *
+     * @param bool|null $government_agency Defines whether the contact is a government agency (true) or not (false).
+     *
+     * @return self
+     */
+    public function setGovernmentAgency($government_agency)
+    {
+        if (is_null($government_agency)) {
+            array_push($this->openAPINullablesSetToNull, 'government_agency');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('government_agency', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['government_agency'] = $government_agency;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_set
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelContactTaxSet|null
+     */
+    public function getTaxSet()
+    {
+        return $this->container['tax_set'];
+    }
+
+    /**
+     * Sets tax_set
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelContactTaxSet|null $tax_set tax_set
+     *
+     * @return self
+     */
+    public function setTaxSet($tax_set)
+    {
+        if (is_null($tax_set)) {
+            array_push($this->openAPINullablesSetToNull, 'tax_set');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tax_set', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['tax_set'] = $tax_set;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_type
+     *
+     * @return string|null
+     */
+    public function getTaxType()
+    {
+        return $this->container['tax_type'];
+    }
+
+    /**
+     * Sets tax_type
+     *
+     * @param string|null $tax_type Defines which tax regulation the contact is using.
+     *
+     * @return self
+     */
+    public function setTaxType($tax_type)
+    {
+        if (is_null($tax_type)) {
+            array_push($this->openAPINullablesSetToNull, 'tax_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tax_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getTaxTypeAllowableValues();
+        if (!is_null($tax_type) && !in_array($tax_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tax_type', must be one of '%s'",
+                    $tax_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['tax_type'] = $tax_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets addresses
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelContactResponseAddressesInner[]|null
+     */
+    public function getAddresses()
+    {
+        return $this->container['addresses'];
+    }
+
+    /**
+     * Sets addresses
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelContactResponseAddressesInner[]|null $addresses addresses
+     *
+     * @return self
+     */
+    public function setAddresses($addresses)
+    {
+        if (is_null($addresses)) {
+            throw new \InvalidArgumentException('non-nullable addresses cannot be null');
+        }
+        $this->container['addresses'] = $addresses;
+
+        return $this;
+    }
+
+    /**
+     * Gets communication_ways
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelContactResponseCommunicationWaysInner[]|null
+     */
+    public function getCommunicationWays()
+    {
+        return $this->container['communication_ways'];
+    }
+
+    /**
+     * Sets communication_ways
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelContactResponseCommunicationWaysInner[]|null $communication_ways communication_ways
+     *
+     * @return self
+     */
+    public function setCommunicationWays($communication_ways)
+    {
+        if (is_null($communication_ways)) {
+            throw new \InvalidArgumentException('non-nullable communication_ways cannot be null');
+        }
+        $this->container['communication_ways'] = $communication_ways;
+
+        return $this;
+    }
+
+    /**
+     * Gets main_address
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelContactAddress|null
+     */
+    public function getMainAddress()
+    {
+        return $this->container['main_address'];
+    }
+
+    /**
+     * Sets main_address
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelContactAddress|null $main_address main_address
+     *
+     * @return self
+     */
+    public function setMainAddress($main_address)
+    {
+        if (is_null($main_address)) {
+            throw new \InvalidArgumentException('non-nullable main_address cannot be null');
+        }
+        $this->container['main_address'] = $main_address;
+
+        return $this;
+    }
 
     /**
      * Gets id

@@ -32,7 +32,9 @@ Name | Type | Description | Notes
 **government_agency** | **bool** | Defines whether the contact is a government agency (true) or not (false). | [optional]
 **tax_set** | [**\Itsmind\Sevdesk\Model\ModelContactTaxSet**](ModelContactTaxSet.md) |  | [optional]
 **tax_type** | **string** | Defines which tax regulation the contact is using. | [optional]
-**communication_ways** | [**\Itsmind\Sevdesk\Model\ModelContactCommunicationWaysInner[]**](ModelContactCommunicationWaysInner.md) |  | [optional]
+**addresses** | [**\Itsmind\Sevdesk\Model\ModelContactResponseAddressesInner[]**](ModelContactResponseAddressesInner.md) |  | [optional]
+**communication_ways** | [**\Itsmind\Sevdesk\Model\ModelContactResponseCommunicationWaysInner[]**](ModelContactResponseCommunicationWaysInner.md) |  | [optional]
+**main_address** | [**\Itsmind\Sevdesk\Model\ModelContactAddress**](ModelContactAddress.md) |  | [optional]
 **id** | **string** | Unique identifier of the contact |
 **object_name** | **string** | Model name, which is &#39;Contact&#39; | [default to 'Contact']
 

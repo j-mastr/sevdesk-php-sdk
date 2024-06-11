@@ -222,9 +222,9 @@ Class | Method | HTTP request | Description
 *ContactApi* | [**getContacts**](docs/Api/ContactApi.md#getcontacts) | **GET** /Contact | Retrieve contacts
 *ContactApi* | [**getNextCustomerNumber**](docs/Api/ContactApi.md#getnextcustomernumber) | **GET** /Contact/Factory/getNextCustomerNumber | Get next free customer number
 *ContactApi* | [**updateContact**](docs/Api/ContactApi.md#updatecontact) | **PUT** /Contact/{contactId} | Update a existing contact
-*ContactAddressApi* | [**contactAddressId**](docs/Api/ContactAddressApi.md#contactaddressid) | **GET** /ContactAddress/{contactAddressId} | Find contact address by ID
 *ContactAddressApi* | [**createContactAddress**](docs/Api/ContactAddressApi.md#createcontactaddress) | **POST** /ContactAddress | Create a new contact address
 *ContactAddressApi* | [**deleteContactAddress**](docs/Api/ContactAddressApi.md#deletecontactaddress) | **DELETE** /ContactAddress/{contactAddressId} | Deletes a contact address
+*ContactAddressApi* | [**getContactAddressById**](docs/Api/ContactAddressApi.md#getcontactaddressbyid) | **GET** /ContactAddress/{contactAddressId} | Find contact address by ID
 *ContactAddressApi* | [**getContactAddresses**](docs/Api/ContactAddressApi.md#getcontactaddresses) | **GET** /ContactAddress | Retrieve contact addresses
 *ContactAddressApi* | [**updateContactAddress**](docs/Api/ContactAddressApi.md#updatecontactaddress) | **PUT** /ContactAddress/{contactAddressId} | update a existing contact address
 *ContactFieldApi* | [**createContactField**](docs/Api/ContactFieldApi.md#createcontactfield) | **POST** /ContactCustomField | Create contact field
@@ -364,7 +364,6 @@ Class | Method | HTTP request | Description
 - [BookkeepingSystemVersion200Response](docs/Model/BookkeepingSystemVersion200Response.md)
 - [BookkeepingSystemVersion200ResponseObjects](docs/Model/BookkeepingSystemVersion200ResponseObjects.md)
 - [CheckAccountTransactionEnshrine200Response](docs/Model/CheckAccountTransactionEnshrine200Response.md)
-- [ContactAddressId200Response](docs/Model/ContactAddressId200Response.md)
 - [ContactCustomerNumberAvailabilityCheck200Response](docs/Model/ContactCustomerNumberAvailabilityCheck200Response.md)
 - [CreateCheckAccount201Response](docs/Model/CreateCheckAccount201Response.md)
 - [CreateContactFieldSetting200Response](docs/Model/CreateContactFieldSetting200Response.md)
@@ -428,6 +427,7 @@ Class | Method | HTTP request | Description
 - [GetCommunicationWayKeys200ResponseObjectsInner](docs/Model/GetCommunicationWayKeys200ResponseObjectsInner.md)
 - [GetCommunicationWays200Response](docs/Model/GetCommunicationWays200Response.md)
 - [GetCommunicationWaysContactParameter](docs/Model/GetCommunicationWaysContactParameter.md)
+- [GetContactAddressById200Response](docs/Model/GetContactAddressById200Response.md)
 - [GetContactAddresses200Response](docs/Model/GetContactAddresses200Response.md)
 - [GetContactFieldSettings200Response](docs/Model/GetContactFieldSettings200Response.md)
 - [GetContactFields200Response](docs/Model/GetContactFields200Response.md)
@@ -527,14 +527,14 @@ Class | Method | HTTP request | Description
 - [ModelContactAddressResponse](docs/Model/ModelContactAddressResponse.md)
 - [ModelContactAddressResponseCategory](docs/Model/ModelContactAddressResponseCategory.md)
 - [ModelContactAddressResponseContact](docs/Model/ModelContactAddressResponseContact.md)
+- [ModelContactAddressResponseContactAnyOf](docs/Model/ModelContactAddressResponseContactAnyOf.md)
 - [ModelContactAddressResponseCountry](docs/Model/ModelContactAddressResponseCountry.md)
+- [ModelContactAddressResponseCountryAnyOf](docs/Model/ModelContactAddressResponseCountryAnyOf.md)
 - [ModelContactAddressResponseSevClient](docs/Model/ModelContactAddressResponseSevClient.md)
 - [ModelContactAddressUpdate](docs/Model/ModelContactAddressUpdate.md)
 - [ModelContactAddressUpdateContact](docs/Model/ModelContactAddressUpdateContact.md)
 - [ModelContactAddressUpdateCountry](docs/Model/ModelContactAddressUpdateCountry.md)
 - [ModelContactCategory](docs/Model/ModelContactCategory.md)
-- [ModelContactCommunicationWaysInner](docs/Model/ModelContactCommunicationWaysInner.md)
-- [ModelContactCommunicationWaysInnerAnyOf](docs/Model/ModelContactCommunicationWaysInnerAnyOf.md)
 - [ModelContactCustomField](docs/Model/ModelContactCustomField.md)
 - [ModelContactCustomFieldContact](docs/Model/ModelContactCustomFieldContact.md)
 - [ModelContactCustomFieldContactCustomFieldSetting](docs/Model/ModelContactCustomFieldContactCustomFieldSetting.md)
@@ -549,7 +549,11 @@ Class | Method | HTTP request | Description
 - [ModelContactParent](docs/Model/ModelContactParent.md)
 - [ModelContactParentAnyOf](docs/Model/ModelContactParentAnyOf.md)
 - [ModelContactResponse](docs/Model/ModelContactResponse.md)
+- [ModelContactResponseAddressesInner](docs/Model/ModelContactResponseAddressesInner.md)
+- [ModelContactResponseAddressesInnerAnyOf](docs/Model/ModelContactResponseAddressesInnerAnyOf.md)
 - [ModelContactResponseCategory](docs/Model/ModelContactResponseCategory.md)
+- [ModelContactResponseCommunicationWaysInner](docs/Model/ModelContactResponseCommunicationWaysInner.md)
+- [ModelContactResponseCommunicationWaysInnerAnyOf](docs/Model/ModelContactResponseCommunicationWaysInnerAnyOf.md)
 - [ModelContactResponseParent](docs/Model/ModelContactResponseParent.md)
 - [ModelContactResponseSevClient](docs/Model/ModelContactResponseSevClient.md)
 - [ModelContactResponseTaxSet](docs/Model/ModelContactResponseTaxSet.md)

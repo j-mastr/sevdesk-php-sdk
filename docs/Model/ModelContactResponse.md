@@ -38,5 +38,8 @@ Name | Type | Description | Notes
 **additional_information** | **string** | Additional information stored for the contact. | [optional] [readonly]
 **tax_set** | [**\Itsmind\Sevdesk\Model\ModelContactResponseTaxSet**](ModelContactResponseTaxSet.md) |  | [optional]
 **tax_type** | **string** | Defines which tax regulation the contact is using. | [optional] [readonly]
+**addresses** | [**\Itsmind\Sevdesk\Model\ModelContactResponseAddressesInner[]**](ModelContactResponseAddressesInner.md) |  | [optional]
+**communication_ways** | [**\Itsmind\Sevdesk\Model\ModelContactResponseCommunicationWaysInner[]**](ModelContactResponseCommunicationWaysInner.md) |  | [optional]
+**main_address** | [**\Itsmind\Sevdesk\Model\ModelContactAddress**](ModelContactAddress.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

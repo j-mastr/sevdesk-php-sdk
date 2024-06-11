@@ -134,7 +134,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
     }
   ],
   "require": {
-    "j-mastr/sevdesk-php-sdk": "*@dev"
+    "itsmind/sevdesk-php-sdk": "*@dev"
   }
 }
 ```

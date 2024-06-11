@@ -4,74 +4,12 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**contactAddressId()**](ContactAddressApi.md#contactAddressId) | **GET** /ContactAddress/{contactAddressId} | Find contact address by ID |
 | [**createContactAddress()**](ContactAddressApi.md#createContactAddress) | **POST** /ContactAddress | Create a new contact address |
 | [**deleteContactAddress()**](ContactAddressApi.md#deleteContactAddress) | **DELETE** /ContactAddress/{contactAddressId} | Deletes a contact address |
+| [**getContactAddressById()**](ContactAddressApi.md#getContactAddressById) | **GET** /ContactAddress/{contactAddressId} | Find contact address by ID |
 | [**getContactAddresses()**](ContactAddressApi.md#getContactAddresses) | **GET** /ContactAddress | Retrieve contact addresses |
 | [**updateContactAddress()**](ContactAddressApi.md#updateContactAddress) | **PUT** /ContactAddress/{contactAddressId} | update a existing contact address |
 
-
-## `contactAddressId()`
-
-```php
-contactAddressId($contact_address_id): \Itsmind\Sevdesk\Model\ContactAddressId200Response
-```
-
-Find contact address by ID
-
-Returns a single contact address
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new Itsmind\Sevdesk\Api\ContactAddressApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$contact_address_id = 56; // int | ID of contact address to return
-
-try {
-    $result = $apiInstance->contactAddressId($contact_address_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ContactAddressApi->contactAddressId: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **contact_address_id** | **int**| ID of contact address to return | |
-
-### Return type
-
-[**\Itsmind\Sevdesk\Model\ContactAddressId200Response**](../Model/ContactAddressId200Response.md)
-
-### Authorization
-
-[api_key](../../README.md#api_key)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
 
 ## `createContactAddress()`
 
@@ -181,6 +119,70 @@ try {
 ### Return type
 
 [**\Itsmind\Sevdesk\Model\DeleteCheckAccount200Response**](../Model/DeleteCheckAccount200Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getContactAddressById()`
+
+```php
+getContactAddressById($contact_address_id, $embed): \Itsmind\Sevdesk\Model\GetContactAddressById200Response
+```
+
+Find contact address by ID
+
+Returns a single contact address
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\ContactAddressApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$contact_address_id = 56; // int | ID of contact address to return
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
+
+try {
+    $result = $apiInstance->getContactAddressById($contact_address_id, $embed);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactAddressApi->getContactAddressById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **contact_address_id** | **int**| ID of contact address to return | |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\GetContactAddressById200Response**](../Model/GetContactAddressById200Response.md)
 
 ### Authorization
 

@@ -85,7 +85,9 @@ class ModelContactParent implements ModelInterface, ArrayAccess, \JsonSerializab
         'government_agency' => 'bool',
         'tax_set' => '\Itsmind\Sevdesk\Model\ModelContactTaxSet',
         'tax_type' => 'string',
-        'communication_ways' => '\Itsmind\Sevdesk\Model\ModelContactCommunicationWaysInner[]',
+        'addresses' => '\Itsmind\Sevdesk\Model\ModelContactResponseAddressesInner[]',
+        'communication_ways' => '\Itsmind\Sevdesk\Model\ModelContactResponseCommunicationWaysInner[]',
+        'main_address' => '\Itsmind\Sevdesk\Model\ModelContactAddress',
         'id' => 'int',
         'object_name' => 'string'
     ];
@@ -126,7 +128,9 @@ class ModelContactParent implements ModelInterface, ArrayAccess, \JsonSerializab
         'government_agency' => null,
         'tax_set' => null,
         'tax_type' => null,
+        'addresses' => null,
         'communication_ways' => null,
+        'main_address' => null,
         'id' => null,
         'object_name' => null
     ];
@@ -165,7 +169,9 @@ class ModelContactParent implements ModelInterface, ArrayAccess, \JsonSerializab
         'government_agency' => true,
         'tax_set' => true,
         'tax_type' => true,
+        'addresses' => false,
         'communication_ways' => false,
+        'main_address' => false,
         'id' => false,
         'object_name' => false
     ];
@@ -284,7 +290,9 @@ class ModelContactParent implements ModelInterface, ArrayAccess, \JsonSerializab
         'government_agency' => 'governmentAgency',
         'tax_set' => 'taxSet',
         'tax_type' => 'taxType',
+        'addresses' => 'addresses',
         'communication_ways' => 'communicationWays',
+        'main_address' => 'mainAddress',
         'id' => 'id',
         'object_name' => 'objectName'
     ];
@@ -323,7 +331,9 @@ class ModelContactParent implements ModelInterface, ArrayAccess, \JsonSerializab
         'government_agency' => 'setGovernmentAgency',
         'tax_set' => 'setTaxSet',
         'tax_type' => 'setTaxType',
+        'addresses' => 'setAddresses',
         'communication_ways' => 'setCommunicationWays',
+        'main_address' => 'setMainAddress',
         'id' => 'setId',
         'object_name' => 'setObjectName'
     ];
@@ -362,7 +372,9 @@ class ModelContactParent implements ModelInterface, ArrayAccess, \JsonSerializab
         'government_agency' => 'getGovernmentAgency',
         'tax_set' => 'getTaxSet',
         'tax_type' => 'getTaxType',
+        'addresses' => 'getAddresses',
         'communication_ways' => 'getCommunicationWays',
+        'main_address' => 'getMainAddress',
         'id' => 'getId',
         'object_name' => 'getObjectName'
     ];
@@ -486,7 +498,9 @@ class ModelContactParent implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('government_agency', $data ?? [], null);
         $this->setIfExists('tax_set', $data ?? [], null);
         $this->setIfExists('tax_type', $data ?? [], null);
+        $this->setIfExists('addresses', $data ?? [], null);
         $this->setIfExists('communication_ways', $data ?? [], null);
+        $this->setIfExists('main_address', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object_name', $data ?? [], 'Contact');
     }
@@ -1509,9 +1523,36 @@ class ModelContactParent implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets addresses
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelContactResponseAddressesInner[]|null
+     */
+    public function getAddresses()
+    {
+        return $this->container['addresses'];
+    }
+
+    /**
+     * Sets addresses
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelContactResponseAddressesInner[]|null $addresses addresses
+     *
+     * @return self
+     */
+    public function setAddresses($addresses)
+    {
+        if (is_null($addresses)) {
+            throw new \InvalidArgumentException('non-nullable addresses cannot be null');
+        }
+        $this->container['addresses'] = $addresses;
+
+        return $this;
+    }
+
+    /**
      * Gets communication_ways
      *
-     * @return \Itsmind\Sevdesk\Model\ModelContactCommunicationWaysInner[]|null
+     * @return \Itsmind\Sevdesk\Model\ModelContactResponseCommunicationWaysInner[]|null
      */
     public function getCommunicationWays()
     {
@@ -1521,7 +1562,7 @@ class ModelContactParent implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets communication_ways
      *
-     * @param \Itsmind\Sevdesk\Model\ModelContactCommunicationWaysInner[]|null $communication_ways communication_ways
+     * @param \Itsmind\Sevdesk\Model\ModelContactResponseCommunicationWaysInner[]|null $communication_ways communication_ways
      *
      * @return self
      */
@@ -1531,6 +1572,33 @@ class ModelContactParent implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable communication_ways cannot be null');
         }
         $this->container['communication_ways'] = $communication_ways;
+
+        return $this;
+    }
+
+    /**
+     * Gets main_address
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelContactAddress|null
+     */
+    public function getMainAddress()
+    {
+        return $this->container['main_address'];
+    }
+
+    /**
+     * Sets main_address
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelContactAddress|null $main_address main_address
+     *
+     * @return self
+     */
+    public function setMainAddress($main_address)
+    {
+        if (is_null($main_address)) {
+            throw new \InvalidArgumentException('non-nullable main_address cannot be null');
+        }
+        $this->container['main_address'] = $main_address;
 
         return $this;
     }

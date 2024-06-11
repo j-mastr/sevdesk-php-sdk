@@ -71,13 +71,13 @@ class ContactAddressApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'contactAddressId' => [
-            'application/json',
-        ],
         'createContactAddress' => [
             'application/json',
         ],
         'deleteContactAddress' => [
+            'application/json',
+        ],
+        'getContactAddressById' => [
             'application/json',
         ],
         'getContactAddresses' => [
@@ -132,318 +132,6 @@ class ContactAddressApi
     public function getConfig()
     {
         return $this->config;
-    }
-
-    /**
-     * Operation contactAddressId
-     *
-     * Find contact address by ID
-     *
-     * @param  int $contact_address_id ID of contact address to return (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactAddressId'] to see the possible values for this operation
-     *
-     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\ContactAddressId200Response
-     */
-    public function contactAddressId($contact_address_id, string $contentType = self::contentTypes['contactAddressId'][0])
-    {
-        list($response) = $this->contactAddressIdWithHttpInfo($contact_address_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation contactAddressIdWithHttpInfo
-     *
-     * Find contact address by ID
-     *
-     * @param  int $contact_address_id ID of contact address to return (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactAddressId'] to see the possible values for this operation
-     *
-     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\ContactAddressId200Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function contactAddressIdWithHttpInfo($contact_address_id, string $contentType = self::contentTypes['contactAddressId'][0])
-    {
-        $request = $this->contactAddressIdRequest($contact_address_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Itsmind\Sevdesk\Model\ContactAddressId200Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\ContactAddressId200Response' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\ContactAddressId200Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Itsmind\Sevdesk\Model\ContactAddressId200Response';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\ContactAddressId200Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation contactAddressIdAsync
-     *
-     * Find contact address by ID
-     *
-     * @param  int $contact_address_id ID of contact address to return (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactAddressId'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function contactAddressIdAsync($contact_address_id, string $contentType = self::contentTypes['contactAddressId'][0])
-    {
-        return $this->contactAddressIdAsyncWithHttpInfo($contact_address_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation contactAddressIdAsyncWithHttpInfo
-     *
-     * Find contact address by ID
-     *
-     * @param  int $contact_address_id ID of contact address to return (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactAddressId'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function contactAddressIdAsyncWithHttpInfo($contact_address_id, string $contentType = self::contentTypes['contactAddressId'][0])
-    {
-        $returnType = '\Itsmind\Sevdesk\Model\ContactAddressId200Response';
-        $request = $this->contactAddressIdRequest($contact_address_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'contactAddressId'
-     *
-     * @param  int $contact_address_id ID of contact address to return (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactAddressId'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function contactAddressIdRequest($contact_address_id, string $contentType = self::contentTypes['contactAddressId'][0])
-    {
-
-        // verify the required parameter 'contact_address_id' is set
-        if ($contact_address_id === null || (is_array($contact_address_id) && count($contact_address_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $contact_address_id when calling contactAddressId'
-            );
-        }
-
-
-        $resourcePath = '/ContactAddress/{contactAddressId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($contact_address_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'contactAddressId' . '}',
-                ObjectSerializer::toPathValue($contact_address_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
@@ -1057,6 +745,333 @@ class ContactAddressApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getContactAddressById
+     *
+     * Find contact address by ID
+     *
+     * @param  int $contact_address_id ID of contact address to return (required)
+     * @param  string[] $embed Get some additional information. Embed can handle multiple values, they must be separated by comma. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactAddressById'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Itsmind\Sevdesk\Model\GetContactAddressById200Response
+     */
+    public function getContactAddressById($contact_address_id, $embed = null, string $contentType = self::contentTypes['getContactAddressById'][0])
+    {
+        list($response) = $this->getContactAddressByIdWithHttpInfo($contact_address_id, $embed, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getContactAddressByIdWithHttpInfo
+     *
+     * Find contact address by ID
+     *
+     * @param  int $contact_address_id ID of contact address to return (required)
+     * @param  string[] $embed Get some additional information. Embed can handle multiple values, they must be separated by comma. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactAddressById'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Itsmind\Sevdesk\Model\GetContactAddressById200Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getContactAddressByIdWithHttpInfo($contact_address_id, $embed = null, string $contentType = self::contentTypes['getContactAddressById'][0])
+    {
+        $request = $this->getContactAddressByIdRequest($contact_address_id, $embed, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Itsmind\Sevdesk\Model\GetContactAddressById200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Itsmind\Sevdesk\Model\GetContactAddressById200Response' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetContactAddressById200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Itsmind\Sevdesk\Model\GetContactAddressById200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Itsmind\Sevdesk\Model\GetContactAddressById200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getContactAddressByIdAsync
+     *
+     * Find contact address by ID
+     *
+     * @param  int $contact_address_id ID of contact address to return (required)
+     * @param  string[] $embed Get some additional information. Embed can handle multiple values, they must be separated by comma. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactAddressById'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getContactAddressByIdAsync($contact_address_id, $embed = null, string $contentType = self::contentTypes['getContactAddressById'][0])
+    {
+        return $this->getContactAddressByIdAsyncWithHttpInfo($contact_address_id, $embed, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getContactAddressByIdAsyncWithHttpInfo
+     *
+     * Find contact address by ID
+     *
+     * @param  int $contact_address_id ID of contact address to return (required)
+     * @param  string[] $embed Get some additional information. Embed can handle multiple values, they must be separated by comma. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactAddressById'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getContactAddressByIdAsyncWithHttpInfo($contact_address_id, $embed = null, string $contentType = self::contentTypes['getContactAddressById'][0])
+    {
+        $returnType = '\Itsmind\Sevdesk\Model\GetContactAddressById200Response';
+        $request = $this->getContactAddressByIdRequest($contact_address_id, $embed, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getContactAddressById'
+     *
+     * @param  int $contact_address_id ID of contact address to return (required)
+     * @param  string[] $embed Get some additional information. Embed can handle multiple values, they must be separated by comma. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactAddressById'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getContactAddressByIdRequest($contact_address_id, $embed = null, string $contentType = self::contentTypes['getContactAddressById'][0])
+    {
+
+        // verify the required parameter 'contact_address_id' is set
+        if ($contact_address_id === null || (is_array($contact_address_id) && count($contact_address_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contact_address_id when calling getContactAddressById'
+            );
+        }
+
+
+
+        $resourcePath = '/ContactAddress/{contactAddressId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $embed,
+            'embed', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($contact_address_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contactAddressId' . '}',
+                ObjectSerializer::toPathValue($contact_address_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

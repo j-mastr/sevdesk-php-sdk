@@ -435,6 +435,7 @@ docs/Model/UpdateStatusRequest.md
 docs/Model/UpdateTagRequest.md
 docs/Model/ValidationError.md
 docs/Model/ValidationErrorError.md
+docs/Model/VoucherFactorySaveVoucher201Response.md
 docs/Model/VoucherResetToOpen200Response.md
 docs/Model/VoucherResetToOpen200ResponseObjects.md
 docs/Model/VoucherUploadFile201Response.md
@@ -879,6 +880,7 @@ lib/Model/UpdateStatusRequest.php
 lib/Model/UpdateTagRequest.php
 lib/Model/ValidationError.php
 lib/Model/ValidationErrorError.php
+lib/Model/VoucherFactorySaveVoucher201Response.php
 lib/Model/VoucherResetToOpen200Response.php
 lib/Model/VoucherResetToOpen200ResponseObjects.php
 lib/Model/VoucherUploadFile201Response.php
@@ -886,10 +888,4 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/GetContactAddressById200ResponseTest.php
-test/Model/ModelContactAddressResponseContactAnyOfTest.php
-test/Model/ModelContactAddressResponseCountryAnyOfTest.php
-test/Model/ModelContactResponseAddressesInnerAnyOfTest.php
-test/Model/ModelContactResponseAddressesInnerTest.php
-test/Model/ModelContactResponseCommunicationWaysInnerAnyOfTest.php
-test/Model/ModelContactResponseCommunicationWaysInnerTest.php
+test/Model/VoucherFactorySaveVoucher201ResponseTest.php

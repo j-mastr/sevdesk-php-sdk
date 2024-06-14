@@ -30,10 +30,10 @@ Name | Type | Description | Notes
 **default_discount_percentage** | **bool** | Defines if the discount is a percentage (true) or an absolute value (false). | [optional]
 **buyer_reference** | **string** | Buyer reference of the contact. | [optional]
 **government_agency** | **bool** | Defines whether the contact is a government agency (true) or not (false). | [optional]
-**tax_set** | [**\Itsmind\Sevdesk\Model\ModelContactTaxSet**](ModelContactTaxSet.md) |  | [optional]
-**tax_type** | **string** | Defines which tax regulation the contact is using. | [optional]
 **addresses** | [**\Itsmind\Sevdesk\Model\ModelContactResponseAddressesInner[]**](ModelContactResponseAddressesInner.md) |  | [optional]
 **communication_ways** | [**\Itsmind\Sevdesk\Model\ModelContactResponseCommunicationWaysInner[]**](ModelContactResponseCommunicationWaysInner.md) |  | [optional]
 **main_address** | [**\Itsmind\Sevdesk\Model\ModelContactAddress**](ModelContactAddress.md) |  | [optional]
+**tax_set** | [**\Itsmind\Sevdesk\Model\ModelContactTaxSet**](ModelContactTaxSet.md) |  | [optional]
+**tax_type** | **string** | Defines which tax regulation the contact is using. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

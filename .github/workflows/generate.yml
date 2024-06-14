@@ -4,6 +4,14 @@ on:
   pull_request_target:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      repository:
+        type: string
+        required: true
+      ref:
+        type: string
+        required: true
 
 permissions:
   contents: write
@@ -16,8 +24,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
-          ref: ${{ github.head_ref || github.ref }}
+          repository: ${{ inputs.repository || github.event.pull_request.head.repo.full_name || github.repository }}
+          ref: ${{ inputs.ref || github.head_ref || github.ref }}
           fetch-depth: 0
           submodules: "recursive"
       - uses: actions/setup-node@v4
@@ -33,5 +41,3 @@ jobs:
           git add .
           git commit -m "feat: update generated code from OpenAPI" || exit 0
           git push
-        env:
-          GITHUB_TOKEN: ${{secrets.GH_TOKEN}}

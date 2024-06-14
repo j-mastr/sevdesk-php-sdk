@@ -90,11 +90,11 @@ class ModelContactResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'buyer_reference' => 'string',
         'government_agency' => 'string',
         'additional_information' => 'string',
-        'tax_set' => '\Itsmind\Sevdesk\Model\ModelContactResponseTaxSet',
-        'tax_type' => 'string',
         'addresses' => '\Itsmind\Sevdesk\Model\ModelContactResponseAddressesInner[]',
         'communication_ways' => '\Itsmind\Sevdesk\Model\ModelContactResponseCommunicationWaysInner[]',
-        'main_address' => '\Itsmind\Sevdesk\Model\ModelContactAddress'
+        'main_address' => '\Itsmind\Sevdesk\Model\ModelContactAddress',
+        'tax_set' => '\Itsmind\Sevdesk\Model\ModelContactResponseTaxSet',
+        'tax_type' => 'string'
     ];
 
     /**
@@ -137,11 +137,11 @@ class ModelContactResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'buyer_reference' => null,
         'government_agency' => null,
         'additional_information' => null,
-        'tax_set' => null,
-        'tax_type' => null,
         'addresses' => null,
         'communication_ways' => null,
-        'main_address' => null
+        'main_address' => null,
+        'tax_set' => null,
+        'tax_type' => null
     ];
 
     /**
@@ -182,11 +182,11 @@ class ModelContactResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'buyer_reference' => false,
         'government_agency' => false,
         'additional_information' => false,
-        'tax_set' => false,
-        'tax_type' => false,
         'addresses' => false,
         'communication_ways' => false,
-        'main_address' => false
+        'main_address' => false,
+        'tax_set' => false,
+        'tax_type' => false
     ];
 
     /**
@@ -307,11 +307,11 @@ class ModelContactResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'buyer_reference' => 'buyerReference',
         'government_agency' => 'governmentAgency',
         'additional_information' => 'additionalInformation',
-        'tax_set' => 'taxSet',
-        'tax_type' => 'taxType',
         'addresses' => 'addresses',
         'communication_ways' => 'communicationWays',
-        'main_address' => 'mainAddress'
+        'main_address' => 'mainAddress',
+        'tax_set' => 'taxSet',
+        'tax_type' => 'taxType'
     ];
 
     /**
@@ -352,11 +352,11 @@ class ModelContactResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'buyer_reference' => 'setBuyerReference',
         'government_agency' => 'setGovernmentAgency',
         'additional_information' => 'setAdditionalInformation',
-        'tax_set' => 'setTaxSet',
-        'tax_type' => 'setTaxType',
         'addresses' => 'setAddresses',
         'communication_ways' => 'setCommunicationWays',
-        'main_address' => 'setMainAddress'
+        'main_address' => 'setMainAddress',
+        'tax_set' => 'setTaxSet',
+        'tax_type' => 'setTaxType'
     ];
 
     /**
@@ -397,11 +397,11 @@ class ModelContactResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'buyer_reference' => 'getBuyerReference',
         'government_agency' => 'getGovernmentAgency',
         'additional_information' => 'getAdditionalInformation',
-        'tax_set' => 'getTaxSet',
-        'tax_type' => 'getTaxType',
         'addresses' => 'getAddresses',
         'communication_ways' => 'getCommunicationWays',
-        'main_address' => 'getMainAddress'
+        'main_address' => 'getMainAddress',
+        'tax_set' => 'getTaxSet',
+        'tax_type' => 'getTaxType'
     ];
 
     /**
@@ -527,11 +527,11 @@ class ModelContactResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('buyer_reference', $data ?? [], null);
         $this->setIfExists('government_agency', $data ?? [], null);
         $this->setIfExists('additional_information', $data ?? [], null);
-        $this->setIfExists('tax_set', $data ?? [], null);
-        $this->setIfExists('tax_type', $data ?? [], null);
         $this->setIfExists('addresses', $data ?? [], null);
         $this->setIfExists('communication_ways', $data ?? [], null);
         $this->setIfExists('main_address', $data ?? [], null);
+        $this->setIfExists('tax_set', $data ?? [], null);
+        $this->setIfExists('tax_type', $data ?? [], null);
     }
 
     /**
@@ -1471,70 +1471,6 @@ class ModelContactResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets tax_set
-     *
-     * @return \Itsmind\Sevdesk\Model\ModelContactResponseTaxSet|null
-     */
-    public function getTaxSet()
-    {
-        return $this->container['tax_set'];
-    }
-
-    /**
-     * Sets tax_set
-     *
-     * @param \Itsmind\Sevdesk\Model\ModelContactResponseTaxSet|null $tax_set tax_set
-     *
-     * @return self
-     */
-    public function setTaxSet($tax_set)
-    {
-        if (is_null($tax_set)) {
-            throw new \InvalidArgumentException('non-nullable tax_set cannot be null');
-        }
-        $this->container['tax_set'] = $tax_set;
-
-        return $this;
-    }
-
-    /**
-     * Gets tax_type
-     *
-     * @return string|null
-     */
-    public function getTaxType()
-    {
-        return $this->container['tax_type'];
-    }
-
-    /**
-     * Sets tax_type
-     *
-     * @param string|null $tax_type Defines which tax regulation the contact is using.
-     *
-     * @return self
-     */
-    public function setTaxType($tax_type)
-    {
-        if (is_null($tax_type)) {
-            throw new \InvalidArgumentException('non-nullable tax_type cannot be null');
-        }
-        $allowedValues = $this->getTaxTypeAllowableValues();
-        if (!in_array($tax_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'tax_type', must be one of '%s'",
-                    $tax_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['tax_type'] = $tax_type;
-
-        return $this;
-    }
-
-    /**
      * Gets addresses
      *
      * @return \Itsmind\Sevdesk\Model\ModelContactResponseAddressesInner[]|null
@@ -1611,6 +1547,70 @@ class ModelContactResponse implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable main_address cannot be null');
         }
         $this->container['main_address'] = $main_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_set
+     *
+     * @return \Itsmind\Sevdesk\Model\ModelContactResponseTaxSet|null
+     */
+    public function getTaxSet()
+    {
+        return $this->container['tax_set'];
+    }
+
+    /**
+     * Sets tax_set
+     *
+     * @param \Itsmind\Sevdesk\Model\ModelContactResponseTaxSet|null $tax_set tax_set
+     *
+     * @return self
+     */
+    public function setTaxSet($tax_set)
+    {
+        if (is_null($tax_set)) {
+            throw new \InvalidArgumentException('non-nullable tax_set cannot be null');
+        }
+        $this->container['tax_set'] = $tax_set;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_type
+     *
+     * @return string|null
+     */
+    public function getTaxType()
+    {
+        return $this->container['tax_type'];
+    }
+
+    /**
+     * Sets tax_type
+     *
+     * @param string|null $tax_type Defines which tax regulation the contact is using.
+     *
+     * @return self
+     */
+    public function setTaxType($tax_type)
+    {
+        if (is_null($tax_type)) {
+            throw new \InvalidArgumentException('non-nullable tax_type cannot be null');
+        }
+        $allowedValues = $this->getTaxTypeAllowableValues();
+        if (!in_array($tax_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tax_type', must be one of '%s'",
+                    $tax_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['tax_type'] = $tax_type;
 
         return $this;
     }

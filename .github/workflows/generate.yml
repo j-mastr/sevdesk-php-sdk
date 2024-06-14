@@ -33,3 +33,5 @@ jobs:
           git add .
           git commit -m "feat: update generated code from OpenAPI" || exit 0
           git push
+        env:
+          GITHUB_TOKEN: ${{secrets.GH_TOKEN}}

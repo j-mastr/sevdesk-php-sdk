@@ -26,8 +26,8 @@ jobs:
       - run: npx --yes @openapitools/openapi-generator-cli version-manager set stable
       - run: ./scripts/generate.sh
       - run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email 'bot@noreply.github.com'
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
       - name: Commit update
         run: |
           git add .

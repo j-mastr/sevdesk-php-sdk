@@ -36,10 +36,10 @@ Name | Type | Description | Notes
 **buyer_reference** | **string** | Buyer reference of the contact. | [optional] [readonly]
 **government_agency** | **string** | Defines whether the contact is a government agency (true) or not (false). | [optional] [readonly]
 **additional_information** | **string** | Additional information stored for the contact. | [optional] [readonly]
-**tax_set** | [**\Itsmind\Sevdesk\Model\ModelContactResponseTaxSet**](ModelContactResponseTaxSet.md) |  | [optional]
-**tax_type** | **string** | Defines which tax regulation the contact is using. | [optional] [readonly]
 **addresses** | [**\Itsmind\Sevdesk\Model\ModelContactResponseAddressesInner[]**](ModelContactResponseAddressesInner.md) |  | [optional]
 **communication_ways** | [**\Itsmind\Sevdesk\Model\ModelContactResponseCommunicationWaysInner[]**](ModelContactResponseCommunicationWaysInner.md) |  | [optional]
 **main_address** | [**\Itsmind\Sevdesk\Model\ModelContactAddress**](ModelContactAddress.md) |  | [optional]
+**tax_set** | [**\Itsmind\Sevdesk\Model\ModelContactResponseTaxSet**](ModelContactResponseTaxSet.md) |  | [optional]
+**tax_type** | **string** | Defines which tax regulation the contact is using. | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

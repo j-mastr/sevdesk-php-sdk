@@ -47,7 +47,7 @@ jobs:
       # Update references
       - name: Git Submodule Update
         run: |
-          git pull --recurse-submodules
+          git pull origin "${{ github.ref_name }}" --recurse-submodules
           git submodule update --remote --recursive
 
       - name: Commit update
@@ -67,7 +67,7 @@ jobs:
       - name: Auto-merge update
         if: steps.commit_update.outcome == 'success' && steps.create_pr.outcome == 'success'
         run: |
-          gh pr merge --auto --squash --subject "feat: update openapi.yaml" "${{ github.ref_name }}"
+          gh pr merge --auto --squash --subject "feat: update sevdesk-api" "${{ env.UPDATE_BRANCH_NAME }}"
         env:
           GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
       - name: Comment on failed update

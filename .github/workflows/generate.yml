@@ -19,6 +19,7 @@ permissions:
 jobs:
   generate_code:
     runs-on: ubuntu-latest
+    if: github.actor != 'dependabot[bot]' && github.actor != 'github-actions[bot]'
 
     steps:
       - uses: actions/checkout@v4

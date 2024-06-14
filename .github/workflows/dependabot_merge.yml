@@ -9,6 +9,9 @@ jobs:
   dependabot:
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
+    outputs:
+      version: ${{steps.get_version.outputs.stdout}}
+      package-ecosystem: ${{steps.metadata.outputs.package-ecosystem}}
     steps:
       - name: Dependabot metadata
         id: metadata
@@ -23,17 +26,40 @@ jobs:
       - name: Get current version
         id: get_version
         run: cd sevdesk-api > /dev/null && git describe --tags --abbrev=0
-      - name: Enable auto-merge for OpenAPI PRs
-        if: steps.metadata.outputs.package-ecosystem == 'submodules'
-        run: |
-          gh pr merge --auto --squash --subject "build(api): update openapi" --body "Release-As: $VERSION" "$PR_URL"
-        env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          VERSION: ${{steps.get_version.outputs.stdout}}
       - name: Enable auto-merge for Dependabot PRs
         if: steps.metadata.outputs.package-ecosystem != 'submodules' && (steps.metadata.outputs.update-type == 'version-update:semver-minor' || steps.metadata.outputs.update-type == 'version-update:semver-patch')
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+  generate_code:
+    name: Generate Code
+    needs: dependabot
+    if: needs.dependabot.outputs.package-ecosystem == 'submodules'
+    uses: ./.github/workflows/generate.yml
+    with:
+      repository: ${{ github.repository }}
+      ref: ${{ inputs.updateBranchName || vars.UPDATE_BRANCH_NAME || 'update-sevdesk-api' }}
+
+  merge:
+    name: "Auto-Merge Update"
+    runs-on: ubuntu-latest
+    needs:
+      - dependabot
+      - generate_code
+    if: needs.dependabot.outputs.package-ecosystem == 'submodules'
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Enable auto-merge for OpenAPI PRs
+        run: |
+          gh pr merge "$PR_URL" --auto --squash --subject "feat: update sevdesk-api" --body "Release-As: $VERSION" --repo "${{ github.repository }}"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          VERSION: ${{needs.dependabot.outputs.version}}

@@ -318,6 +318,8 @@ Class | Method | HTTP request | Description
 *ReportApi* | [**reportInvoice**](docs/Api/ReportApi.md#reportinvoice) | **GET** /Report/invoicelist | Export invoice list
 *ReportApi* | [**reportOrder**](docs/Api/ReportApi.md#reportorder) | **GET** /Report/orderlist | Export order list
 *ReportApi* | [**reportVoucher**](docs/Api/ReportApi.md#reportvoucher) | **GET** /Report/voucherlist | Export voucher list
+*SevUserApi* | [**getSevUserById**](docs/Api/SevUserApi.md#getsevuserbyid) | **GET** /SevUser/{sevUserId} | 
+*SevUserApi* | [**getSevUsers**](docs/Api/SevUserApi.md#getsevusers) | **GET** /SevUser | 
 *TagApi* | [**createTag**](docs/Api/TagApi.md#createtag) | **POST** /Tag/Factory/create | Create a new tag
 *TagApi* | [**deleteTag**](docs/Api/TagApi.md#deletetag) | **DELETE** /Tag/{tagId} | Deletes a tag
 *TagApi* | [**getTagById**](docs/Api/TagApi.md#gettagbyid) | **GET** /Tag/{tagId} | Find tag by ID
@@ -456,6 +458,9 @@ Class | Method | HTTP request | Description
 - [GetParts200Response](docs/Model/GetParts200Response.md)
 - [GetPlaceholder200Response](docs/Model/GetPlaceholder200Response.md)
 - [GetReferenceCount200Response](docs/Model/GetReferenceCount200Response.md)
+- [GetSevUserById200Response](docs/Model/GetSevUserById200Response.md)
+- [GetSevUsers200Response](docs/Model/GetSevUsers200Response.md)
+- [GetSevUsersIgnoreRolesParameter](docs/Model/GetSevUsersIgnoreRolesParameter.md)
 - [GetTagById200Response](docs/Model/GetTagById200Response.md)
 - [GetTagRelations200Response](docs/Model/GetTagRelations200Response.md)
 - [GetTags200Response](docs/Model/GetTags200Response.md)
@@ -673,6 +678,7 @@ Class | Method | HTTP request | Description
 - [ModelPartUnity](docs/Model/ModelPartUnity.md)
 - [ModelPartUpdate](docs/Model/ModelPartUpdate.md)
 - [ModelPaymentMethodResponse](docs/Model/ModelPaymentMethodResponse.md)
+- [ModelSevUserResponse](docs/Model/ModelSevUserResponse.md)
 - [ModelStaticCountryResponse](docs/Model/ModelStaticCountryResponse.md)
 - [ModelTagCreateResponse](docs/Model/ModelTagCreateResponse.md)
 - [ModelTagCreateResponseObject](docs/Model/ModelTagCreateResponseObject.md)

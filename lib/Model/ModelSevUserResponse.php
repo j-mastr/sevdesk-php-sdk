@@ -57,39 +57,39 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'float',
-        'object_name' => 'string',
         'additional_information' => 'string',
+        'client_owner' => 'bool',
         'create' => '\DateTime',
-        'update' => '\DateTime',
-        'fullname' => 'string',
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'username' => 'string',
-        'status' => 'string',
+        'default_receive_mail_copy' => 'bool',
         'email' => 'string',
+        'end_date' => '\DateTime',
+        'first_name' => 'string',
+        'force_password_change' => 'bool',
+        'fullname' => 'string',
         'gender' => 'string',
-        'role' => 'string',
-        'member_code' => 'string',
+        'hide_maps_directions' => 'bool',
+        'id' => 'float',
+        'language_code' => 'string',
         'last_login' => '\DateTime',
         'last_login_ip' => 'string',
-        'welcome_screen_seen' => 'bool',
-        'smtp_name' => 'string',
+        'last_name' => 'string',
+        'last_password_change' => '\DateTime',
+        'member_code' => 'string',
+        'object_name' => 'string',
+        'role' => 'string',
+        'sev_client' => 'object',
+        'smtp_host' => 'string',
         'smtp_mail' => 'string',
-        'smtp_user' => 'string',
+        'smtp_name' => 'string',
         'smtp_port' => 'string',
         'smtp_ssl' => 'string',
-        'smtp_host' => 'string',
-        'language_code' => 'string',
-        'two_factor_auth' => 'bool',
-        'force_password_change' => 'bool',
-        'client_owner' => 'bool',
-        'default_receive_mail_copy' => 'bool',
-        'hide_maps_directions' => 'bool',
+        'smtp_user' => 'string',
         'start_date' => '\DateTime',
-        'end_date' => '\DateTime',
-        'last_password_change' => '\DateTime',
-        'sev_client' => 'object'
+        'status' => 'string',
+        'two_factor_auth' => 'bool',
+        'update' => '\DateTime',
+        'username' => 'string',
+        'welcome_screen_seen' => 'bool'
     ];
 
     /**
@@ -100,39 +100,39 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'object_name' => null,
         'additional_information' => null,
+        'client_owner' => null,
         'create' => 'date-time',
-        'update' => 'date-time',
-        'fullname' => null,
-        'first_name' => null,
-        'last_name' => null,
-        'username' => null,
-        'status' => null,
+        'default_receive_mail_copy' => null,
         'email' => null,
+        'end_date' => 'date-time',
+        'first_name' => null,
+        'force_password_change' => null,
+        'fullname' => null,
         'gender' => null,
-        'role' => null,
-        'member_code' => null,
+        'hide_maps_directions' => null,
+        'id' => null,
+        'language_code' => null,
         'last_login' => 'date-time',
         'last_login_ip' => null,
-        'welcome_screen_seen' => null,
-        'smtp_name' => null,
+        'last_name' => null,
+        'last_password_change' => 'date-time',
+        'member_code' => null,
+        'object_name' => null,
+        'role' => null,
+        'sev_client' => null,
+        'smtp_host' => null,
         'smtp_mail' => null,
-        'smtp_user' => null,
+        'smtp_name' => null,
         'smtp_port' => null,
         'smtp_ssl' => null,
-        'smtp_host' => null,
-        'language_code' => null,
-        'two_factor_auth' => null,
-        'force_password_change' => null,
-        'client_owner' => null,
-        'default_receive_mail_copy' => null,
-        'hide_maps_directions' => null,
+        'smtp_user' => null,
         'start_date' => 'date-time',
-        'end_date' => 'date-time',
-        'last_password_change' => 'date-time',
-        'sev_client' => null
+        'status' => null,
+        'two_factor_auth' => null,
+        'update' => 'date-time',
+        'username' => null,
+        'welcome_screen_seen' => null
     ];
 
     /**
@@ -141,39 +141,39 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'object_name' => false,
         'additional_information' => false,
+        'client_owner' => false,
         'create' => false,
-        'update' => false,
-        'fullname' => false,
-        'first_name' => false,
-        'last_name' => false,
-        'username' => false,
-        'status' => false,
+        'default_receive_mail_copy' => false,
         'email' => false,
+        'end_date' => false,
+        'first_name' => false,
+        'force_password_change' => false,
+        'fullname' => false,
         'gender' => false,
-        'role' => false,
-        'member_code' => false,
+        'hide_maps_directions' => false,
+        'id' => false,
+        'language_code' => false,
         'last_login' => false,
         'last_login_ip' => false,
-        'welcome_screen_seen' => false,
-        'smtp_name' => false,
+        'last_name' => false,
+        'last_password_change' => false,
+        'member_code' => false,
+        'object_name' => false,
+        'role' => false,
+        'sev_client' => false,
+        'smtp_host' => false,
         'smtp_mail' => false,
-        'smtp_user' => false,
+        'smtp_name' => false,
         'smtp_port' => false,
         'smtp_ssl' => false,
-        'smtp_host' => false,
-        'language_code' => false,
-        'two_factor_auth' => false,
-        'force_password_change' => false,
-        'client_owner' => false,
-        'default_receive_mail_copy' => false,
-        'hide_maps_directions' => false,
+        'smtp_user' => false,
         'start_date' => false,
-        'end_date' => false,
-        'last_password_change' => false,
-        'sev_client' => false
+        'status' => false,
+        'two_factor_auth' => false,
+        'update' => false,
+        'username' => false,
+        'welcome_screen_seen' => false
     ];
 
     /**
@@ -262,39 +262,39 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'object_name' => 'objectName',
         'additional_information' => 'additionalInformation',
+        'client_owner' => 'clientOwner',
         'create' => 'create',
-        'update' => 'update',
-        'fullname' => 'fullname',
-        'first_name' => 'firstName',
-        'last_name' => 'lastName',
-        'username' => 'username',
-        'status' => 'status',
+        'default_receive_mail_copy' => 'defaultReceiveMailCopy',
         'email' => 'email',
+        'end_date' => 'endDate',
+        'first_name' => 'firstName',
+        'force_password_change' => 'forcePasswordChange',
+        'fullname' => 'fullname',
         'gender' => 'gender',
-        'role' => 'role',
-        'member_code' => 'memberCode',
+        'hide_maps_directions' => 'hideMapsDirections',
+        'id' => 'id',
+        'language_code' => 'languageCode',
         'last_login' => 'lastLogin',
         'last_login_ip' => 'lastLoginIp',
-        'welcome_screen_seen' => 'welcomeScreenSeen',
-        'smtp_name' => 'smtpName',
+        'last_name' => 'lastName',
+        'last_password_change' => 'lastPasswordChange',
+        'member_code' => 'memberCode',
+        'object_name' => 'objectName',
+        'role' => 'role',
+        'sev_client' => 'sevClient',
+        'smtp_host' => 'smtpHost',
         'smtp_mail' => 'smtpMail',
-        'smtp_user' => 'smtpUser',
+        'smtp_name' => 'smtpName',
         'smtp_port' => 'smtpPort',
         'smtp_ssl' => 'smtpSsl',
-        'smtp_host' => 'smtpHost',
-        'language_code' => 'languageCode',
-        'two_factor_auth' => 'twoFactorAuth',
-        'force_password_change' => 'forcePasswordChange',
-        'client_owner' => 'clientOwner',
-        'default_receive_mail_copy' => 'defaultReceiveMailCopy',
-        'hide_maps_directions' => 'hideMapsDirections',
+        'smtp_user' => 'smtpUser',
         'start_date' => 'startDate',
-        'end_date' => 'endDate',
-        'last_password_change' => 'lastPasswordChange',
-        'sev_client' => 'sevClient'
+        'status' => 'status',
+        'two_factor_auth' => 'twoFactorAuth',
+        'update' => 'update',
+        'username' => 'username',
+        'welcome_screen_seen' => 'welcomeScreenSeen'
     ];
 
     /**
@@ -303,39 +303,39 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'object_name' => 'setObjectName',
         'additional_information' => 'setAdditionalInformation',
+        'client_owner' => 'setClientOwner',
         'create' => 'setCreate',
-        'update' => 'setUpdate',
-        'fullname' => 'setFullname',
-        'first_name' => 'setFirstName',
-        'last_name' => 'setLastName',
-        'username' => 'setUsername',
-        'status' => 'setStatus',
+        'default_receive_mail_copy' => 'setDefaultReceiveMailCopy',
         'email' => 'setEmail',
+        'end_date' => 'setEndDate',
+        'first_name' => 'setFirstName',
+        'force_password_change' => 'setForcePasswordChange',
+        'fullname' => 'setFullname',
         'gender' => 'setGender',
-        'role' => 'setRole',
-        'member_code' => 'setMemberCode',
+        'hide_maps_directions' => 'setHideMapsDirections',
+        'id' => 'setId',
+        'language_code' => 'setLanguageCode',
         'last_login' => 'setLastLogin',
         'last_login_ip' => 'setLastLoginIp',
-        'welcome_screen_seen' => 'setWelcomeScreenSeen',
-        'smtp_name' => 'setSmtpName',
+        'last_name' => 'setLastName',
+        'last_password_change' => 'setLastPasswordChange',
+        'member_code' => 'setMemberCode',
+        'object_name' => 'setObjectName',
+        'role' => 'setRole',
+        'sev_client' => 'setSevClient',
+        'smtp_host' => 'setSmtpHost',
         'smtp_mail' => 'setSmtpMail',
-        'smtp_user' => 'setSmtpUser',
+        'smtp_name' => 'setSmtpName',
         'smtp_port' => 'setSmtpPort',
         'smtp_ssl' => 'setSmtpSsl',
-        'smtp_host' => 'setSmtpHost',
-        'language_code' => 'setLanguageCode',
-        'two_factor_auth' => 'setTwoFactorAuth',
-        'force_password_change' => 'setForcePasswordChange',
-        'client_owner' => 'setClientOwner',
-        'default_receive_mail_copy' => 'setDefaultReceiveMailCopy',
-        'hide_maps_directions' => 'setHideMapsDirections',
+        'smtp_user' => 'setSmtpUser',
         'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate',
-        'last_password_change' => 'setLastPasswordChange',
-        'sev_client' => 'setSevClient'
+        'status' => 'setStatus',
+        'two_factor_auth' => 'setTwoFactorAuth',
+        'update' => 'setUpdate',
+        'username' => 'setUsername',
+        'welcome_screen_seen' => 'setWelcomeScreenSeen'
     ];
 
     /**
@@ -344,39 +344,39 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'object_name' => 'getObjectName',
         'additional_information' => 'getAdditionalInformation',
+        'client_owner' => 'getClientOwner',
         'create' => 'getCreate',
-        'update' => 'getUpdate',
-        'fullname' => 'getFullname',
-        'first_name' => 'getFirstName',
-        'last_name' => 'getLastName',
-        'username' => 'getUsername',
-        'status' => 'getStatus',
+        'default_receive_mail_copy' => 'getDefaultReceiveMailCopy',
         'email' => 'getEmail',
+        'end_date' => 'getEndDate',
+        'first_name' => 'getFirstName',
+        'force_password_change' => 'getForcePasswordChange',
+        'fullname' => 'getFullname',
         'gender' => 'getGender',
-        'role' => 'getRole',
-        'member_code' => 'getMemberCode',
+        'hide_maps_directions' => 'getHideMapsDirections',
+        'id' => 'getId',
+        'language_code' => 'getLanguageCode',
         'last_login' => 'getLastLogin',
         'last_login_ip' => 'getLastLoginIp',
-        'welcome_screen_seen' => 'getWelcomeScreenSeen',
-        'smtp_name' => 'getSmtpName',
+        'last_name' => 'getLastName',
+        'last_password_change' => 'getLastPasswordChange',
+        'member_code' => 'getMemberCode',
+        'object_name' => 'getObjectName',
+        'role' => 'getRole',
+        'sev_client' => 'getSevClient',
+        'smtp_host' => 'getSmtpHost',
         'smtp_mail' => 'getSmtpMail',
-        'smtp_user' => 'getSmtpUser',
+        'smtp_name' => 'getSmtpName',
         'smtp_port' => 'getSmtpPort',
         'smtp_ssl' => 'getSmtpSsl',
-        'smtp_host' => 'getSmtpHost',
-        'language_code' => 'getLanguageCode',
-        'two_factor_auth' => 'getTwoFactorAuth',
-        'force_password_change' => 'getForcePasswordChange',
-        'client_owner' => 'getClientOwner',
-        'default_receive_mail_copy' => 'getDefaultReceiveMailCopy',
-        'hide_maps_directions' => 'getHideMapsDirections',
+        'smtp_user' => 'getSmtpUser',
         'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate',
-        'last_password_change' => 'getLastPasswordChange',
-        'sev_client' => 'getSevClient'
+        'status' => 'getStatus',
+        'two_factor_auth' => 'getTwoFactorAuth',
+        'update' => 'getUpdate',
+        'username' => 'getUsername',
+        'welcome_screen_seen' => 'getWelcomeScreenSeen'
     ];
 
     /**
@@ -421,11 +421,11 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     public const OBJECT_NAME_SEV_USER = 'SevUser';
-    public const ROLE_USER = 'user';
-    public const ROLE_ADMIN = 'admin';
     public const ROLE_ACCOUNTANT = 'Accountant';
     public const ROLE_ACCOUNTANT_LIGHT = 'accountant-light';
+    public const ROLE_ADMIN = 'admin';
     public const ROLE_CHECKER = 'checker';
+    public const ROLE_USER = 'user';
 
     /**
      * Gets allowable values of the enum
@@ -447,11 +447,11 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     public function getRoleAllowableValues()
     {
         return [
-            self::ROLE_USER,
-            self::ROLE_ADMIN,
             self::ROLE_ACCOUNTANT,
             self::ROLE_ACCOUNTANT_LIGHT,
+            self::ROLE_ADMIN,
             self::ROLE_CHECKER,
+            self::ROLE_USER,
         ];
     }
 
@@ -470,39 +470,39 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('object_name', $data ?? [], 'SevUser');
         $this->setIfExists('additional_information', $data ?? [], null);
+        $this->setIfExists('client_owner', $data ?? [], null);
         $this->setIfExists('create', $data ?? [], null);
-        $this->setIfExists('update', $data ?? [], null);
-        $this->setIfExists('fullname', $data ?? [], null);
-        $this->setIfExists('first_name', $data ?? [], null);
-        $this->setIfExists('last_name', $data ?? [], null);
-        $this->setIfExists('username', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('default_receive_mail_copy', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('first_name', $data ?? [], null);
+        $this->setIfExists('force_password_change', $data ?? [], null);
+        $this->setIfExists('fullname', $data ?? [], null);
         $this->setIfExists('gender', $data ?? [], null);
-        $this->setIfExists('role', $data ?? [], null);
-        $this->setIfExists('member_code', $data ?? [], null);
+        $this->setIfExists('hide_maps_directions', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('language_code', $data ?? [], null);
         $this->setIfExists('last_login', $data ?? [], null);
         $this->setIfExists('last_login_ip', $data ?? [], null);
-        $this->setIfExists('welcome_screen_seen', $data ?? [], null);
-        $this->setIfExists('smtp_name', $data ?? [], null);
+        $this->setIfExists('last_name', $data ?? [], null);
+        $this->setIfExists('last_password_change', $data ?? [], null);
+        $this->setIfExists('member_code', $data ?? [], null);
+        $this->setIfExists('object_name', $data ?? [], 'SevUser');
+        $this->setIfExists('role', $data ?? [], null);
+        $this->setIfExists('sev_client', $data ?? [], null);
+        $this->setIfExists('smtp_host', $data ?? [], null);
         $this->setIfExists('smtp_mail', $data ?? [], null);
-        $this->setIfExists('smtp_user', $data ?? [], null);
+        $this->setIfExists('smtp_name', $data ?? [], null);
         $this->setIfExists('smtp_port', $data ?? [], null);
         $this->setIfExists('smtp_ssl', $data ?? [], null);
-        $this->setIfExists('smtp_host', $data ?? [], null);
-        $this->setIfExists('language_code', $data ?? [], null);
-        $this->setIfExists('two_factor_auth', $data ?? [], null);
-        $this->setIfExists('force_password_change', $data ?? [], null);
-        $this->setIfExists('client_owner', $data ?? [], null);
-        $this->setIfExists('default_receive_mail_copy', $data ?? [], null);
-        $this->setIfExists('hide_maps_directions', $data ?? [], null);
+        $this->setIfExists('smtp_user', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
-        $this->setIfExists('end_date', $data ?? [], null);
-        $this->setIfExists('last_password_change', $data ?? [], null);
-        $this->setIfExists('sev_client', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('two_factor_auth', $data ?? [], null);
+        $this->setIfExists('update', $data ?? [], null);
+        $this->setIfExists('username', $data ?? [], null);
+        $this->setIfExists('welcome_screen_seen', $data ?? [], null);
     }
 
     /**
@@ -566,70 +566,6 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets id
-     *
-     * @return float|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param float|null $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets object_name
-     *
-     * @return string|null
-     */
-    public function getObjectName()
-    {
-        return $this->container['object_name'];
-    }
-
-    /**
-     * Sets object_name
-     *
-     * @param string|null $object_name object_name
-     *
-     * @return self
-     */
-    public function setObjectName($object_name)
-    {
-        if (is_null($object_name)) {
-            throw new \InvalidArgumentException('non-nullable object_name cannot be null');
-        }
-        $allowedValues = $this->getObjectNameAllowableValues();
-        if (!in_array($object_name, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object_name', must be one of '%s'",
-                    $object_name,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['object_name'] = $object_name;
-
-        return $this;
-    }
-
-    /**
      * Gets additional_information
      *
      * @return string|null
@@ -652,6 +588,33 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable additional_information cannot be null');
         }
         $this->container['additional_information'] = $additional_information;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_owner
+     *
+     * @return bool|null
+     */
+    public function getClientOwner()
+    {
+        return $this->container['client_owner'];
+    }
+
+    /**
+     * Sets client_owner
+     *
+     * @param bool|null $client_owner client_owner
+     *
+     * @return self
+     */
+    public function setClientOwner($client_owner)
+    {
+        if (is_null($client_owner)) {
+            throw new \InvalidArgumentException('non-nullable client_owner cannot be null');
+        }
+        $this->container['client_owner'] = $client_owner;
 
         return $this;
     }
@@ -684,163 +647,28 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets update
+     * Gets default_receive_mail_copy
      *
-     * @return \DateTime|null
+     * @return bool|null
      */
-    public function getUpdate()
+    public function getDefaultReceiveMailCopy()
     {
-        return $this->container['update'];
+        return $this->container['default_receive_mail_copy'];
     }
 
     /**
-     * Sets update
+     * Sets default_receive_mail_copy
      *
-     * @param \DateTime|null $update update
+     * @param bool|null $default_receive_mail_copy default_receive_mail_copy
      *
      * @return self
      */
-    public function setUpdate($update)
+    public function setDefaultReceiveMailCopy($default_receive_mail_copy)
     {
-        if (is_null($update)) {
-            throw new \InvalidArgumentException('non-nullable update cannot be null');
+        if (is_null($default_receive_mail_copy)) {
+            throw new \InvalidArgumentException('non-nullable default_receive_mail_copy cannot be null');
         }
-        $this->container['update'] = $update;
-
-        return $this;
-    }
-
-    /**
-     * Gets fullname
-     *
-     * @return string|null
-     */
-    public function getFullname()
-    {
-        return $this->container['fullname'];
-    }
-
-    /**
-     * Sets fullname
-     *
-     * @param string|null $fullname fullname
-     *
-     * @return self
-     */
-    public function setFullname($fullname)
-    {
-        if (is_null($fullname)) {
-            throw new \InvalidArgumentException('non-nullable fullname cannot be null');
-        }
-        $this->container['fullname'] = $fullname;
-
-        return $this;
-    }
-
-    /**
-     * Gets first_name
-     *
-     * @return string|null
-     */
-    public function getFirstName()
-    {
-        return $this->container['first_name'];
-    }
-
-    /**
-     * Sets first_name
-     *
-     * @param string|null $first_name first_name
-     *
-     * @return self
-     */
-    public function setFirstName($first_name)
-    {
-        if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
-        }
-        $this->container['first_name'] = $first_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_name
-     *
-     * @return string|null
-     */
-    public function getLastName()
-    {
-        return $this->container['last_name'];
-    }
-
-    /**
-     * Sets last_name
-     *
-     * @param string|null $last_name last_name
-     *
-     * @return self
-     */
-    public function setLastName($last_name)
-    {
-        if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
-        }
-        $this->container['last_name'] = $last_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets username
-     *
-     * @return string|null
-     */
-    public function getUsername()
-    {
-        return $this->container['username'];
-    }
-
-    /**
-     * Sets username
-     *
-     * @param string|null $username username
-     *
-     * @return self
-     */
-    public function setUsername($username)
-    {
-        if (is_null($username)) {
-            throw new \InvalidArgumentException('non-nullable username cannot be null');
-        }
-        $this->container['username'] = $username;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $this->container['status'] = $status;
+        $this->container['default_receive_mail_copy'] = $default_receive_mail_copy;
 
         return $this;
     }
@@ -873,6 +701,114 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets end_date
+     *
+     * @return \DateTime|null
+     */
+    public function getEndDate()
+    {
+        return $this->container['end_date'];
+    }
+
+    /**
+     * Sets end_date
+     *
+     * @param \DateTime|null $end_date end_date
+     *
+     * @return self
+     */
+    public function setEndDate($end_date)
+    {
+        if (is_null($end_date)) {
+            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
+        }
+        $this->container['end_date'] = $end_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_name
+     *
+     * @return string|null
+     */
+    public function getFirstName()
+    {
+        return $this->container['first_name'];
+    }
+
+    /**
+     * Sets first_name
+     *
+     * @param string|null $first_name first_name
+     *
+     * @return self
+     */
+    public function setFirstName($first_name)
+    {
+        if (is_null($first_name)) {
+            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+        }
+        $this->container['first_name'] = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets force_password_change
+     *
+     * @return bool|null
+     */
+    public function getForcePasswordChange()
+    {
+        return $this->container['force_password_change'];
+    }
+
+    /**
+     * Sets force_password_change
+     *
+     * @param bool|null $force_password_change force_password_change
+     *
+     * @return self
+     */
+    public function setForcePasswordChange($force_password_change)
+    {
+        if (is_null($force_password_change)) {
+            throw new \InvalidArgumentException('non-nullable force_password_change cannot be null');
+        }
+        $this->container['force_password_change'] = $force_password_change;
+
+        return $this;
+    }
+
+    /**
+     * Gets fullname
+     *
+     * @return string|null
+     */
+    public function getFullname()
+    {
+        return $this->container['fullname'];
+    }
+
+    /**
+     * Sets fullname
+     *
+     * @param string|null $fullname fullname
+     *
+     * @return self
+     */
+    public function setFullname($fullname)
+    {
+        if (is_null($fullname)) {
+            throw new \InvalidArgumentException('non-nullable fullname cannot be null');
+        }
+        $this->container['fullname'] = $fullname;
+
+        return $this;
+    }
+
+    /**
      * Gets gender
      *
      * @return string|null
@@ -900,65 +836,82 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets role
+     * Gets hide_maps_directions
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getRole()
+    public function getHideMapsDirections()
     {
-        return $this->container['role'];
+        return $this->container['hide_maps_directions'];
     }
 
     /**
-     * Sets role
+     * Sets hide_maps_directions
      *
-     * @param string|null $role role
+     * @param bool|null $hide_maps_directions hide_maps_directions
      *
      * @return self
      */
-    public function setRole($role)
+    public function setHideMapsDirections($hide_maps_directions)
     {
-        if (is_null($role)) {
-            throw new \InvalidArgumentException('non-nullable role cannot be null');
+        if (is_null($hide_maps_directions)) {
+            throw new \InvalidArgumentException('non-nullable hide_maps_directions cannot be null');
         }
-        $allowedValues = $this->getRoleAllowableValues();
-        if (!in_array($role, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'role', must be one of '%s'",
-                    $role,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['role'] = $role;
+        $this->container['hide_maps_directions'] = $hide_maps_directions;
 
         return $this;
     }
 
     /**
-     * Gets member_code
+     * Gets id
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getMemberCode()
+    public function getId()
     {
-        return $this->container['member_code'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets member_code
+     * Sets id
      *
-     * @param string|null $member_code member_code
+     * @param float|null $id id
      *
      * @return self
      */
-    public function setMemberCode($member_code)
+    public function setId($id)
     {
-        if (is_null($member_code)) {
-            throw new \InvalidArgumentException('non-nullable member_code cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['member_code'] = $member_code;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets language_code
+     *
+     * @return string|null
+     */
+    public function getLanguageCode()
+    {
+        return $this->container['language_code'];
+    }
+
+    /**
+     * Sets language_code
+     *
+     * @param string|null $language_code language_code
+     *
+     * @return self
+     */
+    public function setLanguageCode($language_code)
+    {
+        if (is_null($language_code)) {
+            throw new \InvalidArgumentException('non-nullable language_code cannot be null');
+        }
+        $this->container['language_code'] = $language_code;
 
         return $this;
     }
@@ -1018,55 +971,210 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets welcome_screen_seen
+     * Gets last_name
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getWelcomeScreenSeen()
+    public function getLastName()
     {
-        return $this->container['welcome_screen_seen'];
+        return $this->container['last_name'];
     }
 
     /**
-     * Sets welcome_screen_seen
+     * Sets last_name
      *
-     * @param bool|null $welcome_screen_seen welcome_screen_seen
+     * @param string|null $last_name last_name
      *
      * @return self
      */
-    public function setWelcomeScreenSeen($welcome_screen_seen)
+    public function setLastName($last_name)
     {
-        if (is_null($welcome_screen_seen)) {
-            throw new \InvalidArgumentException('non-nullable welcome_screen_seen cannot be null');
+        if (is_null($last_name)) {
+            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
         }
-        $this->container['welcome_screen_seen'] = $welcome_screen_seen;
+        $this->container['last_name'] = $last_name;
 
         return $this;
     }
 
     /**
-     * Gets smtp_name
+     * Gets last_password_change
      *
-     * @return string|null
+     * @return \DateTime|null
      */
-    public function getSmtpName()
+    public function getLastPasswordChange()
     {
-        return $this->container['smtp_name'];
+        return $this->container['last_password_change'];
     }
 
     /**
-     * Sets smtp_name
+     * Sets last_password_change
      *
-     * @param string|null $smtp_name smtp_name
+     * @param \DateTime|null $last_password_change last_password_change
      *
      * @return self
      */
-    public function setSmtpName($smtp_name)
+    public function setLastPasswordChange($last_password_change)
     {
-        if (is_null($smtp_name)) {
-            throw new \InvalidArgumentException('non-nullable smtp_name cannot be null');
+        if (is_null($last_password_change)) {
+            throw new \InvalidArgumentException('non-nullable last_password_change cannot be null');
         }
-        $this->container['smtp_name'] = $smtp_name;
+        $this->container['last_password_change'] = $last_password_change;
+
+        return $this;
+    }
+
+    /**
+     * Gets member_code
+     *
+     * @return string|null
+     */
+    public function getMemberCode()
+    {
+        return $this->container['member_code'];
+    }
+
+    /**
+     * Sets member_code
+     *
+     * @param string|null $member_code member_code
+     *
+     * @return self
+     */
+    public function setMemberCode($member_code)
+    {
+        if (is_null($member_code)) {
+            throw new \InvalidArgumentException('non-nullable member_code cannot be null');
+        }
+        $this->container['member_code'] = $member_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_name
+     *
+     * @return string|null
+     */
+    public function getObjectName()
+    {
+        return $this->container['object_name'];
+    }
+
+    /**
+     * Sets object_name
+     *
+     * @param string|null $object_name object_name
+     *
+     * @return self
+     */
+    public function setObjectName($object_name)
+    {
+        if (is_null($object_name)) {
+            throw new \InvalidArgumentException('non-nullable object_name cannot be null');
+        }
+        $allowedValues = $this->getObjectNameAllowableValues();
+        if (!in_array($object_name, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'object_name', must be one of '%s'",
+                    $object_name,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['object_name'] = $object_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets role
+     *
+     * @return string|null
+     */
+    public function getRole()
+    {
+        return $this->container['role'];
+    }
+
+    /**
+     * Sets role
+     *
+     * @param string|null $role role
+     *
+     * @return self
+     */
+    public function setRole($role)
+    {
+        if (is_null($role)) {
+            throw new \InvalidArgumentException('non-nullable role cannot be null');
+        }
+        $allowedValues = $this->getRoleAllowableValues();
+        if (!in_array($role, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'role', must be one of '%s'",
+                    $role,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['role'] = $role;
+
+        return $this;
+    }
+
+    /**
+     * Gets sev_client
+     *
+     * @return object|null
+     */
+    public function getSevClient()
+    {
+        return $this->container['sev_client'];
+    }
+
+    /**
+     * Sets sev_client
+     *
+     * @param object|null $sev_client sevClient is the unique id every customer has and is used in nearly all operations
+     *
+     * @return self
+     */
+    public function setSevClient($sev_client)
+    {
+        if (is_null($sev_client)) {
+            throw new \InvalidArgumentException('non-nullable sev_client cannot be null');
+        }
+        $this->container['sev_client'] = $sev_client;
+
+        return $this;
+    }
+
+    /**
+     * Gets smtp_host
+     *
+     * @return string|null
+     */
+    public function getSmtpHost()
+    {
+        return $this->container['smtp_host'];
+    }
+
+    /**
+     * Sets smtp_host
+     *
+     * @param string|null $smtp_host smtp_host
+     *
+     * @return self
+     */
+    public function setSmtpHost($smtp_host)
+    {
+        if (is_null($smtp_host)) {
+            throw new \InvalidArgumentException('non-nullable smtp_host cannot be null');
+        }
+        $this->container['smtp_host'] = $smtp_host;
 
         return $this;
     }
@@ -1099,28 +1207,28 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets smtp_user
+     * Gets smtp_name
      *
      * @return string|null
      */
-    public function getSmtpUser()
+    public function getSmtpName()
     {
-        return $this->container['smtp_user'];
+        return $this->container['smtp_name'];
     }
 
     /**
-     * Sets smtp_user
+     * Sets smtp_name
      *
-     * @param string|null $smtp_user smtp_user
+     * @param string|null $smtp_name smtp_name
      *
      * @return self
      */
-    public function setSmtpUser($smtp_user)
+    public function setSmtpName($smtp_name)
     {
-        if (is_null($smtp_user)) {
-            throw new \InvalidArgumentException('non-nullable smtp_user cannot be null');
+        if (is_null($smtp_name)) {
+            throw new \InvalidArgumentException('non-nullable smtp_name cannot be null');
         }
-        $this->container['smtp_user'] = $smtp_user;
+        $this->container['smtp_name'] = $smtp_name;
 
         return $this;
     }
@@ -1180,190 +1288,28 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets smtp_host
+     * Gets smtp_user
      *
      * @return string|null
      */
-    public function getSmtpHost()
+    public function getSmtpUser()
     {
-        return $this->container['smtp_host'];
+        return $this->container['smtp_user'];
     }
 
     /**
-     * Sets smtp_host
+     * Sets smtp_user
      *
-     * @param string|null $smtp_host smtp_host
+     * @param string|null $smtp_user smtp_user
      *
      * @return self
      */
-    public function setSmtpHost($smtp_host)
+    public function setSmtpUser($smtp_user)
     {
-        if (is_null($smtp_host)) {
-            throw new \InvalidArgumentException('non-nullable smtp_host cannot be null');
+        if (is_null($smtp_user)) {
+            throw new \InvalidArgumentException('non-nullable smtp_user cannot be null');
         }
-        $this->container['smtp_host'] = $smtp_host;
-
-        return $this;
-    }
-
-    /**
-     * Gets language_code
-     *
-     * @return string|null
-     */
-    public function getLanguageCode()
-    {
-        return $this->container['language_code'];
-    }
-
-    /**
-     * Sets language_code
-     *
-     * @param string|null $language_code language_code
-     *
-     * @return self
-     */
-    public function setLanguageCode($language_code)
-    {
-        if (is_null($language_code)) {
-            throw new \InvalidArgumentException('non-nullable language_code cannot be null');
-        }
-        $this->container['language_code'] = $language_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets two_factor_auth
-     *
-     * @return bool|null
-     */
-    public function getTwoFactorAuth()
-    {
-        return $this->container['two_factor_auth'];
-    }
-
-    /**
-     * Sets two_factor_auth
-     *
-     * @param bool|null $two_factor_auth two_factor_auth
-     *
-     * @return self
-     */
-    public function setTwoFactorAuth($two_factor_auth)
-    {
-        if (is_null($two_factor_auth)) {
-            throw new \InvalidArgumentException('non-nullable two_factor_auth cannot be null');
-        }
-        $this->container['two_factor_auth'] = $two_factor_auth;
-
-        return $this;
-    }
-
-    /**
-     * Gets force_password_change
-     *
-     * @return bool|null
-     */
-    public function getForcePasswordChange()
-    {
-        return $this->container['force_password_change'];
-    }
-
-    /**
-     * Sets force_password_change
-     *
-     * @param bool|null $force_password_change force_password_change
-     *
-     * @return self
-     */
-    public function setForcePasswordChange($force_password_change)
-    {
-        if (is_null($force_password_change)) {
-            throw new \InvalidArgumentException('non-nullable force_password_change cannot be null');
-        }
-        $this->container['force_password_change'] = $force_password_change;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_owner
-     *
-     * @return bool|null
-     */
-    public function getClientOwner()
-    {
-        return $this->container['client_owner'];
-    }
-
-    /**
-     * Sets client_owner
-     *
-     * @param bool|null $client_owner client_owner
-     *
-     * @return self
-     */
-    public function setClientOwner($client_owner)
-    {
-        if (is_null($client_owner)) {
-            throw new \InvalidArgumentException('non-nullable client_owner cannot be null');
-        }
-        $this->container['client_owner'] = $client_owner;
-
-        return $this;
-    }
-
-    /**
-     * Gets default_receive_mail_copy
-     *
-     * @return bool|null
-     */
-    public function getDefaultReceiveMailCopy()
-    {
-        return $this->container['default_receive_mail_copy'];
-    }
-
-    /**
-     * Sets default_receive_mail_copy
-     *
-     * @param bool|null $default_receive_mail_copy default_receive_mail_copy
-     *
-     * @return self
-     */
-    public function setDefaultReceiveMailCopy($default_receive_mail_copy)
-    {
-        if (is_null($default_receive_mail_copy)) {
-            throw new \InvalidArgumentException('non-nullable default_receive_mail_copy cannot be null');
-        }
-        $this->container['default_receive_mail_copy'] = $default_receive_mail_copy;
-
-        return $this;
-    }
-
-    /**
-     * Gets hide_maps_directions
-     *
-     * @return bool|null
-     */
-    public function getHideMapsDirections()
-    {
-        return $this->container['hide_maps_directions'];
-    }
-
-    /**
-     * Sets hide_maps_directions
-     *
-     * @param bool|null $hide_maps_directions hide_maps_directions
-     *
-     * @return self
-     */
-    public function setHideMapsDirections($hide_maps_directions)
-    {
-        if (is_null($hide_maps_directions)) {
-            throw new \InvalidArgumentException('non-nullable hide_maps_directions cannot be null');
-        }
-        $this->container['hide_maps_directions'] = $hide_maps_directions;
+        $this->container['smtp_user'] = $smtp_user;
 
         return $this;
     }
@@ -1396,82 +1342,136 @@ class ModelSevUserResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets end_date
+     * Gets status
      *
-     * @return \DateTime|null
+     * @return string|null
      */
-    public function getEndDate()
+    public function getStatus()
     {
-        return $this->container['end_date'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets end_date
+     * Sets status
      *
-     * @param \DateTime|null $end_date end_date
+     * @param string|null $status status
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setStatus($status)
     {
-        if (is_null($end_date)) {
-            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['end_date'] = $end_date;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets last_password_change
+     * Gets two_factor_auth
      *
-     * @return \DateTime|null
+     * @return bool|null
      */
-    public function getLastPasswordChange()
+    public function getTwoFactorAuth()
     {
-        return $this->container['last_password_change'];
+        return $this->container['two_factor_auth'];
     }
 
     /**
-     * Sets last_password_change
+     * Sets two_factor_auth
      *
-     * @param \DateTime|null $last_password_change last_password_change
+     * @param bool|null $two_factor_auth two_factor_auth
      *
      * @return self
      */
-    public function setLastPasswordChange($last_password_change)
+    public function setTwoFactorAuth($two_factor_auth)
     {
-        if (is_null($last_password_change)) {
-            throw new \InvalidArgumentException('non-nullable last_password_change cannot be null');
+        if (is_null($two_factor_auth)) {
+            throw new \InvalidArgumentException('non-nullable two_factor_auth cannot be null');
         }
-        $this->container['last_password_change'] = $last_password_change;
+        $this->container['two_factor_auth'] = $two_factor_auth;
 
         return $this;
     }
 
     /**
-     * Gets sev_client
+     * Gets update
      *
-     * @return object|null
+     * @return \DateTime|null
      */
-    public function getSevClient()
+    public function getUpdate()
     {
-        return $this->container['sev_client'];
+        return $this->container['update'];
     }
 
     /**
-     * Sets sev_client
+     * Sets update
      *
-     * @param object|null $sev_client sevClient is the unique id every customer has and is used in nearly all operations
+     * @param \DateTime|null $update update
      *
      * @return self
      */
-    public function setSevClient($sev_client)
+    public function setUpdate($update)
     {
-        if (is_null($sev_client)) {
-            throw new \InvalidArgumentException('non-nullable sev_client cannot be null');
+        if (is_null($update)) {
+            throw new \InvalidArgumentException('non-nullable update cannot be null');
         }
-        $this->container['sev_client'] = $sev_client;
+        $this->container['update'] = $update;
+
+        return $this;
+    }
+
+    /**
+     * Gets username
+     *
+     * @return string|null
+     */
+    public function getUsername()
+    {
+        return $this->container['username'];
+    }
+
+    /**
+     * Sets username
+     *
+     * @param string|null $username username
+     *
+     * @return self
+     */
+    public function setUsername($username)
+    {
+        if (is_null($username)) {
+            throw new \InvalidArgumentException('non-nullable username cannot be null');
+        }
+        $this->container['username'] = $username;
+
+        return $this;
+    }
+
+    /**
+     * Gets welcome_screen_seen
+     *
+     * @return bool|null
+     */
+    public function getWelcomeScreenSeen()
+    {
+        return $this->container['welcome_screen_seen'];
+    }
+
+    /**
+     * Sets welcome_screen_seen
+     *
+     * @param bool|null $welcome_screen_seen welcome_screen_seen
+     *
+     * @return self
+     */
+    public function setWelcomeScreenSeen($welcome_screen_seen)
+    {
+        if (is_null($welcome_screen_seen)) {
+            throw new \InvalidArgumentException('non-nullable welcome_screen_seen cannot be null');
+        }
+        $this->container['welcome_screen_seen'] = $welcome_screen_seen;
 
         return $this;
     }

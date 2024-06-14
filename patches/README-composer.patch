@@ -1,0 +1,13 @@
+diff --git a/README.md b/README.md
+index d0a7301..4e0131b 100644
+--- a/README.md
++++ b/README.md
+@@ -134,7 +134,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
+     }
+   ],
+   "require": {
+-    "j-mastr/sevdesk-php-sdk": "*@dev"
++    "itsmind/sevdesk-php-sdk": "*@dev"
+   }
+ }
+ ```

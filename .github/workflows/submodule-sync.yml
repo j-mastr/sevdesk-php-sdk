@@ -42,13 +42,12 @@ jobs:
         run: |
           git fetch
           git switch ${{env.UPDATE_BRANCH_NAME}} 2>/dev/null || git switch -c ${{env.UPDATE_BRANCH_NAME}}
-          git branch --set-upstream-to=origin/${{ env.UPDATE_BRANCH_NAME }} ${{env.UPDATE_BRANCH_NAME}}
           git rebase "${{ github.ref_name}}" "${{env.UPDATE_BRANCH_NAME}}"
 
       # Update references
       - name: Git Submodule Update
         run: |
-          git pull --recurse-submodules
+          git pull origin "${{ github.ref_name }}" --recurse-submodules
           git submodule update --remote --recursive
 
       - name: Commit update

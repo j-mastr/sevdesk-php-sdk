@@ -1,0 +1,76 @@
+# Inspired by https://stackoverflow.com/a/67059629/9969672
+name: "Submodules Sync"
+
+on:
+  # Allows you to run this workflow manually from the Actions tab or through HTTP API
+  workflow_dispatch:
+    inputs:
+      updateBranchName:
+        description: "Branch to update OpenAPI specs"
+        type: string
+        default: "update-sevdesk-api"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    name: "Submodules Sync"
+    runs-on: ubuntu-latest
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+    env:
+      UPDATE_BRANCH_NAME: ${{ inputs.updateBranchName || vars.UPDATE_BRANCH_NAME || 'update-sevdesk-api' }}
+
+    steps:
+      # Checkout the repository to the GitHub Actions runner
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Prepare git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email 'bot@noreply.github.com'
+
+      - name: Checkout update branch
+        run: |
+          git fetch
+          git switch ${{env.UPDATE_BRANCH_NAME}} 2>/dev/null || git switch -c ${{env.UPDATE_BRANCH_NAME}}
+          git rebase "${{ github.ref_name}}" "${{env.UPDATE_BRANCH_NAME}}"
+
+      # Update references
+      - name: Git Submodule Update
+        run: |
+          git pull --recurse-submodules
+          git submodule update --remote --recursive
+
+      - name: Commit update
+        id: commit_update
+        run: |
+          git commit -am "build: auto updated submodule references"
+        continue-on-error: true
+
+      - name: create pull request
+        if: steps.commit_update.outcome == 'success'
+        id: create_pr
+        run: |
+          git push --set-upstream origin ${{env.UPDATE_BRANCH_NAME}}
+          gh pr create --base ${{ github.ref_name}} --head ${{env.UPDATE_BRANCH_NAME}} --label "update: sevdesk-api" --title "Update sevdesk-api specs" --body 'Merge ${{env.UPDATE_BRANCH_NAME}} into ${{ github.ref_name}}' --fill-verbose
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Auto-merge update
+        if: steps.commit_update.outcome == 'success' && steps.create_pr.outcome == 'success'
+        run: |
+          gh pr merge --auto --squash --subject "feat: update openapi.yaml" "${{ github.ref_name }}"
+        env:
+          GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
+      - name: Comment on failed update
+        if: steps.commit_update.outcome == 'failure'
+        run: |
+          echo "No changes detected in the submodules."

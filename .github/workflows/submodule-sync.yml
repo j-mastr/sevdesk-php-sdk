@@ -64,7 +64,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git push --set-upstream origin ${{env.UPDATE_BRANCH_NAME}}
-          gh pr create --base ${{ github.ref_name}} --head ${{env.UPDATE_BRANCH_NAME}} --label "update: sevdesk-api" --title "Update sevdesk-api specs" --body 'Merge ${{env.UPDATE_BRANCH_NAME}} into ${{ github.ref_name}}' --fill-verbose
+          # Don't fail the build if the PR already exists
+          gh pr create --base ${{ github.ref_name}} --head ${{env.UPDATE_BRANCH_NAME}} --label "update: sevdesk-api" --title "Update sevdesk-api specs" --body 'Merge ${{env.UPDATE_BRANCH_NAME}} into ${{ github.ref_name}}' --fill-verbose || true
       - name: Comment on failed update
         if: steps.commit_update.outcome == 'failure'
         run: |

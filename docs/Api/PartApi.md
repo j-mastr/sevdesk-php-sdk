@@ -19,7 +19,7 @@ createPart($model_part): \Itsmind\Sevdesk\Model\ModelPart
 
 Create a new part
 
-Creates a part in your sevDesk inventory.
+Creates a part in your sevdesk inventory.
 
 ### Example
 
@@ -143,7 +143,7 @@ getParts($part_number, $name, $count_all, $offset, $limit, $embed): \Itsmind\Sev
 
 Retrieve parts
 
-Retrieve all parts in your sevDesk inventory according to the applied filters.
+Retrieve all parts in your sevdesk inventory according to the applied filters.
 
 ### Example
 

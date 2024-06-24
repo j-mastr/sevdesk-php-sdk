@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **order** | [**\Itsmind\Sevdesk\Model\ModelOrderPosOrder**](ModelOrderPosOrder.md) |  | [optional]
 **part** | [**\Itsmind\Sevdesk\Model\ModelCreditNotePosPart**](ModelCreditNotePosPart.md) |  | [optional]
 **quantity** | **float** | Quantity of the article/part | [optional]
-**price** | **float** | Price of the article/part. Is either gross or net, depending on the sevDesk account setting. | [optional]
+**price** | **float** | Price of the article/part. Is either gross or net, depending on the sevdesk account setting. | [optional]
 **price_net** | **float** | Net price of the part | [optional] [readonly]
 **price_tax** | **float** | Tax on the price of the part | [optional]
 **price_gross** | **float** | Gross price of the part | [optional]

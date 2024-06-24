@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **tax_rule** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteResponseTaxRule**](ModelCreditNoteResponseTaxRule.md) |  | [optional]
 **tax_set** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteResponseTaxSet**](ModelCreditNoteResponseTaxSet.md) |  | [optional]
 **tax_text** | **mixed** |  | [optional]
-**tax_type** | **string** | **Use this in sevDesk-Update 1.0 (instead of taxRule).**  Tax type of the creditNote. There are four tax types: 1. default - Umsatzsteuer ausweisen 2. eu - Steuerfreie innergemeinschaftliche Lieferung (Europäische Union) 3. noteu - Steuerschuldnerschaft des Leistungsempfängers (außerhalb EU, z. B. Schweiz) 4. custom - Using custom tax set 5. ss - Not subject to VAT according to §19 1 UStG Tax rates are heavily connected to the tax type used. | [optional]
+**tax_type** | **string** | **Use this in sevdesk-Update 1.0 (instead of taxRule).**  Tax type of the creditNote. There are four tax types: 1. default - Umsatzsteuer ausweisen 2. eu - Steuerfreie innergemeinschaftliche Lieferung (Europäische Union) 3. noteu - Steuerschuldnerschaft des Leistungsempfängers (außerhalb EU, z. B. Schweiz) 4. custom - Using custom tax set 5. ss - Not subject to VAT according to §19 1 UStG Tax rates are heavily connected to the tax type used. | [optional]
 **send_date** | **\DateTime** | The date the creditNote was sent to the customer | [optional]
 **address** | **string** | Complete address of the recipient including name, street, city, zip and country.&lt;br&gt;       Line breaks can be used and will be displayed on the invoice pdf. | [optional]
 **currency** | **string** | Currency used in the creditNote. Needs to be currency code according to ISO-4217 | [optional]

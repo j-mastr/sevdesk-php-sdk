@@ -60,7 +60,7 @@ Name | Type | Description | Notes
 **tax_rule** | [**\Itsmind\Sevdesk\Model\ModelInvoiceUpdateTaxRule**](ModelInvoiceUpdateTaxRule.md) |  | [optional]
 **tax_set** | [**\Itsmind\Sevdesk\Model\ModelInvoiceUpdateTaxSet**](ModelInvoiceUpdateTaxSet.md) |  | [optional]
 **tax_text** | **string** | A common tax text would be &#39;Umsatzsteuer 19%&#39; | [optional]
-**tax_type** | **string** | **Use this in sevDesk-Update 1.0 (instead of taxRule).**  Tax type of the invoice. There are four tax types: 1. default - Umsatzsteuer ausweisen 2. eu - Steuerfreie innergemeinschaftliche Lieferung (Europäische Union) 3. noteu - Steuerschuldnerschaft des Leistungsempfängers (außerhalb EU, z. B. Schweiz) 4. custom - Using custom tax set 5. ss - Kleinunternehmer Tax rates are heavily connected to the tax type used. | [optional]
+**tax_type** | **string** | **Use this in sevdesk-Update 1.0 (instead of taxRule).**  Tax type of the invoice. There are four tax types: 1. default - Umsatzsteuer ausweisen 2. eu - Steuerfreie innergemeinschaftliche Lieferung (Europäische Union) 3. noteu - Steuerschuldnerschaft des Leistungsempfängers (außerhalb EU, z. B. Schweiz) 4. custom - Using custom tax set 5. ss - Kleinunternehmer Tax rates are heavily connected to the tax type used. | [optional]
 **time_to_pay** | **int** | The time the customer has to pay the invoice in days | [optional]
 **update** | **\DateTime** | Date of last invoice update | [optional] [readonly]
 

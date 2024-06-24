@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **tax_rate** | **float** | Is overwritten by invoice position tax rates |
 **tax_rule** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteResponseTaxRule**](ModelCreditNoteResponseTaxRule.md) |  |
 **tax_text** | **string** | A common tax text would be &#39;Umsatzsteuer 19%&#39; |
-**tax_type** | **string** | **Use this in sevDesk-Update 1.0 (instead of taxRule).**  Tax type of the invoice. There are four tax types: 1. default - Umsatzsteuer ausweisen 2. eu - Steuerfreie innergemeinschaftliche Lieferung (Europäische Union) 3. noteu - Steuerschuldnerschaft des Leistungsempfängers (außerhalb EU, z. B. Schweiz) 4. custom - Using custom tax set 5. ss - Not subject to VAT according to §19 1 UStG Tax rates are heavily connected to the tax type used. |
+**tax_type** | **string** | **Use this in sevdesk-Update 1.0 (instead of taxRule).**  Tax type of the invoice. There are four tax types: 1. default - Umsatzsteuer ausweisen 2. eu - Steuerfreie innergemeinschaftliche Lieferung (Europäische Union) 3. noteu - Steuerschuldnerschaft des Leistungsempfängers (außerhalb EU, z. B. Schweiz) 4. custom - Using custom tax set 5. ss - Not subject to VAT according to §19 1 UStG Tax rates are heavily connected to the tax type used. |
 **tax_set** | [**\Itsmind\Sevdesk\Model\ModelInvoiceTaxSet**](ModelInvoiceTaxSet.md) |  | [optional]
 **dunning_level** | **int** | Defines how many reminders have already been sent for the invoice.      Starts with 1 (Payment reminder) and should be incremented by one every time another reminder is sent. | [optional] [readonly]
 **payment_method** | [**\Itsmind\Sevdesk\Model\ModelInvoicePaymentMethod**](ModelInvoicePaymentMethod.md) |  | [optional]

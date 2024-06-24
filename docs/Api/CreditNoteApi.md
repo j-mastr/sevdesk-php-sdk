@@ -155,7 +155,7 @@ createCreditNoteFromVoucher($create_credit_note_from_voucher_request): \Itsmind\
 
 Creates a new creditNote from a voucher
 
-**Not supported with sevDesk-Update 2.0**  Use this endpoint to create a new creditNote from a voucher.
+**Not supported with sevdesk-Update 2.0**  Use this endpoint to create a new creditNote from a voucher.
 
 ### Example
 

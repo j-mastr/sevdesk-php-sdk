@@ -142,7 +142,7 @@ getBalanceAtDate($check_account_id, $date): \Itsmind\Sevdesk\Model\GetBalanceAtD
 
 Get the balance at a given date
 
-Get the balance, calculated as the sum of all transactions sevDesk knows, up to and including the given date. Note that this balance does not have to be the actual bank account balance, e.g. if sevDesk did not import old transactions.
+Get the balance, calculated as the sum of all transactions sevdesk knows, up to and including the given date. Note that this balance does not have to be the actual bank account balance, e.g. if sevdesk did not import old transactions.
 
 ### Example
 

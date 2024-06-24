@@ -81,7 +81,7 @@ deleteAccountingContact($accounting_contact_id): \Itsmind\Sevdesk\Model\DeleteCh
 
 Deletes an accounting contact
 
-Attention, deleting an existing AccountingContact can lead to **booking errors**, especially in the **DATEV export**. Compatibility of sevDesk with DATEV is no longer guaranteed.
+Attention, deleting an existing AccountingContact can lead to **booking errors**, especially in the **DATEV export**. Compatibility of sevdesk with DATEV is no longer guaranteed.
 
 ### Example
 
@@ -277,7 +277,7 @@ updateAccountingContact($accounting_contact_id, $model_accounting_contact_update
 
 Update an existing accounting contact
 
-Attention, updating an existing AccountingContact can lead to **booking errors**, especially in the **DATEV export**. Compatibility of sevDesk with DATEV is no longer guaranteed.
+Attention, updating an existing AccountingContact can lead to **booking errors**, especially in the **DATEV export**. Compatibility of sevdesk with DATEV is no longer guaranteed.
 
 ### Example
 

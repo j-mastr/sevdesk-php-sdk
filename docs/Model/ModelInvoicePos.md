@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **invoice** | [**\Itsmind\Sevdesk\Model\ModelInvoicePosInvoice**](ModelInvoicePosInvoice.md) |  | [optional]
 **part** | [**\Itsmind\Sevdesk\Model\ModelCreditNotePosPart**](ModelCreditNotePosPart.md) |  | [optional]
 **quantity** | **float** | Quantity of the article/part |
-**price** | **float** | Price of the article/part. Is either gross or net, depending on the sevDesk account setting. | [optional]
+**price** | **float** | Price of the article/part. Is either gross or net, depending on the sevdesk account setting. | [optional]
 **name** | **string** | Name of the article/part. | [optional]
 **unity** | [**\Itsmind\Sevdesk\Model\ModelInvoicePosUnity**](ModelInvoicePosUnity.md) |  |
 **sev_client** | [**\Itsmind\Sevdesk\Model\ModelInvoicePosSevClient**](ModelInvoicePosSevClient.md) |  | [optional]

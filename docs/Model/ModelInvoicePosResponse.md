@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **invoice** | [**\Itsmind\Sevdesk\Model\ModelInvoicePosResponseInvoice**](ModelInvoicePosResponseInvoice.md) |  | [optional]
 **part** | [**\Itsmind\Sevdesk\Model\ModelInvoicePosResponsePart**](ModelInvoicePosResponsePart.md) |  | [optional]
 **quantity** | **string** | Quantity of the article/part | [optional] [readonly]
-**price** | **string** | Price of the article/part. Is either gross or net, depending on the sevDesk account setting. | [optional] [readonly]
+**price** | **string** | Price of the article/part. Is either gross or net, depending on the sevdesk account setting. | [optional] [readonly]
 **name** | **string** | Name of the article/part. | [optional] [readonly]
 **unity** | [**\Itsmind\Sevdesk\Model\ModelInvoicePosResponseUnity**](ModelInvoicePosResponseUnity.md) |  | [optional]
 **sev_client** | [**\Itsmind\Sevdesk\Model\ModelInvoicePosResponseSevClient**](ModelInvoicePosResponseSevClient.md) |  | [optional]

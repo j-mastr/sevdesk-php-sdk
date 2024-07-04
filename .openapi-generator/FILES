@@ -45,6 +45,9 @@ docs/Model/BookkeepingSystemVersion200ResponseObjects.md
 docs/Model/CheckAccountTransactionEnshrine200Response.md
 docs/Model/ContactCustomerNumberAvailabilityCheck200Response.md
 docs/Model/CreateCheckAccount201Response.md
+docs/Model/CreateClearingAccount.md
+docs/Model/CreateClearingAccount201Response.md
+docs/Model/CreateClearingAccountResponse.md
 docs/Model/CreateContactFieldSetting200Response.md
 docs/Model/CreateCreditNoteFromInvoice201Response.md
 docs/Model/CreateCreditNoteFromInvoice201ResponseObjects.md
@@ -52,6 +55,10 @@ docs/Model/CreateCreditNoteFromInvoiceRequest.md
 docs/Model/CreateCreditNoteFromInvoiceRequestInvoice.md
 docs/Model/CreateCreditNoteFromVoucherRequest.md
 docs/Model/CreateCreditNoteFromVoucherRequestVoucher.md
+docs/Model/CreateFileImportAccount.md
+docs/Model/CreateFileImportAccount201Response.md
+docs/Model/CreateFileImportAccountResponse.md
+docs/Model/CreateFileImportAccountResponseSevClient.md
 docs/Model/CreateInvoiceReminderRequest.md
 docs/Model/CreateInvoiceReminderRequestInvoice.md
 docs/Model/CreateTagRequest.md
@@ -494,6 +501,9 @@ lib/Model/BookkeepingSystemVersion200ResponseObjects.php
 lib/Model/CheckAccountTransactionEnshrine200Response.php
 lib/Model/ContactCustomerNumberAvailabilityCheck200Response.php
 lib/Model/CreateCheckAccount201Response.php
+lib/Model/CreateClearingAccount.php
+lib/Model/CreateClearingAccount201Response.php
+lib/Model/CreateClearingAccountResponse.php
 lib/Model/CreateContactFieldSetting200Response.php
 lib/Model/CreateCreditNoteFromInvoice201Response.php
 lib/Model/CreateCreditNoteFromInvoice201ResponseObjects.php
@@ -501,6 +511,10 @@ lib/Model/CreateCreditNoteFromInvoiceRequest.php
 lib/Model/CreateCreditNoteFromInvoiceRequestInvoice.php
 lib/Model/CreateCreditNoteFromVoucherRequest.php
 lib/Model/CreateCreditNoteFromVoucherRequestVoucher.php
+lib/Model/CreateFileImportAccount.php
+lib/Model/CreateFileImportAccount201Response.php
+lib/Model/CreateFileImportAccountResponse.php
+lib/Model/CreateFileImportAccountResponseSevClient.php
 lib/Model/CreateInvoiceReminderRequest.php
 lib/Model/CreateInvoiceReminderRequestInvoice.php
 lib/Model/CreateTagRequest.php
@@ -898,3 +912,10 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/CreateClearingAccount201ResponseTest.php
+test/Model/CreateClearingAccountResponseTest.php
+test/Model/CreateClearingAccountTest.php
+test/Model/CreateFileImportAccount201ResponseTest.php
+test/Model/CreateFileImportAccountResponseSevClientTest.php
+test/Model/CreateFileImportAccountResponseTest.php
+test/Model/CreateFileImportAccountTest.php

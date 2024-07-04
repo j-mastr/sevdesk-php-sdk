@@ -5,6 +5,8 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createCheckAccount()**](CheckAccountApi.md#createCheckAccount) | **POST** /CheckAccount | Create a new check account |
+| [**createClearingAccount()**](CheckAccountApi.md#createClearingAccount) | **POST** /CheckAccount/Factory/clearingAccount | Create a new clearing account |
+| [**createFileImportAccount()**](CheckAccountApi.md#createFileImportAccount) | **POST** /CheckAccount/Factory/fileImportAccount | Create a new file import account |
 | [**deleteCheckAccount()**](CheckAccountApi.md#deleteCheckAccount) | **DELETE** /CheckAccount/{checkAccountId} | Deletes a check account |
 | [**getBalanceAtDate()**](CheckAccountApi.md#getBalanceAtDate) | **GET** /CheckAccount/{checkAccountId}/getBalanceAtDate | Get the balance at a given date |
 | [**getCheckAccountById()**](CheckAccountApi.md#getCheckAccountById) | **GET** /CheckAccount/{checkAccountId} | Find check account by ID |
@@ -60,6 +62,130 @@ try {
 ### Return type
 
 [**\Itsmind\Sevdesk\Model\CreateCheckAccount201Response**](../Model/CreateCheckAccount201Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createClearingAccount()`
+
+```php
+createClearingAccount($create_clearing_account): \Itsmind\Sevdesk\Model\CreateClearingAccount201Response
+```
+
+Create a new clearing account
+
+Creates a new clearing account.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\CheckAccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$create_clearing_account = new \Itsmind\Sevdesk\Model\CreateClearingAccount(); // \Itsmind\Sevdesk\Model\CreateClearingAccount | Data to create a clearning account
+
+try {
+    $result = $apiInstance->createClearingAccount($create_clearing_account);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CheckAccountApi->createClearingAccount: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_clearing_account** | [**\Itsmind\Sevdesk\Model\CreateClearingAccount**](../Model/CreateClearingAccount.md)| Data to create a clearning account | [optional] |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\CreateClearingAccount201Response**](../Model/CreateClearingAccount201Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createFileImportAccount()`
+
+```php
+createFileImportAccount($create_file_import_account): \Itsmind\Sevdesk\Model\CreateFileImportAccount201Response
+```
+
+Create a new file import account
+
+Creates a new banking account for file imports (CSV, MT940).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\CheckAccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$create_file_import_account = new \Itsmind\Sevdesk\Model\CreateFileImportAccount(); // \Itsmind\Sevdesk\Model\CreateFileImportAccount | Data to create a file import account
+
+try {
+    $result = $apiInstance->createFileImportAccount($create_file_import_account);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CheckAccountApi->createFileImportAccount: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_file_import_account** | [**\Itsmind\Sevdesk\Model\CreateFileImportAccount**](../Model/CreateFileImportAccount.md)| Data to create a file import account | [optional] |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\CreateFileImportAccount201Response**](../Model/CreateFileImportAccount201Response.md)
 
 ### Authorization
 

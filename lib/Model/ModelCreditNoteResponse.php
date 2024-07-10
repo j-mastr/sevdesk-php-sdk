@@ -448,6 +448,7 @@ class ModelCreditNoteResponse implements ModelInterface, ArrayAccess, \JsonSeria
     public const OBJECT_NAME_CREDIT_NOTE = 'CreditNote';
     public const STATUS__100 = '100';
     public const STATUS__200 = '200';
+    public const STATUS__750 = '750';
     public const STATUS__1000 = '1000';
     public const SEND_TYPE_VPR = 'VPR';
     public const SEND_TYPE_VPDF = 'VPDF';
@@ -476,6 +477,7 @@ class ModelCreditNoteResponse implements ModelInterface, ArrayAccess, \JsonSeria
         return [
             self::STATUS__100,
             self::STATUS__200,
+            self::STATUS__750,
             self::STATUS__1000,
         ];
     }
@@ -1166,7 +1168,7 @@ class ModelCreditNoteResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets tax_rate
      *
-     * @param string|null $tax_rate Is overwritten by creditNote position tax rates
+     * @param string|null $tax_rate This is not used anymore. Use the taxRate of the individual positions instead.
      *
      * @return self
      */

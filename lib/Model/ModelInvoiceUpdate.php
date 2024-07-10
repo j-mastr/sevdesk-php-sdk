@@ -179,7 +179,7 @@ class ModelInvoiceUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
         'sum_tax' => 'float',
         'sum_tax_accounting' => 'float',
         'sum_tax_foreign_currency' => 'float',
-        'tax_rate' => 'float',
+        'tax_rate' => null,
         'tax_rule' => null,
         'tax_set' => null,
         'tax_text' => null,
@@ -246,7 +246,7 @@ class ModelInvoiceUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
         'sum_tax' => true,
         'sum_tax_accounting' => true,
         'sum_tax_foreign_currency' => true,
-        'tax_rate' => true,
+        'tax_rate' => false,
         'tax_rule' => false,
         'tax_set' => true,
         'tax_text' => true,
@@ -2601,21 +2601,14 @@ class ModelInvoiceUpdate implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets tax_rate
      *
-     * @param float|null $tax_rate Is overwritten by invoice position tax rates
+     * @param float|null $tax_rate This is not used anymore. Use the taxRate of the individual positions instead.
      *
      * @return self
      */
     public function setTaxRate($tax_rate)
     {
         if (is_null($tax_rate)) {
-            array_push($this->openAPINullablesSetToNull, 'tax_rate');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tax_rate', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable tax_rate cannot be null');
         }
         $this->container['tax_rate'] = $tax_rate;
 

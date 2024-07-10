@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **delivery_date_until** | **int** | If the delivery date should be a time range, another timestamp can be provided in this attribute       * to define a range from timestamp used in deliveryDate attribute to the timestamp used here. | [optional]
 **status** | **string** | Please have a look in our       &lt;a href&#x3D;&#39;#tag/Invoice/Types-and-status-of-invoices&#39;&gt;Types and status of invoices&lt;/a&gt;       to see what the different status codes mean |
 **small_settlement** | **bool** | Defines if the client uses the small settlement scheme.      If yes, the invoice must not contain any vat | [optional]
-**tax_rate** | **float** | Is overwritten by invoice position tax rates |
+**tax_rate** | **float** | This is not used anymore. Use the taxRate of the individual positions instead. |
 **tax_rule** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteResponseTaxRule**](ModelCreditNoteResponseTaxRule.md) |  |
 **tax_text** | **string** | A common tax text would be &#39;Umsatzsteuer 19%&#39; |
 **tax_type** | **string** | **Use this in sevdesk-Update 1.0 (instead of taxRule).**  Tax type of the invoice. There are four tax types: 1. default - Umsatzsteuer ausweisen 2. eu - Steuerfreie innergemeinschaftliche Lieferung (Europäische Union) 3. noteu - Steuerschuldnerschaft des Leistungsempfängers (außerhalb EU, z. B. Schweiz) 4. custom - Using custom tax set 5. ss - Not subject to VAT according to §19 1 UStG Tax rates are heavily connected to the tax type used. |

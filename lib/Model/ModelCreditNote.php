@@ -1250,7 +1250,7 @@ class ModelCreditNote implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tax_rate
      *
-     * @param float $tax_rate Is overwritten by creditNote position tax rates
+     * @param float $tax_rate This is not used anymore. Use the taxRate of the individual positions instead.
      *
      * @return self
      */

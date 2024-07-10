@@ -56,7 +56,7 @@ Name | Type | Description | Notes
 **sum_tax** | **float** | Tax sum of the invoice | [optional] [readonly]
 **sum_tax_accounting** | **float** | Tax accounting sum of the invoice. Is usually the same as sumTax | [optional] [readonly]
 **sum_tax_foreign_currency** | **float** | Tax sum of the invoice in the foreign currency | [optional] [readonly]
-**tax_rate** | **float** | Is overwritten by invoice position tax rates | [optional] [readonly]
+**tax_rate** | **float** | This is not used anymore. Use the taxRate of the individual positions instead. | [optional] [readonly]
 **tax_rule** | [**\Itsmind\Sevdesk\Model\ModelInvoiceUpdateTaxRule**](ModelInvoiceUpdateTaxRule.md) |  | [optional]
 **tax_set** | [**\Itsmind\Sevdesk\Model\ModelInvoiceUpdateTaxSet**](ModelInvoiceUpdateTaxSet.md) |  | [optional]
 **tax_text** | **string** | A common tax text would be &#39;Umsatzsteuer 19%&#39; | [optional]

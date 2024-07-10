@@ -1286,7 +1286,7 @@ class ModelOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets tax_rate
      *
-     * @param string|null $tax_rate Is overwritten by order position tax rates
+     * @param string|null $tax_rate This is not used anymore. Use the taxRate of the individual positions instead.
      *
      * @return self
      */

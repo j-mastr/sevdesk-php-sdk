@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **version** | **string** | Version of the order.&lt;br&gt;      Can be used if you have multiple drafts for the same order.&lt;br&gt;      Should start with 0 | [optional]
 **small_settlement** | **bool** | Defines if the client uses the small settlement scheme.      If yes, the order must not contain any vat | [optional]
 **contact_person** | [**\Itsmind\Sevdesk\Model\ModelOrderResponseContactPerson**](ModelOrderResponseContactPerson.md) |  | [optional]
-**tax_rate** | **string** | Is overwritten by order position tax rates | [optional]
+**tax_rate** | **string** | This is not used anymore. Use the taxRate of the individual positions instead. | [optional]
 **tax_rule** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteResponseTaxRule**](ModelCreditNoteResponseTaxRule.md) |  | [optional]
 **tax_set** | [**\Itsmind\Sevdesk\Model\ModelOrderResponseTaxSet**](ModelOrderResponseTaxSet.md) |  | [optional]
 **tax_text** | **string** | A common tax text would be &#39;Umsatzsteuer 19%&#39; | [optional]

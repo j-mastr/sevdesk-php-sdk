@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **delivery_date** | **\DateTime** | Timestamp. This can also be a date range if you also use the attribute deliveryDateUntil | [optional]
 **small_settlement** | **bool** | Defines if the client uses the small settlement scheme.      If yes, the creditNote must not contain any vat | [optional]
 **contact_person** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteUpdateContactPerson**](ModelCreditNoteUpdateContactPerson.md) |  | [optional]
-**tax_rate** | **float** | Is overwritten by creditNote position tax rates | [optional]
+**tax_rate** | **float** | This is not used anymore. Use the taxRate of the individual positions instead. | [optional]
 **tax_rule** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteResponseTaxRule**](ModelCreditNoteResponseTaxRule.md) |  | [optional]
 **tax_set** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteTaxSet**](ModelCreditNoteTaxSet.md) |  | [optional]
 **tax_text** | **string** | A common tax text would be &#39;Umsatzsteuer 19%&#39; | [optional]

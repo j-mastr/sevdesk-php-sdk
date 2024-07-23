@@ -454,6 +454,9 @@ class ModelCreditNoteResponse implements ModelInterface, ArrayAccess, \JsonSeria
     public const SEND_TYPE_VPDF = 'VPDF';
     public const SEND_TYPE_VM = 'VM';
     public const SEND_TYPE_VP = 'VP';
+    public const SEND_TYPE_EMPTY = '';
+    public const SEND_TYPE__0 = '0';
+    public const SEND_TYPE_NULL = 'null';
 
     /**
      * Gets allowable values of the enum
@@ -494,6 +497,9 @@ class ModelCreditNoteResponse implements ModelInterface, ArrayAccess, \JsonSeria
             self::SEND_TYPE_VPDF,
             self::SEND_TYPE_VM,
             self::SEND_TYPE_VP,
+            self::SEND_TYPE_EMPTY,
+            self::SEND_TYPE__0,
+            self::SEND_TYPE_NULL,
         ];
     }
 

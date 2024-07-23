@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.2.0](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.1.0...v1.2.0) (2024-07-23)
+
+
+### Features
+
+* update sevdesk-api ([6d0bcd9](https://github.com/j-mastr/sevdesk-php-sdk/commit/6d0bcd9267e4dc5d7021623f2f228f2bb97dd6bc))
+* update sevdesk-api ([2e97e65](https://github.com/j-mastr/sevdesk-php-sdk/commit/2e97e659691dea84e30ce6829176371b4c321123))
+* update sevdesk-api ([84b0766](https://github.com/j-mastr/sevdesk-php-sdk/commit/84b0766eff8a052d3d7f8395bca36da7fb6106ca))
+* update sevdesk-api ([63efdb3](https://github.com/j-mastr/sevdesk-php-sdk/commit/63efdb33965cfb10a339cf36939a3add853c0387))
+* update sevdesk-api ([20631b8](https://github.com/j-mastr/sevdesk-php-sdk/commit/20631b87d147971e9fe57ea6841b977a849e84ac))
+
+
+### Miscellaneous Chores
+
+* manually dispatch release-please ([c2ebab8](https://github.com/j-mastr/sevdesk-php-sdk/commit/c2ebab87fa4c6673a3d3de61029dc05ffcc46fb1))
+
 ## [1.1.0](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.0.3...v1.1.0) (2024-06-11)
 
 

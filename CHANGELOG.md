@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.2.0...v1.3.0) (2024-07-26)
+
+
+### Features
+
+* add FAX as communication way type ([#47](https://github.com/j-mastr/sevdesk-php-sdk/issues/47)) ([#52](https://github.com/j-mastr/sevdesk-php-sdk/issues/52)) ([4598129](https://github.com/j-mastr/sevdesk-php-sdk/commit/4598129c3123207c1b5376e566678675510718bd))
+
+
+### Miscellaneous Chores
+
+* sync upstream release ([690e37a](https://github.com/j-mastr/sevdesk-php-sdk/commit/690e37aa62565858543eada0cccd2beceb0d61d9))
+
 ## [1.2.0](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.1.0...v1.2.0) (2024-07-23)
 
 

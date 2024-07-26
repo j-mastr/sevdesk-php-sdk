@@ -288,6 +288,7 @@ class ModelCommunicationWay implements ModelInterface, ArrayAccess, \JsonSeriali
     public const TYPE_PHONE = 'PHONE';
     public const TYPE_WEB = 'WEB';
     public const TYPE_MOBILE = 'MOBILE';
+    public const TYPE_FAX = 'FAX';
 
     /**
      * Gets allowable values of the enum
@@ -313,6 +314,7 @@ class ModelCommunicationWay implements ModelInterface, ArrayAccess, \JsonSeriali
             self::TYPE_PHONE,
             self::TYPE_WEB,
             self::TYPE_MOBILE,
+            self::TYPE_FAX,
         ];
     }
 

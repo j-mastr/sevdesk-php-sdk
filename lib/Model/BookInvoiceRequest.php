@@ -258,6 +258,7 @@ class BookInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    public const TYPE_FULL_PAYMENT = 'FULL_PAYMENT';
     public const TYPE_N = 'N';
     public const TYPE_CB = 'CB';
     public const TYPE_CF = 'CF';
@@ -273,6 +274,7 @@ class BookInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function getTypeAllowableValues()
     {
         return [
+            self::TYPE_FULL_PAYMENT,
             self::TYPE_N,
             self::TYPE_CB,
             self::TYPE_CF,
@@ -435,7 +437,7 @@ class BookInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets type
      *
-     * @param string $type Define a type for the booking.<br>      The following type abbreviations are available (abbreviation <-> meaning).<br>      <ul>      <li>N <-> Normal booking / partial booking</li>      <li>CB <-> Reduced amount due to discount (skonto)</li>      <li>CF <-> Reduced/Higher amount due to currency fluctuations (deprecated)</li>      <li>O <-> Reduced/Higher amount due to other reasons</li>      <li>OF <-> Higher amount due to reminder charges</li>      <li>MTC <-> Reduced amount due to the monetary traffic costs</li>      </ul>
+     * @param string $type Define a type for the booking.<br>      The following type abbreviations are available (abbreviation <-> meaning).<br>      <ul>  <li>FULL_PAYMENT <-> Normal booking</li><li>N <-> Partial booking (historically used for normal booking)</li>      <li>CB <-> Reduced amount due to discount (skonto)</li>      <li>CF <-> Reduced/Higher amount due to currency fluctuations (deprecated)</li>      <li>O <-> Reduced/Higher amount due to other reasons</li>      <li>OF <-> Higher amount due to reminder charges</li>      <li>MTC <-> Reduced amount due to the monetary traffic costs</li>      </ul>
      *
      * @return self
      */

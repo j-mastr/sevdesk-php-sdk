@@ -22,7 +22,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `createContractNoteFromOrder()`
 
 ```php
-createContractNoteFromOrder($order_id, $order_object_name, $model_create_packing_list_from_order): \Itsmind\Sevdesk\Model\ModelOrderResponse
+createContractNoteFromOrder($order_id, $order_object_name, $model_create_packing_list_from_order): \Itsmind\Sevdesk\Model\UpdateOrder200Response
 ```
 
 Create contract note from order
@@ -70,7 +70,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelOrderResponse**](../Model/ModelOrderResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateOrder200Response**](../Model/UpdateOrder200Response.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ try {
 ## `createOrder()`
 
 ```php
-createOrder($save_order): \Itsmind\Sevdesk\Model\SaveOrderResponse
+createOrder($save_order): \Itsmind\Sevdesk\Model\CreateOrder201Response
 ```
 
 Create a new order
@@ -132,7 +132,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\SaveOrderResponse**](../Model/SaveOrderResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateOrder201Response**](../Model/CreateOrder201Response.md)
 
 ### Authorization
 
@@ -150,7 +150,7 @@ try {
 ## `createPackingListFromOrder()`
 
 ```php
-createPackingListFromOrder($order_id, $order_object_name, $model_create_packing_list_from_order): \Itsmind\Sevdesk\Model\ModelOrderResponse
+createPackingListFromOrder($order_id, $order_object_name, $model_create_packing_list_from_order): \Itsmind\Sevdesk\Model\UpdateOrder200Response
 ```
 
 Create packing list from order
@@ -198,7 +198,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelOrderResponse**](../Model/ModelOrderResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateOrder200Response**](../Model/UpdateOrder200Response.md)
 
 ### Authorization
 
@@ -698,7 +698,7 @@ try {
 ## `orderSendBy()`
 
 ```php
-orderSendBy($order_id, $order_send_by_request): \Itsmind\Sevdesk\Model\ModelOrderResponse
+orderSendBy($order_id, $order_send_by_request): \Itsmind\Sevdesk\Model\UpdateOrder200Response
 ```
 
 Mark order as sent
@@ -744,7 +744,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelOrderResponse**](../Model/ModelOrderResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateOrder200Response**](../Model/UpdateOrder200Response.md)
 
 ### Authorization
 
@@ -826,7 +826,7 @@ try {
 ## `updateOrder()`
 
 ```php
-updateOrder($order_id, $model_order_update): \Itsmind\Sevdesk\Model\ModelOrderResponse
+updateOrder($order_id, $model_order_update): \Itsmind\Sevdesk\Model\UpdateOrder200Response
 ```
 
 Update an existing order
@@ -872,7 +872,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelOrderResponse**](../Model/ModelOrderResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateOrder200Response**](../Model/UpdateOrder200Response.md)
 
 ### Authorization
 

@@ -80,7 +80,7 @@ try {
 ## `createContact()`
 
 ```php
-createContact($model_contact): \Itsmind\Sevdesk\Model\ModelContactResponse
+createContact($model_contact): \Itsmind\Sevdesk\Model\CreateContact201Response
 ```
 
 Create a new contact
@@ -124,7 +124,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelContactResponse**](../Model/ModelContactResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateContact201Response**](../Model/CreateContact201Response.md)
 
 ### Authorization
 
@@ -527,7 +527,7 @@ This endpoint does not need any parameter.
 ## `updateContact()`
 
 ```php
-updateContact($contact_id, $model_contact_update): \Itsmind\Sevdesk\Model\ModelContactResponse
+updateContact($contact_id, $model_contact_update): \Itsmind\Sevdesk\Model\CreateContact201Response
 ```
 
 Update a existing contact
@@ -573,7 +573,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelContactResponse**](../Model/ModelContactResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateContact201Response**](../Model/CreateContact201Response.md)
 
 ### Authorization
 

@@ -457,7 +457,7 @@ try {
 ## `updateCheckAccount()`
 
 ```php
-updateCheckAccount($check_account_id, $model_check_account_update): \Itsmind\Sevdesk\Model\ModelCheckAccountResponse
+updateCheckAccount($check_account_id, $model_check_account_update): \Itsmind\Sevdesk\Model\UpdateCheckAccount200Response
 ```
 
 Update an existing check account
@@ -503,7 +503,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelCheckAccountResponse**](../Model/ModelCheckAccountResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateCheckAccount200Response**](../Model/UpdateCheckAccount200Response.md)
 
 ### Authorization
 

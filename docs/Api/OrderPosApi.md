@@ -207,7 +207,7 @@ try {
 ## `updateOrderPosition()`
 
 ```php
-updateOrderPosition($order_pos_id, $model_order_pos_update): \Itsmind\Sevdesk\Model\ModelOrderPosResponse
+updateOrderPosition($order_pos_id, $model_order_pos_update): \Itsmind\Sevdesk\Model\UpdateOrderPosition200Response
 ```
 
 Update an existing order position
@@ -253,7 +253,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelOrderPosResponse**](../Model/ModelOrderPosResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateOrderPosition200Response**](../Model/UpdateOrderPosition200Response.md)
 
 ### Authorization
 

@@ -15,7 +15,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `createCommunicationWay()`
 
 ```php
-createCommunicationWay($model_communication_way): \Itsmind\Sevdesk\Model\ModelCommunicationWayResponse
+createCommunicationWay($model_communication_way): \Itsmind\Sevdesk\Model\CreateCommunicationWay201Response
 ```
 
 Create a new contact communication way
@@ -59,7 +59,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelCommunicationWayResponse**](../Model/ModelCommunicationWayResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateCommunicationWay201Response**](../Model/CreateCommunicationWay201Response.md)
 
 ### Authorization
 
@@ -343,7 +343,7 @@ try {
 ## `updateCommunicationWay()`
 
 ```php
-updateCommunicationWay($communication_way_id, $model_communication_way_update): \Itsmind\Sevdesk\Model\ModelCommunicationWayResponse
+updateCommunicationWay($communication_way_id, $model_communication_way_update): \Itsmind\Sevdesk\Model\CreateCommunicationWay201Response
 ```
 
 Update a existing communication way
@@ -389,7 +389,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelCommunicationWayResponse**](../Model/ModelCommunicationWayResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateCommunicationWay201Response**](../Model/CreateCommunicationWay201Response.md)
 
 ### Authorization
 

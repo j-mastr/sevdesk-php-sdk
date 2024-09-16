@@ -13,7 +13,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `addTextTemplate()`
 
 ```php
-addTextTemplate($model_text_template): \Itsmind\Sevdesk\Model\ModelTextTemplateResponse
+addTextTemplate($model_text_template): \Itsmind\Sevdesk\Model\AddTextTemplate201Response
 ```
 
 Create a new text template
@@ -57,7 +57,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelTextTemplateResponse**](../Model/ModelTextTemplateResponse.md)
+[**\Itsmind\Sevdesk\Model\AddTextTemplate201Response**](../Model/AddTextTemplate201Response.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ try {
 ## `updateTextTemplate()`
 
 ```php
-updateTextTemplate($id, $model_text_template): \Itsmind\Sevdesk\Model\ModelTextTemplateResponse
+updateTextTemplate($id, $model_text_template): \Itsmind\Sevdesk\Model\AddTextTemplate201Response
 ```
 
 Update an existing text template
@@ -256,7 +256,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelTextTemplateResponse**](../Model/ModelTextTemplateResponse.md)
+[**\Itsmind\Sevdesk\Model\AddTextTemplate201Response**](../Model/AddTextTemplate201Response.md)
 
 ### Authorization
 

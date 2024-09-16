@@ -14,7 +14,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `createContactAddress()`
 
 ```php
-createContactAddress($model_contact_address): \Itsmind\Sevdesk\Model\ModelContactAddressResponse
+createContactAddress($model_contact_address): \Itsmind\Sevdesk\Model\CreateContactAddress201Response
 ```
 
 Create a new contact address
@@ -58,7 +58,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelContactAddressResponse**](../Model/ModelContactAddressResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateContactAddress201Response**](../Model/CreateContactAddress201Response.md)
 
 ### Authorization
 
@@ -268,7 +268,7 @@ try {
 ## `updateContactAddress()`
 
 ```php
-updateContactAddress($contact_address_id, $model_contact_address_update): \Itsmind\Sevdesk\Model\ModelContactAddressResponse
+updateContactAddress($contact_address_id, $model_contact_address_update): \Itsmind\Sevdesk\Model\CreateContactAddress201Response
 ```
 
 update a existing contact address
@@ -314,7 +314,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelContactAddressResponse**](../Model/ModelContactAddressResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateContactAddress201Response**](../Model/CreateContactAddress201Response.md)
 
 ### Authorization
 

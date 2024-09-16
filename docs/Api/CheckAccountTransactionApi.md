@@ -77,7 +77,7 @@ try {
 ## `createTransaction()`
 
 ```php
-createTransaction($model_check_account_transaction): \Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponse
+createTransaction($model_check_account_transaction): \Itsmind\Sevdesk\Model\CreateTransaction201Response
 ```
 
 Create a new transaction
@@ -121,7 +121,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponse**](../Model/ModelCheckAccountTransactionResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateTransaction201Response**](../Model/CreateTransaction201Response.md)
 
 ### Authorization
 
@@ -353,7 +353,7 @@ try {
 ## `updateCheckAccountTransaction()`
 
 ```php
-updateCheckAccountTransaction($check_account_transaction_id, $model_check_account_transaction_update): \Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponse
+updateCheckAccountTransaction($check_account_transaction_id, $model_check_account_transaction_update): \Itsmind\Sevdesk\Model\CreateTransaction201Response
 ```
 
 Update an existing check account transaction
@@ -399,7 +399,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponse**](../Model/ModelCheckAccountTransactionResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateTransaction201Response**](../Model/CreateTransaction201Response.md)
 
 ### Authorization
 

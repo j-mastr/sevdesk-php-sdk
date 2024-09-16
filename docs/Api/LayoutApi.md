@@ -135,7 +135,7 @@ try {
 ## `updateCreditNoteTemplate()`
 
 ```php
-updateCreditNoteTemplate($credit_note_id, $model_change_layout): \Itsmind\Sevdesk\Model\ModelChangeLayoutResponse
+updateCreditNoteTemplate($credit_note_id, $model_change_layout): \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response
 ```
 
 Update an of credit note template
@@ -181,7 +181,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelChangeLayoutResponse**](../Model/ModelChangeLayoutResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response**](../Model/UpdateInvoiceTemplate200Response.md)
 
 ### Authorization
 
@@ -199,7 +199,7 @@ try {
 ## `updateInvoiceTemplate()`
 
 ```php
-updateInvoiceTemplate($invoice_id, $model_change_layout): \Itsmind\Sevdesk\Model\ModelChangeLayoutResponse
+updateInvoiceTemplate($invoice_id, $model_change_layout): \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response
 ```
 
 Update an invoice template
@@ -245,7 +245,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelChangeLayoutResponse**](../Model/ModelChangeLayoutResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response**](../Model/UpdateInvoiceTemplate200Response.md)
 
 ### Authorization
 
@@ -263,7 +263,7 @@ try {
 ## `updateOrderTemplate()`
 
 ```php
-updateOrderTemplate($order_id, $model_change_layout): \Itsmind\Sevdesk\Model\ModelChangeLayoutResponse
+updateOrderTemplate($order_id, $model_change_layout): \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response
 ```
 
 Update an order template
@@ -309,7 +309,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelChangeLayoutResponse**](../Model/ModelChangeLayoutResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response**](../Model/UpdateInvoiceTemplate200Response.md)
 
 ### Authorization
 

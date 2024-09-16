@@ -21,7 +21,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `createContactField()`
 
 ```php
-createContactField($model_contact_custom_field): \Itsmind\Sevdesk\Model\ModelContactCustomFieldResponse
+createContactField($model_contact_custom_field): \Itsmind\Sevdesk\Model\CreateContactField200Response
 ```
 
 Create contact field
@@ -65,7 +65,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelContactCustomFieldResponse**](../Model/ModelContactCustomFieldResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateContactField200Response**](../Model/CreateContactField200Response.md)
 
 ### Authorization
 
@@ -651,7 +651,7 @@ try {
 ## `updateContactFieldSetting()`
 
 ```php
-updateContactFieldSetting($contact_custom_field_setting_id, $model_contact_custom_field_setting_update): \Itsmind\Sevdesk\Model\ModelContactCustomFieldSettingResponse
+updateContactFieldSetting($contact_custom_field_setting_id, $model_contact_custom_field_setting_update): \Itsmind\Sevdesk\Model\UpdateContactFieldSetting200Response
 ```
 
 Update contact field setting
@@ -697,7 +697,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelContactCustomFieldSettingResponse**](../Model/ModelContactCustomFieldSettingResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateContactFieldSetting200Response**](../Model/UpdateContactFieldSetting200Response.md)
 
 ### Authorization
 
@@ -715,7 +715,7 @@ try {
 ## `updateContactfield()`
 
 ```php
-updateContactfield($contact_custom_field_id, $model_contact_custom_field_update): \Itsmind\Sevdesk\Model\ModelContactCustomFieldResponse
+updateContactfield($contact_custom_field_id, $model_contact_custom_field_update): \Itsmind\Sevdesk\Model\CreateContactField200Response
 ```
 
 Update a contact field
@@ -761,7 +761,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelContactCustomFieldResponse**](../Model/ModelContactCustomFieldResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateContactField200Response**](../Model/CreateContactField200Response.md)
 
 ### Authorization
 

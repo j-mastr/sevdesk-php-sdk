@@ -15,7 +15,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `createTag()`
 
 ```php
-createTag($create_tag_request): \Itsmind\Sevdesk\Model\ModelTagCreateResponse
+createTag($create_tag_request): \Itsmind\Sevdesk\Model\CreateTag200Response
 ```
 
 Create a new tag
@@ -59,7 +59,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelTagCreateResponse**](../Model/ModelTagCreateResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateTag200Response**](../Model/CreateTag200Response.md)
 
 ### Authorization
 
@@ -339,7 +339,7 @@ try {
 ## `updateTag()`
 
 ```php
-updateTag($tag_id, $update_tag_request): \Itsmind\Sevdesk\Model\ModelTagResponse
+updateTag($tag_id, $update_tag_request): \Itsmind\Sevdesk\Model\UpdateTag200Response
 ```
 
 Update tag
@@ -385,7 +385,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelTagResponse**](../Model/ModelTagResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateTag200Response**](../Model/UpdateTag200Response.md)
 
 ### Authorization
 

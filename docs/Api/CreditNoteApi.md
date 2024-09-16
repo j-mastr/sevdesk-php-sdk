@@ -212,7 +212,7 @@ try {
 ## `createcreditNote()`
 
 ```php
-createcreditNote($save_credit_note): \Itsmind\Sevdesk\Model\SaveCreditNoteResponse
+createcreditNote($save_credit_note): \Itsmind\Sevdesk\Model\CreatecreditNote201Response
 ```
 
 Create a new creditNote
@@ -256,7 +256,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\SaveCreditNoteResponse**](../Model/SaveCreditNoteResponse.md)
+[**\Itsmind\Sevdesk\Model\CreatecreditNote201Response**](../Model/CreatecreditNote201Response.md)
 
 ### Authorization
 
@@ -526,7 +526,7 @@ try {
 ## `creditNoteSendBy()`
 
 ```php
-creditNoteSendBy($credit_note_id, $credit_note_send_by_request): \Itsmind\Sevdesk\Model\ModelCreditNoteResponse
+creditNoteSendBy($credit_note_id, $credit_note_send_by_request): \Itsmind\Sevdesk\Model\CreditNoteSendBy200Response
 ```
 
 Mark credit note as sent
@@ -572,7 +572,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelCreditNoteResponse**](../Model/ModelCreditNoteResponse.md)
+[**\Itsmind\Sevdesk\Model\CreditNoteSendBy200Response**](../Model/CreditNoteSendBy200Response.md)
 
 ### Authorization
 
@@ -792,7 +792,7 @@ try {
 ## `sendCreditNoteByPrinting()`
 
 ```php
-sendCreditNoteByPrinting($credit_note_id, $send_type): \Itsmind\Sevdesk\Model\ModelCreditNoteSendByWithRender
+sendCreditNoteByPrinting($credit_note_id, $send_type): \Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response
 ```
 
 Send credit note by printing
@@ -838,7 +838,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelCreditNoteSendByWithRender**](../Model/ModelCreditNoteSendByWithRender.md)
+[**\Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response**](../Model/SendCreditNoteByPrinting200Response.md)
 
 ### Authorization
 

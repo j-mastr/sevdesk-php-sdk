@@ -532,7 +532,7 @@ try {
 ## `updateVoucher()`
 
 ```php
-updateVoucher($voucher_id, $model_voucher_update): \Itsmind\Sevdesk\Model\ModelVoucherResponse
+updateVoucher($voucher_id, $model_voucher_update): \Itsmind\Sevdesk\Model\UpdateVoucher200Response
 ```
 
 Update an existing voucher
@@ -578,7 +578,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelVoucherResponse**](../Model/ModelVoucherResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateVoucher200Response**](../Model/UpdateVoucher200Response.md)
 
 ### Authorization
 

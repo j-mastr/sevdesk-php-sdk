@@ -14,7 +14,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `createPart()`
 
 ```php
-createPart($model_part): \Itsmind\Sevdesk\Model\ModelPart
+createPart($model_part): \Itsmind\Sevdesk\Model\CreatePart201Response
 ```
 
 Create a new part
@@ -58,7 +58,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelPart**](../Model/ModelPart.md)
+[**\Itsmind\Sevdesk\Model\CreatePart201Response**](../Model/CreatePart201Response.md)
 
 ### Authorization
 
@@ -272,7 +272,7 @@ try {
 ## `updatePart()`
 
 ```php
-updatePart($part_id, $model_part_update): \Itsmind\Sevdesk\Model\ModelPart
+updatePart($part_id, $model_part_update): \Itsmind\Sevdesk\Model\CreatePart201Response
 ```
 
 Update an existing part
@@ -318,7 +318,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelPart**](../Model/ModelPart.md)
+[**\Itsmind\Sevdesk\Model\CreatePart201Response**](../Model/CreatePart201Response.md)
 
 ### Authorization
 

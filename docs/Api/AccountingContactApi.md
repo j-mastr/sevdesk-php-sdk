@@ -14,7 +14,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 ## `createAccountingContact()`
 
 ```php
-createAccountingContact($model_accounting_contact): \Itsmind\Sevdesk\Model\ModelAccountingContactResponse
+createAccountingContact($model_accounting_contact): \Itsmind\Sevdesk\Model\CreateAccountingContact201Response
 ```
 
 Create a new accounting contact
@@ -58,7 +58,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelAccountingContactResponse**](../Model/ModelAccountingContactResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateAccountingContact201Response**](../Model/CreateAccountingContact201Response.md)
 
 ### Authorization
 
@@ -272,7 +272,7 @@ try {
 ## `updateAccountingContact()`
 
 ```php
-updateAccountingContact($accounting_contact_id, $model_accounting_contact_update): \Itsmind\Sevdesk\Model\ModelAccountingContactResponse
+updateAccountingContact($accounting_contact_id, $model_accounting_contact_update): \Itsmind\Sevdesk\Model\CreateAccountingContact201Response
 ```
 
 Update an existing accounting contact
@@ -318,7 +318,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelAccountingContactResponse**](../Model/ModelAccountingContactResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateAccountingContact201Response**](../Model/CreateAccountingContact201Response.md)
 
 ### Authorization
 

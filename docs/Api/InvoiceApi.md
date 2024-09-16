@@ -93,7 +93,7 @@ try {
 ## `cancelInvoice()`
 
 ```php
-cancelInvoice($invoice_id): \Itsmind\Sevdesk\Model\ModelInvoiceResponse
+cancelInvoice($invoice_id): \Itsmind\Sevdesk\Model\UpdateInvoiceById200Response
 ```
 
 Cancel an invoice / Create cancellation invoice
@@ -137,7 +137,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelInvoiceResponse**](../Model/ModelInvoiceResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateInvoiceById200Response**](../Model/UpdateInvoiceById200Response.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ try {
 ## `createInvoiceByFactory()`
 
 ```php
-createInvoiceByFactory($save_invoice): \Itsmind\Sevdesk\Model\SaveInvoiceResponse
+createInvoiceByFactory($save_invoice): \Itsmind\Sevdesk\Model\CreateInvoiceByFactory201Response
 ```
 
 Create a new invoice
@@ -199,7 +199,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\SaveInvoiceResponse**](../Model/SaveInvoiceResponse.md)
+[**\Itsmind\Sevdesk\Model\CreateInvoiceByFactory201Response**](../Model/CreateInvoiceByFactory201Response.md)
 
 ### Authorization
 
@@ -217,7 +217,7 @@ try {
 ## `createInvoiceFromOrder()`
 
 ```php
-createInvoiceFromOrder($invoice_id, $invoice_object_name, $model_create_invoice_from_order): \Itsmind\Sevdesk\Model\ModelInvoiceResponse
+createInvoiceFromOrder($invoice_id, $invoice_object_name, $model_create_invoice_from_order): \Itsmind\Sevdesk\Model\UpdateInvoiceById200Response
 ```
 
 Create invoice from order
@@ -265,7 +265,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelInvoiceResponse**](../Model/ModelInvoiceResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateInvoiceById200Response**](../Model/UpdateInvoiceById200Response.md)
 
 ### Authorization
 
@@ -1132,7 +1132,7 @@ try {
 ## `invoiceSendBy()`
 
 ```php
-invoiceSendBy($invoice_id, $invoice_send_by_request): \Itsmind\Sevdesk\Model\ModelInvoiceResponse
+invoiceSendBy($invoice_id, $invoice_send_by_request): \Itsmind\Sevdesk\Model\UpdateInvoiceById200Response
 ```
 
 Mark invoice as sent
@@ -1178,7 +1178,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelInvoiceResponse**](../Model/ModelInvoiceResponse.md)
+[**\Itsmind\Sevdesk\Model\UpdateInvoiceById200Response**](../Model/UpdateInvoiceById200Response.md)
 
 ### Authorization
 
@@ -1196,7 +1196,7 @@ try {
 ## `sendInvoiceViaEMail()`
 
 ```php
-sendInvoiceViaEMail($invoice_id, $send_invoice_via_e_mail_request): \Itsmind\Sevdesk\Model\ModelEmail
+sendInvoiceViaEMail($invoice_id, $send_invoice_via_e_mail_request): \Itsmind\Sevdesk\Model\SendInvoiceViaEMail201Response
 ```
 
 Send invoice via email
@@ -1242,7 +1242,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\ModelEmail**](../Model/ModelEmail.md)
+[**\Itsmind\Sevdesk\Model\SendInvoiceViaEMail201Response**](../Model/SendInvoiceViaEMail201Response.md)
 
 ### Authorization
 

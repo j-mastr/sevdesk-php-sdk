@@ -654,6 +654,7 @@ Class | Method | HTTP request | Description
 - [ModelInvoiceResponse](docs/Model/ModelInvoiceResponse.md)
 - [ModelInvoiceResponseContactPerson](docs/Model/ModelInvoiceResponseContactPerson.md)
 - [ModelInvoiceResponseCostCentre](docs/Model/ModelInvoiceResponseCostCentre.md)
+- [ModelInvoiceResponseOrigin](docs/Model/ModelInvoiceResponseOrigin.md)
 - [ModelInvoiceResponseSevClient](docs/Model/ModelInvoiceResponseSevClient.md)
 - [ModelInvoiceResponseTaxSet](docs/Model/ModelInvoiceResponseTaxSet.md)
 - [ModelInvoiceSevClient](docs/Model/ModelInvoiceSevClient.md)

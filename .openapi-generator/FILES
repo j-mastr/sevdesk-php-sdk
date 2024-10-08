@@ -329,6 +329,7 @@ docs/Model/ModelInvoicePosUpdateInvoice.md
 docs/Model/ModelInvoiceResponse.md
 docs/Model/ModelInvoiceResponseContactPerson.md
 docs/Model/ModelInvoiceResponseCostCentre.md
+docs/Model/ModelInvoiceResponseOrigin.md
 docs/Model/ModelInvoiceResponseSevClient.md
 docs/Model/ModelInvoiceResponseTaxSet.md
 docs/Model/ModelInvoiceSevClient.md
@@ -808,6 +809,7 @@ lib/Model/ModelInvoicePosUpdateInvoice.php
 lib/Model/ModelInvoiceResponse.php
 lib/Model/ModelInvoiceResponseContactPerson.php
 lib/Model/ModelInvoiceResponseCostCentre.php
+lib/Model/ModelInvoiceResponseOrigin.php
 lib/Model/ModelInvoiceResponseSevClient.php
 lib/Model/ModelInvoiceResponseTaxSet.php
 lib/Model/ModelInvoiceSevClient.php
@@ -956,21 +958,3 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/AddTextTemplate201ResponseTest.php
-test/Model/CreateAccountingContact201ResponseTest.php
-test/Model/CreateCommunicationWay201ResponseTest.php
-test/Model/CreateContactAddress201ResponseTest.php
-test/Model/CreateContactField200ResponseTest.php
-test/Model/CreateInvoiceByFactory201ResponseTest.php
-test/Model/CreateOrder201ResponseTest.php
-test/Model/CreatePart201ResponseTest.php
-test/Model/CreateTag200ResponseTest.php
-test/Model/CreateTransaction201ResponseTest.php
-test/Model/CreatecreditNote201ResponseTest.php
-test/Model/UpdateCheckAccount200ResponseTest.php
-test/Model/UpdateContactFieldSetting200ResponseTest.php
-test/Model/UpdateInvoiceTemplate200ResponseTest.php
-test/Model/UpdateOrder200ResponseTest.php
-test/Model/UpdateOrderPosition200ResponseTest.php
-test/Model/UpdateTag200ResponseTest.php
-test/Model/UpdateVoucher200ResponseTest.php

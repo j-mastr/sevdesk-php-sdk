@@ -86,7 +86,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'payment_method' => '\Itsmind\Sevdesk\Model\ModelPaymentMethodResponse',
         'cost_centre' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponseCostCentre',
         'send_date' => '\DateTime',
-        'origin' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponse',
+        'origin' => '\Itsmind\Sevdesk\Model\ModelInvoiceResponseOrigin',
         'invoice_type' => 'string',
         'account_intervall' => 'string',
         'account_next_invoice' => 'string',
@@ -230,7 +230,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'payment_method' => false,
         'cost_centre' => false,
         'send_date' => false,
-        'origin' => false,
+        'origin' => true,
         'invoice_type' => false,
         'account_intervall' => false,
         'account_next_invoice' => false,
@@ -1663,7 +1663,7 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets origin
      *
-     * @return \Itsmind\Sevdesk\Model\ModelInvoiceResponse|null
+     * @return \Itsmind\Sevdesk\Model\ModelInvoiceResponseOrigin|null
      */
     public function getOrigin()
     {
@@ -1673,14 +1673,21 @@ class ModelInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets origin
      *
-     * @param \Itsmind\Sevdesk\Model\ModelInvoiceResponse|null $origin origin
+     * @param \Itsmind\Sevdesk\Model\ModelInvoiceResponseOrigin|null $origin origin
      *
      * @return self
      */
     public function setOrigin($origin)
     {
         if (is_null($origin)) {
-            throw new \InvalidArgumentException('non-nullable origin cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'origin');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('origin', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['origin'] = $origin;
 

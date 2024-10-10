@@ -36,7 +36,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\DocumentApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contact = new \Itsmind\Sevdesk\Model\GetDocumentsContactParameter(); // GetDocumentsContactParameter | Retrieve all documents for this contact. The value of contact[objectName] must be 'Contact'.
+$contact = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\GetDocumentsContactParameter(); // \Itsmind\Sevdesk\Model\GetDocumentsContactParameter | Retrieve all documents for this contact. The value of contact[objectName] must be 'Contact'.
 $count_all = True; // bool | If all documents should be counted
 $offset = 56; // int | Which offset to start with
 $limit = 56; // int | The max number of objects to return
@@ -54,7 +54,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contact** | [**GetDocumentsContactParameter**](../Model/.md)| Retrieve all documents for this contact. The value of contact[objectName] must be &#39;Contact&#39;. | [optional] |
+| **contact** | [**\Itsmind\Sevdesk\Model\GetDocumentsContactParameter**](../Model/.md)| Retrieve all documents for this contact. The value of contact[objectName] must be &#39;Contact&#39;. | [optional] |
 | **count_all** | **bool**| If all documents should be counted | [optional] |
 | **offset** | **int**| Which offset to start with | [optional] |
 | **limit** | **int**| The max number of objects to return | [optional] |

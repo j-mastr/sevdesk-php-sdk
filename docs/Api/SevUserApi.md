@@ -101,7 +101,7 @@ $count_all = True; // bool | If all objects should be counted
 $offset = 56; // int | Which offset to start with
 $limit = 56; // int | The max number of objects to return
 $embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
-$ignore_roles = new \Itsmind\Sevdesk\Model\GetSevUsersIgnoreRolesParameter(); // GetSevUsersIgnoreRolesParameter
+$ignore_roles = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\GetSevUsersIgnoreRolesParameter(); // \Itsmind\Sevdesk\Model\GetSevUsersIgnoreRolesParameter
 
 try {
     $result = $apiInstance->getSevUsers($count_all, $offset, $limit, $embed, $ignore_roles);
@@ -119,7 +119,7 @@ try {
 | **offset** | **int**| Which offset to start with | [optional] |
 | **limit** | **int**| The max number of objects to return | [optional] |
 | **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
-| **ignore_roles** | [**GetSevUsersIgnoreRolesParameter**](../Model/.md)|  | [optional] |
+| **ignore_roles** | [**\Itsmind\Sevdesk\Model\GetSevUsersIgnoreRolesParameter**](../Model/.md)|  | [optional] |
 
 ### Return type
 

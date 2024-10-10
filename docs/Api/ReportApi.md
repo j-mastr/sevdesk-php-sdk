@@ -39,7 +39,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ReportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sev_query = new \Itsmind\Sevdesk\Model\ReportContactSevQueryParameter(); // ReportContactSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\ReportContactSevQueryParameter(); // \Itsmind\Sevdesk\Model\ReportContactSevQueryParameter
 $download = True; // bool
 
 try {
@@ -54,7 +54,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sev_query** | [**ReportContactSevQueryParameter**](../Model/.md)|  | |
+| **sev_query** | [**\Itsmind\Sevdesk\Model\ReportContactSevQueryParameter**](../Model/.md)|  | |
 | **download** | **bool**|  | [optional] |
 
 ### Return type
@@ -104,7 +104,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ReportApi(
     $config
 );
 $view = all; // string
-$sev_query = new \Itsmind\Sevdesk\Model\ReportInvoiceSevQueryParameter(); // ReportInvoiceSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\ReportInvoiceSevQueryParameter(); // \Itsmind\Sevdesk\Model\ReportInvoiceSevQueryParameter
 $download = True; // bool
 
 try {
@@ -120,7 +120,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **view** | **string**|  | |
-| **sev_query** | [**ReportInvoiceSevQueryParameter**](../Model/.md)|  | |
+| **sev_query** | [**\Itsmind\Sevdesk\Model\ReportInvoiceSevQueryParameter**](../Model/.md)|  | |
 | **download** | **bool**|  | [optional] |
 
 ### Return type
@@ -170,7 +170,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ReportApi(
     $config
 );
 $view = all; // string
-$sev_query = new \Itsmind\Sevdesk\Model\ReportOrderSevQueryParameter(); // ReportOrderSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\ReportOrderSevQueryParameter(); // \Itsmind\Sevdesk\Model\ReportOrderSevQueryParameter
 $download = True; // bool
 
 try {
@@ -186,7 +186,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **view** | **string**|  | |
-| **sev_query** | [**ReportOrderSevQueryParameter**](../Model/.md)|  | |
+| **sev_query** | [**\Itsmind\Sevdesk\Model\ReportOrderSevQueryParameter**](../Model/.md)|  | |
 | **download** | **bool**|  | [optional] |
 
 ### Return type
@@ -235,7 +235,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ReportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sev_query = new \Itsmind\Sevdesk\Model\ReportVoucherSevQueryParameter(); // ReportVoucherSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\ReportVoucherSevQueryParameter(); // \Itsmind\Sevdesk\Model\ReportVoucherSevQueryParameter
 $download = True; // bool
 
 try {
@@ -250,7 +250,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sev_query** | [**ReportVoucherSevQueryParameter**](../Model/.md)|  | |
+| **sev_query** | [**\Itsmind\Sevdesk\Model\ReportVoucherSevQueryParameter**](../Model/.md)|  | |
 | **download** | **bool**|  | [optional] |
 
 ### Return type

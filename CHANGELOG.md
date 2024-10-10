@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.4.0...v1.4.1) (2024-10-10)
+
+
+### Bug Fixes
+
+* remove invoice_id parameter to createInvoiceFromOrder ([#58](https://github.com/j-mastr/sevdesk-php-sdk/issues/58)) ([#60](https://github.com/j-mastr/sevdesk-php-sdk/issues/60)) ([bcdbcb9](https://github.com/j-mastr/sevdesk-php-sdk/commit/bcdbcb9c90ee5ce86d0cd9a8b04778d86c221cdb))
+
 ## [1.4.0](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.3.0...v1.4.0) (2024-10-08)
 
 

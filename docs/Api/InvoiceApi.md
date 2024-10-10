@@ -217,7 +217,7 @@ try {
 ## `createInvoiceFromOrder()`
 
 ```php
-createInvoiceFromOrder($invoice_id, $invoice_object_name, $model_create_invoice_from_order): \Itsmind\Sevdesk\Model\UpdateInvoiceById200Response
+createInvoiceFromOrder($model_create_invoice_from_order): \Itsmind\Sevdesk\Model\UpdateInvoiceById200Response
 ```
 
 Create invoice from order
@@ -243,12 +243,10 @@ $apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$invoice_id = 56; // int | the id of the invoice
-$invoice_object_name = Invoice; // string | Model name, which is 'Invoice'
 $model_create_invoice_from_order = new \Itsmind\Sevdesk\Model\ModelCreateInvoiceFromOrder(); // \Itsmind\Sevdesk\Model\ModelCreateInvoiceFromOrder | Create invoice
 
 try {
-    $result = $apiInstance->createInvoiceFromOrder($invoice_id, $invoice_object_name, $model_create_invoice_from_order);
+    $result = $apiInstance->createInvoiceFromOrder($model_create_invoice_from_order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoiceApi->createInvoiceFromOrder: ', $e->getMessage(), PHP_EOL;
@@ -259,8 +257,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **invoice_id** | **int**| the id of the invoice | |
-| **invoice_object_name** | **string**| Model name, which is &#39;Invoice&#39; | [default to &#39;Invoice&#39;] |
 | **model_create_invoice_from_order** | [**\Itsmind\Sevdesk\Model\ModelCreateInvoiceFromOrder**](../Model/ModelCreateInvoiceFromOrder.md)| Create invoice | [optional] |
 
 ### Return type
@@ -580,8 +576,8 @@ $offset = 56; // int | Which offset to start with
 $limit = 56; // int | The max number of invoices
 $partially_paid = True; // bool | Limit to partially paid invoices
 $canceled = True; // bool | Limit to canceled invoices
-$contact = new \Itsmind\Sevdesk\Model\GetInvoicesContactParameter(); // GetInvoicesContactParameter | Retrieve all invoices with this contact. The value of contact[objectName] must be 'Contact'.
-$payment_method = new \Itsmind\Sevdesk\Model\GetInvoicesPaymentMethodParameter(); // GetInvoicesPaymentMethodParameter | Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be 'PaymentMethod'.
+$contact = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\GetInvoicesContactParameter(); // \Itsmind\Sevdesk\Model\GetInvoicesContactParameter | Retrieve all invoices with this contact. The value of contact[objectName] must be 'Contact'.
+$payment_method = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\GetInvoicesPaymentMethodParameter(); // \Itsmind\Sevdesk\Model\GetInvoicesPaymentMethodParameter | Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be 'PaymentMethod'.
 $embed = array('embed_example'); // string[]
 
 try {
@@ -606,8 +602,8 @@ try {
 | **limit** | **int**| The max number of invoices | [optional] |
 | **partially_paid** | **bool**| Limit to partially paid invoices | [optional] |
 | **canceled** | **bool**| Limit to canceled invoices | [optional] |
-| **contact** | [**GetInvoicesContactParameter**](../Model/.md)| Retrieve all invoices with this contact. The value of contact[objectName] must be &#39;Contact&#39;. | [optional] |
-| **payment_method** | [**GetInvoicesPaymentMethodParameter**](../Model/.md)| Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be &#39;PaymentMethod&#39;. | [optional] |
+| **contact** | [**\Itsmind\Sevdesk\Model\GetInvoicesContactParameter**](../Model/.md)| Retrieve all invoices with this contact. The value of contact[objectName] must be &#39;Contact&#39;. | [optional] |
+| **payment_method** | [**\Itsmind\Sevdesk\Model\GetInvoicesPaymentMethodParameter**](../Model/.md)| Retrieve all invoices with this paymentMethod. The value of paymentMethod[objectName] must be &#39;PaymentMethod&#39;. | [optional] |
 | **embed** | [**string[]**](../Model/string.md)|  | [optional] |
 
 ### Return type
@@ -780,7 +776,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$invoice = new \Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebitInvoiceParameter(); // GetOpenInvoiceReminderDebitInvoiceParameter | Retrieve the open reminder debit for this invoice. The value of invoice[objectName] must be 'Invoice'.
+$invoice = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebitInvoiceParameter(); // \Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebitInvoiceParameter | Retrieve the open reminder debit for this invoice. The value of invoice[objectName] must be 'Invoice'.
 
 try {
     $result = $apiInstance->getOpenInvoiceReminderDebit($invoice);
@@ -794,7 +790,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **invoice** | [**GetOpenInvoiceReminderDebitInvoiceParameter**](../Model/.md)| Retrieve the open reminder debit for this invoice. The value of invoice[objectName] must be &#39;Invoice&#39;. | |
+| **invoice** | [**\Itsmind\Sevdesk\Model\GetOpenInvoiceReminderDebitInvoiceParameter**](../Model/.md)| Retrieve the open reminder debit for this invoice. The value of invoice[objectName] must be &#39;Invoice&#39;. | |
 
 ### Return type
 

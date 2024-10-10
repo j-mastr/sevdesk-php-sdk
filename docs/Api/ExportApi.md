@@ -44,7 +44,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sev_query = new \Itsmind\Sevdesk\Model\ExportContactSevQueryParameter(); // ExportContactSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\ExportContactSevQueryParameter(); // \Itsmind\Sevdesk\Model\ExportContactSevQueryParameter
 $download = True; // bool
 
 try {
@@ -59,7 +59,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sev_query** | [**ExportContactSevQueryParameter**](../Model/.md)|  | |
+| **sev_query** | [**\Itsmind\Sevdesk\Model\ExportContactSevQueryParameter**](../Model/.md)|  | |
 | **download** | **bool**|  | [optional] |
 
 ### Return type
@@ -108,7 +108,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sev_query = new \Itsmind\Sevdesk\Model\ExportCreditNoteSevQueryParameter(); // ExportCreditNoteSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\ExportCreditNoteSevQueryParameter(); // \Itsmind\Sevdesk\Model\ExportCreditNoteSevQueryParameter
 $download = True; // bool
 
 try {
@@ -123,7 +123,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sev_query** | [**ExportCreditNoteSevQueryParameter**](../Model/.md)|  | |
+| **sev_query** | [**\Itsmind\Sevdesk\Model\ExportCreditNoteSevQueryParameter**](../Model/.md)|  | |
 | **download** | **bool**|  | [optional] |
 
 ### Return type
@@ -246,7 +246,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sev_query = new \Itsmind\Sevdesk\Model\ExportInvoiceSevQueryParameter(); // ExportInvoiceSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\ExportInvoiceSevQueryParameter(); // \Itsmind\Sevdesk\Model\ExportInvoiceSevQueryParameter
 $download = True; // bool
 
 try {
@@ -261,7 +261,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sev_query** | [**ExportInvoiceSevQueryParameter**](../Model/.md)|  | |
+| **sev_query** | [**\Itsmind\Sevdesk\Model\ExportInvoiceSevQueryParameter**](../Model/.md)|  | |
 | **download** | **bool**|  | [optional] |
 
 ### Return type
@@ -310,7 +310,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sev_query = new \Itsmind\Sevdesk\Model\ExportInvoiceSevQueryParameter(); // ExportInvoiceSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\ExportInvoiceSevQueryParameter(); // \Itsmind\Sevdesk\Model\ExportInvoiceSevQueryParameter
 $download = True; // bool
 
 try {
@@ -325,7 +325,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sev_query** | [**ExportInvoiceSevQueryParameter**](../Model/.md)|  | |
+| **sev_query** | [**\Itsmind\Sevdesk\Model\ExportInvoiceSevQueryParameter**](../Model/.md)|  | |
 | **download** | **bool**|  | [optional] |
 
 ### Return type
@@ -374,7 +374,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sev_query = new \Itsmind\Sevdesk\Model\ExportTransactionsSevQueryParameter(); // ExportTransactionsSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\ExportTransactionsSevQueryParameter(); // \Itsmind\Sevdesk\Model\ExportTransactionsSevQueryParameter
 $download = True; // bool
 
 try {
@@ -389,7 +389,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sev_query** | [**ExportTransactionsSevQueryParameter**](../Model/.md)|  | |
+| **sev_query** | [**\Itsmind\Sevdesk\Model\ExportTransactionsSevQueryParameter**](../Model/.md)|  | |
 | **download** | **bool**|  | [optional] |
 
 ### Return type
@@ -438,7 +438,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sev_query = new \Itsmind\Sevdesk\Model\ExportVoucherSevQueryParameter(); // ExportVoucherSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\ExportVoucherSevQueryParameter(); // \Itsmind\Sevdesk\Model\ExportVoucherSevQueryParameter
 $download = True; // bool
 
 try {
@@ -453,7 +453,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sev_query** | [**ExportVoucherSevQueryParameter**](../Model/.md)|  | |
+| **sev_query** | [**\Itsmind\Sevdesk\Model\ExportVoucherSevQueryParameter**](../Model/.md)|  | |
 | **download** | **bool**|  | [optional] |
 
 ### Return type
@@ -502,7 +502,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\ExportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sev_query = new \Itsmind\Sevdesk\Model\ExportVoucherZipSevQueryParameter(); // ExportVoucherZipSevQueryParameter
+$sev_query = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\ExportVoucherZipSevQueryParameter(); // \Itsmind\Sevdesk\Model\ExportVoucherZipSevQueryParameter
 $download = True; // bool
 
 try {
@@ -517,7 +517,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sev_query** | [**ExportVoucherZipSevQueryParameter**](../Model/.md)|  | |
+| **sev_query** | [**\Itsmind\Sevdesk\Model\ExportVoucherZipSevQueryParameter**](../Model/.md)|  | |
 | **download** | **bool**|  | [optional] |
 
 ### Return type

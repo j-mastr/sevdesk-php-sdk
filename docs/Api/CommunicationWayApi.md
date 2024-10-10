@@ -297,7 +297,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\CommunicationWayApi(
 );
 $type = 'type_example'; // string | Type of the communication ways you want to get.
 $main = 'main_example'; // string | Define if you only want the main communication way.
-$contact = new \Itsmind\Sevdesk\Model\GetCommunicationWaysContactParameter(); // GetCommunicationWaysContactParameter | Retrieve all communication ways with this contact. The value of contact[objectName] must be 'Contact'.
+$contact = new \Itsmind\Sevdesk\Model\\Itsmind\Sevdesk\Model\GetCommunicationWaysContactParameter(); // \Itsmind\Sevdesk\Model\GetCommunicationWaysContactParameter | Retrieve all communication ways with this contact. The value of contact[objectName] must be 'Contact'.
 $count_all = True; // bool | If all objects should be counted
 $offset = 56; // int | Which offset to start with
 $limit = 56; // int | The max number of objects to return
@@ -317,7 +317,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **type** | **string**| Type of the communication ways you want to get. | [optional] |
 | **main** | **string**| Define if you only want the main communication way. | [optional] |
-| **contact** | [**GetCommunicationWaysContactParameter**](../Model/.md)| Retrieve all communication ways with this contact. The value of contact[objectName] must be &#39;Contact&#39;. | [optional] |
+| **contact** | [**\Itsmind\Sevdesk\Model\GetCommunicationWaysContactParameter**](../Model/.md)| Retrieve all communication ways with this contact. The value of contact[objectName] must be &#39;Contact&#39;. | [optional] |
 | **count_all** | **bool**| If all objects should be counted | [optional] |
 | **offset** | **int**| Which offset to start with | [optional] |
 | **limit** | **int**| The max number of objects to return | [optional] |

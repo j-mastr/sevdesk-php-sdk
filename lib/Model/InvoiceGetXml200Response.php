@@ -1,6 +1,6 @@
 <?php
 /**
- * SendInvoiceViaEMailRequest
+ * InvoiceGetXml200Response
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Itsmind\Sevdesk\ObjectSerializer;
 
 /**
- * SendInvoiceViaEMailRequest Class Doc Comment
+ * InvoiceGetXml200Response Class Doc Comment
  *
  * @category Class
  * @package  Itsmind\Sevdesk
@@ -40,7 +40,7 @@ use \Itsmind\Sevdesk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class InvoiceGetXml200Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'sendInvoiceViaEMail_request';
+    protected static $openAPIModelName = 'invoiceGetXml_200_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'to_email' => 'string',
-        'subject' => 'string',
-        'text' => 'string',
-        'copy' => 'bool',
-        'additional_attachments' => 'string',
-        'cc_email' => 'string',
-        'bcc_email' => 'string',
-        'send_xml' => 'bool'
+        'object' => 'string'
     ];
 
     /**
@@ -75,14 +68,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'to_email' => null,
-        'subject' => null,
-        'text' => null,
-        'copy' => null,
-        'additional_attachments' => null,
-        'cc_email' => null,
-        'bcc_email' => null,
-        'send_xml' => null
+        'object' => null
     ];
 
     /**
@@ -91,14 +77,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'to_email' => false,
-        'subject' => false,
-        'text' => false,
-        'copy' => false,
-        'additional_attachments' => false,
-        'cc_email' => false,
-        'bcc_email' => false,
-        'send_xml' => false
+        'object' => false
     ];
 
     /**
@@ -187,14 +166,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'to_email' => 'toEmail',
-        'subject' => 'subject',
-        'text' => 'text',
-        'copy' => 'copy',
-        'additional_attachments' => 'additionalAttachments',
-        'cc_email' => 'ccEmail',
-        'bcc_email' => 'bccEmail',
-        'send_xml' => 'sendXml'
+        'object' => 'object'
     ];
 
     /**
@@ -203,14 +175,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'to_email' => 'setToEmail',
-        'subject' => 'setSubject',
-        'text' => 'setText',
-        'copy' => 'setCopy',
-        'additional_attachments' => 'setAdditionalAttachments',
-        'cc_email' => 'setCcEmail',
-        'bcc_email' => 'setBccEmail',
-        'send_xml' => 'setSendXml'
+        'object' => 'setObject'
     ];
 
     /**
@@ -219,14 +184,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'to_email' => 'getToEmail',
-        'subject' => 'getSubject',
-        'text' => 'getText',
-        'copy' => 'getCopy',
-        'additional_attachments' => 'getAdditionalAttachments',
-        'cc_email' => 'getCcEmail',
-        'bcc_email' => 'getBccEmail',
-        'send_xml' => 'getSendXml'
+        'object' => 'getObject'
     ];
 
     /**
@@ -286,14 +244,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('to_email', $data ?? [], null);
-        $this->setIfExists('subject', $data ?? [], null);
-        $this->setIfExists('text', $data ?? [], null);
-        $this->setIfExists('copy', $data ?? [], null);
-        $this->setIfExists('additional_attachments', $data ?? [], null);
-        $this->setIfExists('cc_email', $data ?? [], null);
-        $this->setIfExists('bcc_email', $data ?? [], null);
-        $this->setIfExists('send_xml', $data ?? [], null);
+        $this->setIfExists('object', $data ?? [], null);
     }
 
     /**
@@ -323,15 +274,6 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['to_email'] === null) {
-            $invalidProperties[] = "'to_email' can't be null";
-        }
-        if ($this->container['subject'] === null) {
-            $invalidProperties[] = "'subject' can't be null";
-        }
-        if ($this->container['text'] === null) {
-            $invalidProperties[] = "'text' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -348,217 +290,28 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets to_email
-     *
-     * @return string
-     */
-    public function getToEmail()
-    {
-        return $this->container['to_email'];
-    }
-
-    /**
-     * Sets to_email
-     *
-     * @param string $to_email The recipient of the email.
-     *
-     * @return self
-     */
-    public function setToEmail($to_email)
-    {
-        if (is_null($to_email)) {
-            throw new \InvalidArgumentException('non-nullable to_email cannot be null');
-        }
-        $this->container['to_email'] = $to_email;
-
-        return $this;
-    }
-
-    /**
-     * Gets subject
-     *
-     * @return string
-     */
-    public function getSubject()
-    {
-        return $this->container['subject'];
-    }
-
-    /**
-     * Sets subject
-     *
-     * @param string $subject The subject of the email.
-     *
-     * @return self
-     */
-    public function setSubject($subject)
-    {
-        if (is_null($subject)) {
-            throw new \InvalidArgumentException('non-nullable subject cannot be null');
-        }
-        $this->container['subject'] = $subject;
-
-        return $this;
-    }
-
-    /**
-     * Gets text
-     *
-     * @return string
-     */
-    public function getText()
-    {
-        return $this->container['text'];
-    }
-
-    /**
-     * Sets text
-     *
-     * @param string $text The text of the email. Can contain html.
-     *
-     * @return self
-     */
-    public function setText($text)
-    {
-        if (is_null($text)) {
-            throw new \InvalidArgumentException('non-nullable text cannot be null');
-        }
-        $this->container['text'] = $text;
-
-        return $this;
-    }
-
-    /**
-     * Gets copy
-     *
-     * @return bool|null
-     */
-    public function getCopy()
-    {
-        return $this->container['copy'];
-    }
-
-    /**
-     * Sets copy
-     *
-     * @param bool|null $copy Should a copy of this email be sent to you?
-     *
-     * @return self
-     */
-    public function setCopy($copy)
-    {
-        if (is_null($copy)) {
-            throw new \InvalidArgumentException('non-nullable copy cannot be null');
-        }
-        $this->container['copy'] = $copy;
-
-        return $this;
-    }
-
-    /**
-     * Gets additional_attachments
+     * Gets object
      *
      * @return string|null
      */
-    public function getAdditionalAttachments()
+    public function getObject()
     {
-        return $this->container['additional_attachments'];
+        return $this->container['object'];
     }
 
     /**
-     * Sets additional_attachments
+     * Sets object
      *
-     * @param string|null $additional_attachments Additional attachments to the mail. String of IDs of existing documents in your       *                      sevdesk account separated by ','
+     * @param string|null $object object
      *
      * @return self
      */
-    public function setAdditionalAttachments($additional_attachments)
+    public function setObject($object)
     {
-        if (is_null($additional_attachments)) {
-            throw new \InvalidArgumentException('non-nullable additional_attachments cannot be null');
+        if (is_null($object)) {
+            throw new \InvalidArgumentException('non-nullable object cannot be null');
         }
-        $this->container['additional_attachments'] = $additional_attachments;
-
-        return $this;
-    }
-
-    /**
-     * Gets cc_email
-     *
-     * @return string|null
-     */
-    public function getCcEmail()
-    {
-        return $this->container['cc_email'];
-    }
-
-    /**
-     * Sets cc_email
-     *
-     * @param string|null $cc_email String of mail addresses to be put as cc separated by ','
-     *
-     * @return self
-     */
-    public function setCcEmail($cc_email)
-    {
-        if (is_null($cc_email)) {
-            throw new \InvalidArgumentException('non-nullable cc_email cannot be null');
-        }
-        $this->container['cc_email'] = $cc_email;
-
-        return $this;
-    }
-
-    /**
-     * Gets bcc_email
-     *
-     * @return string|null
-     */
-    public function getBccEmail()
-    {
-        return $this->container['bcc_email'];
-    }
-
-    /**
-     * Sets bcc_email
-     *
-     * @param string|null $bcc_email String of mail addresses to be put as bcc separated by ','
-     *
-     * @return self
-     */
-    public function setBccEmail($bcc_email)
-    {
-        if (is_null($bcc_email)) {
-            throw new \InvalidArgumentException('non-nullable bcc_email cannot be null');
-        }
-        $this->container['bcc_email'] = $bcc_email;
-
-        return $this;
-    }
-
-    /**
-     * Gets send_xml
-     *
-     * @return bool|null
-     */
-    public function getSendXml()
-    {
-        return $this->container['send_xml'];
-    }
-
-    /**
-     * Sets send_xml
-     *
-     * @param bool|null $send_xml If true, the XML of the e-invoice is attached to the email instead of the PDF
-     *
-     * @return self
-     */
-    public function setSendXml($send_xml)
-    {
-        if (is_null($send_xml)) {
-            throw new \InvalidArgumentException('non-nullable send_xml cannot be null');
-        }
-        $this->container['send_xml'] = $send_xml;
+        $this->container['object'] = $object;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * SendInvoiceViaEMailRequest
+ * SendorderViaEMailRequest
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Itsmind\Sevdesk\ObjectSerializer;
 
 /**
- * SendInvoiceViaEMailRequest Class Doc Comment
+ * SendorderViaEMailRequest Class Doc Comment
  *
  * @category Class
  * @package  Itsmind\Sevdesk
@@ -40,7 +40,7 @@ use \Itsmind\Sevdesk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class SendorderViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'sendInvoiceViaEMail_request';
+    protected static $openAPIModelName = 'sendorderViaEMail_request';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -63,8 +63,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
         'copy' => 'bool',
         'additional_attachments' => 'string',
         'cc_email' => 'string',
-        'bcc_email' => 'string',
-        'send_xml' => 'bool'
+        'bcc_email' => 'string'
     ];
 
     /**
@@ -81,8 +80,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
         'copy' => null,
         'additional_attachments' => null,
         'cc_email' => null,
-        'bcc_email' => null,
-        'send_xml' => null
+        'bcc_email' => null
     ];
 
     /**
@@ -97,8 +95,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
         'copy' => false,
         'additional_attachments' => false,
         'cc_email' => false,
-        'bcc_email' => false,
-        'send_xml' => false
+        'bcc_email' => false
     ];
 
     /**
@@ -193,8 +190,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
         'copy' => 'copy',
         'additional_attachments' => 'additionalAttachments',
         'cc_email' => 'ccEmail',
-        'bcc_email' => 'bccEmail',
-        'send_xml' => 'sendXml'
+        'bcc_email' => 'bccEmail'
     ];
 
     /**
@@ -209,8 +205,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
         'copy' => 'setCopy',
         'additional_attachments' => 'setAdditionalAttachments',
         'cc_email' => 'setCcEmail',
-        'bcc_email' => 'setBccEmail',
-        'send_xml' => 'setSendXml'
+        'bcc_email' => 'setBccEmail'
     ];
 
     /**
@@ -225,8 +220,7 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
         'copy' => 'getCopy',
         'additional_attachments' => 'getAdditionalAttachments',
         'cc_email' => 'getCcEmail',
-        'bcc_email' => 'getBccEmail',
-        'send_xml' => 'getSendXml'
+        'bcc_email' => 'getBccEmail'
     ];
 
     /**
@@ -293,7 +287,6 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('additional_attachments', $data ?? [], null);
         $this->setIfExists('cc_email', $data ?? [], null);
         $this->setIfExists('bcc_email', $data ?? [], null);
-        $this->setIfExists('send_xml', $data ?? [], null);
     }
 
     /**
@@ -532,33 +525,6 @@ class SendInvoiceViaEMailRequest implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable bcc_email cannot be null');
         }
         $this->container['bcc_email'] = $bcc_email;
-
-        return $this;
-    }
-
-    /**
-     * Gets send_xml
-     *
-     * @return bool|null
-     */
-    public function getSendXml()
-    {
-        return $this->container['send_xml'];
-    }
-
-    /**
-     * Sets send_xml
-     *
-     * @param bool|null $send_xml If true, the XML of the e-invoice is attached to the email instead of the PDF
-     *
-     * @return self
-     */
-    public function setSendXml($send_xml)
-    {
-        if (is_null($send_xml)) {
-            throw new \InvalidArgumentException('non-nullable send_xml cannot be null');
-        }
-        $this->container['send_xml'] = $send_xml;
 
         return $this;
     }

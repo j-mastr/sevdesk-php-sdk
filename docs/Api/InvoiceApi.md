@@ -18,6 +18,7 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 | [**getOpenInvoiceReminderDebit()**](InvoiceApi.md#getOpenInvoiceReminderDebit) | **GET** /Invoice/Factory/getOpenInvoiceReminderDebit | Get the oben reminder debit for an invoice |
 | [**invoiceEnshrine()**](InvoiceApi.md#invoiceEnshrine) | **PUT** /Invoice/{invoiceId}/enshrine | Enshrine |
 | [**invoiceGetPdf()**](InvoiceApi.md#invoiceGetPdf) | **GET** /Invoice/{invoiceId}/getPdf | Retrieve pdf document of an invoice |
+| [**invoiceGetXml()**](InvoiceApi.md#invoiceGetXml) | **GET** /Invoice/{invoiceId}/getXml | Retrieve XML of an e-invoice |
 | [**invoiceRender()**](InvoiceApi.md#invoiceRender) | **POST** /Invoice/{invoiceId}/render | Render the pdf document of an invoice |
 | [**invoiceResetToDraft()**](InvoiceApi.md#invoiceResetToDraft) | **PUT** /Invoice/{invoiceId}/resetToDraft | Reset status to draft |
 | [**invoiceResetToOpen()**](InvoiceApi.md#invoiceResetToOpen) | **PUT** /Invoice/{invoiceId}/resetToOpen | Reset status to open |
@@ -923,6 +924,68 @@ try {
 ### Return type
 
 [**\Itsmind\Sevdesk\Model\InvoiceGetPdf200Response**](../Model/InvoiceGetPdf200Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `invoiceGetXml()`
+
+```php
+invoiceGetXml($invoice_id): \Itsmind\Sevdesk\Model\InvoiceGetXml200Response
+```
+
+Retrieve XML of an e-invoice
+
+Retrieves the XML of an e-invoice
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$invoice_id = 56; // int | ID of invoice from which you want the XML
+
+try {
+    $result = $apiInstance->invoiceGetXml($invoice_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoiceApi->invoiceGetXml: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invoice_id** | **int**| ID of invoice from which you want the XML | |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\InvoiceGetXml200Response**](../Model/InvoiceGetXml200Response.md)
 
 ### Authorization
 

@@ -4053,16 +4053,16 @@ class OrderApi
      * Send order via email
      *
      * @param  int $order_id ID of order to be sent via email (required)
-     * @param  \Itsmind\Sevdesk\Model\SendInvoiceViaEMailRequest $send_invoice_via_e_mail_request Mail data (optional)
+     * @param  \Itsmind\Sevdesk\Model\SendorderViaEMailRequest $sendorder_via_e_mail_request Mail data (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendorderViaEMail'] to see the possible values for this operation
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Itsmind\Sevdesk\Model\SendorderViaEMail201Response
      */
-    public function sendorderViaEMail($order_id, $send_invoice_via_e_mail_request = null, string $contentType = self::contentTypes['sendorderViaEMail'][0])
+    public function sendorderViaEMail($order_id, $sendorder_via_e_mail_request = null, string $contentType = self::contentTypes['sendorderViaEMail'][0])
     {
-        list($response) = $this->sendorderViaEMailWithHttpInfo($order_id, $send_invoice_via_e_mail_request, $contentType);
+        list($response) = $this->sendorderViaEMailWithHttpInfo($order_id, $sendorder_via_e_mail_request, $contentType);
         return $response;
     }
 
@@ -4072,16 +4072,16 @@ class OrderApi
      * Send order via email
      *
      * @param  int $order_id ID of order to be sent via email (required)
-     * @param  \Itsmind\Sevdesk\Model\SendInvoiceViaEMailRequest $send_invoice_via_e_mail_request Mail data (optional)
+     * @param  \Itsmind\Sevdesk\Model\SendorderViaEMailRequest $sendorder_via_e_mail_request Mail data (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendorderViaEMail'] to see the possible values for this operation
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Itsmind\Sevdesk\Model\SendorderViaEMail201Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendorderViaEMailWithHttpInfo($order_id, $send_invoice_via_e_mail_request = null, string $contentType = self::contentTypes['sendorderViaEMail'][0])
+    public function sendorderViaEMailWithHttpInfo($order_id, $sendorder_via_e_mail_request = null, string $contentType = self::contentTypes['sendorderViaEMail'][0])
     {
-        $request = $this->sendorderViaEMailRequest($order_id, $send_invoice_via_e_mail_request, $contentType);
+        $request = $this->sendorderViaEMailRequest($order_id, $sendorder_via_e_mail_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4198,15 +4198,15 @@ class OrderApi
      * Send order via email
      *
      * @param  int $order_id ID of order to be sent via email (required)
-     * @param  \Itsmind\Sevdesk\Model\SendInvoiceViaEMailRequest $send_invoice_via_e_mail_request Mail data (optional)
+     * @param  \Itsmind\Sevdesk\Model\SendorderViaEMailRequest $sendorder_via_e_mail_request Mail data (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendorderViaEMail'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendorderViaEMailAsync($order_id, $send_invoice_via_e_mail_request = null, string $contentType = self::contentTypes['sendorderViaEMail'][0])
+    public function sendorderViaEMailAsync($order_id, $sendorder_via_e_mail_request = null, string $contentType = self::contentTypes['sendorderViaEMail'][0])
     {
-        return $this->sendorderViaEMailAsyncWithHttpInfo($order_id, $send_invoice_via_e_mail_request, $contentType)
+        return $this->sendorderViaEMailAsyncWithHttpInfo($order_id, $sendorder_via_e_mail_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4220,16 +4220,16 @@ class OrderApi
      * Send order via email
      *
      * @param  int $order_id ID of order to be sent via email (required)
-     * @param  \Itsmind\Sevdesk\Model\SendInvoiceViaEMailRequest $send_invoice_via_e_mail_request Mail data (optional)
+     * @param  \Itsmind\Sevdesk\Model\SendorderViaEMailRequest $sendorder_via_e_mail_request Mail data (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendorderViaEMail'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendorderViaEMailAsyncWithHttpInfo($order_id, $send_invoice_via_e_mail_request = null, string $contentType = self::contentTypes['sendorderViaEMail'][0])
+    public function sendorderViaEMailAsyncWithHttpInfo($order_id, $sendorder_via_e_mail_request = null, string $contentType = self::contentTypes['sendorderViaEMail'][0])
     {
         $returnType = '\Itsmind\Sevdesk\Model\SendorderViaEMail201Response';
-        $request = $this->sendorderViaEMailRequest($order_id, $send_invoice_via_e_mail_request, $contentType);
+        $request = $this->sendorderViaEMailRequest($order_id, $sendorder_via_e_mail_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4271,13 +4271,13 @@ class OrderApi
      * Create request for operation 'sendorderViaEMail'
      *
      * @param  int $order_id ID of order to be sent via email (required)
-     * @param  \Itsmind\Sevdesk\Model\SendInvoiceViaEMailRequest $send_invoice_via_e_mail_request Mail data (optional)
+     * @param  \Itsmind\Sevdesk\Model\SendorderViaEMailRequest $sendorder_via_e_mail_request Mail data (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendorderViaEMail'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendorderViaEMailRequest($order_id, $send_invoice_via_e_mail_request = null, string $contentType = self::contentTypes['sendorderViaEMail'][0])
+    public function sendorderViaEMailRequest($order_id, $sendorder_via_e_mail_request = null, string $contentType = self::contentTypes['sendorderViaEMail'][0])
     {
 
         // verify the required parameter 'order_id' is set
@@ -4315,12 +4315,12 @@ class OrderApi
         );
 
         // for model (json/xml)
-        if (isset($send_invoice_via_e_mail_request)) {
+        if (isset($sendorder_via_e_mail_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($send_invoice_via_e_mail_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sendorder_via_e_mail_request));
             } else {
-                $httpBody = $send_invoice_via_e_mail_request;
+                $httpBody = $sendorder_via_e_mail_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

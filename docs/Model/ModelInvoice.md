@@ -55,6 +55,7 @@ Name | Type | Description | Notes
 **send_type** | **string** | Type which was used to send the invoice. | [optional]
 **origin** | [**\Itsmind\Sevdesk\Model\ModelInvoiceOrigin**](ModelInvoiceOrigin.md) |  | [optional]
 **customer_internal_note** | **string** | Internal note of the customer. Contains data entered into field &#39;Referenz/Bestellnummer&#39; | [optional]
+**property_is_e_invoice** | **bool** | If true, the invoice will be created as e-invoice. This is only possible if the account has system version 2.0  To create a valid e-invoice some extra data are required - sevClient     - addressStreet     - addressZip     - addressCity     - bankIban     - bankBic     - contactEmail     - contactPhone     - taxNumber     - vatNumber - contact     - buyerReference     - email - invoice     - paymentMethod     - addressStreet     - addressZip     - addressCity     - addressCountry     - contact | [optional]
 **map_all** | **bool** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

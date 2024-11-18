@@ -109,6 +109,7 @@ class ModelInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
         'send_type' => 'string',
         'origin' => '\Itsmind\Sevdesk\Model\ModelInvoiceOrigin',
         'customer_internal_note' => 'string',
+        'property_is_e_invoice' => 'bool',
         'map_all' => 'bool'
     ];
 
@@ -171,6 +172,7 @@ class ModelInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
         'send_type' => null,
         'origin' => null,
         'customer_internal_note' => null,
+        'property_is_e_invoice' => null,
         'map_all' => null
     ];
 
@@ -231,6 +233,7 @@ class ModelInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
         'send_type' => true,
         'origin' => true,
         'customer_internal_note' => true,
+        'property_is_e_invoice' => true,
         'map_all' => false
     ];
 
@@ -371,6 +374,7 @@ class ModelInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
         'send_type' => 'sendType',
         'origin' => 'origin',
         'customer_internal_note' => 'customerInternalNote',
+        'property_is_e_invoice' => 'propertyIsEInvoice',
         'map_all' => 'mapAll'
     ];
 
@@ -431,6 +435,7 @@ class ModelInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
         'send_type' => 'setSendType',
         'origin' => 'setOrigin',
         'customer_internal_note' => 'setCustomerInternalNote',
+        'property_is_e_invoice' => 'setPropertyIsEInvoice',
         'map_all' => 'setMapAll'
     ];
 
@@ -491,6 +496,7 @@ class ModelInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
         'send_type' => 'getSendType',
         'origin' => 'getOrigin',
         'customer_internal_note' => 'getCustomerInternalNote',
+        'property_is_e_invoice' => 'getPropertyIsEInvoice',
         'map_all' => 'getMapAll'
     ];
 
@@ -699,6 +705,7 @@ class ModelInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('send_type', $data ?? [], null);
         $this->setIfExists('origin', $data ?? [], null);
         $this->setIfExists('customer_internal_note', $data ?? [], null);
+        $this->setIfExists('property_is_e_invoice', $data ?? [], null);
         $this->setIfExists('map_all', $data ?? [], null);
     }
 
@@ -2391,6 +2398,40 @@ class ModelInvoice implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['customer_internal_note'] = $customer_internal_note;
+
+        return $this;
+    }
+
+    /**
+     * Gets property_is_e_invoice
+     *
+     * @return bool|null
+     */
+    public function getPropertyIsEInvoice()
+    {
+        return $this->container['property_is_e_invoice'];
+    }
+
+    /**
+     * Sets property_is_e_invoice
+     *
+     * @param bool|null $property_is_e_invoice If true, the invoice will be created as e-invoice. This is only possible if the account has system version 2.0  To create a valid e-invoice some extra data are required - sevClient     - addressStreet     - addressZip     - addressCity     - bankIban     - bankBic     - contactEmail     - contactPhone     - taxNumber     - vatNumber - contact     - buyerReference     - email - invoice     - paymentMethod     - addressStreet     - addressZip     - addressCity     - addressCountry     - contact
+     *
+     * @return self
+     */
+    public function setPropertyIsEInvoice($property_is_e_invoice)
+    {
+        if (is_null($property_is_e_invoice)) {
+            array_push($this->openAPINullablesSetToNull, 'property_is_e_invoice');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('property_is_e_invoice', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['property_is_e_invoice'] = $property_is_e_invoice;
 
         return $this;
     }

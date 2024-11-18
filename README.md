@@ -282,6 +282,7 @@ Class | Method | HTTP request | Description
 *InvoiceApi* | [**getOpenInvoiceReminderDebit**](docs/Api/InvoiceApi.md#getopeninvoicereminderdebit) | **GET** /Invoice/Factory/getOpenInvoiceReminderDebit | Get the oben reminder debit for an invoice
 *InvoiceApi* | [**invoiceEnshrine**](docs/Api/InvoiceApi.md#invoiceenshrine) | **PUT** /Invoice/{invoiceId}/enshrine | Enshrine
 *InvoiceApi* | [**invoiceGetPdf**](docs/Api/InvoiceApi.md#invoicegetpdf) | **GET** /Invoice/{invoiceId}/getPdf | Retrieve pdf document of an invoice
+*InvoiceApi* | [**invoiceGetXml**](docs/Api/InvoiceApi.md#invoicegetxml) | **GET** /Invoice/{invoiceId}/getXml | Retrieve XML of an e-invoice
 *InvoiceApi* | [**invoiceRender**](docs/Api/InvoiceApi.md#invoicerender) | **POST** /Invoice/{invoiceId}/render | Render the pdf document of an invoice
 *InvoiceApi* | [**invoiceResetToDraft**](docs/Api/InvoiceApi.md#invoiceresettodraft) | **PUT** /Invoice/{invoiceId}/resetToDraft | Reset status to draft
 *InvoiceApi* | [**invoiceResetToOpen**](docs/Api/InvoiceApi.md#invoiceresettoopen) | **PUT** /Invoice/{invoiceId}/resetToOpen | Reset status to open
@@ -496,6 +497,7 @@ Class | Method | HTTP request | Description
 - [GetcreditNoteById200Response](docs/Model/GetcreditNoteById200Response.md)
 - [GetcreditNotePositions200Response](docs/Model/GetcreditNotePositions200Response.md)
 - [InvoiceGetPdf200Response](docs/Model/InvoiceGetPdf200Response.md)
+- [InvoiceGetXml200Response](docs/Model/InvoiceGetXml200Response.md)
 - [InvoiceRender201Response](docs/Model/InvoiceRender201Response.md)
 - [InvoiceRender201ResponseParametersInner](docs/Model/InvoiceRender201ResponseParametersInner.md)
 - [InvoiceRender201ResponseParametersInnerValuesInner](docs/Model/InvoiceRender201ResponseParametersInnerValuesInner.md)
@@ -782,6 +784,7 @@ Class | Method | HTTP request | Description
 - [SendInvoiceViaEMail201Response](docs/Model/SendInvoiceViaEMail201Response.md)
 - [SendInvoiceViaEMailRequest](docs/Model/SendInvoiceViaEMailRequest.md)
 - [SendorderViaEMail201Response](docs/Model/SendorderViaEMail201Response.md)
+- [SendorderViaEMailRequest](docs/Model/SendorderViaEMailRequest.md)
 - [UpdateCheckAccount200Response](docs/Model/UpdateCheckAccount200Response.md)
 - [UpdateContactFieldSetting200Response](docs/Model/UpdateContactFieldSetting200Response.md)
 - [UpdateExportConfigRequest](docs/Model/UpdateExportConfigRequest.md)

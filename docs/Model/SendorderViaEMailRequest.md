@@ -1,4 +1,4 @@
-# # SendInvoiceViaEMailRequest
+# # SendorderViaEMailRequest
 
 ## Properties
 
@@ -11,6 +11,5 @@ Name | Type | Description | Notes
 **additional_attachments** | **string** | Additional attachments to the mail. String of IDs of existing documents in your       *                      sevdesk account separated by &#39;,&#39; | [optional]
 **cc_email** | **string** | String of mail addresses to be put as cc separated by &#39;,&#39; | [optional]
 **bcc_email** | **string** | String of mail addresses to be put as bcc separated by &#39;,&#39; | [optional]
-**send_xml** | **bool** | If true, the XML of the e-invoice is attached to the email instead of the PDF | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

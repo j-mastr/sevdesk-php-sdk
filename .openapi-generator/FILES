@@ -171,6 +171,7 @@ docs/Model/GetVouchers200Response.md
 docs/Model/GetcreditNoteById200Response.md
 docs/Model/GetcreditNotePositions200Response.md
 docs/Model/InvoiceGetPdf200Response.md
+docs/Model/InvoiceGetXml200Response.md
 docs/Model/InvoiceRender201Response.md
 docs/Model/InvoiceRender201ResponseParametersInner.md
 docs/Model/InvoiceRender201ResponseParametersInnerValuesInner.md
@@ -457,6 +458,7 @@ docs/Model/SendCreditNoteViaEMailRequest.md
 docs/Model/SendInvoiceViaEMail201Response.md
 docs/Model/SendInvoiceViaEMailRequest.md
 docs/Model/SendorderViaEMail201Response.md
+docs/Model/SendorderViaEMailRequest.md
 docs/Model/UpdateCheckAccount200Response.md
 docs/Model/UpdateContactFieldSetting200Response.md
 docs/Model/UpdateExportConfigRequest.md
@@ -650,6 +652,7 @@ lib/Model/GetVouchers200Response.php
 lib/Model/GetcreditNoteById200Response.php
 lib/Model/GetcreditNotePositions200Response.php
 lib/Model/InvoiceGetPdf200Response.php
+lib/Model/InvoiceGetXml200Response.php
 lib/Model/InvoiceRender201Response.php
 lib/Model/InvoiceRender201ResponseParametersInner.php
 lib/Model/InvoiceRender201ResponseParametersInnerValuesInner.php
@@ -937,6 +940,7 @@ lib/Model/SendCreditNoteViaEMailRequest.php
 lib/Model/SendInvoiceViaEMail201Response.php
 lib/Model/SendInvoiceViaEMailRequest.php
 lib/Model/SendorderViaEMail201Response.php
+lib/Model/SendorderViaEMailRequest.php
 lib/Model/UpdateCheckAccount200Response.php
 lib/Model/UpdateContactFieldSetting200Response.php
 lib/Model/UpdateExportConfigRequest.php
@@ -958,3 +962,5 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/InvoiceGetXml200ResponseTest.php
+test/Model/SendorderViaEMailRequestTest.php

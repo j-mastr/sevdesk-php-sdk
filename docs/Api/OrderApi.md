@@ -762,7 +762,7 @@ try {
 ## `sendorderViaEMail()`
 
 ```php
-sendorderViaEMail($order_id, $send_invoice_via_e_mail_request): \Itsmind\Sevdesk\Model\SendorderViaEMail201Response
+sendorderViaEMail($order_id, $sendorder_via_e_mail_request): \Itsmind\Sevdesk\Model\SendorderViaEMail201Response
 ```
 
 Send order via email
@@ -789,10 +789,10 @@ $apiInstance = new Itsmind\Sevdesk\Api\OrderApi(
     $config
 );
 $order_id = 56; // int | ID of order to be sent via email
-$send_invoice_via_e_mail_request = new \Itsmind\Sevdesk\Model\SendInvoiceViaEMailRequest(); // \Itsmind\Sevdesk\Model\SendInvoiceViaEMailRequest | Mail data
+$sendorder_via_e_mail_request = new \Itsmind\Sevdesk\Model\SendorderViaEMailRequest(); // \Itsmind\Sevdesk\Model\SendorderViaEMailRequest | Mail data
 
 try {
-    $result = $apiInstance->sendorderViaEMail($order_id, $send_invoice_via_e_mail_request);
+    $result = $apiInstance->sendorderViaEMail($order_id, $sendorder_via_e_mail_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->sendorderViaEMail: ', $e->getMessage(), PHP_EOL;
@@ -804,7 +804,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **order_id** | **int**| ID of order to be sent via email | |
-| **send_invoice_via_e_mail_request** | [**\Itsmind\Sevdesk\Model\SendInvoiceViaEMailRequest**](../Model/SendInvoiceViaEMailRequest.md)| Mail data | [optional] |
+| **sendorder_via_e_mail_request** | [**\Itsmind\Sevdesk\Model\SendorderViaEMailRequest**](../Model/SendorderViaEMailRequest.md)| Mail data | [optional] |
 
 ### Return type
 

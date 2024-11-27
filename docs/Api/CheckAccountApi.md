@@ -290,7 +290,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\CheckAccountApi(
     $config
 );
 $check_account_id = 56; // int | ID of check account
-$date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only consider transactions up to this date at 23:59:59
+$date = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Only consider transactions up to this date at 23:59:59
 
 try {
     $result = $apiInstance->getBalanceAtDate($check_account_id, $date);

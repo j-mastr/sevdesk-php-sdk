@@ -249,6 +249,7 @@ docs/Model/ModelContactCustomFieldSettingResponse.md
 docs/Model/ModelContactCustomFieldSettingResponseSevClient.md
 docs/Model/ModelContactCustomFieldSettingUpdate.md
 docs/Model/ModelContactCustomFieldUpdate.md
+docs/Model/ModelContactCustomFieldUpdateContactCustomFieldSetting.md
 docs/Model/ModelContactParent.md
 docs/Model/ModelContactParentAnyOf.md
 docs/Model/ModelContactResponse.md
@@ -730,6 +731,7 @@ lib/Model/ModelContactCustomFieldSettingResponse.php
 lib/Model/ModelContactCustomFieldSettingResponseSevClient.php
 lib/Model/ModelContactCustomFieldSettingUpdate.php
 lib/Model/ModelContactCustomFieldUpdate.php
+lib/Model/ModelContactCustomFieldUpdateContactCustomFieldSetting.php
 lib/Model/ModelContactParent.php
 lib/Model/ModelContactParentAnyOf.php
 lib/Model/ModelContactResponse.php
@@ -962,5 +964,4 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/InvoiceGetXml200ResponseTest.php
-test/Model/SendorderViaEMailRequestTest.php
+test/Model/ModelContactCustomFieldUpdateContactCustomFieldSettingTest.php

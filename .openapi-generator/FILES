@@ -968,5 +968,3 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/ModelInvoiceTaxRuleTest.php
-test/Model/ModelOrderResponseTaxRuleTest.php

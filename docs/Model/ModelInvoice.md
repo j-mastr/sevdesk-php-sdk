@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **status** | **string** | Please have a look in our       &lt;a href&#x3D;&#39;#tag/Invoice/Types-and-status-of-invoices&#39;&gt;Types and status of invoices&lt;/a&gt;       to see what the different status codes mean |
 **small_settlement** | **bool** | Defines if the client uses the small settlement scheme.      If yes, the invoice must not contain any vat | [optional]
 **tax_rate** | **float** | This is not used anymore. Use the taxRate of the individual positions instead. |
-**tax_rule** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteResponseTaxRule**](ModelCreditNoteResponseTaxRule.md) |  |
+**tax_rule** | [**\Itsmind\Sevdesk\Model\ModelInvoiceTaxRule**](ModelInvoiceTaxRule.md) |  |
 **tax_text** | **string** | A common tax text would be &#39;Umsatzsteuer 19%&#39; |
 **tax_type** | **string** | **Use this in sevdesk-Update 1.0 (instead of taxRule).**  Tax type of the invoice. There are four tax types: 1. default - Umsatzsteuer ausweisen 2. eu - Steuerfreie innergemeinschaftliche Lieferung (Europäische Union) 3. noteu - Steuerschuldnerschaft des Leistungsempfängers (außerhalb EU, z. B. Schweiz) 4. custom - Using custom tax set 5. ss - Not subject to VAT according to §19 1 UStG Tax rates are heavily connected to the tax type used. |
 **tax_set** | [**\Itsmind\Sevdesk\Model\ModelInvoiceTaxSet**](ModelInvoiceTaxSet.md) |  | [optional]
@@ -55,7 +55,7 @@ Name | Type | Description | Notes
 **send_type** | **string** | Type which was used to send the invoice. | [optional]
 **origin** | [**\Itsmind\Sevdesk\Model\ModelInvoiceOrigin**](ModelInvoiceOrigin.md) |  | [optional]
 **customer_internal_note** | **string** | Internal note of the customer. Contains data entered into field &#39;Referenz/Bestellnummer&#39; | [optional]
-**property_is_e_invoice** | **bool** | If true, the invoice will be created as e-invoice. This is only possible if the account has system version 2.0  To create a valid e-invoice some extra data are required - sevClient     - addressStreet     - addressZip     - addressCity     - bankIban     - bankBic     - contactEmail     - contactPhone     - taxNumber     - vatNumber - contact     - buyerReference     - email - invoice     - paymentMethod     - addressStreet     - addressZip     - addressCity     - addressCountry     - contact | [optional]
+**property_is_e_invoice** | **bool** | If true, the invoice will be created as e-invoice.  To create a valid e-invoice some extra data are required - sevClient     - addressStreet     - addressZip     - addressCity     - bankIban     - bankBic     - contactEmail     - contactPhone     - taxNumber     - vatNumber - contact     - buyerReference     - email - invoice     - paymentMethod     - addressStreet     - addressZip     - addressCity     - addressCountry     - contact | [optional]
 **map_all** | **bool** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

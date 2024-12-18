@@ -335,6 +335,7 @@ docs/Model/ModelInvoiceResponseOrigin.md
 docs/Model/ModelInvoiceResponseSevClient.md
 docs/Model/ModelInvoiceResponseTaxSet.md
 docs/Model/ModelInvoiceSevClient.md
+docs/Model/ModelInvoiceTaxRule.md
 docs/Model/ModelInvoiceTaxSet.md
 docs/Model/ModelInvoiceUpdate.md
 docs/Model/ModelInvoiceUpdateContact.md
@@ -364,6 +365,7 @@ docs/Model/ModelOrderResponseContactPerson.md
 docs/Model/ModelOrderResponseCreateUser.md
 docs/Model/ModelOrderResponseOrigin.md
 docs/Model/ModelOrderResponseSevClient.md
+docs/Model/ModelOrderResponseTaxRule.md
 docs/Model/ModelOrderResponseTaxSet.md
 docs/Model/ModelOrderTaxSet.md
 docs/Model/ModelOrderUpdate.md
@@ -818,6 +820,7 @@ lib/Model/ModelInvoiceResponseOrigin.php
 lib/Model/ModelInvoiceResponseSevClient.php
 lib/Model/ModelInvoiceResponseTaxSet.php
 lib/Model/ModelInvoiceSevClient.php
+lib/Model/ModelInvoiceTaxRule.php
 lib/Model/ModelInvoiceTaxSet.php
 lib/Model/ModelInvoiceUpdate.php
 lib/Model/ModelInvoiceUpdateContact.php
@@ -847,6 +850,7 @@ lib/Model/ModelOrderResponseContactPerson.php
 lib/Model/ModelOrderResponseCreateUser.php
 lib/Model/ModelOrderResponseOrigin.php
 lib/Model/ModelOrderResponseSevClient.php
+lib/Model/ModelOrderResponseTaxRule.php
 lib/Model/ModelOrderResponseTaxSet.php
 lib/Model/ModelOrderTaxSet.php
 lib/Model/ModelOrderUpdate.php
@@ -964,4 +968,5 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/ModelContactCustomFieldUpdateContactCustomFieldSettingTest.php
+test/Model/ModelInvoiceTaxRuleTest.php
+test/Model/ModelOrderResponseTaxRuleTest.php

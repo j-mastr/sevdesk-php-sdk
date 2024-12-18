@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **small_settlement** | **bool** | Defines if the client uses the small settlement scheme.      If yes, the order must not contain any vat | [optional]
 **contact_person** | [**\Itsmind\Sevdesk\Model\ModelOrderResponseContactPerson**](ModelOrderResponseContactPerson.md) |  | [optional]
 **tax_rate** | **string** | This is not used anymore. Use the taxRate of the individual positions instead. | [optional]
-**tax_rule** | [**\Itsmind\Sevdesk\Model\ModelCreditNoteResponseTaxRule**](ModelCreditNoteResponseTaxRule.md) |  | [optional]
+**tax_rule** | [**\Itsmind\Sevdesk\Model\ModelOrderResponseTaxRule**](ModelOrderResponseTaxRule.md) |  | [optional]
 **tax_set** | [**\Itsmind\Sevdesk\Model\ModelOrderResponseTaxSet**](ModelOrderResponseTaxSet.md) |  | [optional]
 **tax_text** | **string** | A common tax text would be &#39;Umsatzsteuer 19%&#39; | [optional]
 **tax_type** | **string** | **Use this in sevdesk-Update 1.0 (instead of taxRule).**  Tax type of the order. There are four tax types: 1. default - Umsatzsteuer ausweisen 2. eu - Steuerfreie innergemeinschaftliche Lieferung (Europäische Union) 3. noteu - Steuerschuldnerschaft des Leistungsempfängers (außerhalb EU, z. B. Schweiz) 4. custom - Using custom tax set 5. ss - Not subject to VAT according to §19 1 UStG Tax rates are heavily connected to the tax type used. | [optional]

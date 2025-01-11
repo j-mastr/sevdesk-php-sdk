@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.5.0...v1.5.1) (2025-01-11)
+
+
+### Bug Fixes
+
+* add missing objects property for PDF retrievals ([#66](https://github.com/j-mastr/sevdesk-php-sdk/issues/66)) ([#71](https://github.com/j-mastr/sevdesk-php-sdk/issues/71)) ([c3875bc](https://github.com/j-mastr/sevdesk-php-sdk/commit/c3875bcba5f4ecc53ba8909fe8e8b14f7cf1486e))
+
 ## [1.5.0](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.4.1...v1.5.0) (2024-12-18)
 
 

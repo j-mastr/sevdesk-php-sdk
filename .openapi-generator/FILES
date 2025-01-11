@@ -76,6 +76,7 @@ docs/Model/CreateTagRequestObject.md
 docs/Model/CreateTransaction201Response.md
 docs/Model/CreatecreditNote201Response.md
 docs/Model/CreditNoteGetPdf200Response.md
+docs/Model/CreditNoteGetPdf200ResponseObjects.md
 docs/Model/CreditNoteResetToDraft200Response.md
 docs/Model/CreditNoteResetToDraft200ResponseObjects.md
 docs/Model/CreditNoteResetToOpen200Response.md
@@ -171,6 +172,7 @@ docs/Model/GetVouchers200Response.md
 docs/Model/GetcreditNoteById200Response.md
 docs/Model/GetcreditNotePositions200Response.md
 docs/Model/InvoiceGetPdf200Response.md
+docs/Model/InvoiceGetPdf200ResponseObjects.md
 docs/Model/InvoiceGetXml200Response.md
 docs/Model/InvoiceRender201Response.md
 docs/Model/InvoiceRender201ResponseParametersInner.md
@@ -421,6 +423,7 @@ docs/Model/ModelVoucherTaxSet.md
 docs/Model/ModelVoucherUpdate.md
 docs/Model/ModelVoucherUpdateTaxSet.md
 docs/Model/OrderGetPdf200Response.md
+docs/Model/OrderGetPdf200ResponseObjects.md
 docs/Model/OrderSendByRequest.md
 docs/Model/PartGetStock200Response.md
 docs/Model/ReceiptGuideDto.md
@@ -560,6 +563,7 @@ lib/Model/CreateTagRequestObject.php
 lib/Model/CreateTransaction201Response.php
 lib/Model/CreatecreditNote201Response.php
 lib/Model/CreditNoteGetPdf200Response.php
+lib/Model/CreditNoteGetPdf200ResponseObjects.php
 lib/Model/CreditNoteResetToDraft200Response.php
 lib/Model/CreditNoteResetToDraft200ResponseObjects.php
 lib/Model/CreditNoteResetToOpen200Response.php
@@ -655,6 +659,7 @@ lib/Model/GetVouchers200Response.php
 lib/Model/GetcreditNoteById200Response.php
 lib/Model/GetcreditNotePositions200Response.php
 lib/Model/InvoiceGetPdf200Response.php
+lib/Model/InvoiceGetPdf200ResponseObjects.php
 lib/Model/InvoiceGetXml200Response.php
 lib/Model/InvoiceRender201Response.php
 lib/Model/InvoiceRender201ResponseParametersInner.php
@@ -906,6 +911,7 @@ lib/Model/ModelVoucherTaxSet.php
 lib/Model/ModelVoucherUpdate.php
 lib/Model/ModelVoucherUpdateTaxSet.php
 lib/Model/OrderGetPdf200Response.php
+lib/Model/OrderGetPdf200ResponseObjects.php
 lib/Model/OrderSendByRequest.php
 lib/Model/PartGetStock200Response.php
 lib/Model/ReceiptGuideDto.php
@@ -968,3 +974,6 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/CreditNoteGetPdf200ResponseObjectsTest.php
+test/Model/InvoiceGetPdf200ResponseObjectsTest.php
+test/Model/OrderGetPdf200ResponseObjectsTest.php

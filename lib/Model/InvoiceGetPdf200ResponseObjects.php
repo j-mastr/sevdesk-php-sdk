@@ -1,6 +1,6 @@
 <?php
 /**
- * CreditNoteGetPdf200Response
+ * InvoiceGetPdf200ResponseObjects
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Itsmind\Sevdesk\ObjectSerializer;
 
 /**
- * CreditNoteGetPdf200Response Class Doc Comment
+ * InvoiceGetPdf200ResponseObjects Class Doc Comment
  *
  * @category Class
  * @package  Itsmind\Sevdesk
@@ -40,7 +40,7 @@ use \Itsmind\Sevdesk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreditNoteGetPdf200Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class InvoiceGetPdf200ResponseObjects implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class CreditNoteGetPdf200Response implements ModelInterface, ArrayAccess, \JsonS
       *
       * @var string
       */
-    protected static $openAPIModelName = 'creditNoteGetPdf_200_response';
+    protected static $openAPIModelName = 'invoiceGetPdf_200_response_objects';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,10 @@ class CreditNoteGetPdf200Response implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'objects' => '\Itsmind\Sevdesk\Model\CreditNoteGetPdf200ResponseObjects'
+        'filename' => 'string',
+        'mime_type' => 'string',
+        'base64encoded' => 'bool',
+        'content' => '\SplFileObject'
     ];
 
     /**
@@ -68,7 +71,10 @@ class CreditNoteGetPdf200Response implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'objects' => null
+        'filename' => null,
+        'mime_type' => null,
+        'base64encoded' => null,
+        'content' => 'binary'
     ];
 
     /**
@@ -77,7 +83,10 @@ class CreditNoteGetPdf200Response implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'objects' => false
+        'filename' => false,
+        'mime_type' => false,
+        'base64encoded' => false,
+        'content' => false
     ];
 
     /**
@@ -166,7 +175,10 @@ class CreditNoteGetPdf200Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'objects' => 'objects'
+        'filename' => 'filename',
+        'mime_type' => 'mimeType',
+        'base64encoded' => 'base64encoded',
+        'content' => 'content'
     ];
 
     /**
@@ -175,7 +187,10 @@ class CreditNoteGetPdf200Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'objects' => 'setObjects'
+        'filename' => 'setFilename',
+        'mime_type' => 'setMimeType',
+        'base64encoded' => 'setBase64encoded',
+        'content' => 'setContent'
     ];
 
     /**
@@ -184,7 +199,10 @@ class CreditNoteGetPdf200Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'objects' => 'getObjects'
+        'filename' => 'getFilename',
+        'mime_type' => 'getMimeType',
+        'base64encoded' => 'getBase64encoded',
+        'content' => 'getContent'
     ];
 
     /**
@@ -244,7 +262,10 @@ class CreditNoteGetPdf200Response implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('objects', $data ?? [], null);
+        $this->setIfExists('filename', $data ?? [], null);
+        $this->setIfExists('mime_type', $data ?? [], null);
+        $this->setIfExists('base64encoded', $data ?? [], null);
+        $this->setIfExists('content', $data ?? [], null);
     }
 
     /**
@@ -290,28 +311,109 @@ class CreditNoteGetPdf200Response implements ModelInterface, ArrayAccess, \JsonS
 
 
     /**
-     * Gets objects
+     * Gets filename
      *
-     * @return \Itsmind\Sevdesk\Model\CreditNoteGetPdf200ResponseObjects|null
+     * @return string|null
      */
-    public function getObjects()
+    public function getFilename()
     {
-        return $this->container['objects'];
+        return $this->container['filename'];
     }
 
     /**
-     * Sets objects
+     * Sets filename
      *
-     * @param \Itsmind\Sevdesk\Model\CreditNoteGetPdf200ResponseObjects|null $objects objects
+     * @param string|null $filename filename
      *
      * @return self
      */
-    public function setObjects($objects)
+    public function setFilename($filename)
     {
-        if (is_null($objects)) {
-            throw new \InvalidArgumentException('non-nullable objects cannot be null');
+        if (is_null($filename)) {
+            throw new \InvalidArgumentException('non-nullable filename cannot be null');
         }
-        $this->container['objects'] = $objects;
+        $this->container['filename'] = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Gets mime_type
+     *
+     * @return string|null
+     */
+    public function getMimeType()
+    {
+        return $this->container['mime_type'];
+    }
+
+    /**
+     * Sets mime_type
+     *
+     * @param string|null $mime_type mime_type
+     *
+     * @return self
+     */
+    public function setMimeType($mime_type)
+    {
+        if (is_null($mime_type)) {
+            throw new \InvalidArgumentException('non-nullable mime_type cannot be null');
+        }
+        $this->container['mime_type'] = $mime_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets base64encoded
+     *
+     * @return bool|null
+     */
+    public function getBase64encoded()
+    {
+        return $this->container['base64encoded'];
+    }
+
+    /**
+     * Sets base64encoded
+     *
+     * @param bool|null $base64encoded base64encoded
+     *
+     * @return self
+     */
+    public function setBase64encoded($base64encoded)
+    {
+        if (is_null($base64encoded)) {
+            throw new \InvalidArgumentException('non-nullable base64encoded cannot be null');
+        }
+        $this->container['base64encoded'] = $base64encoded;
+
+        return $this;
+    }
+
+    /**
+     * Gets content
+     *
+     * @return \SplFileObject|null
+     */
+    public function getContent()
+    {
+        return $this->container['content'];
+    }
+
+    /**
+     * Sets content
+     *
+     * @param \SplFileObject|null $content content
+     *
+     * @return self
+     */
+    public function setContent($content)
+    {
+        if (is_null($content)) {
+            throw new \InvalidArgumentException('non-nullable content cannot be null');
+        }
+        $this->container['content'] = $content;
 
         return $this;
     }

@@ -1,9 +1,12 @@
-# # OrderGetPdf200Response
+# # OrderGetPdf200ResponseObjects
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**objects** | [**\Itsmind\Sevdesk\Model\OrderGetPdf200ResponseObjects**](OrderGetPdf200ResponseObjects.md) |  | [optional]
+**filename** | **string** |  | [optional]
+**mime_type** | **string** |  | [optional]
+**base64encoded** | **bool** |  | [optional]
+**content** | **\SplFileObject** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

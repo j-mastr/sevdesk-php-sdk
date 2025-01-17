@@ -265,7 +265,7 @@ class ModelCheckAccountResponseSevClient implements ModelInterface, ArrayAccess,
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('object_name', $data ?? [], null);
+        $this->setIfExists('object_name', $data ?? [], 'SevClient');
     }
 
     /**

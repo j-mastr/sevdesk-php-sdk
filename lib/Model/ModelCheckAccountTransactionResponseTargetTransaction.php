@@ -35,7 +35,7 @@ use \Itsmind\Sevdesk\ObjectSerializer;
  * ModelCheckAccountTransactionResponseTargetTransaction Class Doc Comment
  *
  * @category Class
- * @description The check account transaction serving as the target of the rebooking
+ * @description The check account transaction serving as the target of a money transit
  * @package  Itsmind\Sevdesk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

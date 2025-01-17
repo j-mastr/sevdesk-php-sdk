@@ -46,7 +46,6 @@ docs/Model/BookkeepingSystemVersion200ResponseObjects.md
 docs/Model/CheckAccountTransactionEnshrine200Response.md
 docs/Model/ContactCustomerNumberAvailabilityCheck200Response.md
 docs/Model/CreateAccountingContact201Response.md
-docs/Model/CreateCheckAccount201Response.md
 docs/Model/CreateClearingAccount.md
 docs/Model/CreateClearingAccount201Response.md
 docs/Model/CreateClearingAccountResponse.md
@@ -120,6 +119,7 @@ docs/Model/ForAllAccounts200Response.md
 docs/Model/GetAccountingContact200Response.md
 docs/Model/GetAccountingContactById200Response.md
 docs/Model/GetBalanceAtDate200Response.md
+docs/Model/GetCheckAccountById200Response.md
 docs/Model/GetCheckAccountTransactionById200Response.md
 docs/Model/GetCheckAccounts200Response.md
 docs/Model/GetCommunicationWayById200Response.md
@@ -195,10 +195,8 @@ docs/Model/ModelChangeLayoutResponse.md
 docs/Model/ModelChangeLayoutResponseMetadaten.md
 docs/Model/ModelChangeLayoutResponseMetadatenThumbsInner.md
 docs/Model/ModelChangeLayoutResponseMetadatenThumbsInnerValuesInner.md
-docs/Model/ModelCheckAccount.md
 docs/Model/ModelCheckAccountResponse.md
 docs/Model/ModelCheckAccountResponseSevClient.md
-docs/Model/ModelCheckAccountSevClient.md
 docs/Model/ModelCheckAccountTransaction.md
 docs/Model/ModelCheckAccountTransactionCheckAccount.md
 docs/Model/ModelCheckAccountTransactionLogResponse.md
@@ -533,7 +531,6 @@ lib/Model/BookkeepingSystemVersion200ResponseObjects.php
 lib/Model/CheckAccountTransactionEnshrine200Response.php
 lib/Model/ContactCustomerNumberAvailabilityCheck200Response.php
 lib/Model/CreateAccountingContact201Response.php
-lib/Model/CreateCheckAccount201Response.php
 lib/Model/CreateClearingAccount.php
 lib/Model/CreateClearingAccount201Response.php
 lib/Model/CreateClearingAccountResponse.php
@@ -607,6 +604,7 @@ lib/Model/ForAllAccounts200Response.php
 lib/Model/GetAccountingContact200Response.php
 lib/Model/GetAccountingContactById200Response.php
 lib/Model/GetBalanceAtDate200Response.php
+lib/Model/GetCheckAccountById200Response.php
 lib/Model/GetCheckAccountTransactionById200Response.php
 lib/Model/GetCheckAccounts200Response.php
 lib/Model/GetCommunicationWayById200Response.php
@@ -682,10 +680,8 @@ lib/Model/ModelChangeLayoutResponse.php
 lib/Model/ModelChangeLayoutResponseMetadaten.php
 lib/Model/ModelChangeLayoutResponseMetadatenThumbsInner.php
 lib/Model/ModelChangeLayoutResponseMetadatenThumbsInnerValuesInner.php
-lib/Model/ModelCheckAccount.php
 lib/Model/ModelCheckAccountResponse.php
 lib/Model/ModelCheckAccountResponseSevClient.php
-lib/Model/ModelCheckAccountSevClient.php
 lib/Model/ModelCheckAccountTransaction.php
 lib/Model/ModelCheckAccountTransactionCheckAccount.php
 lib/Model/ModelCheckAccountTransactionLogResponse.php

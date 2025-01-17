@@ -70,6 +70,9 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
         'payee_payer_name' => 'string',
         'payee_payer_acct_no' => 'string',
         'payee_payer_bank_code' => 'string',
+        'gv_code' => 'string',
+        'entry_text' => 'string',
+        'prima_nota_no' => 'string',
         'check_account' => '\Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponseCheckAccount',
         'status' => 'string',
         'source_transaction' => '\Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponseSourceTransaction',
@@ -97,6 +100,9 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
         'payee_payer_name' => null,
         'payee_payer_acct_no' => null,
         'payee_payer_bank_code' => null,
+        'gv_code' => null,
+        'entry_text' => null,
+        'prima_nota_no' => null,
         'check_account' => null,
         'status' => null,
         'source_transaction' => null,
@@ -122,6 +128,9 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
         'payee_payer_name' => true,
         'payee_payer_acct_no' => true,
         'payee_payer_bank_code' => true,
+        'gv_code' => true,
+        'entry_text' => true,
+        'prima_nota_no' => true,
         'check_account' => false,
         'status' => false,
         'source_transaction' => false,
@@ -227,6 +236,9 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
         'payee_payer_name' => 'payeePayerName',
         'payee_payer_acct_no' => 'payeePayerAcctNo',
         'payee_payer_bank_code' => 'payeePayerBankCode',
+        'gv_code' => 'gvCode',
+        'entry_text' => 'entryText',
+        'prima_nota_no' => 'primaNotaNo',
         'check_account' => 'checkAccount',
         'status' => 'status',
         'source_transaction' => 'sourceTransaction',
@@ -252,6 +264,9 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
         'payee_payer_name' => 'setPayeePayerName',
         'payee_payer_acct_no' => 'setPayeePayerAcctNo',
         'payee_payer_bank_code' => 'setPayeePayerBankCode',
+        'gv_code' => 'setGvCode',
+        'entry_text' => 'setEntryText',
+        'prima_nota_no' => 'setPrimaNotaNo',
         'check_account' => 'setCheckAccount',
         'status' => 'setStatus',
         'source_transaction' => 'setSourceTransaction',
@@ -277,6 +292,9 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
         'payee_payer_name' => 'getPayeePayerName',
         'payee_payer_acct_no' => 'getPayeePayerAcctNo',
         'payee_payer_bank_code' => 'getPayeePayerBankCode',
+        'gv_code' => 'getGvCode',
+        'entry_text' => 'getEntryText',
+        'prima_nota_no' => 'getPrimaNotaNo',
         'check_account' => 'getCheckAccount',
         'status' => 'getStatus',
         'source_transaction' => 'getSourceTransaction',
@@ -329,8 +347,8 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
     public const STATUS__100 = '100';
     public const STATUS__200 = '200';
     public const STATUS__300 = '300';
-    public const STATUS__400 = '400';
     public const STATUS__350 = '350';
+    public const STATUS__400 = '400';
 
     /**
      * Gets allowable values of the enum
@@ -355,8 +373,8 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
             self::STATUS__100,
             self::STATUS__200,
             self::STATUS__300,
-            self::STATUS__400,
             self::STATUS__350,
+            self::STATUS__400,
         ];
     }
 
@@ -387,6 +405,9 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
         $this->setIfExists('payee_payer_name', $data ?? [], null);
         $this->setIfExists('payee_payer_acct_no', $data ?? [], null);
         $this->setIfExists('payee_payer_bank_code', $data ?? [], null);
+        $this->setIfExists('gv_code', $data ?? [], null);
+        $this->setIfExists('entry_text', $data ?? [], null);
+        $this->setIfExists('prima_nota_no', $data ?? [], null);
         $this->setIfExists('check_account', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('source_transaction', $data ?? [], null);
@@ -824,6 +845,108 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
     }
 
     /**
+     * Gets gv_code
+     *
+     * @return string|null
+     */
+    public function getGvCode()
+    {
+        return $this->container['gv_code'];
+    }
+
+    /**
+     * Sets gv_code
+     *
+     * @param string|null $gv_code ZKA business transaction code. This can be given for finAPI accounts.
+     *
+     * @return self
+     */
+    public function setGvCode($gv_code)
+    {
+        if (is_null($gv_code)) {
+            array_push($this->openAPINullablesSetToNull, 'gv_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gv_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['gv_code'] = $gv_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets entry_text
+     *
+     * @return string|null
+     */
+    public function getEntryText()
+    {
+        return $this->container['entry_text'];
+    }
+
+    /**
+     * Sets entry_text
+     *
+     * @param string|null $entry_text Transaction type, according to the bank. This can be given for finAPI accounts.
+     *
+     * @return self
+     */
+    public function setEntryText($entry_text)
+    {
+        if (is_null($entry_text)) {
+            array_push($this->openAPINullablesSetToNull, 'entry_text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('entry_text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['entry_text'] = $entry_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets prima_nota_no
+     *
+     * @return string|null
+     */
+    public function getPrimaNotaNo()
+    {
+        return $this->container['prima_nota_no'];
+    }
+
+    /**
+     * Sets prima_nota_no
+     *
+     * @param string|null $prima_nota_no Transaction primanota. This can be given for finAPI accounts.
+     *
+     * @return self
+     */
+    public function setPrimaNotaNo($prima_nota_no)
+    {
+        if (is_null($prima_nota_no)) {
+            array_push($this->openAPINullablesSetToNull, 'prima_nota_no');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('prima_nota_no', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['prima_nota_no'] = $prima_nota_no;
+
+        return $this;
+    }
+
+    /**
      * Gets check_account
      *
      * @return \Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponseCheckAccount|null
@@ -863,7 +986,7 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
     /**
      * Sets status
      *
-     * @param string|null $status Status of the check account transaction.<br>       100 <-> Created<br>       200 <-> Linked<br>       300 <-> Private<br>       350 <-> Automatically<br>       400 <-> Booked
+     * @param string|null $status Status of the check account transaction.<br>       100 <-> Created<br>       200 <-> Linked<br>       300 <-> Private<br>       350 <-> Auto-booked without user confirmation<br>400 <-> Booked
      *
      * @return self
      */
@@ -954,7 +1077,7 @@ class ModelCheckAccountTransactionResponse implements ModelInterface, ArrayAcces
     /**
      * Sets enshrined
      *
-     * @param \DateTime|null $enshrined Can only be set via [CheckAccountTransaction/{checkAccountTransactionId}/enshrine](#tag/CheckAccountTransaction/operation/checkAccountTransactionEnshrine)
+     * @param \DateTime|null $enshrined Timepoint when the transaction was enshrined.
      *
      * @return self
      */

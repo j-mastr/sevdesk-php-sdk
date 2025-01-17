@@ -69,9 +69,14 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'import_type' => 'string',
         'currency' => 'string',
         'default_account' => 'string',
+        'base_account' => 'string',
+        'priority' => 'string',
         'status' => 'string',
+        'balance' => 'string',
         'bank_server' => 'string',
         'auto_map_transactions' => 'string',
+        'auto_sync_transactions' => 'string',
+        'last_sync' => '\DateTime',
         'accounting_number' => 'string'
     ];
 
@@ -94,9 +99,14 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'import_type' => null,
         'currency' => null,
         'default_account' => null,
+        'base_account' => null,
+        'priority' => null,
         'status' => null,
+        'balance' => null,
         'bank_server' => null,
         'auto_map_transactions' => null,
+        'auto_sync_transactions' => null,
+        'last_sync' => 'date-time',
         'accounting_number' => null
     ];
 
@@ -117,9 +127,14 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'import_type' => true,
         'currency' => false,
         'default_account' => false,
+        'base_account' => false,
+        'priority' => false,
         'status' => false,
+        'balance' => true,
         'bank_server' => true,
         'auto_map_transactions' => true,
+        'auto_sync_transactions' => false,
+        'last_sync' => false,
         'accounting_number' => false
     ];
 
@@ -220,9 +235,14 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'import_type' => 'importType',
         'currency' => 'currency',
         'default_account' => 'defaultAccount',
+        'base_account' => 'baseAccount',
+        'priority' => 'priority',
         'status' => 'status',
+        'balance' => 'balance',
         'bank_server' => 'bankServer',
         'auto_map_transactions' => 'autoMapTransactions',
+        'auto_sync_transactions' => 'autoSyncTransactions',
+        'last_sync' => 'lastSync',
         'accounting_number' => 'accountingNumber'
     ];
 
@@ -243,9 +263,14 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'import_type' => 'setImportType',
         'currency' => 'setCurrency',
         'default_account' => 'setDefaultAccount',
+        'base_account' => 'setBaseAccount',
+        'priority' => 'setPriority',
         'status' => 'setStatus',
+        'balance' => 'setBalance',
         'bank_server' => 'setBankServer',
         'auto_map_transactions' => 'setAutoMapTransactions',
+        'auto_sync_transactions' => 'setAutoSyncTransactions',
+        'last_sync' => 'setLastSync',
         'accounting_number' => 'setAccountingNumber'
     ];
 
@@ -266,9 +291,14 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'import_type' => 'getImportType',
         'currency' => 'getCurrency',
         'default_account' => 'getDefaultAccount',
+        'base_account' => 'getBaseAccount',
+        'priority' => 'getPriority',
         'status' => 'getStatus',
+        'balance' => 'getBalance',
         'bank_server' => 'getBankServer',
         'auto_map_transactions' => 'getAutoMapTransactions',
+        'auto_sync_transactions' => 'getAutoSyncTransactions',
+        'last_sync' => 'getLastSync',
         'accounting_number' => 'getAccountingNumber'
     ];
 
@@ -316,6 +346,7 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
     public const OBJECT_NAME_CHECK_ACCOUNT = 'CheckAccount';
     public const TYPE_ONLINE = 'online';
     public const TYPE_OFFLINE = 'offline';
+    public const TYPE_REGISTER = 'register';
     public const IMPORT_TYPE_CSV = 'CSV';
     public const IMPORT_TYPE_MT940 = 'MT940';
     public const STATUS__0 = '0';
@@ -343,6 +374,7 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         return [
             self::TYPE_ONLINE,
             self::TYPE_OFFLINE,
+            self::TYPE_REGISTER,
         ];
     }
 
@@ -388,7 +420,7 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('object_name', $data ?? [], null);
+        $this->setIfExists('object_name', $data ?? [], 'CheckAccount');
         $this->setIfExists('create', $data ?? [], null);
         $this->setIfExists('update', $data ?? [], null);
         $this->setIfExists('sev_client', $data ?? [], null);
@@ -398,9 +430,14 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('import_type', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('default_account', $data ?? [], '0');
+        $this->setIfExists('base_account', $data ?? [], null);
+        $this->setIfExists('priority', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], '100');
+        $this->setIfExists('balance', $data ?? [], null);
         $this->setIfExists('bank_server', $data ?? [], null);
         $this->setIfExists('auto_map_transactions', $data ?? [], '1');
+        $this->setIfExists('auto_sync_transactions', $data ?? [], null);
+        $this->setIfExists('last_sync', $data ?? [], null);
         $this->setIfExists('accounting_number', $data ?? [], null);
     }
 
@@ -701,7 +738,7 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets type
      *
-     * @param string|null $type The type of the check account. Account with a CSV or MT940 import are regarded as online.<br>       Apart from that, created check accounts over the API need to be offline, as online accounts with an active connection       to a bank application can not be managed over the API.
+     * @param string|null $type The type of the check account. Account with a CSV or MT940 import are regarded as online.
      *
      * @return self
      */
@@ -738,7 +775,7 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets import_type
      *
-     * @param string|null $import_type Import type, for accounts that are type \"online\" but not connected to a data provider. Transactions can be imported by this method on the check account.
+     * @param string|null $import_type Import type, for accounts that are type \"online\" but not connected to a data provider.
      *
      * @return self
      */
@@ -824,6 +861,60 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
+     * Gets base_account
+     *
+     * @return string|null
+     */
+    public function getBaseAccount()
+    {
+        return $this->container['base_account'];
+    }
+
+    /**
+     * Sets base_account
+     *
+     * @param string|null $base_account This will be 1 if the account is your base account that comes with every sevdesk setup.
+     *
+     * @return self
+     */
+    public function setBaseAccount($base_account)
+    {
+        if (is_null($base_account)) {
+            throw new \InvalidArgumentException('non-nullable base_account cannot be null');
+        }
+        $this->container['base_account'] = $base_account;
+
+        return $this;
+    }
+
+    /**
+     * Gets priority
+     *
+     * @return string|null
+     */
+    public function getPriority()
+    {
+        return $this->container['priority'];
+    }
+
+    /**
+     * Sets priority
+     *
+     * @param string|null $priority Defines the sorting of accounts, highest is first.
+     *
+     * @return self
+     */
+    public function setPriority($priority)
+    {
+        if (is_null($priority)) {
+            throw new \InvalidArgumentException('non-nullable priority cannot be null');
+        }
+        $this->container['priority'] = $priority;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string|null
@@ -856,6 +947,40 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets balance
+     *
+     * @return string|null
+     */
+    public function getBalance()
+    {
+        return $this->container['balance'];
+    }
+
+    /**
+     * Sets balance
+     *
+     * @param string|null $balance The account balance as reported by PayPal or finAPI. Not set for other types of accounts.
+     *
+     * @return self
+     */
+    public function setBalance($balance)
+    {
+        if (is_null($balance)) {
+            array_push($this->openAPINullablesSetToNull, 'balance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('balance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['balance'] = $balance;
 
         return $this;
     }
@@ -929,6 +1054,60 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
+     * Gets auto_sync_transactions
+     *
+     * @return string|null
+     */
+    public function getAutoSyncTransactions()
+    {
+        return $this->container['auto_sync_transactions'];
+    }
+
+    /**
+     * Sets auto_sync_transactions
+     *
+     * @param string|null $auto_sync_transactions If this is 1 the account will be automatically updated through PayPal or finAPI. Only applicable for connected online accounts.
+     *
+     * @return self
+     */
+    public function setAutoSyncTransactions($auto_sync_transactions)
+    {
+        if (is_null($auto_sync_transactions)) {
+            throw new \InvalidArgumentException('non-nullable auto_sync_transactions cannot be null');
+        }
+        $this->container['auto_sync_transactions'] = $auto_sync_transactions;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_sync
+     *
+     * @return \DateTime|null
+     */
+    public function getLastSync()
+    {
+        return $this->container['last_sync'];
+    }
+
+    /**
+     * Sets last_sync
+     *
+     * @param \DateTime|null $last_sync Timepoint of the last payment import through PayPal or finAPI.
+     *
+     * @return self
+     */
+    public function setLastSync($last_sync)
+    {
+        if (is_null($last_sync)) {
+            throw new \InvalidArgumentException('non-nullable last_sync cannot be null');
+        }
+        $this->container['last_sync'] = $last_sync;
+
+        return $this;
+    }
+
+    /**
      * Gets accounting_number
      *
      * @return string|null
@@ -941,7 +1120,7 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets accounting_number
      *
-     * @param string|null $accounting_number The booking account used for this bank account, e.g. 1800 in SKR04 and 1200 in SKR03. Must be unique among all your CheckAccounts. Ignore to use a sensible default.
+     * @param string|null $accounting_number The booking account used for this account, e.g. 1800 in SKR04 and 1200 in SKR03. Must be unique among all your CheckAccounts.
      *
      * @return self
      */

@@ -71,9 +71,6 @@ class CheckAccountApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'createCheckAccount' => [
-            'application/json',
-        ],
         'createClearingAccount' => [
             'application/json',
         ],
@@ -141,317 +138,6 @@ class CheckAccountApi
     public function getConfig()
     {
         return $this->config;
-    }
-
-    /**
-     * Operation createCheckAccount
-     *
-     * Create a new check account
-     *
-     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccount $model_check_account Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccount model! (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCheckAccount'] to see the possible values for this operation
-     *
-     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\CreateCheckAccount201Response
-     * @deprecated
-     */
-    public function createCheckAccount($model_check_account = null, string $contentType = self::contentTypes['createCheckAccount'][0])
-    {
-        list($response) = $this->createCheckAccountWithHttpInfo($model_check_account, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation createCheckAccountWithHttpInfo
-     *
-     * Create a new check account
-     *
-     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccount $model_check_account Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccount model! (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCheckAccount'] to see the possible values for this operation
-     *
-     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\CreateCheckAccount201Response, HTTP status code, HTTP response headers (array of strings)
-     * @deprecated
-     */
-    public function createCheckAccountWithHttpInfo($model_check_account = null, string $contentType = self::contentTypes['createCheckAccount'][0])
-    {
-        $request = $this->createCheckAccountRequest($model_check_account, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 201:
-                    if ('\Itsmind\Sevdesk\Model\CreateCheckAccount201Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\CreateCheckAccount201Response' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\CreateCheckAccount201Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            $returnType = '\Itsmind\Sevdesk\Model\CreateCheckAccount201Response';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\CreateCheckAccount201Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation createCheckAccountAsync
-     *
-     * Create a new check account
-     *
-     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccount $model_check_account Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccount model! (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCheckAccount'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
-     */
-    public function createCheckAccountAsync($model_check_account = null, string $contentType = self::contentTypes['createCheckAccount'][0])
-    {
-        return $this->createCheckAccountAsyncWithHttpInfo($model_check_account, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation createCheckAccountAsyncWithHttpInfo
-     *
-     * Create a new check account
-     *
-     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccount $model_check_account Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccount model! (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCheckAccount'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     * @deprecated
-     */
-    public function createCheckAccountAsyncWithHttpInfo($model_check_account = null, string $contentType = self::contentTypes['createCheckAccount'][0])
-    {
-        $returnType = '\Itsmind\Sevdesk\Model\CreateCheckAccount201Response';
-        $request = $this->createCheckAccountRequest($model_check_account, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'createCheckAccount'
-     *
-     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccount $model_check_account Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccount model! (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCheckAccount'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     * @deprecated
-     */
-    public function createCheckAccountRequest($model_check_account = null, string $contentType = self::contentTypes['createCheckAccount'][0])
-    {
-
-
-
-        $resourcePath = '/CheckAccount';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($model_check_account)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($model_check_account));
-            } else {
-                $httpBody = $model_check_account;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
@@ -1723,7 +1409,7 @@ class CheckAccountApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Itsmind\Sevdesk\Model\CreateCheckAccount201Response
+     * @return \Itsmind\Sevdesk\Model\GetCheckAccountById200Response
      */
     public function getCheckAccountById($check_account_id, string $contentType = self::contentTypes['getCheckAccountById'][0])
     {
@@ -1741,7 +1427,7 @@ class CheckAccountApi
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Itsmind\Sevdesk\Model\CreateCheckAccount201Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Itsmind\Sevdesk\Model\GetCheckAccountById200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCheckAccountByIdWithHttpInfo($check_account_id, string $contentType = self::contentTypes['getCheckAccountById'][0])
     {
@@ -1772,11 +1458,11 @@ class CheckAccountApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Itsmind\Sevdesk\Model\CreateCheckAccount201Response' === '\SplFileObject') {
+                    if ('\Itsmind\Sevdesk\Model\GetCheckAccountById200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Itsmind\Sevdesk\Model\CreateCheckAccount201Response' !== 'string') {
+                        if ('\Itsmind\Sevdesk\Model\GetCheckAccountById200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1794,7 +1480,7 @@ class CheckAccountApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\CreateCheckAccount201Response', []),
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GetCheckAccountById200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1813,7 +1499,7 @@ class CheckAccountApi
                 );
             }
 
-            $returnType = '\Itsmind\Sevdesk\Model\CreateCheckAccount201Response';
+            $returnType = '\Itsmind\Sevdesk\Model\GetCheckAccountById200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1846,7 +1532,7 @@ class CheckAccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Itsmind\Sevdesk\Model\CreateCheckAccount201Response',
+                        '\Itsmind\Sevdesk\Model\GetCheckAccountById200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1890,7 +1576,7 @@ class CheckAccountApi
      */
     public function getCheckAccountByIdAsyncWithHttpInfo($check_account_id, string $contentType = self::contentTypes['getCheckAccountById'][0])
     {
-        $returnType = '\Itsmind\Sevdesk\Model\CreateCheckAccount201Response';
+        $returnType = '\Itsmind\Sevdesk\Model\GetCheckAccountById200Response';
         $request = $this->getCheckAccountByIdRequest($check_account_id, $contentType);
 
         return $this->client

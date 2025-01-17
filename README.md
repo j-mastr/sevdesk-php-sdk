@@ -193,7 +193,6 @@ Class | Method | HTTP request | Description
 *AccountingContactApi* | [**getAccountingContactById**](docs/Api/AccountingContactApi.md#getaccountingcontactbyid) | **GET** /AccountingContact/{accountingContactId} | Find accounting contact by ID
 *AccountingContactApi* | [**updateAccountingContact**](docs/Api/AccountingContactApi.md#updateaccountingcontact) | **PUT** /AccountingContact/{accountingContactId} | Update an existing accounting contact
 *BasicsApi* | [**bookkeepingSystemVersion**](docs/Api/BasicsApi.md#bookkeepingsystemversion) | **GET** /Tools/bookkeepingSystemVersion | Retrieve bookkeeping system version
-*CheckAccountApi* | [**createCheckAccount**](docs/Api/CheckAccountApi.md#createcheckaccount) | **POST** /CheckAccount | Create a new check account
 *CheckAccountApi* | [**createClearingAccount**](docs/Api/CheckAccountApi.md#createclearingaccount) | **POST** /CheckAccount/Factory/clearingAccount | Create a new clearing account
 *CheckAccountApi* | [**createFileImportAccount**](docs/Api/CheckAccountApi.md#createfileimportaccount) | **POST** /CheckAccount/Factory/fileImportAccount | Create a new file import account
 *CheckAccountApi* | [**deleteCheckAccount**](docs/Api/CheckAccountApi.md#deletecheckaccount) | **DELETE** /CheckAccount/{checkAccountId} | Deletes a check account
@@ -370,7 +369,6 @@ Class | Method | HTTP request | Description
 - [CheckAccountTransactionEnshrine200Response](docs/Model/CheckAccountTransactionEnshrine200Response.md)
 - [ContactCustomerNumberAvailabilityCheck200Response](docs/Model/ContactCustomerNumberAvailabilityCheck200Response.md)
 - [CreateAccountingContact201Response](docs/Model/CreateAccountingContact201Response.md)
-- [CreateCheckAccount201Response](docs/Model/CreateCheckAccount201Response.md)
 - [CreateClearingAccount](docs/Model/CreateClearingAccount.md)
 - [CreateClearingAccount201Response](docs/Model/CreateClearingAccount201Response.md)
 - [CreateClearingAccountResponse](docs/Model/CreateClearingAccountResponse.md)
@@ -444,6 +442,7 @@ Class | Method | HTTP request | Description
 - [GetAccountingContact200Response](docs/Model/GetAccountingContact200Response.md)
 - [GetAccountingContactById200Response](docs/Model/GetAccountingContactById200Response.md)
 - [GetBalanceAtDate200Response](docs/Model/GetBalanceAtDate200Response.md)
+- [GetCheckAccountById200Response](docs/Model/GetCheckAccountById200Response.md)
 - [GetCheckAccountTransactionById200Response](docs/Model/GetCheckAccountTransactionById200Response.md)
 - [GetCheckAccounts200Response](docs/Model/GetCheckAccounts200Response.md)
 - [GetCommunicationWayById200Response](docs/Model/GetCommunicationWayById200Response.md)
@@ -519,10 +518,8 @@ Class | Method | HTTP request | Description
 - [ModelChangeLayoutResponseMetadaten](docs/Model/ModelChangeLayoutResponseMetadaten.md)
 - [ModelChangeLayoutResponseMetadatenThumbsInner](docs/Model/ModelChangeLayoutResponseMetadatenThumbsInner.md)
 - [ModelChangeLayoutResponseMetadatenThumbsInnerValuesInner](docs/Model/ModelChangeLayoutResponseMetadatenThumbsInnerValuesInner.md)
-- [ModelCheckAccount](docs/Model/ModelCheckAccount.md)
 - [ModelCheckAccountResponse](docs/Model/ModelCheckAccountResponse.md)
 - [ModelCheckAccountResponseSevClient](docs/Model/ModelCheckAccountResponseSevClient.md)
-- [ModelCheckAccountSevClient](docs/Model/ModelCheckAccountSevClient.md)
 - [ModelCheckAccountTransaction](docs/Model/ModelCheckAccountTransaction.md)
 - [ModelCheckAccountTransactionCheckAccount](docs/Model/ModelCheckAccountTransactionCheckAccount.md)
 - [ModelCheckAccountTransactionLogResponse](docs/Model/ModelCheckAccountTransactionLogResponse.md)

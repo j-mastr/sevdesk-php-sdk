@@ -16,10 +16,13 @@ Name | Type | Description | Notes
 **payee_payer_name** | **string** | Name of the other party | [optional]
 **payee_payer_acct_no** | **string** | IBAN or account number of the other party | [optional]
 **payee_payer_bank_code** | **string** | BIC or bank code of the other party | [optional]
+**gv_code** | **string** | ZKA business transaction code. This can be given for finAPI accounts. | [optional]
+**entry_text** | **string** | Transaction type, according to the bank. This can be given for finAPI accounts. | [optional]
+**prima_nota_no** | **string** | Transaction primanota. This can be given for finAPI accounts. | [optional]
 **check_account** | [**\Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponseCheckAccount**](ModelCheckAccountTransactionResponseCheckAccount.md) |  | [optional]
-**status** | **string** | Status of the check account transaction.&lt;br&gt;       100 &lt;-&gt; Created&lt;br&gt;       200 &lt;-&gt; Linked&lt;br&gt;       300 &lt;-&gt; Private&lt;br&gt;       350 &lt;-&gt; Automatically&lt;br&gt;       400 &lt;-&gt; Booked | [optional] [readonly]
+**status** | **string** | Status of the check account transaction.&lt;br&gt;       100 &lt;-&gt; Created&lt;br&gt;       200 &lt;-&gt; Linked&lt;br&gt;       300 &lt;-&gt; Private&lt;br&gt;       350 &lt;-&gt; Auto-booked without user confirmation&lt;br&gt;400 &lt;-&gt; Booked | [optional] [readonly]
 **source_transaction** | [**\Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponseSourceTransaction**](ModelCheckAccountTransactionResponseSourceTransaction.md) |  | [optional]
 **target_transaction** | [**\Itsmind\Sevdesk\Model\ModelCheckAccountTransactionResponseTargetTransaction**](ModelCheckAccountTransactionResponseTargetTransaction.md) |  | [optional]
-**enshrined** | **\DateTime** | Can only be set via [CheckAccountTransaction/{checkAccountTransactionId}/enshrine](#tag/CheckAccountTransaction/operation/checkAccountTransactionEnshrine) | [optional] [readonly]
+**enshrined** | **\DateTime** | Timepoint when the transaction was enshrined. | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

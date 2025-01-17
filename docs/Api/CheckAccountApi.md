@@ -4,7 +4,6 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createCheckAccount()**](CheckAccountApi.md#createCheckAccount) | **POST** /CheckAccount | Create a new check account |
 | [**createClearingAccount()**](CheckAccountApi.md#createClearingAccount) | **POST** /CheckAccount/Factory/clearingAccount | Create a new clearing account |
 | [**createFileImportAccount()**](CheckAccountApi.md#createFileImportAccount) | **POST** /CheckAccount/Factory/fileImportAccount | Create a new file import account |
 | [**deleteCheckAccount()**](CheckAccountApi.md#deleteCheckAccount) | **DELETE** /CheckAccount/{checkAccountId} | Deletes a check account |
@@ -13,68 +12,6 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 | [**getCheckAccounts()**](CheckAccountApi.md#getCheckAccounts) | **GET** /CheckAccount | Retrieve check accounts |
 | [**updateCheckAccount()**](CheckAccountApi.md#updateCheckAccount) | **PUT** /CheckAccount/{checkAccountId} | Update an existing check account |
 
-
-## `createCheckAccount()`
-
-```php
-createCheckAccount($model_check_account): \Itsmind\Sevdesk\Model\CreateCheckAccount201Response
-```
-
-Create a new check account
-
-Creates a new banking account on which transactions can be created.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: api_key
-$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new Itsmind\Sevdesk\Api\CheckAccountApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$model_check_account = new \Itsmind\Sevdesk\Model\ModelCheckAccount(); // \Itsmind\Sevdesk\Model\ModelCheckAccount | Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccount model!
-
-try {
-    $result = $apiInstance->createCheckAccount($model_check_account);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CheckAccountApi->createCheckAccount: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **model_check_account** | [**\Itsmind\Sevdesk\Model\ModelCheckAccount**](../Model/ModelCheckAccount.md)| Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccount model! | [optional] |
-
-### Return type
-
-[**\Itsmind\Sevdesk\Model\CreateCheckAccount201Response**](../Model/CreateCheckAccount201Response.md)
-
-### Authorization
-
-[api_key](../../README.md#api_key)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
 
 ## `createClearingAccount()`
 
@@ -327,7 +264,7 @@ try {
 ## `getCheckAccountById()`
 
 ```php
-getCheckAccountById($check_account_id): \Itsmind\Sevdesk\Model\CreateCheckAccount201Response
+getCheckAccountById($check_account_id): \Itsmind\Sevdesk\Model\GetCheckAccountById200Response
 ```
 
 Find check account by ID
@@ -371,7 +308,7 @@ try {
 
 ### Return type
 
-[**\Itsmind\Sevdesk\Model\CreateCheckAccount201Response**](../Model/CreateCheckAccount201Response.md)
+[**\Itsmind\Sevdesk\Model\GetCheckAccountById200Response**](../Model/GetCheckAccountById200Response.md)
 
 ### Authorization
 

@@ -57,10 +57,10 @@ class InvoiceGetPdf200ResponseObjects implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filename' => 'string',
-        'mime_type' => 'string',
         'base64encoded' => 'bool',
-        'content' => '\SplFileObject'
+        'content' => '\SplFileObject',
+        'filename' => 'string',
+        'mime_type' => 'string'
     ];
 
     /**
@@ -71,10 +71,10 @@ class InvoiceGetPdf200ResponseObjects implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'filename' => null,
-        'mime_type' => null,
         'base64encoded' => null,
-        'content' => 'binary'
+        'content' => 'binary',
+        'filename' => null,
+        'mime_type' => null
     ];
 
     /**
@@ -83,10 +83,10 @@ class InvoiceGetPdf200ResponseObjects implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'filename' => false,
-        'mime_type' => false,
         'base64encoded' => false,
-        'content' => false
+        'content' => false,
+        'filename' => false,
+        'mime_type' => false
     ];
 
     /**
@@ -175,10 +175,10 @@ class InvoiceGetPdf200ResponseObjects implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'filename' => 'filename',
-        'mime_type' => 'mimeType',
         'base64encoded' => 'base64encoded',
-        'content' => 'content'
+        'content' => 'content',
+        'filename' => 'filename',
+        'mime_type' => 'mimeType'
     ];
 
     /**
@@ -187,10 +187,10 @@ class InvoiceGetPdf200ResponseObjects implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'filename' => 'setFilename',
-        'mime_type' => 'setMimeType',
         'base64encoded' => 'setBase64encoded',
-        'content' => 'setContent'
+        'content' => 'setContent',
+        'filename' => 'setFilename',
+        'mime_type' => 'setMimeType'
     ];
 
     /**
@@ -199,10 +199,10 @@ class InvoiceGetPdf200ResponseObjects implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'filename' => 'getFilename',
-        'mime_type' => 'getMimeType',
         'base64encoded' => 'getBase64encoded',
-        'content' => 'getContent'
+        'content' => 'getContent',
+        'filename' => 'getFilename',
+        'mime_type' => 'getMimeType'
     ];
 
     /**
@@ -262,10 +262,10 @@ class InvoiceGetPdf200ResponseObjects implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('filename', $data ?? [], null);
-        $this->setIfExists('mime_type', $data ?? [], null);
         $this->setIfExists('base64encoded', $data ?? [], null);
         $this->setIfExists('content', $data ?? [], null);
+        $this->setIfExists('filename', $data ?? [], null);
+        $this->setIfExists('mime_type', $data ?? [], null);
     }
 
     /**
@@ -309,60 +309,6 @@ class InvoiceGetPdf200ResponseObjects implements ModelInterface, ArrayAccess, \J
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets filename
-     *
-     * @return string|null
-     */
-    public function getFilename()
-    {
-        return $this->container['filename'];
-    }
-
-    /**
-     * Sets filename
-     *
-     * @param string|null $filename filename
-     *
-     * @return self
-     */
-    public function setFilename($filename)
-    {
-        if (is_null($filename)) {
-            throw new \InvalidArgumentException('non-nullable filename cannot be null');
-        }
-        $this->container['filename'] = $filename;
-
-        return $this;
-    }
-
-    /**
-     * Gets mime_type
-     *
-     * @return string|null
-     */
-    public function getMimeType()
-    {
-        return $this->container['mime_type'];
-    }
-
-    /**
-     * Sets mime_type
-     *
-     * @param string|null $mime_type mime_type
-     *
-     * @return self
-     */
-    public function setMimeType($mime_type)
-    {
-        if (is_null($mime_type)) {
-            throw new \InvalidArgumentException('non-nullable mime_type cannot be null');
-        }
-        $this->container['mime_type'] = $mime_type;
-
-        return $this;
-    }
 
     /**
      * Gets base64encoded
@@ -414,6 +360,60 @@ class InvoiceGetPdf200ResponseObjects implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable content cannot be null');
         }
         $this->container['content'] = $content;
+
+        return $this;
+    }
+
+    /**
+     * Gets filename
+     *
+     * @return string|null
+     */
+    public function getFilename()
+    {
+        return $this->container['filename'];
+    }
+
+    /**
+     * Sets filename
+     *
+     * @param string|null $filename filename
+     *
+     * @return self
+     */
+    public function setFilename($filename)
+    {
+        if (is_null($filename)) {
+            throw new \InvalidArgumentException('non-nullable filename cannot be null');
+        }
+        $this->container['filename'] = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Gets mime_type
+     *
+     * @return string|null
+     */
+    public function getMimeType()
+    {
+        return $this->container['mime_type'];
+    }
+
+    /**
+     * Sets mime_type
+     *
+     * @param string|null $mime_type mime_type
+     *
+     * @return self
+     */
+    public function setMimeType($mime_type)
+    {
+        if (is_null($mime_type)) {
+            throw new \InvalidArgumentException('non-nullable mime_type cannot be null');
+        }
+        $this->container['mime_type'] = $mime_type;
 
         return $this;
     }

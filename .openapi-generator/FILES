@@ -342,7 +342,6 @@ docs/Model/ModelInvoiceUpdateContact.md
 docs/Model/ModelInvoiceUpdateCostCentre.md
 docs/Model/ModelInvoiceUpdateOrigin.md
 docs/Model/ModelInvoiceUpdatePaymentMethod.md
-docs/Model/ModelInvoiceUpdateTaxRule.md
 docs/Model/ModelInvoiceUpdateTaxSet.md
 docs/Model/ModelOrder.md
 docs/Model/ModelOrderAddressCountry.md
@@ -828,7 +827,6 @@ lib/Model/ModelInvoiceUpdateContact.php
 lib/Model/ModelInvoiceUpdateCostCentre.php
 lib/Model/ModelInvoiceUpdateOrigin.php
 lib/Model/ModelInvoiceUpdatePaymentMethod.php
-lib/Model/ModelInvoiceUpdateTaxRule.php
 lib/Model/ModelInvoiceUpdateTaxSet.php
 lib/Model/ModelOrder.php
 lib/Model/ModelOrderAddressCountry.php

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.2](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.5.1...v1.5.2) (2025-01-25)
+
+
+### Bug Fixes
+
+* several voucher related properties + recurring ([#68](https://github.com/j-mastr/sevdesk-php-sdk/issues/68)) ([#75](https://github.com/j-mastr/sevdesk-php-sdk/issues/75)) ([f3d019e](https://github.com/j-mastr/sevdesk-php-sdk/commit/f3d019efc47263ef3787802092ecf19135a02c8a))
+
 ## [1.5.1](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.5.0...v1.5.1) (2025-01-11)
 
 

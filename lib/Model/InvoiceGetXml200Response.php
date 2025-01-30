@@ -57,7 +57,7 @@ class InvoiceGetXml200Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'object' => 'string'
+        'objects' => 'string'
     ];
 
     /**
@@ -68,7 +68,7 @@ class InvoiceGetXml200Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'object' => null
+        'objects' => null
     ];
 
     /**
@@ -77,7 +77,7 @@ class InvoiceGetXml200Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'object' => false
+        'objects' => false
     ];
 
     /**
@@ -166,7 +166,7 @@ class InvoiceGetXml200Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'object' => 'object'
+        'objects' => 'objects'
     ];
 
     /**
@@ -175,7 +175,7 @@ class InvoiceGetXml200Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'object' => 'setObject'
+        'objects' => 'setObjects'
     ];
 
     /**
@@ -184,7 +184,7 @@ class InvoiceGetXml200Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'object' => 'getObject'
+        'objects' => 'getObjects'
     ];
 
     /**
@@ -244,7 +244,7 @@ class InvoiceGetXml200Response implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('object', $data ?? [], null);
+        $this->setIfExists('objects', $data ?? [], null);
     }
 
     /**
@@ -290,28 +290,28 @@ class InvoiceGetXml200Response implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets object
+     * Gets objects
      *
      * @return string|null
      */
-    public function getObject()
+    public function getObjects()
     {
-        return $this->container['object'];
+        return $this->container['objects'];
     }
 
     /**
-     * Sets object
+     * Sets objects
      *
-     * @param string|null $object object
+     * @param string|null $objects objects
      *
      * @return self
      */
-    public function setObject($object)
+    public function setObjects($objects)
     {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+        if (is_null($objects)) {
+            throw new \InvalidArgumentException('non-nullable objects cannot be null');
         }
-        $this->container['object'] = $object;
+        $this->container['objects'] = $objects;
 
         return $this;
     }

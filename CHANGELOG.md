@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.5.2...v1.6.0) (2025-03-12)
+
+
+### Features
+
+* update openapi.yaml ([#78](https://github.com/j-mastr/sevdesk-php-sdk/issues/78)) ([afa9503](https://github.com/j-mastr/sevdesk-php-sdk/commit/afa95037acc6baf92c31f6b5878e5c0f932d043c))
+
 ## [1.5.2](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.5.1...v1.5.2) (2025-01-25)
 
 

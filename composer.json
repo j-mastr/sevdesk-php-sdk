@@ -1,7 +1,7 @@
 {
     "name": "itsmind/sevdesk-php-sdk",
     "type": "library",
-    "description": "An unofficial SDK for the official sevDesk API. Always up to date, powered by j-mastr/sevdesk-api and the OpenAPI Generator.",
+    "description": "The only unofficial SDK that's always in sync with the official sevDesk API. Powered by j-mastr/sevdesk-api and the OpenAPI Generator.",
     "keywords": [
         "php",
         "sdk",

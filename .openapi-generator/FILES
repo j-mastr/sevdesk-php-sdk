@@ -333,15 +333,16 @@ docs/Model/ModelInvoiceResponseContactPerson.md
 docs/Model/ModelInvoiceResponseCostCentre.md
 docs/Model/ModelInvoiceResponseOrigin.md
 docs/Model/ModelInvoiceResponseSevClient.md
+docs/Model/ModelInvoiceResponseTaxRule.md
 docs/Model/ModelInvoiceResponseTaxSet.md
 docs/Model/ModelInvoiceSevClient.md
-docs/Model/ModelInvoiceTaxRule.md
 docs/Model/ModelInvoiceTaxSet.md
 docs/Model/ModelInvoiceUpdate.md
 docs/Model/ModelInvoiceUpdateContact.md
 docs/Model/ModelInvoiceUpdateCostCentre.md
 docs/Model/ModelInvoiceUpdateOrigin.md
 docs/Model/ModelInvoiceUpdatePaymentMethod.md
+docs/Model/ModelInvoiceUpdateTaxRule.md
 docs/Model/ModelInvoiceUpdateTaxSet.md
 docs/Model/ModelOrder.md
 docs/Model/ModelOrderAddressCountry.md
@@ -364,7 +365,6 @@ docs/Model/ModelOrderResponseContactPerson.md
 docs/Model/ModelOrderResponseCreateUser.md
 docs/Model/ModelOrderResponseOrigin.md
 docs/Model/ModelOrderResponseSevClient.md
-docs/Model/ModelOrderResponseTaxRule.md
 docs/Model/ModelOrderResponseTaxSet.md
 docs/Model/ModelOrderTaxSet.md
 docs/Model/ModelOrderUpdate.md
@@ -382,7 +382,6 @@ docs/Model/ModelPaymentMethodResponse.md
 docs/Model/ModelSevUserResponse.md
 docs/Model/ModelStaticCountryResponse.md
 docs/Model/ModelTagCreateResponse.md
-docs/Model/ModelTagCreateResponseObject.md
 docs/Model/ModelTagCreateResponseTag.md
 docs/Model/ModelTagResponse.md
 docs/Model/ModelTagResponseSevClient.md
@@ -818,15 +817,16 @@ lib/Model/ModelInvoiceResponseContactPerson.php
 lib/Model/ModelInvoiceResponseCostCentre.php
 lib/Model/ModelInvoiceResponseOrigin.php
 lib/Model/ModelInvoiceResponseSevClient.php
+lib/Model/ModelInvoiceResponseTaxRule.php
 lib/Model/ModelInvoiceResponseTaxSet.php
 lib/Model/ModelInvoiceSevClient.php
-lib/Model/ModelInvoiceTaxRule.php
 lib/Model/ModelInvoiceTaxSet.php
 lib/Model/ModelInvoiceUpdate.php
 lib/Model/ModelInvoiceUpdateContact.php
 lib/Model/ModelInvoiceUpdateCostCentre.php
 lib/Model/ModelInvoiceUpdateOrigin.php
 lib/Model/ModelInvoiceUpdatePaymentMethod.php
+lib/Model/ModelInvoiceUpdateTaxRule.php
 lib/Model/ModelInvoiceUpdateTaxSet.php
 lib/Model/ModelOrder.php
 lib/Model/ModelOrderAddressCountry.php
@@ -849,7 +849,6 @@ lib/Model/ModelOrderResponseContactPerson.php
 lib/Model/ModelOrderResponseCreateUser.php
 lib/Model/ModelOrderResponseOrigin.php
 lib/Model/ModelOrderResponseSevClient.php
-lib/Model/ModelOrderResponseTaxRule.php
 lib/Model/ModelOrderResponseTaxSet.php
 lib/Model/ModelOrderTaxSet.php
 lib/Model/ModelOrderUpdate.php
@@ -867,7 +866,6 @@ lib/Model/ModelPaymentMethodResponse.php
 lib/Model/ModelSevUserResponse.php
 lib/Model/ModelStaticCountryResponse.php
 lib/Model/ModelTagCreateResponse.php
-lib/Model/ModelTagCreateResponseObject.php
 lib/Model/ModelTagCreateResponseTag.php
 lib/Model/ModelTagResponse.php
 lib/Model/ModelTagResponseSevClient.php
@@ -968,3 +966,4 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/ModelInvoiceResponseTaxRuleTest.php

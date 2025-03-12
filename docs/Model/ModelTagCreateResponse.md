@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **additional_information** | **string** |  | [optional]
 **create** | **\DateTime** | Date of tag creation | [optional] [readonly]
 **tag** | [**\Itsmind\Sevdesk\Model\ModelTagCreateResponseTag**](ModelTagCreateResponseTag.md) |  | [optional]
-**object** | [**\Itsmind\Sevdesk\Model\ModelTagCreateResponseObject**](ModelTagCreateResponseObject.md) |  | [optional]
+**object** | [**\Itsmind\Sevdesk\Model\CreateTagRequestObject**](CreateTagRequestObject.md) |  | [optional]
 **sev_client** | [**\Itsmind\Sevdesk\Model\ModelTagResponseSevClient**](ModelTagResponseSevClient.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

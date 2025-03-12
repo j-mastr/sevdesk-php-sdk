@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.6.0...v1.6.1) (2025-03-12)
+
+
+### Bug Fixes
+
+* update package description ([a837810](https://github.com/j-mastr/sevdesk-php-sdk/commit/a8378101ccfe164a0239bf7b97b30bcbb97adc24))
+
 ## [1.6.0](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.5.2...v1.6.0) (2025-03-12)
 
 

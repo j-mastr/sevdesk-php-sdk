@@ -77,7 +77,13 @@ class ExportApi
         'exportCreditNote' => [
             'application/json',
         ],
-        'exportDatev' => [
+        'exportDatevCSV' => [
+            'application/json',
+        ],
+        'exportDatevDepricated' => [
+            'application/json',
+        ],
+        'exportDatevXML' => [
             'application/json',
         ],
         'exportInvoice' => [
@@ -93,6 +99,15 @@ class ExportApi
             'application/json',
         ],
         'exportVoucherZip' => [
+            'application/json',
+        ],
+        'generateDownloadHash' => [
+            'application/json',
+        ],
+        'getProgress' => [
+            'application/json',
+        ],
+        'jobDownloadInfo' => [
             'application/json',
         ],
         'updateExportConfig' => [
@@ -805,50 +820,468 @@ class ExportApi
     }
 
     /**
-     * Operation exportDatev
+     * Operation exportDatevCSV
      *
-     * Export datev
+     * Start DATEV CSV ZIP export
      *
-     * @param  int $start_date the start date of the export as timestamp (required)
-     * @param  int $end_date the end date of the export as timestamp (required)
-     * @param  string $scope Define what you want to include in the datev export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the datev export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
-     * @param  bool|null $download Specifies if the document is downloaded (optional)
-     * @param  bool|null $with_unpaid_documents include unpaid documents (optional)
-     * @param  bool|null $with_enshrined_documents include enshrined documents (optional)
-     * @param  bool|null $enshrine Specify if you want to enshrine all models which were included in the export (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatev'] to see the possible values for this operation
+     * @param  int $start_date The start date of the export as timestamp (required)
+     * @param  int $end_date The end date of the export as timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the DATEV export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
+     * @param  bool|null $export_by_paydate When this parameter is true, the export contains only paid documents where pay date is in the time range of startDate and endDate (optional, default to false)
+     * @param  bool|null $include_enshrined If set to false, the export excludes enshrined documents (optional, default to true)
+     * @param  bool|null $enshrine_documents Specify if you want to enshrine all models which were included in the export (optional, default to false)
+     * @param  bool|null $include_document_images Specify if you want to include the document images in the export (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevCSV'] to see the possible values for this operation
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \Itsmind\Sevdesk\Model\ExportDatevCSV200Response
      */
-    public function exportDatev($start_date, $end_date, $scope, $download = null, $with_unpaid_documents = null, $with_enshrined_documents = null, $enshrine = null, string $contentType = self::contentTypes['exportDatev'][0])
+    public function exportDatevCSV($start_date, $end_date, $scope, $export_by_paydate = false, $include_enshrined = true, $enshrine_documents = false, $include_document_images = false, string $contentType = self::contentTypes['exportDatevCSV'][0])
     {
-        list($response) = $this->exportDatevWithHttpInfo($start_date, $end_date, $scope, $download, $with_unpaid_documents, $with_enshrined_documents, $enshrine, $contentType);
+        list($response) = $this->exportDatevCSVWithHttpInfo($start_date, $end_date, $scope, $export_by_paydate, $include_enshrined, $enshrine_documents, $include_document_images, $contentType);
         return $response;
     }
 
     /**
-     * Operation exportDatevWithHttpInfo
+     * Operation exportDatevCSVWithHttpInfo
+     *
+     * Start DATEV CSV ZIP export
+     *
+     * @param  int $start_date The start date of the export as timestamp (required)
+     * @param  int $end_date The end date of the export as timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the DATEV export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
+     * @param  bool|null $export_by_paydate When this parameter is true, the export contains only paid documents where pay date is in the time range of startDate and endDate (optional, default to false)
+     * @param  bool|null $include_enshrined If set to false, the export excludes enshrined documents (optional, default to true)
+     * @param  bool|null $enshrine_documents Specify if you want to enshrine all models which were included in the export (optional, default to false)
+     * @param  bool|null $include_document_images Specify if you want to include the document images in the export (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevCSV'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Itsmind\Sevdesk\Model\ExportDatevCSV200Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function exportDatevCSVWithHttpInfo($start_date, $end_date, $scope, $export_by_paydate = false, $include_enshrined = true, $enshrine_documents = false, $include_document_images = false, string $contentType = self::contentTypes['exportDatevCSV'][0])
+    {
+        $request = $this->exportDatevCSVRequest($start_date, $end_date, $scope, $export_by_paydate, $include_enshrined, $enshrine_documents, $include_document_images, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Itsmind\Sevdesk\Model\ExportDatevCSV200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Itsmind\Sevdesk\Model\ExportDatevCSV200Response' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\ExportDatevCSV200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\Itsmind\Sevdesk\Model\ExportDatevCSV200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Itsmind\Sevdesk\Model\ExportDatevCSV200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation exportDatevCSVAsync
+     *
+     * Start DATEV CSV ZIP export
+     *
+     * @param  int $start_date The start date of the export as timestamp (required)
+     * @param  int $end_date The end date of the export as timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the DATEV export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
+     * @param  bool|null $export_by_paydate When this parameter is true, the export contains only paid documents where pay date is in the time range of startDate and endDate (optional, default to false)
+     * @param  bool|null $include_enshrined If set to false, the export excludes enshrined documents (optional, default to true)
+     * @param  bool|null $enshrine_documents Specify if you want to enshrine all models which were included in the export (optional, default to false)
+     * @param  bool|null $include_document_images Specify if you want to include the document images in the export (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevCSV'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function exportDatevCSVAsync($start_date, $end_date, $scope, $export_by_paydate = false, $include_enshrined = true, $enshrine_documents = false, $include_document_images = false, string $contentType = self::contentTypes['exportDatevCSV'][0])
+    {
+        return $this->exportDatevCSVAsyncWithHttpInfo($start_date, $end_date, $scope, $export_by_paydate, $include_enshrined, $enshrine_documents, $include_document_images, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation exportDatevCSVAsyncWithHttpInfo
+     *
+     * Start DATEV CSV ZIP export
+     *
+     * @param  int $start_date The start date of the export as timestamp (required)
+     * @param  int $end_date The end date of the export as timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the DATEV export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
+     * @param  bool|null $export_by_paydate When this parameter is true, the export contains only paid documents where pay date is in the time range of startDate and endDate (optional, default to false)
+     * @param  bool|null $include_enshrined If set to false, the export excludes enshrined documents (optional, default to true)
+     * @param  bool|null $enshrine_documents Specify if you want to enshrine all models which were included in the export (optional, default to false)
+     * @param  bool|null $include_document_images Specify if you want to include the document images in the export (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevCSV'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function exportDatevCSVAsyncWithHttpInfo($start_date, $end_date, $scope, $export_by_paydate = false, $include_enshrined = true, $enshrine_documents = false, $include_document_images = false, string $contentType = self::contentTypes['exportDatevCSV'][0])
+    {
+        $returnType = '\Itsmind\Sevdesk\Model\ExportDatevCSV200Response';
+        $request = $this->exportDatevCSVRequest($start_date, $end_date, $scope, $export_by_paydate, $include_enshrined, $enshrine_documents, $include_document_images, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'exportDatevCSV'
+     *
+     * @param  int $start_date The start date of the export as timestamp (required)
+     * @param  int $end_date The end date of the export as timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the DATEV export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
+     * @param  bool|null $export_by_paydate When this parameter is true, the export contains only paid documents where pay date is in the time range of startDate and endDate (optional, default to false)
+     * @param  bool|null $include_enshrined If set to false, the export excludes enshrined documents (optional, default to true)
+     * @param  bool|null $enshrine_documents Specify if you want to enshrine all models which were included in the export (optional, default to false)
+     * @param  bool|null $include_document_images Specify if you want to include the document images in the export (optional, default to false)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevCSV'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function exportDatevCSVRequest($start_date, $end_date, $scope, $export_by_paydate = false, $include_enshrined = true, $enshrine_documents = false, $include_document_images = false, string $contentType = self::contentTypes['exportDatevCSV'][0])
+    {
+
+        // verify the required parameter 'start_date' is set
+        if ($start_date === null || (is_array($start_date) && count($start_date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $start_date when calling exportDatevCSV'
+            );
+        }
+
+        // verify the required parameter 'end_date' is set
+        if ($end_date === null || (is_array($end_date) && count($end_date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $end_date when calling exportDatevCSV'
+            );
+        }
+
+        // verify the required parameter 'scope' is set
+        if ($scope === null || (is_array($scope) && count($scope) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $scope when calling exportDatevCSV'
+            );
+        }
+
+
+
+
+
+
+        $resourcePath = '/Export/createDatevCsvZipExportJob';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $start_date,
+            'startDate', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $end_date,
+            'endDate', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $scope,
+            'scope', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $export_by_paydate,
+            'exportByPaydate', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_enshrined,
+            'includeEnshrined', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $enshrine_documents,
+            'enshrineDocuments', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_document_images,
+            'includeDocumentImages', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation exportDatevDepricated
      *
      * Export datev
      *
-     * @param  int $start_date the start date of the export as timestamp (required)
-     * @param  int $end_date the end date of the export as timestamp (required)
-     * @param  string $scope Define what you want to include in the datev export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the datev export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
+     * @param  int $start_date The start date of the export as timestamp (required)
+     * @param  int $end_date The end date of the export as timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the DATEV export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
      * @param  bool|null $download Specifies if the document is downloaded (optional)
      * @param  bool|null $with_unpaid_documents include unpaid documents (optional)
      * @param  bool|null $with_enshrined_documents include enshrined documents (optional)
      * @param  bool|null $enshrine Specify if you want to enshrine all models which were included in the export (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatev'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevDepricated'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return object
+     * @deprecated
+     */
+    public function exportDatevDepricated($start_date, $end_date, $scope, $download = null, $with_unpaid_documents = null, $with_enshrined_documents = null, $enshrine = null, string $contentType = self::contentTypes['exportDatevDepricated'][0])
+    {
+        list($response) = $this->exportDatevDepricatedWithHttpInfo($start_date, $end_date, $scope, $download, $with_unpaid_documents, $with_enshrined_documents, $enshrine, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation exportDatevDepricatedWithHttpInfo
+     *
+     * Export datev
+     *
+     * @param  int $start_date The start date of the export as timestamp (required)
+     * @param  int $end_date The end date of the export as timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the DATEV export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
+     * @param  bool|null $download Specifies if the document is downloaded (optional)
+     * @param  bool|null $with_unpaid_documents include unpaid documents (optional)
+     * @param  bool|null $with_enshrined_documents include enshrined documents (optional)
+     * @param  bool|null $enshrine Specify if you want to enshrine all models which were included in the export (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevDepricated'] to see the possible values for this operation
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
-    public function exportDatevWithHttpInfo($start_date, $end_date, $scope, $download = null, $with_unpaid_documents = null, $with_enshrined_documents = null, $enshrine = null, string $contentType = self::contentTypes['exportDatev'][0])
+    public function exportDatevDepricatedWithHttpInfo($start_date, $end_date, $scope, $download = null, $with_unpaid_documents = null, $with_enshrined_documents = null, $enshrine = null, string $contentType = self::contentTypes['exportDatevDepricated'][0])
     {
-        $request = $this->exportDatevRequest($start_date, $end_date, $scope, $download, $with_unpaid_documents, $with_enshrined_documents, $enshrine, $contentType);
+        $request = $this->exportDatevDepricatedRequest($start_date, $end_date, $scope, $download, $with_unpaid_documents, $with_enshrined_documents, $enshrine, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -960,25 +1393,26 @@ class ExportApi
     }
 
     /**
-     * Operation exportDatevAsync
+     * Operation exportDatevDepricatedAsync
      *
      * Export datev
      *
-     * @param  int $start_date the start date of the export as timestamp (required)
-     * @param  int $end_date the end date of the export as timestamp (required)
-     * @param  string $scope Define what you want to include in the datev export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the datev export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
+     * @param  int $start_date The start date of the export as timestamp (required)
+     * @param  int $end_date The end date of the export as timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the DATEV export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
      * @param  bool|null $download Specifies if the document is downloaded (optional)
      * @param  bool|null $with_unpaid_documents include unpaid documents (optional)
      * @param  bool|null $with_enshrined_documents include enshrined documents (optional)
      * @param  bool|null $enshrine Specify if you want to enshrine all models which were included in the export (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatev'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevDepricated'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
-    public function exportDatevAsync($start_date, $end_date, $scope, $download = null, $with_unpaid_documents = null, $with_enshrined_documents = null, $enshrine = null, string $contentType = self::contentTypes['exportDatev'][0])
+    public function exportDatevDepricatedAsync($start_date, $end_date, $scope, $download = null, $with_unpaid_documents = null, $with_enshrined_documents = null, $enshrine = null, string $contentType = self::contentTypes['exportDatevDepricated'][0])
     {
-        return $this->exportDatevAsyncWithHttpInfo($start_date, $end_date, $scope, $download, $with_unpaid_documents, $with_enshrined_documents, $enshrine, $contentType)
+        return $this->exportDatevDepricatedAsyncWithHttpInfo($start_date, $end_date, $scope, $download, $with_unpaid_documents, $with_enshrined_documents, $enshrine, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -987,26 +1421,27 @@ class ExportApi
     }
 
     /**
-     * Operation exportDatevAsyncWithHttpInfo
+     * Operation exportDatevDepricatedAsyncWithHttpInfo
      *
      * Export datev
      *
-     * @param  int $start_date the start date of the export as timestamp (required)
-     * @param  int $end_date the end date of the export as timestamp (required)
-     * @param  string $scope Define what you want to include in the datev export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the datev export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
+     * @param  int $start_date The start date of the export as timestamp (required)
+     * @param  int $end_date The end date of the export as timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the DATEV export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
      * @param  bool|null $download Specifies if the document is downloaded (optional)
      * @param  bool|null $with_unpaid_documents include unpaid documents (optional)
      * @param  bool|null $with_enshrined_documents include enshrined documents (optional)
      * @param  bool|null $enshrine Specify if you want to enshrine all models which were included in the export (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatev'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevDepricated'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
-    public function exportDatevAsyncWithHttpInfo($start_date, $end_date, $scope, $download = null, $with_unpaid_documents = null, $with_enshrined_documents = null, $enshrine = null, string $contentType = self::contentTypes['exportDatev'][0])
+    public function exportDatevDepricatedAsyncWithHttpInfo($start_date, $end_date, $scope, $download = null, $with_unpaid_documents = null, $with_enshrined_documents = null, $enshrine = null, string $contentType = self::contentTypes['exportDatevDepricated'][0])
     {
         $returnType = 'object';
-        $request = $this->exportDatevRequest($start_date, $end_date, $scope, $download, $with_unpaid_documents, $with_enshrined_documents, $enshrine, $contentType);
+        $request = $this->exportDatevDepricatedRequest($start_date, $end_date, $scope, $download, $with_unpaid_documents, $with_enshrined_documents, $enshrine, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1045,41 +1480,42 @@ class ExportApi
     }
 
     /**
-     * Create request for operation 'exportDatev'
+     * Create request for operation 'exportDatevDepricated'
      *
-     * @param  int $start_date the start date of the export as timestamp (required)
-     * @param  int $end_date the end date of the export as timestamp (required)
-     * @param  string $scope Define what you want to include in the datev export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the datev export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
+     * @param  int $start_date The start date of the export as timestamp (required)
+     * @param  int $end_date The end date of the export as timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of 5 letters. Each stands for a model that should be included. Possible letters are: ‘E’ (Earnings), ‘X’ (Expenditure), ‘T’ (Transactions), ‘C’ (Cashregister), ‘D’ (Assets). By providing one of those letter you specify that it should be included in the DATEV export. Some combinations are: ‘EXTCD’, ‘EXTD’ … (required)
      * @param  bool|null $download Specifies if the document is downloaded (optional)
      * @param  bool|null $with_unpaid_documents include unpaid documents (optional)
      * @param  bool|null $with_enshrined_documents include enshrined documents (optional)
      * @param  bool|null $enshrine Specify if you want to enshrine all models which were included in the export (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatev'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevDepricated'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
-    public function exportDatevRequest($start_date, $end_date, $scope, $download = null, $with_unpaid_documents = null, $with_enshrined_documents = null, $enshrine = null, string $contentType = self::contentTypes['exportDatev'][0])
+    public function exportDatevDepricatedRequest($start_date, $end_date, $scope, $download = null, $with_unpaid_documents = null, $with_enshrined_documents = null, $enshrine = null, string $contentType = self::contentTypes['exportDatevDepricated'][0])
     {
 
         // verify the required parameter 'start_date' is set
         if ($start_date === null || (is_array($start_date) && count($start_date) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $start_date when calling exportDatev'
+                'Missing the required parameter $start_date when calling exportDatevDepricated'
             );
         }
 
         // verify the required parameter 'end_date' is set
         if ($end_date === null || (is_array($end_date) && count($end_date) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $end_date when calling exportDatev'
+                'Missing the required parameter $end_date when calling exportDatevDepricated'
             );
         }
 
         // verify the required parameter 'scope' is set
         if ($scope === null || (is_array($scope) && count($scope) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $scope when calling exportDatev'
+                'Missing the required parameter $scope when calling exportDatevDepricated'
             );
         }
 
@@ -1153,6 +1589,422 @@ class ExportApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $enshrine,
             'enshrine', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation exportDatevXML
+     *
+     * Start DATEV XML ZIP export
+     *
+     * @param  int $start_date The start date of the export as ISO timestamp (required)
+     * @param  int $end_date The end date of the export as ISO timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of letters. Each letter stands for a document type that should be included. Possible letters are: ‘E’ (Receipts, outgoing invoices &amp; credit notes) and ‘X’ (Expenditure documents). (required)
+     * @param  bool|null $export_by_paydate When this parameter is true, the export contains only paid documents where pay date is in the time range of startDate and endDate (optional, default to false)
+     * @param  bool|null $include_enshrined If set to false, the export excludes enshrined documents (optional, default to true)
+     * @param  bool|null $include_exported_documents If set to false, the export excludes already exported documents (optional, default to true)
+     * @param  bool|null $include_document_xml If set to false, the export excludes XML files containing the data for each document (optional, default to true)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevXML'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Itsmind\Sevdesk\Model\ExportDatevCSV200Response
+     */
+    public function exportDatevXML($start_date, $end_date, $scope, $export_by_paydate = false, $include_enshrined = true, $include_exported_documents = true, $include_document_xml = true, string $contentType = self::contentTypes['exportDatevXML'][0])
+    {
+        list($response) = $this->exportDatevXMLWithHttpInfo($start_date, $end_date, $scope, $export_by_paydate, $include_enshrined, $include_exported_documents, $include_document_xml, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation exportDatevXMLWithHttpInfo
+     *
+     * Start DATEV XML ZIP export
+     *
+     * @param  int $start_date The start date of the export as ISO timestamp (required)
+     * @param  int $end_date The end date of the export as ISO timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of letters. Each letter stands for a document type that should be included. Possible letters are: ‘E’ (Receipts, outgoing invoices &amp; credit notes) and ‘X’ (Expenditure documents). (required)
+     * @param  bool|null $export_by_paydate When this parameter is true, the export contains only paid documents where pay date is in the time range of startDate and endDate (optional, default to false)
+     * @param  bool|null $include_enshrined If set to false, the export excludes enshrined documents (optional, default to true)
+     * @param  bool|null $include_exported_documents If set to false, the export excludes already exported documents (optional, default to true)
+     * @param  bool|null $include_document_xml If set to false, the export excludes XML files containing the data for each document (optional, default to true)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevXML'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Itsmind\Sevdesk\Model\ExportDatevCSV200Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function exportDatevXMLWithHttpInfo($start_date, $end_date, $scope, $export_by_paydate = false, $include_enshrined = true, $include_exported_documents = true, $include_document_xml = true, string $contentType = self::contentTypes['exportDatevXML'][0])
+    {
+        $request = $this->exportDatevXMLRequest($start_date, $end_date, $scope, $export_by_paydate, $include_enshrined, $include_exported_documents, $include_document_xml, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Itsmind\Sevdesk\Model\ExportDatevCSV200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Itsmind\Sevdesk\Model\ExportDatevCSV200Response' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\ExportDatevCSV200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\Itsmind\Sevdesk\Model\ExportDatevCSV200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Itsmind\Sevdesk\Model\ExportDatevCSV200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation exportDatevXMLAsync
+     *
+     * Start DATEV XML ZIP export
+     *
+     * @param  int $start_date The start date of the export as ISO timestamp (required)
+     * @param  int $end_date The end date of the export as ISO timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of letters. Each letter stands for a document type that should be included. Possible letters are: ‘E’ (Receipts, outgoing invoices &amp; credit notes) and ‘X’ (Expenditure documents). (required)
+     * @param  bool|null $export_by_paydate When this parameter is true, the export contains only paid documents where pay date is in the time range of startDate and endDate (optional, default to false)
+     * @param  bool|null $include_enshrined If set to false, the export excludes enshrined documents (optional, default to true)
+     * @param  bool|null $include_exported_documents If set to false, the export excludes already exported documents (optional, default to true)
+     * @param  bool|null $include_document_xml If set to false, the export excludes XML files containing the data for each document (optional, default to true)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevXML'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function exportDatevXMLAsync($start_date, $end_date, $scope, $export_by_paydate = false, $include_enshrined = true, $include_exported_documents = true, $include_document_xml = true, string $contentType = self::contentTypes['exportDatevXML'][0])
+    {
+        return $this->exportDatevXMLAsyncWithHttpInfo($start_date, $end_date, $scope, $export_by_paydate, $include_enshrined, $include_exported_documents, $include_document_xml, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation exportDatevXMLAsyncWithHttpInfo
+     *
+     * Start DATEV XML ZIP export
+     *
+     * @param  int $start_date The start date of the export as ISO timestamp (required)
+     * @param  int $end_date The end date of the export as ISO timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of letters. Each letter stands for a document type that should be included. Possible letters are: ‘E’ (Receipts, outgoing invoices &amp; credit notes) and ‘X’ (Expenditure documents). (required)
+     * @param  bool|null $export_by_paydate When this parameter is true, the export contains only paid documents where pay date is in the time range of startDate and endDate (optional, default to false)
+     * @param  bool|null $include_enshrined If set to false, the export excludes enshrined documents (optional, default to true)
+     * @param  bool|null $include_exported_documents If set to false, the export excludes already exported documents (optional, default to true)
+     * @param  bool|null $include_document_xml If set to false, the export excludes XML files containing the data for each document (optional, default to true)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevXML'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function exportDatevXMLAsyncWithHttpInfo($start_date, $end_date, $scope, $export_by_paydate = false, $include_enshrined = true, $include_exported_documents = true, $include_document_xml = true, string $contentType = self::contentTypes['exportDatevXML'][0])
+    {
+        $returnType = '\Itsmind\Sevdesk\Model\ExportDatevCSV200Response';
+        $request = $this->exportDatevXMLRequest($start_date, $end_date, $scope, $export_by_paydate, $include_enshrined, $include_exported_documents, $include_document_xml, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'exportDatevXML'
+     *
+     * @param  int $start_date The start date of the export as ISO timestamp (required)
+     * @param  int $end_date The end date of the export as ISO timestamp (required)
+     * @param  string $scope Define what you want to include in the DATEV export. This parameter takes a string of letters. Each letter stands for a document type that should be included. Possible letters are: ‘E’ (Receipts, outgoing invoices &amp; credit notes) and ‘X’ (Expenditure documents). (required)
+     * @param  bool|null $export_by_paydate When this parameter is true, the export contains only paid documents where pay date is in the time range of startDate and endDate (optional, default to false)
+     * @param  bool|null $include_enshrined If set to false, the export excludes enshrined documents (optional, default to true)
+     * @param  bool|null $include_exported_documents If set to false, the export excludes already exported documents (optional, default to true)
+     * @param  bool|null $include_document_xml If set to false, the export excludes XML files containing the data for each document (optional, default to true)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportDatevXML'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function exportDatevXMLRequest($start_date, $end_date, $scope, $export_by_paydate = false, $include_enshrined = true, $include_exported_documents = true, $include_document_xml = true, string $contentType = self::contentTypes['exportDatevXML'][0])
+    {
+
+        // verify the required parameter 'start_date' is set
+        if ($start_date === null || (is_array($start_date) && count($start_date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $start_date when calling exportDatevXML'
+            );
+        }
+
+        // verify the required parameter 'end_date' is set
+        if ($end_date === null || (is_array($end_date) && count($end_date) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $end_date when calling exportDatevXML'
+            );
+        }
+
+        // verify the required parameter 'scope' is set
+        if ($scope === null || (is_array($scope) && count($scope) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $scope when calling exportDatevXML'
+            );
+        }
+
+
+
+
+
+
+        $resourcePath = '/Export/createDatevXmlZipExportJob';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $start_date,
+            'startDate', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $end_date,
+            'endDate', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $scope,
+            'scope', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $export_by_paydate,
+            'exportByPaydate', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_enshrined,
+            'includeEnshrined', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_exported_documents,
+            'includeExportedDocuments', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_document_xml,
+            'includeDocumentXml', // param base name
             'boolean', // openApiType
             'form', // style
             true, // explode
@@ -2799,6 +3651,948 @@ class ExportApi
             $sev_query,
             'sevQuery', // param base name
             'object', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation generateDownloadHash
+     *
+     * Generate download hash
+     *
+     * @param  string $job_id The export job ID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateDownloadHash'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Itsmind\Sevdesk\Model\GenerateDownloadHash200Response
+     */
+    public function generateDownloadHash($job_id, string $contentType = self::contentTypes['generateDownloadHash'][0])
+    {
+        list($response) = $this->generateDownloadHashWithHttpInfo($job_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation generateDownloadHashWithHttpInfo
+     *
+     * Generate download hash
+     *
+     * @param  string $job_id The export job ID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateDownloadHash'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Itsmind\Sevdesk\Model\GenerateDownloadHash200Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function generateDownloadHashWithHttpInfo($job_id, string $contentType = self::contentTypes['generateDownloadHash'][0])
+    {
+        $request = $this->generateDownloadHashRequest($job_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Itsmind\Sevdesk\Model\GenerateDownloadHash200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Itsmind\Sevdesk\Model\GenerateDownloadHash200Response' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GenerateDownloadHash200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\Itsmind\Sevdesk\Model\GenerateDownloadHash200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Itsmind\Sevdesk\Model\GenerateDownloadHash200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation generateDownloadHashAsync
+     *
+     * Generate download hash
+     *
+     * @param  string $job_id The export job ID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateDownloadHash'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function generateDownloadHashAsync($job_id, string $contentType = self::contentTypes['generateDownloadHash'][0])
+    {
+        return $this->generateDownloadHashAsyncWithHttpInfo($job_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation generateDownloadHashAsyncWithHttpInfo
+     *
+     * Generate download hash
+     *
+     * @param  string $job_id The export job ID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateDownloadHash'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function generateDownloadHashAsyncWithHttpInfo($job_id, string $contentType = self::contentTypes['generateDownloadHash'][0])
+    {
+        $returnType = '\Itsmind\Sevdesk\Model\GenerateDownloadHash200Response';
+        $request = $this->generateDownloadHashRequest($job_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'generateDownloadHash'
+     *
+     * @param  string $job_id The export job ID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateDownloadHash'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function generateDownloadHashRequest($job_id, string $contentType = self::contentTypes['generateDownloadHash'][0])
+    {
+
+        // verify the required parameter 'job_id' is set
+        if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $job_id when calling generateDownloadHash'
+            );
+        }
+
+
+        $resourcePath = '/Progress/generateDownloadHash';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $job_id,
+            'jobId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getProgress
+     *
+     * Get progress
+     *
+     * @param  string $hash The hash string of an export (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProgress'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Itsmind\Sevdesk\Model\GenerateDownloadHash200Response
+     */
+    public function getProgress($hash, string $contentType = self::contentTypes['getProgress'][0])
+    {
+        list($response) = $this->getProgressWithHttpInfo($hash, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getProgressWithHttpInfo
+     *
+     * Get progress
+     *
+     * @param  string $hash The hash string of an export (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProgress'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Itsmind\Sevdesk\Model\GenerateDownloadHash200Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getProgressWithHttpInfo($hash, string $contentType = self::contentTypes['getProgress'][0])
+    {
+        $request = $this->getProgressRequest($hash, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Itsmind\Sevdesk\Model\GenerateDownloadHash200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Itsmind\Sevdesk\Model\GenerateDownloadHash200Response' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\GenerateDownloadHash200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\Itsmind\Sevdesk\Model\GenerateDownloadHash200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Itsmind\Sevdesk\Model\GenerateDownloadHash200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getProgressAsync
+     *
+     * Get progress
+     *
+     * @param  string $hash The hash string of an export (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProgress'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getProgressAsync($hash, string $contentType = self::contentTypes['getProgress'][0])
+    {
+        return $this->getProgressAsyncWithHttpInfo($hash, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getProgressAsyncWithHttpInfo
+     *
+     * Get progress
+     *
+     * @param  string $hash The hash string of an export (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProgress'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getProgressAsyncWithHttpInfo($hash, string $contentType = self::contentTypes['getProgress'][0])
+    {
+        $returnType = '\Itsmind\Sevdesk\Model\GenerateDownloadHash200Response';
+        $request = $this->getProgressRequest($hash, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getProgress'
+     *
+     * @param  string $hash The hash string of an export (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProgress'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getProgressRequest($hash, string $contentType = self::contentTypes['getProgress'][0])
+    {
+
+        // verify the required parameter 'hash' is set
+        if ($hash === null || (is_array($hash) && count($hash) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hash when calling getProgress'
+            );
+        }
+
+
+        $resourcePath = '/Progress/getProgress';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hash,
+            'hash', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation jobDownloadInfo
+     *
+     * Get job download info
+     *
+     * @param  string $job_id The export job ID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['jobDownloadInfo'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Itsmind\Sevdesk\Model\JobDownloadInfo200Response
+     */
+    public function jobDownloadInfo($job_id, string $contentType = self::contentTypes['jobDownloadInfo'][0])
+    {
+        list($response) = $this->jobDownloadInfoWithHttpInfo($job_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation jobDownloadInfoWithHttpInfo
+     *
+     * Get job download info
+     *
+     * @param  string $job_id The export job ID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['jobDownloadInfo'] to see the possible values for this operation
+     *
+     * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Itsmind\Sevdesk\Model\JobDownloadInfo200Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function jobDownloadInfoWithHttpInfo($job_id, string $contentType = self::contentTypes['jobDownloadInfo'][0])
+    {
+        $request = $this->jobDownloadInfoRequest($job_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Itsmind\Sevdesk\Model\JobDownloadInfo200Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Itsmind\Sevdesk\Model\JobDownloadInfo200Response' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Itsmind\Sevdesk\Model\JobDownloadInfo200Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\Itsmind\Sevdesk\Model\JobDownloadInfo200Response';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Itsmind\Sevdesk\Model\JobDownloadInfo200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation jobDownloadInfoAsync
+     *
+     * Get job download info
+     *
+     * @param  string $job_id The export job ID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['jobDownloadInfo'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function jobDownloadInfoAsync($job_id, string $contentType = self::contentTypes['jobDownloadInfo'][0])
+    {
+        return $this->jobDownloadInfoAsyncWithHttpInfo($job_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation jobDownloadInfoAsyncWithHttpInfo
+     *
+     * Get job download info
+     *
+     * @param  string $job_id The export job ID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['jobDownloadInfo'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function jobDownloadInfoAsyncWithHttpInfo($job_id, string $contentType = self::contentTypes['jobDownloadInfo'][0])
+    {
+        $returnType = '\Itsmind\Sevdesk\Model\JobDownloadInfo200Response';
+        $request = $this->jobDownloadInfoRequest($job_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'jobDownloadInfo'
+     *
+     * @param  string $job_id The export job ID (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['jobDownloadInfo'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function jobDownloadInfoRequest($job_id, string $contentType = self::contentTypes['jobDownloadInfo'][0])
+    {
+
+        // verify the required parameter 'job_id' is set
+        if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $job_id when calling jobDownloadInfo'
+            );
+        }
+
+
+        $resourcePath = '/ExportJob/jobDownloadInfo';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $job_id,
+            'jobId', // param base name
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required

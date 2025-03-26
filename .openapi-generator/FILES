@@ -93,6 +93,7 @@ docs/Model/ExportCreditNote200ResponseObjects.md
 docs/Model/ExportCreditNoteSevQueryParameter.md
 docs/Model/ExportCreditNoteSevQueryParameterFilter.md
 docs/Model/ExportCreditNoteSevQueryParameterFilterContact.md
+docs/Model/ExportDatevCSV200Response.md
 docs/Model/ExportInvoice200Response.md
 docs/Model/ExportInvoice200ResponseObjects.md
 docs/Model/ExportInvoiceSevQueryParameter.md
@@ -100,6 +101,8 @@ docs/Model/ExportInvoiceSevQueryParameterFilter.md
 docs/Model/ExportInvoiceSevQueryParameterFilterContact.md
 docs/Model/ExportInvoiceZip200Response.md
 docs/Model/ExportInvoiceZip200ResponseObjects.md
+docs/Model/ExportJobDownloadInfo.md
+docs/Model/ExportProgressData.md
 docs/Model/ExportTransactions200Response.md
 docs/Model/ExportTransactions200ResponseObjects.md
 docs/Model/ExportTransactionsSevQueryParameter.md
@@ -116,6 +119,7 @@ docs/Model/ExportVoucherZipSevQueryParameterFilter.md
 docs/Model/ExportVoucherZipSevQueryParameterFilterContact.md
 docs/Model/FindContactsByCustomFieldValue200Response.md
 docs/Model/ForAllAccounts200Response.md
+docs/Model/GenerateDownloadHash200Response.md
 docs/Model/GetAccountingContact200Response.md
 docs/Model/GetAccountingContactById200Response.md
 docs/Model/GetBalanceAtDate200Response.md
@@ -183,6 +187,7 @@ docs/Model/InvoiceResetToDraft200ResponseObjects.md
 docs/Model/InvoiceResetToOpen200Response.md
 docs/Model/InvoiceResetToOpen200ResponseObjects.md
 docs/Model/InvoiceSendByRequest.md
+docs/Model/JobDownloadInfo200Response.md
 docs/Model/ModelAccountingContact.md
 docs/Model/ModelAccountingContactContact.md
 docs/Model/ModelAccountingContactResponse.md
@@ -576,6 +581,7 @@ lib/Model/ExportCreditNote200ResponseObjects.php
 lib/Model/ExportCreditNoteSevQueryParameter.php
 lib/Model/ExportCreditNoteSevQueryParameterFilter.php
 lib/Model/ExportCreditNoteSevQueryParameterFilterContact.php
+lib/Model/ExportDatevCSV200Response.php
 lib/Model/ExportInvoice200Response.php
 lib/Model/ExportInvoice200ResponseObjects.php
 lib/Model/ExportInvoiceSevQueryParameter.php
@@ -583,6 +589,8 @@ lib/Model/ExportInvoiceSevQueryParameterFilter.php
 lib/Model/ExportInvoiceSevQueryParameterFilterContact.php
 lib/Model/ExportInvoiceZip200Response.php
 lib/Model/ExportInvoiceZip200ResponseObjects.php
+lib/Model/ExportJobDownloadInfo.php
+lib/Model/ExportProgressData.php
 lib/Model/ExportTransactions200Response.php
 lib/Model/ExportTransactions200ResponseObjects.php
 lib/Model/ExportTransactionsSevQueryParameter.php
@@ -599,6 +607,7 @@ lib/Model/ExportVoucherZipSevQueryParameterFilter.php
 lib/Model/ExportVoucherZipSevQueryParameterFilterContact.php
 lib/Model/FindContactsByCustomFieldValue200Response.php
 lib/Model/ForAllAccounts200Response.php
+lib/Model/GenerateDownloadHash200Response.php
 lib/Model/GetAccountingContact200Response.php
 lib/Model/GetAccountingContactById200Response.php
 lib/Model/GetBalanceAtDate200Response.php
@@ -666,6 +675,7 @@ lib/Model/InvoiceResetToDraft200ResponseObjects.php
 lib/Model/InvoiceResetToOpen200Response.php
 lib/Model/InvoiceResetToOpen200ResponseObjects.php
 lib/Model/InvoiceSendByRequest.php
+lib/Model/JobDownloadInfo200Response.php
 lib/Model/ModelAccountingContact.php
 lib/Model/ModelAccountingContactContact.php
 lib/Model/ModelAccountingContactResponse.php
@@ -966,3 +976,8 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/ExportDatevCSV200ResponseTest.php
+test/Model/ExportJobDownloadInfoTest.php
+test/Model/ExportProgressDataTest.php
+test/Model/GenerateDownloadHash200ResponseTest.php
+test/Model/JobDownloadInfo200ResponseTest.php

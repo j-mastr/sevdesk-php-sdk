@@ -264,12 +264,17 @@ Class | Method | HTTP request | Description
 *DocumentApi* | [**getDocuments**](docs/Api/DocumentApi.md#getdocuments) | **GET** /Document | Retrieve documents
 *ExportApi* | [**exportContact**](docs/Api/ExportApi.md#exportcontact) | **GET** /Export/contactListCsv | Export contact
 *ExportApi* | [**exportCreditNote**](docs/Api/ExportApi.md#exportcreditnote) | **GET** /Export/creditNoteCsv | Export creditNote
-*ExportApi* | [**exportDatev**](docs/Api/ExportApi.md#exportdatev) | **GET** /Export/datevCSV | Export datev
+*ExportApi* | [**exportDatevCSV**](docs/Api/ExportApi.md#exportdatevcsv) | **GET** /Export/createDatevCsvZipExportJob | Start DATEV CSV ZIP export
+*ExportApi* | [**exportDatevDepricated**](docs/Api/ExportApi.md#exportdatevdepricated) | **GET** /Export/datevCSV | Export datev
+*ExportApi* | [**exportDatevXML**](docs/Api/ExportApi.md#exportdatevxml) | **GET** /Export/createDatevXmlZipExportJob | Start DATEV XML ZIP export
 *ExportApi* | [**exportInvoice**](docs/Api/ExportApi.md#exportinvoice) | **GET** /Export/invoiceCsv | Export invoice
 *ExportApi* | [**exportInvoiceZip**](docs/Api/ExportApi.md#exportinvoicezip) | **GET** /Export/invoiceZip | Export Invoice as zip
 *ExportApi* | [**exportTransactions**](docs/Api/ExportApi.md#exporttransactions) | **GET** /Export/transactionsCsv | Export transaction
 *ExportApi* | [**exportVoucher**](docs/Api/ExportApi.md#exportvoucher) | **GET** /Export/voucherListCsv | Export voucher as zip
 *ExportApi* | [**exportVoucherZip**](docs/Api/ExportApi.md#exportvoucherzip) | **GET** /Export/voucherZip | Export voucher zip
+*ExportApi* | [**generateDownloadHash**](docs/Api/ExportApi.md#generatedownloadhash) | **GET** /Progress/generateDownloadHash | Generate download hash
+*ExportApi* | [**getProgress**](docs/Api/ExportApi.md#getprogress) | **GET** /Progress/getProgress | Get progress
+*ExportApi* | [**jobDownloadInfo**](docs/Api/ExportApi.md#jobdownloadinfo) | **GET** /ExportJob/jobDownloadInfo | Get job download info
 *ExportApi* | [**updateExportConfig**](docs/Api/ExportApi.md#updateexportconfig) | **PUT** /SevClient/{SevClientId}/updateExportConfig | Update export config
 *InvoiceApi* | [**bookInvoice**](docs/Api/InvoiceApi.md#bookinvoice) | **PUT** /Invoice/{invoiceId}/bookAmount | Book an invoice
 *InvoiceApi* | [**cancelInvoice**](docs/Api/InvoiceApi.md#cancelinvoice) | **POST** /Invoice/{invoiceId}/cancelInvoice | Cancel an invoice / Create cancellation invoice
@@ -422,6 +427,7 @@ Class | Method | HTTP request | Description
 - [ExportCreditNoteSevQueryParameter](docs/Model/ExportCreditNoteSevQueryParameter.md)
 - [ExportCreditNoteSevQueryParameterFilter](docs/Model/ExportCreditNoteSevQueryParameterFilter.md)
 - [ExportCreditNoteSevQueryParameterFilterContact](docs/Model/ExportCreditNoteSevQueryParameterFilterContact.md)
+- [ExportDatevCSV200Response](docs/Model/ExportDatevCSV200Response.md)
 - [ExportInvoice200Response](docs/Model/ExportInvoice200Response.md)
 - [ExportInvoice200ResponseObjects](docs/Model/ExportInvoice200ResponseObjects.md)
 - [ExportInvoiceSevQueryParameter](docs/Model/ExportInvoiceSevQueryParameter.md)
@@ -429,6 +435,8 @@ Class | Method | HTTP request | Description
 - [ExportInvoiceSevQueryParameterFilterContact](docs/Model/ExportInvoiceSevQueryParameterFilterContact.md)
 - [ExportInvoiceZip200Response](docs/Model/ExportInvoiceZip200Response.md)
 - [ExportInvoiceZip200ResponseObjects](docs/Model/ExportInvoiceZip200ResponseObjects.md)
+- [ExportJobDownloadInfo](docs/Model/ExportJobDownloadInfo.md)
+- [ExportProgressData](docs/Model/ExportProgressData.md)
 - [ExportTransactions200Response](docs/Model/ExportTransactions200Response.md)
 - [ExportTransactions200ResponseObjects](docs/Model/ExportTransactions200ResponseObjects.md)
 - [ExportTransactionsSevQueryParameter](docs/Model/ExportTransactionsSevQueryParameter.md)
@@ -445,6 +453,7 @@ Class | Method | HTTP request | Description
 - [ExportVoucherZipSevQueryParameterFilterContact](docs/Model/ExportVoucherZipSevQueryParameterFilterContact.md)
 - [FindContactsByCustomFieldValue200Response](docs/Model/FindContactsByCustomFieldValue200Response.md)
 - [ForAllAccounts200Response](docs/Model/ForAllAccounts200Response.md)
+- [GenerateDownloadHash200Response](docs/Model/GenerateDownloadHash200Response.md)
 - [GetAccountingContact200Response](docs/Model/GetAccountingContact200Response.md)
 - [GetAccountingContactById200Response](docs/Model/GetAccountingContactById200Response.md)
 - [GetBalanceAtDate200Response](docs/Model/GetBalanceAtDate200Response.md)
@@ -512,6 +521,7 @@ Class | Method | HTTP request | Description
 - [InvoiceResetToOpen200Response](docs/Model/InvoiceResetToOpen200Response.md)
 - [InvoiceResetToOpen200ResponseObjects](docs/Model/InvoiceResetToOpen200ResponseObjects.md)
 - [InvoiceSendByRequest](docs/Model/InvoiceSendByRequest.md)
+- [JobDownloadInfo200Response](docs/Model/JobDownloadInfo200Response.md)
 - [ModelAccountingContact](docs/Model/ModelAccountingContact.md)
 - [ModelAccountingContactContact](docs/Model/ModelAccountingContactContact.md)
 - [ModelAccountingContactResponse](docs/Model/ModelAccountingContactResponse.md)

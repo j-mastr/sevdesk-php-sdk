@@ -14,11 +14,6 @@
 Welcome to our API!<br>
 sevdesk offers you  the possibility of retrieving data using an interface, namely the sevdesk API, and making  changes without having to use the web UI. The sevdesk interface is a REST-Full API. All sevdesk  data and functions that are used in the web UI can also be controlled through the API.
 
-# Cross-Origin Resource Sharing
-This API features Cross-Origin Resource Sharing (CORS).<br>
-It enables cross-domain communication from the browser.<br>
-All responses have a wildcard same-origin which makes them completely public and accessible to everyone, including any code on any site.
-
 # Embedding resources
 When retrieving resources by using this API, you might encounter nested resources in the resources you requested.<br>
 For example, an invoice always contains a contact, of which you can see the ID and the object name.<br>

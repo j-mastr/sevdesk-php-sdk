@@ -976,8 +976,3 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/ExportDatevCSV200ResponseTest.php
-test/Model/ExportJobDownloadInfoTest.php
-test/Model/ExportProgressDataTest.php
-test/Model/GenerateDownloadHash200ResponseTest.php
-test/Model/JobDownloadInfo200ResponseTest.php

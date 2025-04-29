@@ -1,8 +1,7 @@
 <?php
 /**
- * ModelAccountingContactUpdateContact
- *
- * PHP version 8.1
+ * FormDataProcessor
+ * PHP version 7.4
  *
  * @category Class
  * @package  Itsmind\Sevdesk
@@ -26,457 +25,218 @@
  * Do not edit the class manually.
  */
 
-namespace Itsmind\Sevdesk\Model;
+namespace Itsmind\Sevdesk;
 
-use \ArrayAccess;
-use \Itsmind\Sevdesk\ObjectSerializer;
+use ArrayAccess;
+use DateTime;
+use GuzzleHttp\Psr7\Utils;
+use Psr\Http\Message\StreamInterface;
+use SplFileObject;
+use Itsmind\Sevdesk\Model\ModelInterface;
 
 /**
- * ModelAccountingContactUpdateContact Class Doc Comment
+ * FormDataProcessor Class Doc Comment
  *
  * @category Class
- * @description The contact to which this accounting contact belongs.
  * @package  Itsmind\Sevdesk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
- * @implements \ArrayAccess<string, mixed>
  */
-class ModelAccountingContactUpdateContact implements ModelInterface, ArrayAccess, \JsonSerializable
+class FormDataProcessor
 {
-    public const DISCRIMINATOR = null;
-
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
-    protected static $openAPIModelName = 'Model_AccountingContactUpdate_contact';
-
-    /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
-    protected static $openAPITypes = [
-        'id' => 'int',
-        'object_name' => 'string'
-    ];
-
-    /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
-    protected static $openAPIFormats = [
-        'id' => null,
-        'object_name' => null
-    ];
-
-    /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
-    protected static array $openAPINullables = [
-        'id' => false,
-        'object_name' => false
-    ];
-
-    /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
-    protected array $openAPINullablesSetToNull = [];
-
-    /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
+     * Tags whether payload passed to ::prepare() contains one or more
+     * SplFileObject or stream values.
      */
-    public static function openAPITypes()
+    public bool $has_file = false;
+
+    /**
+     * Take value and turn it into an array suitable for inclusion in
+     * the http body (form parameter). If it's a string, pass through unchanged
+     * If it's a datetime object, format it in ISO8601
+     *
+     * @param array<string|bool|array|DateTime|ArrayAccess|SplFileObject> $values the value of the form parameter
+     *
+     * @return array [key => value] of formdata
+     */
+    public function prepare(array $values): array
     {
-        return self::$openAPITypes;
+        $this->has_file = false;
+        $result = [];
+
+        foreach ($values as $k => $v) {
+            if ($v === null) {
+                continue;
+            }
+
+            $result[$k] = $this->makeFormSafe($v);
+        }
+
+        return $result;
     }
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
+     * Flattens a multi-level array of data and generates a single-level array
+     * compatible with formdata - a single-level array where the keys use bracket
+     * notation to signify nested data.
      *
-     * @return array
+     * credit: https://github.com/FranBar1966/FlatPHP
      */
-    public static function openAPIFormats()
+    public static function flatten(array $source, string $start = ''): array
     {
-        return self::$openAPIFormats;
-    }
-
-    /**
-     * Array of nullable properties
-     *
-     * @return array
-     */
-    protected static function openAPINullables(): array
-    {
-        return self::$openAPINullables;
-    }
-
-    /**
-     * Array of nullable field names deliberately set to null
-     *
-     * @return boolean[]
-     */
-    private function getOpenAPINullablesSetToNull(): array
-    {
-        return $this->openAPINullablesSetToNull;
-    }
-
-    /**
-     * Setter - Array of nullable field names deliberately set to null
-     *
-     * @param boolean[] $openAPINullablesSetToNull
-     */
-    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
-    {
-        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
-    }
-
-    /**
-     * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
-     */
-    public static function isNullable(string $property): bool
-    {
-        return self::openAPINullables()[$property] ?? false;
-    }
-
-    /**
-     * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
-     */
-    public function isNullableSetToNull(string $property): bool
-    {
-        return in_array($property, $this->getOpenAPINullablesSetToNull(), true);
-    }
-
-    /**
-     * Array of attributes where the key is the local name,
-     * and the value is the original name
-     *
-     * @var string[]
-     */
-    protected static $attributeMap = [
-        'id' => 'id',
-        'object_name' => 'objectName'
-    ];
-
-    /**
-     * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @var string[]
-     */
-    protected static $setters = [
-        'id' => 'setId',
-        'object_name' => 'setObjectName'
-    ];
-
-    /**
-     * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @var string[]
-     */
-    protected static $getters = [
-        'id' => 'getId',
-        'object_name' => 'getObjectName'
-    ];
-
-    /**
-     * Array of attributes where the key is the local name,
-     * and the value is the original name
-     *
-     * @return array
-     */
-    public static function attributeMap()
-    {
-        return self::$attributeMap;
-    }
-
-    /**
-     * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
-     */
-    public static function setters()
-    {
-        return self::$setters;
-    }
-
-    /**
-     * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
-     */
-    public static function getters()
-    {
-        return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$openAPIModelName;
-    }
-
-    public const OBJECT_NAME_CONTACT = 'Contact';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getObjectNameAllowableValues()
-    {
-        return [
-            self::OBJECT_NAME_CONTACT,
+        $opt = [
+            'prefix'          => '[',
+            'suffix'          => ']',
+            'suffix-end'      => true,
+            'prefix-list'     => '[',
+            'suffix-list'     => ']',
+            'suffix-list-end' => true,
         ];
-    }
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
-
-    /**
-     * Constructor
-     *
-     * @param mixed[]|null $data Associated array of property values
-     *                      initializing the model
-     */
-    public function __construct(?array $data = null)
-    {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('object_name', $data ?? [], 'Contact');
-    }
-
-    /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-    * @param mixed  $defaultValue
-    */
-    private function setIfExists(string $variableName, array $fields, $defaultValue): void
-    {
-        if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
-            $this->openAPINullablesSetToNull[] = $variableName;
-        }
-
-        $this->container[$variableName] = $fields[$variableName] ?? $defaultValue;
-    }
-
-    /**
-     * Show all the invalid properties with reasons.
-     *
-     * @return array invalid properties with reasons
-     */
-    public function listInvalidProperties()
-    {
-        $invalidProperties = [];
-
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object_name'] === null) {
-            $invalidProperties[] = "'object_name' can't be null";
-        }
-        $allowedValues = $this->getObjectNameAllowableValues();
-        if (!is_null($this->container['object_name']) && !in_array($this->container['object_name'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'object_name', must be one of '%s'",
-                $this->container['object_name'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        return $invalidProperties;
-    }
-
-    /**
-     * Validate all the properties in the model
-     * return true if all passed
-     *
-     * @return bool True if all properties are valid
-     */
-    public function valid()
-    {
-        return count($this->listInvalidProperties()) === 0;
-    }
-
-
-    /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id Unique identifier of the contact
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets object_name
-     *
-     * @return string
-     */
-    public function getObjectName()
-    {
-        return $this->container['object_name'];
-    }
-
-    /**
-     * Sets object_name
-     *
-     * @param string $object_name Model name, which is 'Contact'
-     *
-     * @return self
-     */
-    public function setObjectName($object_name)
-    {
-        if (is_null($object_name)) {
-            throw new \InvalidArgumentException('non-nullable object_name cannot be null');
-        }
-        $allowedValues = $this->getObjectNameAllowableValues();
-        if (!in_array($object_name, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object_name', must be one of '%s'",
-                    $object_name,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['object_name'] = $object_name;
-
-        return $this;
-    }
-    /**
-     * Returns true if offset exists. False otherwise.
-     *
-     * @param integer $offset Offset
-     *
-     * @return boolean
-     */
-    public function offsetExists($offset): bool
-    {
-        return isset($this->container[$offset]);
-    }
-
-    /**
-     * Gets offset.
-     *
-     * @param integer $offset Offset
-     *
-     * @return mixed|null
-     */
-    #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
-    {
-        return $this->container[$offset] ?? null;
-    }
-
-    /**
-     * Sets value based on offset.
-     *
-     * @param int|null $offset Offset
-     * @param mixed    $value  Value to be set
-     *
-     * @return void
-     */
-    public function offsetSet($offset, $value): void
-    {
-        if (is_null($offset)) {
-            $this->container[] = $value;
+        if ($start === '') {
+            $currentPrefix    = '';
+            $currentSuffix    = '';
+            $currentSuffixEnd = false;
+        } elseif (array_is_list($source)) {
+            $currentPrefix    = $opt['prefix-list'];
+            $currentSuffix    = $opt['suffix-list'];
+            $currentSuffixEnd = $opt['suffix-list-end'];
         } else {
-            $this->container[$offset] = $value;
+            $currentPrefix    = $opt['prefix'];
+            $currentSuffix    = $opt['suffix'];
+            $currentSuffixEnd = $opt['suffix-end'];
         }
+
+        $currentName = $start;
+        $result = [];
+
+        foreach ($source as $key => $val) {
+            $currentName .= $currentPrefix.$key;
+
+            if (is_array($val) && !empty($val)) {
+                $currentName .= $currentSuffix;
+                $result += self::flatten($val, $currentName);
+            } else {
+                if ($currentSuffixEnd) {
+                    $currentName .= $currentSuffix;
+                }
+
+                $result[$currentName] = ObjectSerializer::toString($val);
+            }
+
+            $currentName = $start;
+        }
+
+        return $result;
     }
 
     /**
-     * Unsets offset.
-     *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * formdata must be limited to scalars or arrays of scalar values,
+     * or a resource for a file upload. Here we iterate through all available
+     * data and identify how to handle each scenario
      */
-    public function offsetUnset($offset): void
+    protected function makeFormSafe($value)
     {
-        unset($this->container[$offset]);
+        if ($value instanceof SplFileObject) {
+            return $this->processFiles([$value])[0];
+        }
+
+        if (is_resource($value)) {
+            $this->has_file = true;
+
+            return $value;
+        }
+
+        if ($value instanceof ModelInterface) {
+            return $this->processModel($value);
+        }
+
+        if (is_array($value) || (is_object($value) && !$value instanceof \DateTimeInterface)) {
+            $data = [];
+
+            foreach ($value as $k => $v) {
+                $data[$k] = $this->makeFormSafe($v);
+            }
+
+            return $data;
+        }
+
+        return ObjectSerializer::toString($value);
     }
 
     /**
-     * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
-     *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * We are able to handle nested ModelInterface. We do not simply call
+     * json_decode(json_encode()) because any given model may have binary data
+     * or other data that cannot be serialized to a JSON string
      */
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    protected function processModel(ModelInterface $model): array
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        $result = [];
+
+        foreach ($model::openAPITypes() as $name => $type) {
+            $value = $model->offsetGet($name);
+
+            if ($value === null) {
+                continue;
+            }
+
+            if (strpos($type, '\SplFileObject') !== false) {
+                $file = is_array($value) ? $value : [$value];
+                $result[$name] = $this->processFiles($file);
+
+                continue;
+            }
+
+            if ($value instanceof ModelInterface) {
+                $result[$name] = $this->processModel($value);
+
+                continue;
+            }
+
+            if (is_array($value) || is_object($value)) {
+                $result[$name] = $this->makeFormSafe($value);
+
+                continue;
+            }
+
+            $result[$name] = ObjectSerializer::toString($value);
+        }
+
+        return $result;
     }
 
     /**
-     * Gets the string presentation of the object
-     *
-     * @return string
+     * Handle file data
      */
-    public function __toString()
+    protected function processFiles(array $files): array
     {
-        return json_encode(
-            ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
-        );
+        $this->has_file = true;
+
+        $result = [];
+
+        foreach ($files as $i => $file) {
+            if (is_array($file)) {
+                $result[$i] = $this->processFiles($file);
+
+                continue;
+            }
+
+            if ($file instanceof StreamInterface) {
+                $result[$i] = $file;
+
+                continue;
+            }
+
+            if ($file instanceof SplFileObject) {
+                $result[$i] = $this->tryFopen($file);
+            }
+        }
+
+        return $result;
     }
 
-    /**
-     * Gets a header-safe presentation of the object
-     *
-     * @return string
-     */
-    public function toHeaderValue()
+    private function tryFopen(SplFileObject $file)
     {
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        return Utils::tryFopen($file->getRealPath(), 'rb');
     }
 }
-
-

@@ -28,7 +28,7 @@ jobs:
           ref: ${{ inputs.ref || github.head_ref || github.ref }}
           fetch-depth: 0
           submodules: "recursive"
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: "21.x"
       - run: npx --yes @openapitools/openapi-generator-cli version-manager set stable

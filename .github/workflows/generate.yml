@@ -30,8 +30,8 @@ jobs:
           submodules: "recursive"
       - uses: actions/setup-node@v6
         with:
-          node-version: "21.x"
-      - run: npx --yes @openapitools/openapi-generator-cli version-manager set stable
+          node-version: "24.x"
+      - run: npx --yes @openapitools/openapi-generator-cli version-manager set latest
       - run: ./scripts/generate.sh
       - run: |
           git config user.name 'github-actions[bot]'

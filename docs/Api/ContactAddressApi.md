@@ -1,5 +1,7 @@
 # Itsmind\Sevdesk\ContactAddressApi
 
+As one contact can have multiple addresses, they can not be part of the contact attributes.&lt;br&gt; Instead, they have their own endpoint which makes it possible to create as many addresses for one contact as needed.&lt;br&gt; For creating contact addresses have a look at our Swagger specification. Everything should be pretty straight forward.
+
 All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

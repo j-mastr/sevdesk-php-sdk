@@ -1,5 +1,7 @@
 # Itsmind\Sevdesk\CommunicationWayApi
 
+A communication way is a medium with which a contact can be reached out to.&lt;br&gt; This can be: &lt;ul&gt; &lt;li&gt;A phone number (landline or mobile)&lt;/li&gt; &lt;li&gt;An email&lt;/li&gt; &lt;li&gt;A website&lt;/li&gt; &lt;/ul&gt; They can not be a part of the contact attributes for the same reason as addresses.&lt;br&gt; Each communication way also is of one of the following types, called communication way keys, which are also their own resource: &lt;ul&gt; &lt;li&gt;Private (ID: 1)&lt;/li&gt; &lt;li&gt;Work (ID: 2)&lt;/li&gt; &lt;li&gt;Fax (ID: 3)&lt;/li&gt; &lt;li&gt;Mobile (ID: 4)&lt;/li&gt; &lt;li&gt;Empty (ID: 5)&lt;/li&gt; &lt;li&gt;Autobox (ID: 6)&lt;/li&gt; &lt;li&gt;Newsletter (ID: 7)&lt;/li&gt; &lt;li&gt;Invoicing (ID: 8)&lt;/li&gt; &lt;/ul&gt;
+
 All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

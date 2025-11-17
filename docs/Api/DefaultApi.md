@@ -1,5 +1,7 @@
 # Itsmind\Sevdesk\DefaultApi
 
+
+
 All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

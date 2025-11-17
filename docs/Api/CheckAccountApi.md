@@ -1,5 +1,7 @@
 # Itsmind\Sevdesk\CheckAccountApi
 
+A check account is a payment account on which payments to or from the customer are stored.&lt;br&gt; There are three general types of check accounts: &lt;ul&gt;&lt;li&gt;Clearing Account (type&#x3D;offline)&lt;/li&gt; &lt;li&gt;Bank Accounts including PayPal and CSV import accounts (type&#x3D;online)&lt;/li&gt; &lt;li&gt;Cash Register (type&#x3D;register)&lt;/li&gt; &lt;/ul&gt; Bank accounts can be linked to PayPal or Banks, these must be created through the UI. File import accounts can be created through an endpoint.&lt;br&gt; Clearing accounts can be created through an endpoint.&lt;br&gt; If you want to create payment entries via API, use a file import account.&lt;br&gt; Register accounts represent the cash register for sevdesk account holders needing one and they behave the same way as offline accounts.&lt;br&gt;&lt;br&gt; Regarding the check accounts, you will most certainly only need to request existing check accounts for using their ID in further requests.&lt;br&gt; Therefore, you only need to send normal GET requests to the CheckAccount endpoint.&lt;br&gt;
+
 All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

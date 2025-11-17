@@ -1,5 +1,7 @@
 # Itsmind\Sevdesk\CheckAccountTransactionApi
 
+A check account transaction is a payment on a check account from or to the customer.&lt;br&gt; They are essential for booking invoices, vouchers (receipts) and credit notes with them to mark them as paid.&lt;br&gt; For a correct bookkeeping, there is always one or multiple transactions linked to an invoice, a voucher or a credit note, until the relevant object is completely paid.
+
 All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

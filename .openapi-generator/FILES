@@ -38,7 +38,8 @@ docs/Model/BookInvoice200ResponseSevClient.md
 docs/Model/BookInvoiceRequest.md
 docs/Model/BookInvoiceRequestCheckAccountTransaction.md
 docs/Model/BookVoucher200Response.md
-docs/Model/BookVoucher200ResponseCreditNote.md
+docs/Model/BookVoucher200ResponseSevClient.md
+docs/Model/BookVoucher200ResponseVoucher.md
 docs/Model/BookVoucherRequest.md
 docs/Model/BookVoucherRequestCheckAccountTransaction.md
 docs/Model/BookkeepingSystemVersion200Response.md
@@ -527,7 +528,8 @@ lib/Model/BookInvoice200ResponseSevClient.php
 lib/Model/BookInvoiceRequest.php
 lib/Model/BookInvoiceRequestCheckAccountTransaction.php
 lib/Model/BookVoucher200Response.php
-lib/Model/BookVoucher200ResponseCreditNote.php
+lib/Model/BookVoucher200ResponseSevClient.php
+lib/Model/BookVoucher200ResponseVoucher.php
 lib/Model/BookVoucherRequest.php
 lib/Model/BookVoucherRequestCheckAccountTransaction.php
 lib/Model/BookkeepingSystemVersion200Response.php
@@ -977,3 +979,5 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/BookVoucher200ResponseSevClientTest.php
+test/Model/BookVoucher200ResponseVoucherTest.php

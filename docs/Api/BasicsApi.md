@@ -1,5 +1,7 @@
 # Itsmind\Sevdesk\BasicsApi
 
+This is a collection of basic sevdesk functions that don&#39;t really belong into any other category.
+
 All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

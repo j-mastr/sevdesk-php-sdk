@@ -1,5 +1,7 @@
 # Itsmind\Sevdesk\ContactFieldApi
 
+The contact fields are placeholders that can be titled and filled per contact. The contact fields can then be used in invoices, credit notes and emails.
+
 All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

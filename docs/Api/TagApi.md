@@ -1,5 +1,7 @@
 # Itsmind\Sevdesk\TagApi
 
+# Purpose of Tag in sevdesk  Tags are a tool to create groupings that can be attached to any invoice, order, voucher and  credit note.&lt;br&gt; The filter function can also be used with the help of the tags. It must be mentioned here that each  invoice, order, receipt and credit note can have more than one tag and the tag must therefore be passed  as an array.&lt;br&gt; An example of how to use a tag in invoices: &lt;ul&gt; &lt;li&gt;&lt;code&gt;ht&lt;span&gt;tps://my.sevdesk.de/api/v1/Invoice?tags[0][id]&#x3D;{tagId}&amp;tags[0][objectName]&#x3D;Tag&lt;/span&gt;&lt;/code&gt;&lt;/li&gt; &lt;/ul&gt;  # Tag relation  With the tag relations you can display all invoices, receipts, orders and credit notes that have a tag&lt;br&gt; The tag relation does not have to be created separately, as this is automatically created when a tag is created.&lt;br&gt; &lt;br&gt;
+
 All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

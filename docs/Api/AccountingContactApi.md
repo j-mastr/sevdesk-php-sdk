@@ -1,5 +1,7 @@
 # Itsmind\Sevdesk\AccountingContactApi
 
+A accounting contact object belongs to one specific contact object and holds the accounting information for this contact, which is mainly the vendor / receivable accounts number.&lt;br&gt; This information is very important to guarantee valid bookkeeping reports.&lt;br&gt; As this endpoint is also pretty easy to understand, we won&#39;t cover it here, but we really recommend you having a look at the POST to create accounting contacts and at the request which checks if a number is still available.
+
 All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

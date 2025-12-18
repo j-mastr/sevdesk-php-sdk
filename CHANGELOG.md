@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.8.0](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.7.0...v1.8.0) (2025-12-18)
+
+
+### Features
+
+* store images locally ([#88](https://github.com/j-mastr/sevdesk-php-sdk/issues/88)) ([f70c8d2](https://github.com/j-mastr/sevdesk-php-sdk/commit/f70c8d247693491de3da836d22532d5b6abcc076))
+
+
+### Bug Fixes
+
+* GitHub action ([#80](https://github.com/j-mastr/sevdesk-php-sdk/issues/80)) ([#92](https://github.com/j-mastr/sevdesk-php-sdk/issues/92)) ([4339d97](https://github.com/j-mastr/sevdesk-php-sdk/commit/4339d97476d60dcf2f899f926e5434d8936f61f3))
+
 ## [1.7.0](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.6.0...v1.7.0) (2025-04-26)
 
 

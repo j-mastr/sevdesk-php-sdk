@@ -19,6 +19,7 @@ docs/Api/LayoutApi.md
 docs/Api/OrderApi.md
 docs/Api/OrderPosApi.md
 docs/Api/PartApi.md
+docs/Api/PrivateTransactionRuleApi.md
 docs/Api/ReportApi.md
 docs/Api/SevUserApi.md
 docs/Api/TagApi.md
@@ -70,6 +71,7 @@ docs/Model/CreateInvoiceReminderRequest.md
 docs/Model/CreateInvoiceReminderRequestInvoice.md
 docs/Model/CreateOrder201Response.md
 docs/Model/CreatePart201Response.md
+docs/Model/CreatePrivateTransactionRule.md
 docs/Model/CreateTag200Response.md
 docs/Model/CreateTagRequest.md
 docs/Model/CreateTagRequestObject.md
@@ -189,6 +191,7 @@ docs/Model/InvoiceResetToOpen200Response.md
 docs/Model/InvoiceResetToOpen200ResponseObjects.md
 docs/Model/InvoiceSendByRequest.md
 docs/Model/JobDownloadInfo200Response.md
+docs/Model/ListPrivateTransactionRules200Response.md
 docs/Model/ModelAccountingContact.md
 docs/Model/ModelAccountingContactContact.md
 docs/Model/ModelAccountingContactResponse.md
@@ -385,6 +388,8 @@ docs/Model/ModelPartSevClient.md
 docs/Model/ModelPartUnity.md
 docs/Model/ModelPartUpdate.md
 docs/Model/ModelPaymentMethodResponse.md
+docs/Model/ModelPrivateTransactionRuleResponse.md
+docs/Model/ModelPrivateTransactionRuleResponseSevClient.md
 docs/Model/ModelSevUserResponse.md
 docs/Model/ModelStaticCountryResponse.md
 docs/Model/ModelTagCreateResponse.md
@@ -505,6 +510,7 @@ lib/Api/LayoutApi.php
 lib/Api/OrderApi.php
 lib/Api/OrderPosApi.php
 lib/Api/PartApi.php
+lib/Api/PrivateTransactionRuleApi.php
 lib/Api/ReportApi.php
 lib/Api/SevUserApi.php
 lib/Api/TagApi.php
@@ -560,6 +566,7 @@ lib/Model/CreateInvoiceReminderRequest.php
 lib/Model/CreateInvoiceReminderRequestInvoice.php
 lib/Model/CreateOrder201Response.php
 lib/Model/CreatePart201Response.php
+lib/Model/CreatePrivateTransactionRule.php
 lib/Model/CreateTag200Response.php
 lib/Model/CreateTagRequest.php
 lib/Model/CreateTagRequestObject.php
@@ -679,6 +686,7 @@ lib/Model/InvoiceResetToOpen200Response.php
 lib/Model/InvoiceResetToOpen200ResponseObjects.php
 lib/Model/InvoiceSendByRequest.php
 lib/Model/JobDownloadInfo200Response.php
+lib/Model/ListPrivateTransactionRules200Response.php
 lib/Model/ModelAccountingContact.php
 lib/Model/ModelAccountingContactContact.php
 lib/Model/ModelAccountingContactResponse.php
@@ -876,6 +884,8 @@ lib/Model/ModelPartSevClient.php
 lib/Model/ModelPartUnity.php
 lib/Model/ModelPartUpdate.php
 lib/Model/ModelPaymentMethodResponse.php
+lib/Model/ModelPrivateTransactionRuleResponse.php
+lib/Model/ModelPrivateTransactionRuleResponseSevClient.php
 lib/Model/ModelSevUserResponse.php
 lib/Model/ModelStaticCountryResponse.php
 lib/Model/ModelTagCreateResponse.php
@@ -979,5 +989,8 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/BookVoucher200ResponseSevClientTest.php
-test/Model/BookVoucher200ResponseVoucherTest.php
+test/Api/PrivateTransactionRuleApiTest.php
+test/Model/CreatePrivateTransactionRuleTest.php
+test/Model/ListPrivateTransactionRules200ResponseTest.php
+test/Model/ModelPrivateTransactionRuleResponseSevClientTest.php
+test/Model/ModelPrivateTransactionRuleResponseTest.php

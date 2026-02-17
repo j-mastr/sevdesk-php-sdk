@@ -989,8 +989,3 @@ lib/Model/VoucherUploadFile201ResponseObjects.php
 lib/Model/VoucherUploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/PrivateTransactionRuleApiTest.php
-test/Model/CreatePrivateTransactionRuleTest.php
-test/Model/ListPrivateTransactionRules200ResponseTest.php
-test/Model/ModelPrivateTransactionRuleResponseSevClientTest.php
-test/Model/ModelPrivateTransactionRuleResponseTest.php

@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.8.0](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.7.0...v1.8.0) (2026-02-19)
+
+
+### Features
+
+* getAsPdf query parameter for PDF rendering ([#85](https://github.com/j-mastr/sevdesk-php-sdk/issues/85)) ([#101](https://github.com/j-mastr/sevdesk-php-sdk/issues/101)) ([e02a109](https://github.com/j-mastr/sevdesk-php-sdk/commit/e02a1090caaa98da0b16d0a4d6a62ac1b96e342b))
+* store images locally ([#88](https://github.com/j-mastr/sevdesk-php-sdk/issues/88)) ([f70c8d2](https://github.com/j-mastr/sevdesk-php-sdk/commit/f70c8d247693491de3da836d22532d5b6abcc076))
+* update openapi.yaml ([#100](https://github.com/j-mastr/sevdesk-php-sdk/issues/100)) ([bb5ab4a](https://github.com/j-mastr/sevdesk-php-sdk/commit/bb5ab4a3644bb8fa20f4f0d99813215b77b67d27))
+
+
+### Bug Fixes
+
+* GitHub action ([#80](https://github.com/j-mastr/sevdesk-php-sdk/issues/80)) ([#92](https://github.com/j-mastr/sevdesk-php-sdk/issues/92)) ([4339d97](https://github.com/j-mastr/sevdesk-php-sdk/commit/4339d97476d60dcf2f899f926e5434d8936f61f3))
+
 ## [1.7.0](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.6.0...v1.7.0) (2025-04-26)
 
 

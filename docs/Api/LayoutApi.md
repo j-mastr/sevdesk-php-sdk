@@ -137,7 +137,7 @@ try {
 ## `updateCreditNoteTemplate()`
 
 ```php
-updateCreditNoteTemplate($credit_note_id, $model_change_layout): \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response
+updateCreditNoteTemplate($credit_note_id, $get_as_pdf, $model_change_layout): \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response
 ```
 
 Update an of credit note template
@@ -164,10 +164,11 @@ $apiInstance = new Itsmind\Sevdesk\Api\LayoutApi(
     $config
 );
 $credit_note_id = 56; // int | ID of credit note to update
+$get_as_pdf = True; // bool | If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/)
 $model_change_layout = new \Itsmind\Sevdesk\Model\ModelChangeLayout(); // \Itsmind\Sevdesk\Model\ModelChangeLayout | Change Layout
 
 try {
-    $result = $apiInstance->updateCreditNoteTemplate($credit_note_id, $model_change_layout);
+    $result = $apiInstance->updateCreditNoteTemplate($credit_note_id, $get_as_pdf, $model_change_layout);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LayoutApi->updateCreditNoteTemplate: ', $e->getMessage(), PHP_EOL;
@@ -179,6 +180,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **credit_note_id** | **int**| ID of credit note to update | |
+| **get_as_pdf** | **bool**| If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) | [optional] |
 | **model_change_layout** | [**\Itsmind\Sevdesk\Model\ModelChangeLayout**](../Model/ModelChangeLayout.md)| Change Layout | [optional] |
 
 ### Return type
@@ -201,7 +203,7 @@ try {
 ## `updateInvoiceTemplate()`
 
 ```php
-updateInvoiceTemplate($invoice_id, $model_change_layout): \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response
+updateInvoiceTemplate($invoice_id, $get_as_pdf, $model_change_layout): \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response
 ```
 
 Update an invoice template
@@ -228,10 +230,11 @@ $apiInstance = new Itsmind\Sevdesk\Api\LayoutApi(
     $config
 );
 $invoice_id = 56; // int | ID of invoice to update
+$get_as_pdf = True; // bool | If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/)
 $model_change_layout = new \Itsmind\Sevdesk\Model\ModelChangeLayout(); // \Itsmind\Sevdesk\Model\ModelChangeLayout | Change Layout
 
 try {
-    $result = $apiInstance->updateInvoiceTemplate($invoice_id, $model_change_layout);
+    $result = $apiInstance->updateInvoiceTemplate($invoice_id, $get_as_pdf, $model_change_layout);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LayoutApi->updateInvoiceTemplate: ', $e->getMessage(), PHP_EOL;
@@ -243,6 +246,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **invoice_id** | **int**| ID of invoice to update | |
+| **get_as_pdf** | **bool**| If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) | [optional] |
 | **model_change_layout** | [**\Itsmind\Sevdesk\Model\ModelChangeLayout**](../Model/ModelChangeLayout.md)| Change Layout | [optional] |
 
 ### Return type
@@ -265,7 +269,7 @@ try {
 ## `updateOrderTemplate()`
 
 ```php
-updateOrderTemplate($order_id, $model_change_layout): \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response
+updateOrderTemplate($order_id, $get_as_pdf, $model_change_layout): \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response
 ```
 
 Update an order template
@@ -292,10 +296,11 @@ $apiInstance = new Itsmind\Sevdesk\Api\LayoutApi(
     $config
 );
 $order_id = 56; // int | ID of order to update
+$get_as_pdf = True; // bool | If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/)
 $model_change_layout = new \Itsmind\Sevdesk\Model\ModelChangeLayout(); // \Itsmind\Sevdesk\Model\ModelChangeLayout | Change Layout
 
 try {
-    $result = $apiInstance->updateOrderTemplate($order_id, $model_change_layout);
+    $result = $apiInstance->updateOrderTemplate($order_id, $get_as_pdf, $model_change_layout);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LayoutApi->updateOrderTemplate: ', $e->getMessage(), PHP_EOL;
@@ -307,6 +312,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **order_id** | **int**| ID of order to update | |
+| **get_as_pdf** | **bool**| If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) | [optional] |
 | **model_change_layout** | [**\Itsmind\Sevdesk\Model\ModelChangeLayout**](../Model/ModelChangeLayout.md)| Change Layout | [optional] |
 
 ### Return type

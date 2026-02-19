@@ -57,10 +57,11 @@ class InvoiceRender201Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'thumbs' => 'mixed[]',
+        'pdf' => 'string',
         'pages' => 'int',
+        'thumbs' => 'mixed[]',
         'doc_id' => 'string',
-        'parameters' => '\Itsmind\Sevdesk\Model\InvoiceRender201ResponseParametersInner[]'
+        'parameters' => '\Itsmind\Sevdesk\Model\InvoiceRender201ResponseAllOfParametersInner[]'
     ];
 
     /**
@@ -71,8 +72,9 @@ class InvoiceRender201Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'thumbs' => null,
+        'pdf' => null,
         'pages' => null,
+        'thumbs' => null,
         'doc_id' => null,
         'parameters' => null
     ];
@@ -83,8 +85,9 @@ class InvoiceRender201Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'thumbs' => false,
+        'pdf' => false,
         'pages' => false,
+        'thumbs' => false,
         'doc_id' => false,
         'parameters' => false
     ];
@@ -175,8 +178,9 @@ class InvoiceRender201Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'thumbs' => 'thumbs',
+        'pdf' => 'pdf',
         'pages' => 'pages',
+        'thumbs' => 'thumbs',
         'doc_id' => 'docId',
         'parameters' => 'parameters'
     ];
@@ -187,8 +191,9 @@ class InvoiceRender201Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'thumbs' => 'setThumbs',
+        'pdf' => 'setPdf',
         'pages' => 'setPages',
+        'thumbs' => 'setThumbs',
         'doc_id' => 'setDocId',
         'parameters' => 'setParameters'
     ];
@@ -199,8 +204,9 @@ class InvoiceRender201Response implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'thumbs' => 'getThumbs',
+        'pdf' => 'getPdf',
         'pages' => 'getPages',
+        'thumbs' => 'getThumbs',
         'doc_id' => 'getDocId',
         'parameters' => 'getParameters'
     ];
@@ -262,8 +268,9 @@ class InvoiceRender201Response implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('thumbs', $data ?? [], null);
+        $this->setIfExists('pdf', $data ?? [], null);
         $this->setIfExists('pages', $data ?? [], null);
+        $this->setIfExists('thumbs', $data ?? [], null);
         $this->setIfExists('doc_id', $data ?? [], null);
         $this->setIfExists('parameters', $data ?? [], null);
     }
@@ -311,28 +318,28 @@ class InvoiceRender201Response implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets thumbs
+     * Gets pdf
      *
-     * @return mixed[]|null
+     * @return string|null
      */
-    public function getThumbs()
+    public function getPdf()
     {
-        return $this->container['thumbs'];
+        return $this->container['pdf'];
     }
 
     /**
-     * Sets thumbs
+     * Sets pdf
      *
-     * @param mixed[]|null $thumbs thumbs
+     * @param string|null $pdf pdf
      *
      * @return self
      */
-    public function setThumbs($thumbs)
+    public function setPdf($pdf)
     {
-        if (is_null($thumbs)) {
-            throw new \InvalidArgumentException('non-nullable thumbs cannot be null');
+        if (is_null($pdf)) {
+            throw new \InvalidArgumentException('non-nullable pdf cannot be null');
         }
-        $this->container['thumbs'] = $thumbs;
+        $this->container['pdf'] = $pdf;
 
         return $this;
     }
@@ -360,6 +367,33 @@ class InvoiceRender201Response implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable pages cannot be null');
         }
         $this->container['pages'] = $pages;
+
+        return $this;
+    }
+
+    /**
+     * Gets thumbs
+     *
+     * @return mixed[]|null
+     */
+    public function getThumbs()
+    {
+        return $this->container['thumbs'];
+    }
+
+    /**
+     * Sets thumbs
+     *
+     * @param mixed[]|null $thumbs thumbs
+     *
+     * @return self
+     */
+    public function setThumbs($thumbs)
+    {
+        if (is_null($thumbs)) {
+            throw new \InvalidArgumentException('non-nullable thumbs cannot be null');
+        }
+        $this->container['thumbs'] = $thumbs;
 
         return $this;
     }
@@ -394,7 +428,7 @@ class InvoiceRender201Response implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets parameters
      *
-     * @return \Itsmind\Sevdesk\Model\InvoiceRender201ResponseParametersInner[]|null
+     * @return \Itsmind\Sevdesk\Model\InvoiceRender201ResponseAllOfParametersInner[]|null
      */
     public function getParameters()
     {
@@ -404,7 +438,7 @@ class InvoiceRender201Response implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets parameters
      *
-     * @param \Itsmind\Sevdesk\Model\InvoiceRender201ResponseParametersInner[]|null $parameters parameters
+     * @param \Itsmind\Sevdesk\Model\InvoiceRender201ResponseAllOfParametersInner[]|null $parameters parameters
      *
      * @return self
      */

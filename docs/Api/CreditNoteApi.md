@@ -794,7 +794,7 @@ try {
 ## `sendCreditNoteByPrinting()`
 
 ```php
-sendCreditNoteByPrinting($credit_note_id, $send_type): \Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response
+sendCreditNoteByPrinting($credit_note_id, $send_type, $get_as_pdf): \Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response
 ```
 
 Send credit note by printing
@@ -822,9 +822,10 @@ $apiInstance = new Itsmind\Sevdesk\Api\CreditNoteApi(
 );
 $credit_note_id = 56; // int | ID of creditNote to return
 $send_type = PRN; // string | the type you want to print.
+$get_as_pdf = True; // bool | If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/)
 
 try {
-    $result = $apiInstance->sendCreditNoteByPrinting($credit_note_id, $send_type);
+    $result = $apiInstance->sendCreditNoteByPrinting($credit_note_id, $send_type, $get_as_pdf);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreditNoteApi->sendCreditNoteByPrinting: ', $e->getMessage(), PHP_EOL;
@@ -837,6 +838,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **credit_note_id** | **int**| ID of creditNote to return | |
 | **send_type** | **string**| the type you want to print. | |
+| **get_as_pdf** | **bool**| If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) | [optional] |
 
 ### Return type
 

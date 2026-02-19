@@ -3657,15 +3657,16 @@ class CreditNoteApi
      *
      * @param  int $credit_note_id ID of creditNote to return (required)
      * @param  string $send_type the type you want to print. (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendCreditNoteByPrinting'] to see the possible values for this operation
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response
      */
-    public function sendCreditNoteByPrinting($credit_note_id, $send_type, string $contentType = self::contentTypes['sendCreditNoteByPrinting'][0])
+    public function sendCreditNoteByPrinting($credit_note_id, $send_type, $get_as_pdf = null, string $contentType = self::contentTypes['sendCreditNoteByPrinting'][0])
     {
-        list($response) = $this->sendCreditNoteByPrintingWithHttpInfo($credit_note_id, $send_type, $contentType);
+        list($response) = $this->sendCreditNoteByPrintingWithHttpInfo($credit_note_id, $send_type, $get_as_pdf, $contentType);
         return $response;
     }
 
@@ -3676,15 +3677,16 @@ class CreditNoteApi
      *
      * @param  int $credit_note_id ID of creditNote to return (required)
      * @param  string $send_type the type you want to print. (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendCreditNoteByPrinting'] to see the possible values for this operation
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendCreditNoteByPrintingWithHttpInfo($credit_note_id, $send_type, string $contentType = self::contentTypes['sendCreditNoteByPrinting'][0])
+    public function sendCreditNoteByPrintingWithHttpInfo($credit_note_id, $send_type, $get_as_pdf = null, string $contentType = self::contentTypes['sendCreditNoteByPrinting'][0])
     {
-        $request = $this->sendCreditNoteByPrintingRequest($credit_note_id, $send_type, $contentType);
+        $request = $this->sendCreditNoteByPrintingRequest($credit_note_id, $send_type, $get_as_pdf, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3762,14 +3764,15 @@ class CreditNoteApi
      *
      * @param  int $credit_note_id ID of creditNote to return (required)
      * @param  string $send_type the type you want to print. (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendCreditNoteByPrinting'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendCreditNoteByPrintingAsync($credit_note_id, $send_type, string $contentType = self::contentTypes['sendCreditNoteByPrinting'][0])
+    public function sendCreditNoteByPrintingAsync($credit_note_id, $send_type, $get_as_pdf = null, string $contentType = self::contentTypes['sendCreditNoteByPrinting'][0])
     {
-        return $this->sendCreditNoteByPrintingAsyncWithHttpInfo($credit_note_id, $send_type, $contentType)
+        return $this->sendCreditNoteByPrintingAsyncWithHttpInfo($credit_note_id, $send_type, $get_as_pdf, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3784,15 +3787,16 @@ class CreditNoteApi
      *
      * @param  int $credit_note_id ID of creditNote to return (required)
      * @param  string $send_type the type you want to print. (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendCreditNoteByPrinting'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendCreditNoteByPrintingAsyncWithHttpInfo($credit_note_id, $send_type, string $contentType = self::contentTypes['sendCreditNoteByPrinting'][0])
+    public function sendCreditNoteByPrintingAsyncWithHttpInfo($credit_note_id, $send_type, $get_as_pdf = null, string $contentType = self::contentTypes['sendCreditNoteByPrinting'][0])
     {
         $returnType = '\Itsmind\Sevdesk\Model\SendCreditNoteByPrinting200Response';
-        $request = $this->sendCreditNoteByPrintingRequest($credit_note_id, $send_type, $contentType);
+        $request = $this->sendCreditNoteByPrintingRequest($credit_note_id, $send_type, $get_as_pdf, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3835,12 +3839,13 @@ class CreditNoteApi
      *
      * @param  int $credit_note_id ID of creditNote to return (required)
      * @param  string $send_type the type you want to print. (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendCreditNoteByPrinting'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendCreditNoteByPrintingRequest($credit_note_id, $send_type, string $contentType = self::contentTypes['sendCreditNoteByPrinting'][0])
+    public function sendCreditNoteByPrintingRequest($credit_note_id, $send_type, $get_as_pdf = null, string $contentType = self::contentTypes['sendCreditNoteByPrinting'][0])
     {
 
         // verify the required parameter 'credit_note_id' is set
@@ -3858,6 +3863,7 @@ class CreditNoteApi
         }
 
 
+
         $resourcePath = '/CreditNote/{creditNoteId}/sendByWithRender';
         $formParams = [];
         $queryParams = [];
@@ -3873,6 +3879,15 @@ class CreditNoteApi
             'form', // style
             true, // explode
             true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $get_as_pdf,
+            'getAsPdf', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
         ) ?? []);
 
 

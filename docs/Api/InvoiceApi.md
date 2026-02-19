@@ -1005,7 +1005,7 @@ try {
 ## `invoiceRender()`
 
 ```php
-invoiceRender($invoice_id, $invoice_render_request): \Itsmind\Sevdesk\Model\InvoiceRender201Response
+invoiceRender($invoice_id, $get_as_pdf, $invoice_render_request): \Itsmind\Sevdesk\Model\InvoiceRender201Response
 ```
 
 Render the pdf document of an invoice
@@ -1032,10 +1032,11 @@ $apiInstance = new Itsmind\Sevdesk\Api\InvoiceApi(
     $config
 );
 $invoice_id = 56; // int | ID of invoice to render
+$get_as_pdf = True; // bool | If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/)
 $invoice_render_request = new \Itsmind\Sevdesk\Model\InvoiceRenderRequest(); // \Itsmind\Sevdesk\Model\InvoiceRenderRequest | Define if the document should be forcefully re-rendered.
 
 try {
-    $result = $apiInstance->invoiceRender($invoice_id, $invoice_render_request);
+    $result = $apiInstance->invoiceRender($invoice_id, $get_as_pdf, $invoice_render_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoiceApi->invoiceRender: ', $e->getMessage(), PHP_EOL;
@@ -1047,6 +1048,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **invoice_id** | **int**| ID of invoice to render | |
+| **get_as_pdf** | **bool**| If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) | [optional] |
 | **invoice_render_request** | [**\Itsmind\Sevdesk\Model\InvoiceRenderRequest**](../Model/InvoiceRenderRequest.md)| Define if the document should be forcefully re-rendered. | [optional] |
 
 ### Return type

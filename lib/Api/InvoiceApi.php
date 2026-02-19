@@ -4565,6 +4565,7 @@ class InvoiceApi
      * Render the pdf document of an invoice
      *
      * @param  int $invoice_id ID of invoice to render (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\InvoiceRenderRequest|null $invoice_render_request Define if the document should be forcefully re-rendered. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['invoiceRender'] to see the possible values for this operation
      *
@@ -4572,9 +4573,9 @@ class InvoiceApi
      * @throws \InvalidArgumentException
      * @return \Itsmind\Sevdesk\Model\InvoiceRender201Response
      */
-    public function invoiceRender($invoice_id, $invoice_render_request = null, string $contentType = self::contentTypes['invoiceRender'][0])
+    public function invoiceRender($invoice_id, $get_as_pdf = null, $invoice_render_request = null, string $contentType = self::contentTypes['invoiceRender'][0])
     {
-        list($response) = $this->invoiceRenderWithHttpInfo($invoice_id, $invoice_render_request, $contentType);
+        list($response) = $this->invoiceRenderWithHttpInfo($invoice_id, $get_as_pdf, $invoice_render_request, $contentType);
         return $response;
     }
 
@@ -4584,6 +4585,7 @@ class InvoiceApi
      * Render the pdf document of an invoice
      *
      * @param  int $invoice_id ID of invoice to render (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\InvoiceRenderRequest|null $invoice_render_request Define if the document should be forcefully re-rendered. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['invoiceRender'] to see the possible values for this operation
      *
@@ -4591,9 +4593,9 @@ class InvoiceApi
      * @throws \InvalidArgumentException
      * @return array of \Itsmind\Sevdesk\Model\InvoiceRender201Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function invoiceRenderWithHttpInfo($invoice_id, $invoice_render_request = null, string $contentType = self::contentTypes['invoiceRender'][0])
+    public function invoiceRenderWithHttpInfo($invoice_id, $get_as_pdf = null, $invoice_render_request = null, string $contentType = self::contentTypes['invoiceRender'][0])
     {
-        $request = $this->invoiceRenderRequest($invoice_id, $invoice_render_request, $contentType);
+        $request = $this->invoiceRenderRequest($invoice_id, $get_as_pdf, $invoice_render_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4670,15 +4672,16 @@ class InvoiceApi
      * Render the pdf document of an invoice
      *
      * @param  int $invoice_id ID of invoice to render (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\InvoiceRenderRequest|null $invoice_render_request Define if the document should be forcefully re-rendered. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['invoiceRender'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function invoiceRenderAsync($invoice_id, $invoice_render_request = null, string $contentType = self::contentTypes['invoiceRender'][0])
+    public function invoiceRenderAsync($invoice_id, $get_as_pdf = null, $invoice_render_request = null, string $contentType = self::contentTypes['invoiceRender'][0])
     {
-        return $this->invoiceRenderAsyncWithHttpInfo($invoice_id, $invoice_render_request, $contentType)
+        return $this->invoiceRenderAsyncWithHttpInfo($invoice_id, $get_as_pdf, $invoice_render_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4692,16 +4695,17 @@ class InvoiceApi
      * Render the pdf document of an invoice
      *
      * @param  int $invoice_id ID of invoice to render (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\InvoiceRenderRequest|null $invoice_render_request Define if the document should be forcefully re-rendered. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['invoiceRender'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function invoiceRenderAsyncWithHttpInfo($invoice_id, $invoice_render_request = null, string $contentType = self::contentTypes['invoiceRender'][0])
+    public function invoiceRenderAsyncWithHttpInfo($invoice_id, $get_as_pdf = null, $invoice_render_request = null, string $contentType = self::contentTypes['invoiceRender'][0])
     {
         $returnType = '\Itsmind\Sevdesk\Model\InvoiceRender201Response';
-        $request = $this->invoiceRenderRequest($invoice_id, $invoice_render_request, $contentType);
+        $request = $this->invoiceRenderRequest($invoice_id, $get_as_pdf, $invoice_render_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4743,13 +4747,14 @@ class InvoiceApi
      * Create request for operation 'invoiceRender'
      *
      * @param  int $invoice_id ID of invoice to render (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\InvoiceRenderRequest|null $invoice_render_request Define if the document should be forcefully re-rendered. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['invoiceRender'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function invoiceRenderRequest($invoice_id, $invoice_render_request = null, string $contentType = self::contentTypes['invoiceRender'][0])
+    public function invoiceRenderRequest($invoice_id, $get_as_pdf = null, $invoice_render_request = null, string $contentType = self::contentTypes['invoiceRender'][0])
     {
 
         // verify the required parameter 'invoice_id' is set
@@ -4761,6 +4766,7 @@ class InvoiceApi
 
 
 
+
         $resourcePath = '/Invoice/{invoiceId}/render';
         $formParams = [];
         $queryParams = [];
@@ -4768,6 +4774,15 @@ class InvoiceApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $get_as_pdf,
+            'getAsPdf', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params

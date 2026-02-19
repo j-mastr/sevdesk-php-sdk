@@ -1,6 +1,6 @@
 <?php
 /**
- * ModelChangeLayoutResponseMetadaten
+ * InvoiceRender201ResponseAllOfOneOf1
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Itsmind\Sevdesk\ObjectSerializer;
 
 /**
- * ModelChangeLayoutResponseMetadaten Class Doc Comment
+ * InvoiceRender201ResponseAllOfOneOf1 Class Doc Comment
  *
  * @category Class
  * @package  Itsmind\Sevdesk
@@ -40,7 +40,7 @@ use \Itsmind\Sevdesk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ModelChangeLayoutResponseMetadaten implements ModelInterface, ArrayAccess, \JsonSerializable
+class InvoiceRender201ResponseAllOfOneOf1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ModelChangeLayoutResponseMetadaten implements ModelInterface, ArrayAccess,
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Model_ChangeLayoutResponse_metadaten';
+    protected static $openAPIModelName = 'invoiceRender_201_response_allOf_oneOf_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,8 @@ class ModelChangeLayoutResponseMetadaten implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pdf' => 'string',
         'pages' => 'int',
-        'thumbs' => 'mixed[]',
-        'doc_id' => 'string',
-        'parameters' => '\Itsmind\Sevdesk\Model\ModelChangeLayoutResponseMetadatenAllOfParametersInner[]'
+        'thumbs' => 'mixed[]'
     ];
 
     /**
@@ -72,11 +69,8 @@ class ModelChangeLayoutResponseMetadaten implements ModelInterface, ArrayAccess,
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'pdf' => null,
         'pages' => null,
-        'thumbs' => null,
-        'doc_id' => null,
-        'parameters' => null
+        'thumbs' => null
     ];
 
     /**
@@ -85,11 +79,8 @@ class ModelChangeLayoutResponseMetadaten implements ModelInterface, ArrayAccess,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'pdf' => false,
         'pages' => false,
-        'thumbs' => false,
-        'doc_id' => false,
-        'parameters' => false
+        'thumbs' => false
     ];
 
     /**
@@ -178,11 +169,8 @@ class ModelChangeLayoutResponseMetadaten implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $attributeMap = [
-        'pdf' => 'pdf',
         'pages' => 'pages',
-        'thumbs' => 'thumbs',
-        'doc_id' => 'docId',
-        'parameters' => 'parameters'
+        'thumbs' => 'thumbs'
     ];
 
     /**
@@ -191,11 +179,8 @@ class ModelChangeLayoutResponseMetadaten implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $setters = [
-        'pdf' => 'setPdf',
         'pages' => 'setPages',
-        'thumbs' => 'setThumbs',
-        'doc_id' => 'setDocId',
-        'parameters' => 'setParameters'
+        'thumbs' => 'setThumbs'
     ];
 
     /**
@@ -204,11 +189,8 @@ class ModelChangeLayoutResponseMetadaten implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $getters = [
-        'pdf' => 'getPdf',
         'pages' => 'getPages',
-        'thumbs' => 'getThumbs',
-        'doc_id' => 'getDocId',
-        'parameters' => 'getParameters'
+        'thumbs' => 'getThumbs'
     ];
 
     /**
@@ -268,11 +250,8 @@ class ModelChangeLayoutResponseMetadaten implements ModelInterface, ArrayAccess,
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('pdf', $data ?? [], null);
         $this->setIfExists('pages', $data ?? [], null);
         $this->setIfExists('thumbs', $data ?? [], null);
-        $this->setIfExists('doc_id', $data ?? [], null);
-        $this->setIfExists('parameters', $data ?? [], null);
     }
 
     /**
@@ -318,33 +297,6 @@ class ModelChangeLayoutResponseMetadaten implements ModelInterface, ArrayAccess,
 
 
     /**
-     * Gets pdf
-     *
-     * @return string|null
-     */
-    public function getPdf()
-    {
-        return $this->container['pdf'];
-    }
-
-    /**
-     * Sets pdf
-     *
-     * @param string|null $pdf pdf
-     *
-     * @return self
-     */
-    public function setPdf($pdf)
-    {
-        if (is_null($pdf)) {
-            throw new \InvalidArgumentException('non-nullable pdf cannot be null');
-        }
-        $this->container['pdf'] = $pdf;
-
-        return $this;
-    }
-
-    /**
      * Gets pages
      *
      * @return int|null
@@ -357,7 +309,7 @@ class ModelChangeLayoutResponseMetadaten implements ModelInterface, ArrayAccess,
     /**
      * Sets pages
      *
-     * @param int|null $pages the number of pages in the document
+     * @param int|null $pages pages
      *
      * @return self
      */
@@ -394,60 +346,6 @@ class ModelChangeLayoutResponseMetadaten implements ModelInterface, ArrayAccess,
             throw new \InvalidArgumentException('non-nullable thumbs cannot be null');
         }
         $this->container['thumbs'] = $thumbs;
-
-        return $this;
-    }
-
-    /**
-     * Gets doc_id
-     *
-     * @return string|null
-     */
-    public function getDocId()
-    {
-        return $this->container['doc_id'];
-    }
-
-    /**
-     * Sets doc_id
-     *
-     * @param string|null $doc_id the id of the document
-     *
-     * @return self
-     */
-    public function setDocId($doc_id)
-    {
-        if (is_null($doc_id)) {
-            throw new \InvalidArgumentException('non-nullable doc_id cannot be null');
-        }
-        $this->container['doc_id'] = $doc_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets parameters
-     *
-     * @return \Itsmind\Sevdesk\Model\ModelChangeLayoutResponseMetadatenAllOfParametersInner[]|null
-     */
-    public function getParameters()
-    {
-        return $this->container['parameters'];
-    }
-
-    /**
-     * Sets parameters
-     *
-     * @param \Itsmind\Sevdesk\Model\ModelChangeLayoutResponseMetadatenAllOfParametersInner[]|null $parameters the pdf file
-     *
-     * @return self
-     */
-    public function setParameters($parameters)
-    {
-        if (is_null($parameters)) {
-            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
-        }
-        $this->container['parameters'] = $parameters;
 
         return $this;
     }

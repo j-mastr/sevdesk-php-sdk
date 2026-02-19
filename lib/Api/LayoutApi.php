@@ -664,6 +664,7 @@ class LayoutApi
      * Update an of credit note template
      *
      * @param  int $credit_note_id ID of credit note to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCreditNoteTemplate'] to see the possible values for this operation
      *
@@ -671,9 +672,9 @@ class LayoutApi
      * @throws \InvalidArgumentException
      * @return \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response
      */
-    public function updateCreditNoteTemplate($credit_note_id, $model_change_layout = null, string $contentType = self::contentTypes['updateCreditNoteTemplate'][0])
+    public function updateCreditNoteTemplate($credit_note_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateCreditNoteTemplate'][0])
     {
-        list($response) = $this->updateCreditNoteTemplateWithHttpInfo($credit_note_id, $model_change_layout, $contentType);
+        list($response) = $this->updateCreditNoteTemplateWithHttpInfo($credit_note_id, $get_as_pdf, $model_change_layout, $contentType);
         return $response;
     }
 
@@ -683,6 +684,7 @@ class LayoutApi
      * Update an of credit note template
      *
      * @param  int $credit_note_id ID of credit note to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCreditNoteTemplate'] to see the possible values for this operation
      *
@@ -690,9 +692,9 @@ class LayoutApi
      * @throws \InvalidArgumentException
      * @return array of \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCreditNoteTemplateWithHttpInfo($credit_note_id, $model_change_layout = null, string $contentType = self::contentTypes['updateCreditNoteTemplate'][0])
+    public function updateCreditNoteTemplateWithHttpInfo($credit_note_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateCreditNoteTemplate'][0])
     {
-        $request = $this->updateCreditNoteTemplateRequest($credit_note_id, $model_change_layout, $contentType);
+        $request = $this->updateCreditNoteTemplateRequest($credit_note_id, $get_as_pdf, $model_change_layout, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -769,15 +771,16 @@ class LayoutApi
      * Update an of credit note template
      *
      * @param  int $credit_note_id ID of credit note to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCreditNoteTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCreditNoteTemplateAsync($credit_note_id, $model_change_layout = null, string $contentType = self::contentTypes['updateCreditNoteTemplate'][0])
+    public function updateCreditNoteTemplateAsync($credit_note_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateCreditNoteTemplate'][0])
     {
-        return $this->updateCreditNoteTemplateAsyncWithHttpInfo($credit_note_id, $model_change_layout, $contentType)
+        return $this->updateCreditNoteTemplateAsyncWithHttpInfo($credit_note_id, $get_as_pdf, $model_change_layout, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -791,16 +794,17 @@ class LayoutApi
      * Update an of credit note template
      *
      * @param  int $credit_note_id ID of credit note to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCreditNoteTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCreditNoteTemplateAsyncWithHttpInfo($credit_note_id, $model_change_layout = null, string $contentType = self::contentTypes['updateCreditNoteTemplate'][0])
+    public function updateCreditNoteTemplateAsyncWithHttpInfo($credit_note_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateCreditNoteTemplate'][0])
     {
         $returnType = '\Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response';
-        $request = $this->updateCreditNoteTemplateRequest($credit_note_id, $model_change_layout, $contentType);
+        $request = $this->updateCreditNoteTemplateRequest($credit_note_id, $get_as_pdf, $model_change_layout, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -842,13 +846,14 @@ class LayoutApi
      * Create request for operation 'updateCreditNoteTemplate'
      *
      * @param  int $credit_note_id ID of credit note to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCreditNoteTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateCreditNoteTemplateRequest($credit_note_id, $model_change_layout = null, string $contentType = self::contentTypes['updateCreditNoteTemplate'][0])
+    public function updateCreditNoteTemplateRequest($credit_note_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateCreditNoteTemplate'][0])
     {
 
         // verify the required parameter 'credit_note_id' is set
@@ -860,6 +865,7 @@ class LayoutApi
 
 
 
+
         $resourcePath = '/CreditNote/{creditNoteId}/changeParameter';
         $formParams = [];
         $queryParams = [];
@@ -867,6 +873,15 @@ class LayoutApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $get_as_pdf,
+            'getAsPdf', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -950,6 +965,7 @@ class LayoutApi
      * Update an invoice template
      *
      * @param  int $invoice_id ID of invoice to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateInvoiceTemplate'] to see the possible values for this operation
      *
@@ -957,9 +973,9 @@ class LayoutApi
      * @throws \InvalidArgumentException
      * @return \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response
      */
-    public function updateInvoiceTemplate($invoice_id, $model_change_layout = null, string $contentType = self::contentTypes['updateInvoiceTemplate'][0])
+    public function updateInvoiceTemplate($invoice_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateInvoiceTemplate'][0])
     {
-        list($response) = $this->updateInvoiceTemplateWithHttpInfo($invoice_id, $model_change_layout, $contentType);
+        list($response) = $this->updateInvoiceTemplateWithHttpInfo($invoice_id, $get_as_pdf, $model_change_layout, $contentType);
         return $response;
     }
 
@@ -969,6 +985,7 @@ class LayoutApi
      * Update an invoice template
      *
      * @param  int $invoice_id ID of invoice to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateInvoiceTemplate'] to see the possible values for this operation
      *
@@ -976,9 +993,9 @@ class LayoutApi
      * @throws \InvalidArgumentException
      * @return array of \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateInvoiceTemplateWithHttpInfo($invoice_id, $model_change_layout = null, string $contentType = self::contentTypes['updateInvoiceTemplate'][0])
+    public function updateInvoiceTemplateWithHttpInfo($invoice_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateInvoiceTemplate'][0])
     {
-        $request = $this->updateInvoiceTemplateRequest($invoice_id, $model_change_layout, $contentType);
+        $request = $this->updateInvoiceTemplateRequest($invoice_id, $get_as_pdf, $model_change_layout, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1055,15 +1072,16 @@ class LayoutApi
      * Update an invoice template
      *
      * @param  int $invoice_id ID of invoice to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateInvoiceTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateInvoiceTemplateAsync($invoice_id, $model_change_layout = null, string $contentType = self::contentTypes['updateInvoiceTemplate'][0])
+    public function updateInvoiceTemplateAsync($invoice_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateInvoiceTemplate'][0])
     {
-        return $this->updateInvoiceTemplateAsyncWithHttpInfo($invoice_id, $model_change_layout, $contentType)
+        return $this->updateInvoiceTemplateAsyncWithHttpInfo($invoice_id, $get_as_pdf, $model_change_layout, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1077,16 +1095,17 @@ class LayoutApi
      * Update an invoice template
      *
      * @param  int $invoice_id ID of invoice to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateInvoiceTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateInvoiceTemplateAsyncWithHttpInfo($invoice_id, $model_change_layout = null, string $contentType = self::contentTypes['updateInvoiceTemplate'][0])
+    public function updateInvoiceTemplateAsyncWithHttpInfo($invoice_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateInvoiceTemplate'][0])
     {
         $returnType = '\Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response';
-        $request = $this->updateInvoiceTemplateRequest($invoice_id, $model_change_layout, $contentType);
+        $request = $this->updateInvoiceTemplateRequest($invoice_id, $get_as_pdf, $model_change_layout, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1128,13 +1147,14 @@ class LayoutApi
      * Create request for operation 'updateInvoiceTemplate'
      *
      * @param  int $invoice_id ID of invoice to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateInvoiceTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateInvoiceTemplateRequest($invoice_id, $model_change_layout = null, string $contentType = self::contentTypes['updateInvoiceTemplate'][0])
+    public function updateInvoiceTemplateRequest($invoice_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateInvoiceTemplate'][0])
     {
 
         // verify the required parameter 'invoice_id' is set
@@ -1146,6 +1166,7 @@ class LayoutApi
 
 
 
+
         $resourcePath = '/Invoice/{invoiceId}/changeParameter';
         $formParams = [];
         $queryParams = [];
@@ -1153,6 +1174,15 @@ class LayoutApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $get_as_pdf,
+            'getAsPdf', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -1236,6 +1266,7 @@ class LayoutApi
      * Update an order template
      *
      * @param  int $order_id ID of order to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOrderTemplate'] to see the possible values for this operation
      *
@@ -1243,9 +1274,9 @@ class LayoutApi
      * @throws \InvalidArgumentException
      * @return \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response
      */
-    public function updateOrderTemplate($order_id, $model_change_layout = null, string $contentType = self::contentTypes['updateOrderTemplate'][0])
+    public function updateOrderTemplate($order_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateOrderTemplate'][0])
     {
-        list($response) = $this->updateOrderTemplateWithHttpInfo($order_id, $model_change_layout, $contentType);
+        list($response) = $this->updateOrderTemplateWithHttpInfo($order_id, $get_as_pdf, $model_change_layout, $contentType);
         return $response;
     }
 
@@ -1255,6 +1286,7 @@ class LayoutApi
      * Update an order template
      *
      * @param  int $order_id ID of order to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOrderTemplate'] to see the possible values for this operation
      *
@@ -1262,9 +1294,9 @@ class LayoutApi
      * @throws \InvalidArgumentException
      * @return array of \Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateOrderTemplateWithHttpInfo($order_id, $model_change_layout = null, string $contentType = self::contentTypes['updateOrderTemplate'][0])
+    public function updateOrderTemplateWithHttpInfo($order_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateOrderTemplate'][0])
     {
-        $request = $this->updateOrderTemplateRequest($order_id, $model_change_layout, $contentType);
+        $request = $this->updateOrderTemplateRequest($order_id, $get_as_pdf, $model_change_layout, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1341,15 +1373,16 @@ class LayoutApi
      * Update an order template
      *
      * @param  int $order_id ID of order to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOrderTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOrderTemplateAsync($order_id, $model_change_layout = null, string $contentType = self::contentTypes['updateOrderTemplate'][0])
+    public function updateOrderTemplateAsync($order_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateOrderTemplate'][0])
     {
-        return $this->updateOrderTemplateAsyncWithHttpInfo($order_id, $model_change_layout, $contentType)
+        return $this->updateOrderTemplateAsyncWithHttpInfo($order_id, $get_as_pdf, $model_change_layout, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1363,16 +1396,17 @@ class LayoutApi
      * Update an order template
      *
      * @param  int $order_id ID of order to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOrderTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOrderTemplateAsyncWithHttpInfo($order_id, $model_change_layout = null, string $contentType = self::contentTypes['updateOrderTemplate'][0])
+    public function updateOrderTemplateAsyncWithHttpInfo($order_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateOrderTemplate'][0])
     {
         $returnType = '\Itsmind\Sevdesk\Model\UpdateInvoiceTemplate200Response';
-        $request = $this->updateOrderTemplateRequest($order_id, $model_change_layout, $contentType);
+        $request = $this->updateOrderTemplateRequest($order_id, $get_as_pdf, $model_change_layout, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1414,13 +1448,14 @@ class LayoutApi
      * Create request for operation 'updateOrderTemplate'
      *
      * @param  int $order_id ID of order to update (required)
+     * @param  bool|null $get_as_pdf If the rendered document should be returned as a single PDF instead of an array of pages. [Becomes the default on April 7th.](https://tech.sevdesk.com/api_news/posts/2026_02_breaking_changes_q1_2026/) (optional)
      * @param  \Itsmind\Sevdesk\Model\ModelChangeLayout|null $model_change_layout Change Layout (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOrderTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateOrderTemplateRequest($order_id, $model_change_layout = null, string $contentType = self::contentTypes['updateOrderTemplate'][0])
+    public function updateOrderTemplateRequest($order_id, $get_as_pdf = null, $model_change_layout = null, string $contentType = self::contentTypes['updateOrderTemplate'][0])
     {
 
         // verify the required parameter 'order_id' is set
@@ -1432,6 +1467,7 @@ class LayoutApi
 
 
 
+
         $resourcePath = '/Order/{orderId}/changeParameter';
         $formParams = [];
         $queryParams = [];
@@ -1439,6 +1475,15 @@ class LayoutApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $get_as_pdf,
+            'getAsPdf', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params

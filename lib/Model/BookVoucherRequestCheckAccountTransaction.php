@@ -35,7 +35,7 @@ use \Itsmind\Sevdesk\ObjectSerializer;
  * BookVoucherRequestCheckAccountTransaction Class Doc Comment
  *
  * @category Class
- * @description The check account transaction on which should be booked.&lt;br&gt;      The transaction will be linked to the voucher.&lt;br&gt;Providing a transaction is required for online checkaccounts (like you would select an existing transaction in the UI).
+ * @description The check account transaction on which should be booked.&lt;br&gt;      The transaction will be linked to the voucher.&lt;br&gt;Providing a transaction is required for online checkaccounts (like you would select an existing transaction in the UI). You should not provide a transaction for other account types, the transaction will be created automatically.
  * @package  Itsmind\Sevdesk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

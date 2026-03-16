@@ -35,7 +35,7 @@ use \Itsmind\Sevdesk\ObjectSerializer;
  * BookInvoiceRequestCheckAccountTransaction Class Doc Comment
  *
  * @category Class
- * @description The check account transaction on which should be booked.&lt;br&gt;      The transaction will be linked to the invoice.
+ * @description The check account transaction on which should be booked.&lt;br&gt;      The transaction will be linked to the invoice.&lt;br&gt;When the check account is type online, you must provider a transaction; other types will create the transaction.
  * @package  Itsmind\Sevdesk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -59,13 +59,11 @@ class ModelCheckAccountUpdate implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'type' => 'string',
-        'import_type' => 'string',
-        'currency' => 'string',
         'default_account' => 'int',
-        'status' => 'int',
         'auto_map_transactions' => 'int',
-        'accounting_number' => 'string'
+        'accounting_number' => 'string',
+        'iban' => 'string',
+        'bic' => 'string'
     ];
 
     /**
@@ -77,13 +75,11 @@ class ModelCheckAccountUpdate implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'type' => null,
-        'import_type' => null,
-        'currency' => null,
         'default_account' => null,
-        'status' => null,
         'auto_map_transactions' => null,
-        'accounting_number' => null
+        'accounting_number' => null,
+        'iban' => null,
+        'bic' => null
     ];
 
     /**
@@ -93,13 +89,11 @@ class ModelCheckAccountUpdate implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static array $openAPINullables = [
         'name' => false,
-        'type' => false,
-        'import_type' => true,
-        'currency' => false,
         'default_account' => false,
-        'status' => false,
         'auto_map_transactions' => true,
-        'accounting_number' => false
+        'accounting_number' => false,
+        'iban' => false,
+        'bic' => false
     ];
 
     /**
@@ -189,13 +183,11 @@ class ModelCheckAccountUpdate implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'type' => 'type',
-        'import_type' => 'importType',
-        'currency' => 'currency',
         'default_account' => 'defaultAccount',
-        'status' => 'status',
         'auto_map_transactions' => 'autoMapTransactions',
-        'accounting_number' => 'accountingNumber'
+        'accounting_number' => 'accountingNumber',
+        'iban' => 'iban',
+        'bic' => 'bic'
     ];
 
     /**
@@ -205,13 +197,11 @@ class ModelCheckAccountUpdate implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $setters = [
         'name' => 'setName',
-        'type' => 'setType',
-        'import_type' => 'setImportType',
-        'currency' => 'setCurrency',
         'default_account' => 'setDefaultAccount',
-        'status' => 'setStatus',
         'auto_map_transactions' => 'setAutoMapTransactions',
-        'accounting_number' => 'setAccountingNumber'
+        'accounting_number' => 'setAccountingNumber',
+        'iban' => 'setIban',
+        'bic' => 'setBic'
     ];
 
     /**
@@ -221,13 +211,11 @@ class ModelCheckAccountUpdate implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $getters = [
         'name' => 'getName',
-        'type' => 'getType',
-        'import_type' => 'getImportType',
-        'currency' => 'getCurrency',
         'default_account' => 'getDefaultAccount',
-        'status' => 'getStatus',
         'auto_map_transactions' => 'getAutoMapTransactions',
-        'accounting_number' => 'getAccountingNumber'
+        'accounting_number' => 'getAccountingNumber',
+        'iban' => 'getIban',
+        'bic' => 'getBic'
     ];
 
     /**
@@ -271,40 +259,8 @@ class ModelCheckAccountUpdate implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
-    public const TYPE_ONLINE = 'online';
-    public const TYPE_OFFLINE = 'offline';
-    public const IMPORT_TYPE_CSV = 'CSV';
-    public const IMPORT_TYPE_MT940 = 'MT940';
     public const DEFAULT_ACCOUNT_NUMBER_0 = 0;
     public const DEFAULT_ACCOUNT_NUMBER_1 = 1;
-    public const STATUS_NUMBER_0 = 0;
-    public const STATUS_NUMBER_100 = 100;
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_ONLINE,
-            self::TYPE_OFFLINE,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getImportTypeAllowableValues()
-    {
-        return [
-            self::IMPORT_TYPE_CSV,
-            self::IMPORT_TYPE_MT940,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -316,19 +272,6 @@ class ModelCheckAccountUpdate implements ModelInterface, ArrayAccess, \JsonSeria
         return [
             self::DEFAULT_ACCOUNT_NUMBER_0,
             self::DEFAULT_ACCOUNT_NUMBER_1,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_NUMBER_0,
-            self::STATUS_NUMBER_100,
         ];
     }
 
@@ -348,13 +291,11 @@ class ModelCheckAccountUpdate implements ModelInterface, ArrayAccess, \JsonSeria
     public function __construct(?array $data = null)
     {
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('import_type', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('default_account', $data ?? [], self::DEFAULT_ACCOUNT_NUMBER_0);
-        $this->setIfExists('status', $data ?? [], self::STATUS_NUMBER_100);
         $this->setIfExists('auto_map_transactions', $data ?? [], 1);
         $this->setIfExists('accounting_number', $data ?? [], null);
+        $this->setIfExists('iban', $data ?? [], null);
+        $this->setIfExists('bic', $data ?? [], null);
     }
 
     /**
@@ -384,38 +325,11 @@ class ModelCheckAccountUpdate implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getImportTypeAllowableValues();
-        if (!is_null($this->container['import_type']) && !in_array($this->container['import_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'import_type', must be one of '%s'",
-                $this->container['import_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         $allowedValues = $this->getDefaultAccountAllowableValues();
         if (!is_null($this->container['default_account']) && !in_array($this->container['default_account'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'default_account', must be one of '%s'",
                 $this->container['default_account'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
                 implode("', '", $allowedValues)
             );
         }
@@ -463,114 +377,6 @@ class ModelCheckAccountUpdate implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type The type of the check account. Account with a CSV or MT940 import are regarded as online.<br>       Apart from that, created check accounts over the API need to be offline, as online accounts with an active connection       to a bank application can not be managed over the API.
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets import_type
-     *
-     * @return string|null
-     */
-    public function getImportType()
-    {
-        return $this->container['import_type'];
-    }
-
-    /**
-     * Sets import_type
-     *
-     * @param string|null $import_type Import type. Transactions can be imported by this method on the check account.
-     *
-     * @return self
-     */
-    public function setImportType($import_type)
-    {
-        if (is_null($import_type)) {
-            array_push($this->openAPINullablesSetToNull, 'import_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('import_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $allowedValues = $this->getImportTypeAllowableValues();
-        if (!is_null($import_type) && !in_array($import_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'import_type', must be one of '%s'",
-                    $import_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['import_type'] = $import_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     *
-     * @return string|null
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string|null $currency The currency of the check account.
-     *
-     * @return self
-     */
-    public function setCurrency($currency)
-    {
-        if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
-        }
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
      * Gets default_account
      *
      * @return int|null
@@ -603,43 +409,6 @@ class ModelCheckAccountUpdate implements ModelInterface, ArrayAccess, \JsonSeria
             );
         }
         $this->container['default_account'] = $default_account;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return int|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param int|null $status Status of the check account. 0 <-> Archived - 100 <-> Active
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
 
         return $this;
     }
@@ -701,6 +470,60 @@ class ModelCheckAccountUpdate implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable accounting_number cannot be null');
         }
         $this->container['accounting_number'] = $accounting_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets iban
+     *
+     * @return string|null
+     */
+    public function getIban()
+    {
+        return $this->container['iban'];
+    }
+
+    /**
+     * Sets iban
+     *
+     * @param string|null $iban IBAN of a bank account
+     *
+     * @return self
+     */
+    public function setIban($iban)
+    {
+        if (is_null($iban)) {
+            throw new \InvalidArgumentException('non-nullable iban cannot be null');
+        }
+        $this->container['iban'] = $iban;
+
+        return $this;
+    }
+
+    /**
+     * Gets bic
+     *
+     * @return string|null
+     */
+    public function getBic()
+    {
+        return $this->container['bic'];
+    }
+
+    /**
+     * Sets bic
+     *
+     * @param string|null $bic BIC of the related bank
+     *
+     * @return self
+     */
+    public function setBic($bic)
+    {
+        if (is_null($bic)) {
+            throw new \InvalidArgumentException('non-nullable bic cannot be null');
+        }
+        $this->container['bic'] = $bic;
 
         return $this;
     }

@@ -432,7 +432,7 @@ class CheckAccountTransactionApi
      *
      * Create a new transaction
      *
-     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccountTransaction|null $model_check_account_transaction Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccountTransaction model! (optional)
+     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccountTransaction|null $model_check_account_transaction Creation data. Please note that only status 100 makes sense when creating transactions. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTransaction'] to see the possible values for this operation
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -450,7 +450,7 @@ class CheckAccountTransactionApi
      *
      * Create a new transaction
      *
-     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccountTransaction|null $model_check_account_transaction Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccountTransaction model! (optional)
+     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccountTransaction|null $model_check_account_transaction Creation data. Please note that only status 100 makes sense when creating transactions. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTransaction'] to see the possible values for this operation
      *
      * @throws \Itsmind\Sevdesk\ApiException on non-2xx response or if the response body is not in the expected format
@@ -535,7 +535,7 @@ class CheckAccountTransactionApi
      *
      * Create a new transaction
      *
-     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccountTransaction|null $model_check_account_transaction Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccountTransaction model! (optional)
+     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccountTransaction|null $model_check_account_transaction Creation data. Please note that only status 100 makes sense when creating transactions. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTransaction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -556,7 +556,7 @@ class CheckAccountTransactionApi
      *
      * Create a new transaction
      *
-     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccountTransaction|null $model_check_account_transaction Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccountTransaction model! (optional)
+     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccountTransaction|null $model_check_account_transaction Creation data. Please note that only status 100 makes sense when creating transactions. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTransaction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -606,7 +606,7 @@ class CheckAccountTransactionApi
     /**
      * Create request for operation 'createTransaction'
      *
-     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccountTransaction|null $model_check_account_transaction Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccountTransaction model! (optional)
+     * @param  \Itsmind\Sevdesk\Model\ModelCheckAccountTransaction|null $model_check_account_transaction Creation data. Please note that only status 100 makes sense when creating transactions. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTransaction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

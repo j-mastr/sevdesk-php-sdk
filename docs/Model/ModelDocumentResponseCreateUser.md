@@ -1,4 +1,4 @@
-# # ModelDocumentResponseCreateUser
+# ModelDocumentResponseCreateUser
 
 ## Properties
 

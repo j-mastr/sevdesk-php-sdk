@@ -1,4 +1,4 @@
-# # InvoiceRender201Response
+# InvoiceRender201Response
 
 ## Properties
 

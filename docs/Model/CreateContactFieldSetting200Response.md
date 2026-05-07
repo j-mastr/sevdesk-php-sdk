@@ -1,4 +1,4 @@
-# # CreateContactFieldSetting200Response
+# CreateContactFieldSetting200Response
 
 ## Properties
 

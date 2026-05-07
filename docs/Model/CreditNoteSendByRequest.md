@@ -1,4 +1,4 @@
-# # CreditNoteSendByRequest
+# CreditNoteSendByRequest
 
 ## Properties
 

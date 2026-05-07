@@ -1,4 +1,4 @@
-# # SaveInvoiceResponse
+# SaveInvoiceResponse
 
 ## Properties
 

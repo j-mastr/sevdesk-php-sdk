@@ -1,4 +1,4 @@
-# # ExportInvoiceSevQueryParameterFilter
+# ExportInvoiceSevQueryParameterFilter
 
 ## Properties
 

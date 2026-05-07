@@ -1,4 +1,4 @@
-# # GetReferenceCount200Response
+# GetReferenceCount200Response
 
 ## Properties
 

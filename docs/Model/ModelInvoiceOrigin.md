@@ -1,4 +1,4 @@
-# # ModelInvoiceOrigin
+# ModelInvoiceOrigin
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # SendCreditNoteViaEMail201Response
+# SendCreditNoteViaEMail201Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # UpdateInvoiceTemplate200Response
+# UpdateInvoiceTemplate200Response
 
 ## Properties
 

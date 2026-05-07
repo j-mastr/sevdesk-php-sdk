@@ -1,4 +1,4 @@
-# # GetContactAddresses200Response
+# GetContactAddresses200Response
 
 ## Properties
 

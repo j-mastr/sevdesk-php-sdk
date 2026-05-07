@@ -1,4 +1,4 @@
-# # CreateInvoiceByFactory201Response
+# CreateInvoiceByFactory201Response
 
 ## Properties
 

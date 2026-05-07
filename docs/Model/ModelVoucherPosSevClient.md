@@ -1,4 +1,4 @@
-# # ModelVoucherPosSevClient
+# ModelVoucherPosSevClient
 
 ## Properties
 

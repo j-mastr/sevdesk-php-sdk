@@ -1,4 +1,4 @@
-# # ModelCreditNoteResponseAddressCountry
+# ModelCreditNoteResponseAddressCountry
 
 ## Properties
 

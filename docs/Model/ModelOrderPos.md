@@ -1,4 +1,4 @@
-# # ModelOrderPos
+# ModelOrderPos
 
 ## Properties
 

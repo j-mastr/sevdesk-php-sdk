@@ -1,4 +1,4 @@
-# # ModelInvoiceUpdateTaxRule
+# ModelInvoiceUpdateTaxRule
 
 ## Properties
 

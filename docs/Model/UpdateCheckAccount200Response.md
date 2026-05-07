@@ -1,4 +1,4 @@
-# # UpdateCheckAccount200Response
+# UpdateCheckAccount200Response
 
 ## Properties
 

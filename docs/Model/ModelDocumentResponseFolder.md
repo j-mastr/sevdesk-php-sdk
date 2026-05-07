@@ -1,4 +1,4 @@
-# # ModelDocumentResponseFolder
+# ModelDocumentResponseFolder
 
 ## Properties
 

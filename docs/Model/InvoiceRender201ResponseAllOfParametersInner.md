@@ -1,4 +1,4 @@
-# # InvoiceRender201ResponseAllOfParametersInner
+# InvoiceRender201ResponseAllOfParametersInner
 
 ## Properties
 

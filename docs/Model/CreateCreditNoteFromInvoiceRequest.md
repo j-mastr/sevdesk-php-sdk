@@ -1,4 +1,4 @@
-# # CreateCreditNoteFromInvoiceRequest
+# CreateCreditNoteFromInvoiceRequest
 
 ## Properties
 

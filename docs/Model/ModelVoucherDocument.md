@@ -1,4 +1,4 @@
-# # ModelVoucherDocument
+# ModelVoucherDocument
 
 ## Properties
 

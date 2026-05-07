@@ -1,4 +1,4 @@
-# # ModelOrderResponseTaxSet
+# ModelOrderResponseTaxSet
 
 ## Properties
 

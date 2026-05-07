@@ -1,4 +1,4 @@
-# # ExportInvoice200ResponseObjects
+# ExportInvoice200ResponseObjects
 
 ## Properties
 

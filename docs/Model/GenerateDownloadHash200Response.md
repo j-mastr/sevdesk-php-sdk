@@ -1,4 +1,4 @@
-# # GenerateDownloadHash200Response
+# GenerateDownloadHash200Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # BookCreditNoteRequestCheckAccountTransaction
+# BookCreditNoteRequestCheckAccountTransaction
 
 ## Properties
 

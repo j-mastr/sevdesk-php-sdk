@@ -1,4 +1,4 @@
-# # ModelCreditNoteUpdateContact
+# ModelCreditNoteUpdateContact
 
 ## Properties
 

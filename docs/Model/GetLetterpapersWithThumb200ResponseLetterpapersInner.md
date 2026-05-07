@@ -1,4 +1,4 @@
-# # GetLetterpapersWithThumb200ResponseLetterpapersInner
+# GetLetterpapersWithThumb200ResponseLetterpapersInner
 
 ## Properties
 

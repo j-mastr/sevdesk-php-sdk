@@ -1,4 +1,4 @@
-# # ExportVoucherSevQueryParameterFilter
+# ExportVoucherSevQueryParameterFilter
 
 ## Properties
 

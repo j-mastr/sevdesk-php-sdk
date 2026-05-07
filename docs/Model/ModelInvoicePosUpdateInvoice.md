@@ -1,4 +1,4 @@
-# # ModelInvoicePosUpdateInvoice
+# ModelInvoicePosUpdateInvoice
 
 ## Properties
 

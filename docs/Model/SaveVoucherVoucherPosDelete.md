@@ -1,4 +1,4 @@
-# # SaveVoucherVoucherPosDelete
+# SaveVoucherVoucherPosDelete
 
 ## Properties
 

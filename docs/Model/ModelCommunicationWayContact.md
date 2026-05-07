@@ -1,4 +1,4 @@
-# # ModelCommunicationWayContact
+# ModelCommunicationWayContact
 
 ## Properties
 

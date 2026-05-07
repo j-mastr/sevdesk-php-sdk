@@ -1,4 +1,4 @@
-# # SendInvoiceViaEMailRequest
+# SendInvoiceViaEMailRequest
 
 ## Properties
 

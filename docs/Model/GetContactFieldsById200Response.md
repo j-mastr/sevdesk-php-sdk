@@ -1,4 +1,4 @@
-# # GetContactFieldsById200Response
+# GetContactFieldsById200Response
 
 ## Properties
 

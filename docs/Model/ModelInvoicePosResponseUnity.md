@@ -1,4 +1,4 @@
-# # ModelInvoicePosResponseUnity
+# ModelInvoicePosResponseUnity
 
 ## Properties
 

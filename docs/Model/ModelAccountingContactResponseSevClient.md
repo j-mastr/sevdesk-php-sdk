@@ -1,4 +1,4 @@
-# # ModelAccountingContactResponseSevClient
+# ModelAccountingContactResponseSevClient
 
 ## Properties
 

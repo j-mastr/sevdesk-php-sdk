@@ -1,4 +1,4 @@
-# # ReportVoucher200ResponseObjects
+# ReportVoucher200ResponseObjects
 
 ## Properties
 

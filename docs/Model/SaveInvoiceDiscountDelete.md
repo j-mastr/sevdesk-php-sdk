@@ -1,4 +1,4 @@
-# # SaveInvoiceDiscountDelete
+# SaveInvoiceDiscountDelete
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # UpdateOrderPosition200Response
+# UpdateOrderPosition200Response
 
 ## Properties
 

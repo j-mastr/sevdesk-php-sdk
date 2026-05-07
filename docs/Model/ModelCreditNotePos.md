@@ -1,4 +1,4 @@
-# # ModelCreditNotePos
+# ModelCreditNotePos
 
 ## Properties
 

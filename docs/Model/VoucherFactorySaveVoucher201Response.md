@@ -1,4 +1,4 @@
-# # VoucherFactorySaveVoucher201Response
+# VoucherFactorySaveVoucher201Response
 
 ## Properties
 

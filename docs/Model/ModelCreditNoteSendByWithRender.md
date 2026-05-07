@@ -1,4 +1,4 @@
-# # ModelCreditNoteSendByWithRender
+# ModelCreditNoteSendByWithRender
 
 ## Properties
 

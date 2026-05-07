@@ -1,4 +1,4 @@
-# # ModelVoucherCreateUser
+# ModelVoucherCreateUser
 
 ## Properties
 

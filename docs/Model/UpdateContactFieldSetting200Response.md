@@ -1,4 +1,4 @@
-# # UpdateContactFieldSetting200Response
+# UpdateContactFieldSetting200Response
 
 ## Properties
 

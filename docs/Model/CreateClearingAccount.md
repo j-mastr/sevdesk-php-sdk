@@ -1,4 +1,4 @@
-# # CreateClearingAccount
+# CreateClearingAccount
 
 ## Properties
 

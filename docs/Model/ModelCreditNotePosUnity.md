@@ -1,4 +1,4 @@
-# # ModelCreditNotePosUnity
+# ModelCreditNotePosUnity
 
 ## Properties
 

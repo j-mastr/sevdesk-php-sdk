@@ -1,4 +1,4 @@
-# # ModelVoucherPosResponseAccountDatev
+# ModelVoucherPosResponseAccountDatev
 
 ## Properties
 

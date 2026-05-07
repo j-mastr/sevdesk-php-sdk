@@ -1,4 +1,4 @@
-# # ModelCheckAccountTransactionResponse
+# ModelCheckAccountTransactionResponse
 
 ## Properties
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **value_date** | **\DateTime** | Date the check account transaction was imported | [optional]
 **entry_date** | **\DateTime** | Date the check account transaction was booked | [optional]
 **paymt_purpose** | **string** | The purpose of the transaction | [optional]
-**amount** | **string** | Amount of the transaction | [optional]
+**amount** | **float** | Amount of the transaction | [optional]
 **payee_payer_name** | **string** | Name of the other party | [optional]
 **payee_payer_acct_no** | **string** | IBAN or account number of the other party | [optional]
 **payee_payer_bank_code** | **string** | BIC or bank code of the other party | [optional]

@@ -1,4 +1,4 @@
-# # GetParts200Response
+# GetParts200Response
 
 ## Properties
 

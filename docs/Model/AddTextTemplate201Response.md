@@ -1,4 +1,4 @@
-# # AddTextTemplate201Response
+# AddTextTemplate201Response
 
 ## Properties
 

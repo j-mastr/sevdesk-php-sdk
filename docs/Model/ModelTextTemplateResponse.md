@@ -1,4 +1,4 @@
-# # ModelTextTemplateResponse
+# ModelTextTemplateResponse
 
 ## Properties
 

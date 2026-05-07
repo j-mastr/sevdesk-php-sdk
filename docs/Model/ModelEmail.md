@@ -1,4 +1,4 @@
-# # ModelEmail
+# ModelEmail
 
 ## Properties
 

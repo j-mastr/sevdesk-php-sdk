@@ -1,4 +1,4 @@
-# # ModelCommunicationWayKey
+# ModelCommunicationWayKey
 
 ## Properties
 

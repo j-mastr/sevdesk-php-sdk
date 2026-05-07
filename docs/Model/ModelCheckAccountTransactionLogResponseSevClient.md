@@ -1,4 +1,4 @@
-# # ModelCheckAccountTransactionLogResponseSevClient
+# ModelCheckAccountTransactionLogResponseSevClient
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # InvoiceResetToOpen200Response
+# InvoiceResetToOpen200Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ModelContactAddress
+# ModelContactAddress
 
 ## Properties
 

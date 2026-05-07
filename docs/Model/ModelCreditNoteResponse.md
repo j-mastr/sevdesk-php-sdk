@@ -1,4 +1,4 @@
-# # ModelCreditNoteResponse
+# ModelCreditNoteResponse
 
 ## Properties
 

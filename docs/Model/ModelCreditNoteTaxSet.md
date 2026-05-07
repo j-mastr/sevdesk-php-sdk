@@ -1,4 +1,4 @@
-# # ModelCreditNoteTaxSet
+# ModelCreditNoteTaxSet
 
 ## Properties
 

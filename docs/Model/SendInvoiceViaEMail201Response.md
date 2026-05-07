@@ -1,4 +1,4 @@
-# # SendInvoiceViaEMail201Response
+# SendInvoiceViaEMail201Response
 
 ## Properties
 

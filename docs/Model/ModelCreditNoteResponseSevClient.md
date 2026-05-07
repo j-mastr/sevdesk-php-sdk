@@ -1,4 +1,4 @@
-# # ModelCreditNoteResponseSevClient
+# ModelCreditNoteResponseSevClient
 
 ## Properties
 

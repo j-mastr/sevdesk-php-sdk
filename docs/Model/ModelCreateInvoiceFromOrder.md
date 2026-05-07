@@ -1,4 +1,4 @@
-# # ModelCreateInvoiceFromOrder
+# ModelCreateInvoiceFromOrder
 
 ## Properties
 

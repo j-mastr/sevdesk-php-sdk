@@ -1,4 +1,4 @@
-# # ModelInvoicePosResponseSevClient
+# ModelInvoicePosResponseSevClient
 
 ## Properties
 

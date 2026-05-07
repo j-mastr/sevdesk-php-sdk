@@ -1,4 +1,4 @@
-# # ModelCreditNoteResponseCreateUser
+# ModelCreditNoteResponseCreateUser
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ExportCreditNoteSevQueryParameter
+# ExportCreditNoteSevQueryParameter
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ModelPartCategory
+# ModelPartCategory
 
 ## Properties
 

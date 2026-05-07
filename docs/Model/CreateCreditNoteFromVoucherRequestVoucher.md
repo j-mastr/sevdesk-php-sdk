@@ -1,4 +1,4 @@
-# # CreateCreditNoteFromVoucherRequestVoucher
+# CreateCreditNoteFromVoucherRequestVoucher
 
 ## Properties
 

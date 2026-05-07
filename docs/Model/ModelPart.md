@@ -1,4 +1,4 @@
-# # ModelPart
+# ModelPart
 
 ## Properties
 

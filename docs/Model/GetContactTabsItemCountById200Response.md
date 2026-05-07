@@ -1,4 +1,4 @@
-# # GetContactTabsItemCountById200Response
+# GetContactTabsItemCountById200Response
 
 ## Properties
 

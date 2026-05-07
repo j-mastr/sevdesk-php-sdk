@@ -1,4 +1,4 @@
-# # ModelVoucherPosResponseAccountingType
+# ModelVoucherPosResponseAccountingType
 
 ## Properties
 

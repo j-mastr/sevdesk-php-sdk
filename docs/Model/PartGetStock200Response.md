@@ -1,4 +1,4 @@
-# # PartGetStock200Response
+# PartGetStock200Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # SaveCreditNoteCreditNotePosDelete
+# SaveCreditNoteCreditNotePosDelete
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ModelInvoiceResponseCostCentre
+# ModelInvoiceResponseCostCentre
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ModelInvoiceResponseTaxSet
+# ModelInvoiceResponseTaxSet
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # GetCheckAccounts200Response
+# GetCheckAccounts200Response
 
 ## Properties
 

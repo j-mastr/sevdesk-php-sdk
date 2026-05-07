@@ -1,4 +1,4 @@
-# # JobDownloadInfo200Response
+# JobDownloadInfo200Response
 
 ## Properties
 

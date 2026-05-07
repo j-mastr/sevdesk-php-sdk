@@ -1,4 +1,4 @@
-# # GetInvoicePositionsById200Response
+# GetInvoicePositionsById200Response
 
 ## Properties
 

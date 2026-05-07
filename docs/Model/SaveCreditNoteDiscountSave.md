@@ -1,4 +1,4 @@
-# # SaveCreditNoteDiscountSave
+# SaveCreditNoteDiscountSave
 
 ## Properties
 

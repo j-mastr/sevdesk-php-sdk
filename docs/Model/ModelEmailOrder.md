@@ -1,4 +1,4 @@
-# # ModelEmailOrder
+# ModelEmailOrder
 
 ## Properties
 

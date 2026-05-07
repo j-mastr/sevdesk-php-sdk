@@ -1,4 +1,4 @@
-# # DeleteCheckAccount200Response
+# DeleteCheckAccount200Response
 
 ## Properties
 

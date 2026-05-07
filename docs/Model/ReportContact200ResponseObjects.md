@@ -1,4 +1,4 @@
-# # ReportContact200ResponseObjects
+# ReportContact200ResponseObjects
 
 ## Properties
 

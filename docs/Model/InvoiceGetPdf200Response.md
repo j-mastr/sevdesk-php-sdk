@@ -1,4 +1,4 @@
-# # InvoiceGetPdf200Response
+# InvoiceGetPdf200Response
 
 ## Properties
 

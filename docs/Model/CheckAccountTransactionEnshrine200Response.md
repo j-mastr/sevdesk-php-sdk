@@ -1,4 +1,4 @@
-# # CheckAccountTransactionEnshrine200Response
+# CheckAccountTransactionEnshrine200Response
 
 ## Properties
 

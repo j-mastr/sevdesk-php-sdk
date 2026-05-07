@@ -1,4 +1,4 @@
-# # UpdateExportConfigRequest
+# UpdateExportConfigRequest
 
 ## Properties
 

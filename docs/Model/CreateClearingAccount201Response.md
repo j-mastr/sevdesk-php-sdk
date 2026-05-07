@@ -1,4 +1,4 @@
-# # CreateClearingAccount201Response
+# CreateClearingAccount201Response
 
 ## Properties
 

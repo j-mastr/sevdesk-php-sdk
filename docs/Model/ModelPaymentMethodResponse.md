@@ -1,4 +1,4 @@
-# # ModelPaymentMethodResponse
+# ModelPaymentMethodResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # GetContactFieldSettings200Response
+# GetContactFieldSettings200Response
 
 ## Properties
 

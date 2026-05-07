@@ -1,4 +1,4 @@
-# # FindContactsByCustomFieldValue200Response
+# FindContactsByCustomFieldValue200Response
 
 ## Properties
 

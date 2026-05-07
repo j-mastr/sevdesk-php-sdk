@@ -1,4 +1,4 @@
-# # CreateTagRequestObject
+# CreateTagRequestObject
 
 ## Properties
 

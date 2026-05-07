@@ -1,4 +1,4 @@
-# # BookVoucherRequest
+# BookVoucherRequest
 
 ## Properties
 

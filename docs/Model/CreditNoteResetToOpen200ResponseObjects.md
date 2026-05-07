@@ -1,4 +1,4 @@
-# # CreditNoteResetToOpen200ResponseObjects
+# CreditNoteResetToOpen200ResponseObjects
 
 ## Properties
 

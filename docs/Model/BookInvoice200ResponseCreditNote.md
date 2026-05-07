@@ -1,4 +1,4 @@
-# # BookInvoice200ResponseCreditNote
+# BookInvoice200ResponseCreditNote
 
 ## Properties
 

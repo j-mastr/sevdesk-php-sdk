@@ -1,4 +1,4 @@
-# # GetOrderPositionsById200Response
+# GetOrderPositionsById200Response
 
 ## Properties
 

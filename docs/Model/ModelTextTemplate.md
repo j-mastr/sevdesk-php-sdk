@@ -1,4 +1,4 @@
-# # ModelTextTemplate
+# ModelTextTemplate
 
 ## Properties
 

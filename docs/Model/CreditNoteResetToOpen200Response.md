@@ -1,4 +1,4 @@
-# # CreditNoteResetToOpen200Response
+# CreditNoteResetToOpen200Response
 
 ## Properties
 

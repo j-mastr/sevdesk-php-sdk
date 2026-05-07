@@ -1,4 +1,4 @@
-# # ReceiptGuideDtoAllowedTaxRulesInner
+# ReceiptGuideDtoAllowedTaxRulesInner
 
 ## Properties
 

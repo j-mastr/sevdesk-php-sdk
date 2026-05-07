@@ -1,4 +1,4 @@
-# # UpdateTag200Response
+# UpdateTag200Response
 
 ## Properties
 

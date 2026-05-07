@@ -1,4 +1,4 @@
-# # ModelAccountingContactResponseContact
+# ModelAccountingContactResponseContact
 
 ## Properties
 

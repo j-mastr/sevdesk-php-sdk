@@ -1,4 +1,4 @@
-# # InvoiceResetToDraft200ResponseObjects
+# InvoiceResetToDraft200ResponseObjects
 
 ## Properties
 

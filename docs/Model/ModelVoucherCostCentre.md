@@ -1,4 +1,4 @@
-# # ModelVoucherCostCentre
+# ModelVoucherCostCentre
 
 ## Properties
 

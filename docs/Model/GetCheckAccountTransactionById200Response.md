@@ -1,4 +1,4 @@
-# # GetCheckAccountTransactionById200Response
+# GetCheckAccountTransactionById200Response
 
 ## Properties
 

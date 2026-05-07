@@ -1,4 +1,4 @@
-# # ExportContact200ResponseObjects
+# ExportContact200ResponseObjects
 
 ## Properties
 

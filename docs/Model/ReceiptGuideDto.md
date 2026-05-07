@@ -1,4 +1,4 @@
-# # ReceiptGuideDto
+# ReceiptGuideDto
 
 ## Properties
 

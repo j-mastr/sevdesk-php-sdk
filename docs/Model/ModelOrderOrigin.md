@@ -1,4 +1,4 @@
-# # ModelOrderOrigin
+# ModelOrderOrigin
 
 ## Properties
 

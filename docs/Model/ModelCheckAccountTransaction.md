@@ -1,4 +1,4 @@
-# # ModelCheckAccountTransaction
+# ModelCheckAccountTransaction
 
 ## Properties
 

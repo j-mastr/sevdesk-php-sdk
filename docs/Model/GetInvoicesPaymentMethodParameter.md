@@ -1,4 +1,4 @@
-# # GetInvoicesPaymentMethodParameter
+# GetInvoicesPaymentMethodParameter
 
 ## Properties
 

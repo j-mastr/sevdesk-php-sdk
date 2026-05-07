@@ -1,4 +1,4 @@
-# # ModelVoucherResponseCostCentre
+# ModelVoucherResponseCostCentre
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ModelOrderResponse
+# ModelOrderResponse
 
 ## Properties
 

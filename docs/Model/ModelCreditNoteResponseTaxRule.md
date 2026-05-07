@@ -1,4 +1,4 @@
-# # ModelCreditNoteResponseTaxRule
+# ModelCreditNoteResponseTaxRule
 
 ## Properties
 

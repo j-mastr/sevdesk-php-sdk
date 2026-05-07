@@ -1,4 +1,4 @@
-# # ModelInvoiceContactPerson
+# ModelInvoiceContactPerson
 
 ## Properties
 

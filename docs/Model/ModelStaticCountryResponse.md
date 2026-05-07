@@ -1,4 +1,4 @@
-# # ModelStaticCountryResponse
+# ModelStaticCountryResponse
 
 ## Properties
 

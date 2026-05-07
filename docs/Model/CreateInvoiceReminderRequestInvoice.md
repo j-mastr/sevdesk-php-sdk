@@ -1,4 +1,4 @@
-# # CreateInvoiceReminderRequestInvoice
+# CreateInvoiceReminderRequestInvoice
 
 ## Properties
 

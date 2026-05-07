@@ -1,4 +1,4 @@
-# # InvoiceResetToDraft200Response
+# InvoiceResetToDraft200Response
 
 ## Properties
 

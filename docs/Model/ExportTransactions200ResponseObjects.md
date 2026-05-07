@@ -1,4 +1,4 @@
-# # ExportTransactions200ResponseObjects
+# ExportTransactions200ResponseObjects
 
 ## Properties
 

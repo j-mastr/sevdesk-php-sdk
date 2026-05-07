@@ -1,4 +1,4 @@
-# # ModelContactAddressResponseCountry
+# ModelContactAddressResponseCountry
 
 ## Properties
 

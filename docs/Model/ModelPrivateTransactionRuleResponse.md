@@ -1,4 +1,4 @@
-# # ModelPrivateTransactionRuleResponse
+# ModelPrivateTransactionRuleResponse
 
 ## Properties
 

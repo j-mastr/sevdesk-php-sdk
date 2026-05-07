@@ -1,4 +1,4 @@
-# # ExportContactSevQueryParameter
+# ExportContactSevQueryParameter
 
 ## Properties
 

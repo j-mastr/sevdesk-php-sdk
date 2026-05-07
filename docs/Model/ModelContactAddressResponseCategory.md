@@ -1,4 +1,4 @@
-# # ModelContactAddressResponseCategory
+# ModelContactAddressResponseCategory
 
 ## Properties
 

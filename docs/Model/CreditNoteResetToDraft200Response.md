@@ -1,4 +1,4 @@
-# # CreditNoteResetToDraft200Response
+# CreditNoteResetToDraft200Response
 
 ## Properties
 

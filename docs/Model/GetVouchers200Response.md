@@ -1,4 +1,4 @@
-# # GetVouchers200Response
+# GetVouchers200Response
 
 ## Properties
 

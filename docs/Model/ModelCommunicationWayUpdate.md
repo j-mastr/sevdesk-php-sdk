@@ -1,4 +1,4 @@
-# # ModelCommunicationWayUpdate
+# ModelCommunicationWayUpdate
 
 ## Properties
 

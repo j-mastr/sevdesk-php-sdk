@@ -1,4 +1,4 @@
-# # InvoiceGetXml200Response
+# InvoiceGetXml200Response
 
 ## Properties
 

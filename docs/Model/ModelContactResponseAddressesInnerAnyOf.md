@@ -1,4 +1,4 @@
-# # ModelContactResponseAddressesInnerAnyOf
+# ModelContactResponseAddressesInnerAnyOf
 
 ## Properties
 

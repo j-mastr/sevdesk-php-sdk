@@ -1,4 +1,4 @@
-# # GetVoucherPositions200Response
+# GetVoucherPositions200Response
 
 ## Properties
 

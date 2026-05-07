@@ -1,4 +1,4 @@
-# # VoucherResetToOpen200Response
+# VoucherResetToOpen200Response
 
 ## Properties
 

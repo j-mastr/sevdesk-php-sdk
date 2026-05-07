@@ -1,4 +1,4 @@
-# # GetCommunicationWayKeys200Response
+# GetCommunicationWayKeys200Response
 
 ## Properties
 

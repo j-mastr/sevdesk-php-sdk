@@ -84,7 +84,7 @@ createTransaction($model_check_account_transaction): \Itsmind\Sevdesk\Model\Crea
 
 Create a new transaction
 
-Creates a new transaction on a check account.
+Creates a new transaction on a check account. This should only be used with check account type online, preferably for csv import accounts.
 
 ### Example
 
@@ -105,7 +105,7 @@ $apiInstance = new Itsmind\Sevdesk\Api\CheckAccountTransactionApi(
     new GuzzleHttp\Client(),
     $config
 );
-$model_check_account_transaction = new \Itsmind\Sevdesk\Model\ModelCheckAccountTransaction(); // \Itsmind\Sevdesk\Model\ModelCheckAccountTransaction | Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccountTransaction model!
+$model_check_account_transaction = new \Itsmind\Sevdesk\Model\ModelCheckAccountTransaction(); // \Itsmind\Sevdesk\Model\ModelCheckAccountTransaction | Creation data. Please note that only status 100 makes sense when creating transactions.
 
 try {
     $result = $apiInstance->createTransaction($model_check_account_transaction);
@@ -119,7 +119,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **model_check_account_transaction** | [**\Itsmind\Sevdesk\Model\ModelCheckAccountTransaction**](../Model/ModelCheckAccountTransaction.md)| Creation data. Please be aware, that you need to provide at least all required parameter      of the CheckAccountTransaction model! | [optional] |
+| **model_check_account_transaction** | [**\Itsmind\Sevdesk\Model\ModelCheckAccountTransaction**](../Model/ModelCheckAccountTransaction.md)| Creation data. Please note that only status 100 makes sense when creating transactions. | [optional] |
 
 ### Return type
 

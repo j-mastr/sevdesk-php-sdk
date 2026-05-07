@@ -77,7 +77,8 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'auto_map_transactions' => 'string',
         'auto_sync_transactions' => 'string',
         'last_sync' => '\DateTime',
-        'accounting_number' => 'string'
+        'accounting_number' => 'string',
+        'bic' => 'string'
     ];
 
     /**
@@ -107,7 +108,8 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'auto_map_transactions' => null,
         'auto_sync_transactions' => null,
         'last_sync' => 'date-time',
-        'accounting_number' => null
+        'accounting_number' => null,
+        'bic' => null
     ];
 
     /**
@@ -135,7 +137,8 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'auto_map_transactions' => true,
         'auto_sync_transactions' => false,
         'last_sync' => false,
-        'accounting_number' => false
+        'accounting_number' => false,
+        'bic' => true
     ];
 
     /**
@@ -243,7 +246,8 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'auto_map_transactions' => 'autoMapTransactions',
         'auto_sync_transactions' => 'autoSyncTransactions',
         'last_sync' => 'lastSync',
-        'accounting_number' => 'accountingNumber'
+        'accounting_number' => 'accountingNumber',
+        'bic' => 'bic'
     ];
 
     /**
@@ -271,7 +275,8 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'auto_map_transactions' => 'setAutoMapTransactions',
         'auto_sync_transactions' => 'setAutoSyncTransactions',
         'last_sync' => 'setLastSync',
-        'accounting_number' => 'setAccountingNumber'
+        'accounting_number' => 'setAccountingNumber',
+        'bic' => 'setBic'
     ];
 
     /**
@@ -299,7 +304,8 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         'auto_map_transactions' => 'getAutoMapTransactions',
         'auto_sync_transactions' => 'getAutoSyncTransactions',
         'last_sync' => 'getLastSync',
-        'accounting_number' => 'getAccountingNumber'
+        'accounting_number' => 'getAccountingNumber',
+        'bic' => 'getBic'
     ];
 
     /**
@@ -439,6 +445,7 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('auto_sync_transactions', $data ?? [], null);
         $this->setIfExists('last_sync', $data ?? [], null);
         $this->setIfExists('accounting_number', $data ?? [], null);
+        $this->setIfExists('bic', $data ?? [], null);
     }
 
     /**
@@ -1130,6 +1137,40 @@ class ModelCheckAccountResponse implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable accounting_number cannot be null');
         }
         $this->container['accounting_number'] = $accounting_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets bic
+     *
+     * @return string|null
+     */
+    public function getBic()
+    {
+        return $this->container['bic'];
+    }
+
+    /**
+     * Sets bic
+     *
+     * @param string|null $bic The BIC of the bank this account belongs to
+     *
+     * @return self
+     */
+    public function setBic($bic)
+    {
+        if (is_null($bic)) {
+            array_push($this->openAPINullablesSetToNull, 'bic');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bic', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['bic'] = $bic;
 
         return $this;
     }

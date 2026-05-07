@@ -24,5 +24,6 @@ Name | Type | Description | Notes
 **auto_sync_transactions** | **string** | If this is 1 the account will be automatically updated through PayPal or finAPI. Only applicable for connected online accounts. | [optional]
 **last_sync** | **\DateTime** | Timepoint of the last payment import through PayPal or finAPI. | [optional]
 **accounting_number** | **string** | The booking account used for this account, e.g. 1800 in SKR04 and 1200 in SKR03. Must be unique among all your CheckAccounts. | [optional]
+**bic** | **string** | The BIC of the bank this account belongs to | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

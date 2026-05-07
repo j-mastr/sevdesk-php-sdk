@@ -1,4 +1,4 @@
-# # ForAllAccounts200Response
+# ForAllAccounts200Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ModelContactResponseTaxSet
+# ModelContactResponseTaxSet
 
 ## Properties
 

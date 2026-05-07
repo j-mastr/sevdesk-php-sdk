@@ -1,4 +1,4 @@
-# # UpdateOrder200Response
+# UpdateOrder200Response
 
 ## Properties
 

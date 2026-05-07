@@ -1,4 +1,4 @@
-# # GetVoucherById200Response
+# GetVoucherById200Response
 
 ## Properties
 

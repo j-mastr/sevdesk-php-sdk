@@ -1,4 +1,4 @@
-# # ModelDocumentResponseUpdateUser
+# ModelDocumentResponseUpdateUser
 
 ## Properties
 

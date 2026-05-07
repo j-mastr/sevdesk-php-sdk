@@ -1,4 +1,4 @@
-# # ModelContactAddressResponseCountryAnyOf
+# ModelContactAddressResponseCountryAnyOf
 
 ## Properties
 

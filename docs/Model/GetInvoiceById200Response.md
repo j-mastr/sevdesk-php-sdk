@@ -1,4 +1,4 @@
-# # GetInvoiceById200Response
+# GetInvoiceById200Response
 
 ## Properties
 

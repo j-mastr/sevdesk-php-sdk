@@ -1,4 +1,4 @@
-# # ExportVoucher200Response
+# ExportVoucher200Response
 
 ## Properties
 

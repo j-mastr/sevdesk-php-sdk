@@ -1,4 +1,4 @@
-# # CreateCommunicationWay201Response
+# CreateCommunicationWay201Response
 
 ## Properties
 

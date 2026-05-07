@@ -1,4 +1,4 @@
-# # ModelPartUnity
+# ModelPartUnity
 
 ## Properties
 

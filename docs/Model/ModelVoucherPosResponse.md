@@ -1,4 +1,4 @@
-# # ModelVoucherPosResponse
+# ModelVoucherPosResponse
 
 ## Properties
 

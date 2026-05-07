@@ -1,4 +1,4 @@
-# # ExportCreditNote200ResponseObjects
+# ExportCreditNote200ResponseObjects
 
 ## Properties
 

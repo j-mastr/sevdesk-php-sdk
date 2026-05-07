@@ -1,4 +1,4 @@
-# # ModelDiscountObject
+# ModelDiscountObject
 
 ## Properties
 

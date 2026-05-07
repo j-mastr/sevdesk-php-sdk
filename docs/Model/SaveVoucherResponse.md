@@ -1,4 +1,4 @@
-# # SaveVoucherResponse
+# SaveVoucherResponse
 
 ## Properties
 

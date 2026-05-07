@@ -1,4 +1,4 @@
-# # ModelInvoicePosResponseInvoice
+# ModelInvoicePosResponseInvoice
 
 ## Properties
 

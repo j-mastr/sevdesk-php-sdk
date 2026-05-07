@@ -1,4 +1,4 @@
-# # ModelVoucherPos
+# ModelVoucherPos
 
 ## Properties
 

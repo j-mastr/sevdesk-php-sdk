@@ -1,4 +1,4 @@
-# # CreateTransaction201Response
+# CreateTransaction201Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # GetInvoicesContactParameter
+# GetInvoicesContactParameter
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ModelOrderContactPerson
+# ModelOrderContactPerson
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # OrderGetPdf200Response
+# OrderGetPdf200Response
 
 ## Properties
 

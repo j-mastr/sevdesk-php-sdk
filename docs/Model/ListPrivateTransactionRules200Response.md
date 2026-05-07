@@ -1,4 +1,4 @@
-# # ListPrivateTransactionRules200Response
+# ListPrivateTransactionRules200Response
 
 ## Properties
 

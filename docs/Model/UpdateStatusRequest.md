@@ -1,4 +1,4 @@
-# # UpdateStatusRequest
+# UpdateStatusRequest
 
 ## Properties
 

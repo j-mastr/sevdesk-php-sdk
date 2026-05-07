@@ -1,4 +1,4 @@
-# # ModelDiscountsResponse
+# ModelDiscountsResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ModelPrivateTransactionRuleResponseSevClient
+# ModelPrivateTransactionRuleResponseSevClient
 
 ## Properties
 

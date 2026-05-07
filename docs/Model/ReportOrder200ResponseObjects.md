@@ -1,4 +1,4 @@
-# # ReportOrder200ResponseObjects
+# ReportOrder200ResponseObjects
 
 ## Properties
 

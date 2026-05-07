@@ -1,4 +1,4 @@
-# # GetSevUsers200Response
+# GetSevUsers200Response
 
 ## Properties
 

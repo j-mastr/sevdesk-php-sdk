@@ -1,4 +1,4 @@
-# # CreatePart201Response
+# CreatePart201Response
 
 ## Properties
 

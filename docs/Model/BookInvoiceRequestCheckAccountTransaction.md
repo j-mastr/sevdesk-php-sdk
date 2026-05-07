@@ -1,4 +1,4 @@
-# # BookInvoiceRequestCheckAccountTransaction
+# BookInvoiceRequestCheckAccountTransaction
 
 ## Properties
 

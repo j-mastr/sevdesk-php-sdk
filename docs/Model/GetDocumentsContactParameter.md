@@ -1,4 +1,4 @@
-# # GetDocumentsContactParameter
+# GetDocumentsContactParameter
 
 ## Properties
 

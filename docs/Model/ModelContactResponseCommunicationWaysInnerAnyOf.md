@@ -1,4 +1,4 @@
-# # ModelContactResponseCommunicationWaysInnerAnyOf
+# ModelContactResponseCommunicationWaysInnerAnyOf
 
 ## Properties
 

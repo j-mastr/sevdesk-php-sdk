@@ -1,4 +1,4 @@
-# # ModelInvoicePaymentMethod
+# ModelInvoicePaymentMethod
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ExportVoucherZip200ResponseObjects
+# ExportVoucherZip200ResponseObjects
 
 ## Properties
 

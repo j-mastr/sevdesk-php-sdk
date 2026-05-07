@@ -1,4 +1,4 @@
-# # ModelVoucherTaxSet
+# ModelVoucherTaxSet
 
 ## Properties
 

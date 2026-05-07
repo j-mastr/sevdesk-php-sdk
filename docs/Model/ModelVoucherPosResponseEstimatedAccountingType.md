@@ -1,4 +1,4 @@
-# # ModelVoucherPosResponseEstimatedAccountingType
+# ModelVoucherPosResponseEstimatedAccountingType
 
 ## Properties
 

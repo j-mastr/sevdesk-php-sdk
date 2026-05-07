@@ -1,4 +1,4 @@
-# # GetNextCustomerNumber200Response
+# GetNextCustomerNumber200Response
 
 ## Properties
 

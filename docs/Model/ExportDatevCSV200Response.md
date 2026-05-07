@@ -1,4 +1,4 @@
-# # ExportDatevCSV200Response
+# ExportDatevCSV200Response
 
 ## Properties
 

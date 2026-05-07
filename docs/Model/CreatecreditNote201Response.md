@@ -1,4 +1,4 @@
-# # CreatecreditNote201Response
+# CreatecreditNote201Response
 
 ## Properties
 

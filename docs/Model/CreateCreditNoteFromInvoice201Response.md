@@ -1,4 +1,4 @@
-# # CreateCreditNoteFromInvoice201Response
+# CreateCreditNoteFromInvoice201Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # BookVoucherRequestCheckAccountTransaction
+# BookVoucherRequestCheckAccountTransaction
 
 ## Properties
 

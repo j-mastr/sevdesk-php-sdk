@@ -1,4 +1,4 @@
-# # GetCommunicationWays200Response
+# GetCommunicationWays200Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # InvoiceRender201ResponseAllOfOneOf1
+# InvoiceRender201ResponseAllOfOneOf1
 
 ## Properties
 

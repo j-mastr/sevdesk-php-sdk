@@ -1,4 +1,4 @@
-# # ExportInvoiceZip200Response
+# ExportInvoiceZip200Response
 
 ## Properties
 

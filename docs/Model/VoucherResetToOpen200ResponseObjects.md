@@ -1,4 +1,4 @@
-# # VoucherResetToOpen200ResponseObjects
+# VoucherResetToOpen200ResponseObjects
 
 ## Properties
 

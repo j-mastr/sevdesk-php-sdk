@@ -1,4 +1,4 @@
-# # ModelContactParent
+# ModelContactParent
 
 ## Properties
 

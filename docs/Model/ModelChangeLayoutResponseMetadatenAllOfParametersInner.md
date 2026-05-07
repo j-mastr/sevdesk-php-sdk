@@ -1,4 +1,4 @@
-# # ModelChangeLayoutResponseMetadatenAllOfParametersInner
+# ModelChangeLayoutResponseMetadatenAllOfParametersInner
 
 ## Properties
 

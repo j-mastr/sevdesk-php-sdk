@@ -1,4 +1,4 @@
-# # InvoiceRenderRequest
+# InvoiceRenderRequest
 
 ## Properties
 

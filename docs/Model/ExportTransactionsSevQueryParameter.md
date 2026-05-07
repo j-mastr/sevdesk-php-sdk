@@ -1,4 +1,4 @@
-# # ExportTransactionsSevQueryParameter
+# ExportTransactionsSevQueryParameter
 
 ## Properties
 

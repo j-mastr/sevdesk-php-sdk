@@ -1,4 +1,4 @@
-# # ModelCreditNotePosResponsePart
+# ModelCreditNotePosResponsePart
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ModelOrderPosResponseSevClient
+# ModelOrderPosResponseSevClient
 
 ## Properties
 

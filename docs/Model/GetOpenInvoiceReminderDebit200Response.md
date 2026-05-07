@@ -1,4 +1,4 @@
-# # GetOpenInvoiceReminderDebit200Response
+# GetOpenInvoiceReminderDebit200Response
 
 ## Properties
 

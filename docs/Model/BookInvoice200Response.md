@@ -1,4 +1,4 @@
-# # BookInvoice200Response
+# BookInvoice200Response
 
 ## Properties
 

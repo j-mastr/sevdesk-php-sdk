@@ -1,4 +1,4 @@
-# # ReportOrderSevQueryParameter
+# ReportOrderSevQueryParameter
 
 ## Properties
 

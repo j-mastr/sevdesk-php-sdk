@@ -1,4 +1,4 @@
-# # ModelCreditNotePosSevClient
+# ModelCreditNotePosSevClient
 
 ## Properties
 

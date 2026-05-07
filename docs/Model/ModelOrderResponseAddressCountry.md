@@ -1,4 +1,4 @@
-# # ModelOrderResponseAddressCountry
+# ModelOrderResponseAddressCountry
 
 ## Properties
 

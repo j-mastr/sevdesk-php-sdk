@@ -1,4 +1,4 @@
-# # CreditNoteGetPdf200Response
+# CreditNoteGetPdf200Response
 
 ## Properties
 

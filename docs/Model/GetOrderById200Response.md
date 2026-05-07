@@ -1,4 +1,4 @@
-# # GetOrderById200Response
+# GetOrderById200Response
 
 ## Properties
 

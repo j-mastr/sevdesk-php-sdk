@@ -1,4 +1,4 @@
-# # ModelCreditNoteCreateUser
+# ModelCreditNoteCreateUser
 
 ## Properties
 

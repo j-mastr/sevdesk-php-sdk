@@ -1,4 +1,4 @@
-# # ModelCreditNotePosResponseUnity
+# ModelCreditNotePosResponseUnity
 
 ## Properties
 

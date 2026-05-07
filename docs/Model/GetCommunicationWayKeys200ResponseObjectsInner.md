@@ -1,4 +1,4 @@
-# # GetCommunicationWayKeys200ResponseObjectsInner
+# GetCommunicationWayKeys200ResponseObjectsInner
 
 ## Properties
 

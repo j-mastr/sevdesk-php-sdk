@@ -1,4 +1,4 @@
-# # ModelTextparserFetchDictionaryEntriesByTypeResponseValueInner
+# ModelTextparserFetchDictionaryEntriesByTypeResponseValueInner
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # SendCreditNoteViaEMailRequest
+# SendCreditNoteViaEMailRequest
 
 ## Properties
 

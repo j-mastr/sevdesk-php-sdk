@@ -1,4 +1,4 @@
-# # ModelDocumentResponseObject
+# ModelDocumentResponseObject
 
 ## Properties
 

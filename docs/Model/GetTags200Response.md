@@ -1,4 +1,4 @@
-# # GetTags200Response
+# GetTags200Response
 
 ## Properties
 

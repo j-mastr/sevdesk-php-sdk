@@ -1,4 +1,4 @@
-# # ContactCustomerNumberAvailabilityCheck200Response
+# ContactCustomerNumberAvailabilityCheck200Response
 
 ## Properties
 

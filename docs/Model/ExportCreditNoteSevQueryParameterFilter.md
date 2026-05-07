@@ -1,4 +1,4 @@
-# # ExportCreditNoteSevQueryParameterFilter
+# ExportCreditNoteSevQueryParameterFilter
 
 ## Properties
 

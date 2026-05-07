@@ -1,4 +1,4 @@
-# # GetPlaceholder200Response
+# GetPlaceholder200Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ModelChangeLayoutResponseMetadatenAllOfOneOf
+# ModelChangeLayoutResponseMetadatenAllOfOneOf
 
 ## Properties
 

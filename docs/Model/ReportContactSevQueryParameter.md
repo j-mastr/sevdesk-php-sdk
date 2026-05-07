@@ -1,4 +1,4 @@
-# # ReportContactSevQueryParameter
+# ReportContactSevQueryParameter
 
 ## Properties
 

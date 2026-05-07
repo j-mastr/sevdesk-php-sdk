@@ -1,4 +1,4 @@
-# # UpdateVoucher200Response
+# UpdateVoucher200Response
 
 ## Properties
 

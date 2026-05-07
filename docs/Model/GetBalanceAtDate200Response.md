@@ -1,4 +1,4 @@
-# # GetBalanceAtDate200Response
+# GetBalanceAtDate200Response
 
 ## Properties
 

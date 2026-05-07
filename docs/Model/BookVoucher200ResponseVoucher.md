@@ -1,4 +1,4 @@
-# # BookVoucher200ResponseVoucher
+# BookVoucher200ResponseVoucher
 
 ## Properties
 

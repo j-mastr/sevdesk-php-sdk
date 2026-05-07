@@ -1,4 +1,4 @@
-# # VoucherUploadFileRequest
+# VoucherUploadFileRequest
 
 ## Properties
 

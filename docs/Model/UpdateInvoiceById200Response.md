@@ -1,4 +1,4 @@
-# # UpdateInvoiceById200Response
+# UpdateInvoiceById200Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ModelOrderResponseOrigin
+# ModelOrderResponseOrigin
 
 ## Properties
 

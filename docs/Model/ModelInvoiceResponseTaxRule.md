@@ -1,4 +1,4 @@
-# # ModelInvoiceResponseTaxRule
+# ModelInvoiceResponseTaxRule
 
 ## Properties
 

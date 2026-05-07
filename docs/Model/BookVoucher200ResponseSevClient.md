@@ -1,4 +1,4 @@
-# # BookVoucher200ResponseSevClient
+# BookVoucher200ResponseSevClient
 
 ## Properties
 

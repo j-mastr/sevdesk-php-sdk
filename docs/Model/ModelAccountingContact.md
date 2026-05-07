@@ -1,4 +1,4 @@
-# # ModelAccountingContact
+# ModelAccountingContact
 
 ## Properties
 

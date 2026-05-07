@@ -1,4 +1,4 @@
-# # CreditNoteSendBy200Response
+# CreditNoteSendBy200Response
 
 ## Properties
 

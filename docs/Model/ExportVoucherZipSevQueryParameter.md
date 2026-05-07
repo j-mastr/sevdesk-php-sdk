@@ -1,4 +1,4 @@
-# # ExportVoucherZipSevQueryParameter
+# ExportVoucherZipSevQueryParameter
 
 ## Properties
 

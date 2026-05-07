@@ -1,4 +1,4 @@
-# # CreateOrder201Response
+# CreateOrder201Response
 
 ## Properties
 

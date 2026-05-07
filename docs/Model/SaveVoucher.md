@@ -1,4 +1,4 @@
-# # SaveVoucher
+# SaveVoucher
 
 ## Properties
 

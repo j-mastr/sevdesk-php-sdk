@@ -1,4 +1,4 @@
-# # BookInvoice200ResponseSevClient
+# BookInvoice200ResponseSevClient
 
 ## Properties
 

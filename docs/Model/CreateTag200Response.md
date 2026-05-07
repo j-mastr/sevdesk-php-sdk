@@ -1,4 +1,4 @@
-# # CreateTag200Response
+# CreateTag200Response
 
 ## Properties
 

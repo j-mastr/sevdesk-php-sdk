@@ -1,4 +1,4 @@
-# # GetAccountingContactById200Response
+# GetAccountingContactById200Response
 
 ## Properties
 

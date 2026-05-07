@@ -1,4 +1,4 @@
-# # ModelTagCreateResponseTag
+# ModelTagCreateResponseTag
 
 ## Properties
 

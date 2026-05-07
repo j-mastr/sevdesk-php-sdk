@@ -1,4 +1,4 @@
-# # ModelCommunicationWayResponseContact
+# ModelCommunicationWayResponseContact
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # GetDocuments200Response
+# GetDocuments200Response
 
 ## Properties
 

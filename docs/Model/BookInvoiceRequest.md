@@ -1,4 +1,4 @@
-# # BookInvoiceRequest
+# BookInvoiceRequest
 
 ## Properties
 

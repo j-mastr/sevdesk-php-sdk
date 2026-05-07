@@ -1,4 +1,4 @@
-# # ModelChangeLayoutResponse
+# ModelChangeLayoutResponse
 
 ## Properties
 

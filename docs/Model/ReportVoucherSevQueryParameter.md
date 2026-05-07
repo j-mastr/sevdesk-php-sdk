@@ -1,4 +1,4 @@
-# # ReportVoucherSevQueryParameter
+# ReportVoucherSevQueryParameter
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ReportInvoiceSevQueryParameter
+# ReportInvoiceSevQueryParameter
 
 ## Properties
 

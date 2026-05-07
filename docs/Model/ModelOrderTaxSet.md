@@ -1,4 +1,4 @@
-# # ModelOrderTaxSet
+# ModelOrderTaxSet
 
 ## Properties
 

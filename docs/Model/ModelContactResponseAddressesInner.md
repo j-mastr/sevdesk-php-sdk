@@ -1,4 +1,4 @@
-# # ModelContactResponseAddressesInner
+# ModelContactResponseAddressesInner
 
 ## Properties
 

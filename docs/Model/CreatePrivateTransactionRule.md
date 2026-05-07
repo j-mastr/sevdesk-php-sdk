@@ -1,4 +1,4 @@
-# # CreatePrivateTransactionRule
+# CreatePrivateTransactionRule
 
 ## Properties
 

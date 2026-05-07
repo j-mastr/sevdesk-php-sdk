@@ -1,4 +1,4 @@
-# # SendCreditNoteByPrinting200Response
+# SendCreditNoteByPrinting200Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # GetDiscounts200Response
+# GetDiscounts200Response
 
 ## Properties
 

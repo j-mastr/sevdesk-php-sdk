@@ -1,4 +1,4 @@
-# # BookCreditNoteRequest
+# BookCreditNoteRequest
 
 ## Properties
 

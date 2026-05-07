@@ -1,4 +1,4 @@
-# # ReportInvoice200ResponseObjects
+# ReportInvoice200ResponseObjects
 
 ## Properties
 

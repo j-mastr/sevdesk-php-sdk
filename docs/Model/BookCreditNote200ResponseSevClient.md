@@ -1,4 +1,4 @@
-# # BookCreditNote200ResponseSevClient
+# BookCreditNote200ResponseSevClient
 
 ## Properties
 

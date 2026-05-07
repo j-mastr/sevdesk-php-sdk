@@ -1,4 +1,4 @@
-# # GetTextTemplate200Response
+# GetTextTemplate200Response
 
 ## Properties
 

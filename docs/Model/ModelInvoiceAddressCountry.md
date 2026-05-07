@@ -1,4 +1,4 @@
-# # ModelInvoiceAddressCountry
+# ModelInvoiceAddressCountry
 
 ## Properties
 

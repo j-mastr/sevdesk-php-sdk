@@ -1,4 +1,4 @@
-# # GetTagRelations200Response
+# GetTagRelations200Response
 
 ## Properties
 

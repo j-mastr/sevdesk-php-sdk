@@ -1,4 +1,4 @@
-# # ModelSevUserResponse
+# ModelSevUserResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ModelVoucherSupplier
+# ModelVoucherSupplier
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # GetCreditNotes200Response
+# GetCreditNotes200Response
 
 ## Properties
 

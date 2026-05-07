@@ -1,4 +1,4 @@
-# # ModelCommunicationWayResponseSevClient
+# ModelCommunicationWayResponseSevClient
 
 ## Properties
 

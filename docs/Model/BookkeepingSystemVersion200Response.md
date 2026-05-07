@@ -1,4 +1,4 @@
-# # BookkeepingSystemVersion200Response
+# BookkeepingSystemVersion200Response
 
 ## Properties
 

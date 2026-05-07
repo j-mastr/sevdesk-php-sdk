@@ -1,4 +1,4 @@
-# # ReportOrderSevQueryParameterFilter
+# ReportOrderSevQueryParameterFilter
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ModelVoucherResponseSevClient
+# ModelVoucherResponseSevClient
 
 ## Properties
 

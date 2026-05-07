@@ -1,4 +1,4 @@
-# # GetOpenInvoiceReminderDebitInvoiceParameter
+# GetOpenInvoiceReminderDebitInvoiceParameter
 
 ## Properties
 

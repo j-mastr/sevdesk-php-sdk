@@ -1,4 +1,4 @@
-# # GetcreditNotePositions200Response
+# GetcreditNotePositions200Response
 
 ## Properties
 

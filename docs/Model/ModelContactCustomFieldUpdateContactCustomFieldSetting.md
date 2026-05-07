@@ -1,4 +1,4 @@
-# # ModelContactCustomFieldUpdateContactCustomFieldSetting
+# ModelContactCustomFieldUpdateContactCustomFieldSetting
 
 ## Properties
 

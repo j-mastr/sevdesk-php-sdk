@@ -1,4 +1,4 @@
-# # CreateAccountingContact201Response
+# CreateAccountingContact201Response
 
 ## Properties
 

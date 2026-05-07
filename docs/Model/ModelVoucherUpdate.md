@@ -1,4 +1,4 @@
-# # ModelVoucherUpdate
+# ModelVoucherUpdate
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # SaveInvoiceInvoicePosDelete
+# SaveInvoiceInvoicePosDelete
 
 ## Properties
 

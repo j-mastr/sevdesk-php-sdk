@@ -1,4 +1,4 @@
-# # BookCreditNote200Response
+# BookCreditNote200Response
 
 ## Properties
 

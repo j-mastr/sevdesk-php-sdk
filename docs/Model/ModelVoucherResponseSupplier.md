@@ -1,4 +1,4 @@
-# # ModelVoucherResponseSupplier
+# ModelVoucherResponseSupplier
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ModelInvoicePosUnity
+# ModelInvoicePosUnity
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # VoucherUploadFile201Response
+# VoucherUploadFile201Response
 
 ## Properties
 

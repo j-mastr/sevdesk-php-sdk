@@ -1,4 +1,4 @@
-# # ModelVoucherPosAccountDatev
+# ModelVoucherPosAccountDatev
 
 ## Properties
 

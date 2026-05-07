@@ -1,4 +1,4 @@
-# # ModelVoucherResponseTaxSet
+# ModelVoucherResponseTaxSet
 
 ## Properties
 

@@ -18,6 +18,8 @@ getSevUserById($sev_user_id, $embed): \Itsmind\Sevdesk\Model\GetSevUserById200Re
 
 
 
+Returns a single user.<br> Supported `embed` values: `privileges`, `isOriginalClient`, `npsDetail`, `userSettings` and the `property*` fields of the user (e.g. `propertyHideAppBanner`).
+
 ### Example
 
 ```php

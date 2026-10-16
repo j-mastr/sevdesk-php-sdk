@@ -9,10 +9,10 @@
 >
 > This project is exclusively for the SDK and application-related issues.
 
-<b>Contact:</b> To contact our support click  <a href='https://landing.sevdesk.de/service-support-center-technik'>here</a><br><br> 
+<b>Contact:</b> To contact our support click <a href='https://landing.sevdesk.de/service-support-center-technik'>here</a><br><br> 
 # General information
 Welcome to our API!<br>
-sevdesk offers you  the possibility of retrieving data using an interface, namely the sevdesk API, and making  changes without having to use the web UI. The sevdesk interface is a REST-Full API. All sevdesk  data and functions that are used in the web UI can also be controlled through the API.
+sevdesk offers you the possibility of retrieving data using an interface, namely the sevdesk API, and making changes without having to use the web UI. The sevdesk interface is a REST-Full API. All sevdesk data and functions that are used in the web UI can also be controlled through the API.
 
 # Embedding resources
 When retrieving resources by using this API, you might encounter nested resources in the resources you requested.<br>
@@ -25,9 +25,9 @@ As values, you can provide the name of the nested resource.<br>
 Multiple nested resources are also possible by providing multiple names, separated by a comma.
  
 # Authentication and Authorization
- The sevdesk API uses a token authentication to authorize calls. For this purpose every sevdesk administrator has one API token, which is a <b>hexadecimal string</b>  containing <b>32 characters</b>. The following clip shows where you can find the  API token if this is your first time with our API.<br><br> <video src='openAPI/img/findingTheApiToken.mp4' controls width='640' height='360'> Your browser cannot play this video.<br> This video explains how to find your sevDesk API token. </video> <br> The token will be needed in every request that you want to send and needs to be provided as a value of an <b>Authorization Header</b>.<br> In this case, we used some random API token. The example shows the token in the Authorization Header. <ul> <li>\"Authorization\" :<span style='color:red'>\"b7794de0085f5cd00560f160f290af38\"</span></li> </ul> The api tokens have an infinite lifetime and, in other words, exist as long as the sevdesk user exists.<br> For this reason, the user should <b>NEVER</b> be deleted.<br> If really necessary, it is advisable to save the api token as we will <b>NOT</b> be able to retrieve it afterwards!<br> It is also possible to generate a new API token, for example, if you want to prevent the usage of your sevdesk account by other people who got your current API token.<br> To achieve this, you just need to click on the \"generate new\" symbol to the right of your token and confirm it with your password. 
+ The sevdesk API uses a token authentication to authorize calls. For this purpose every sevdesk administrator has one API token, which is a <b>hexadecimal string</b> containing <b>32 characters</b>. The following clip shows where you can find the API token if this is your first time with our API.<br><br> <video src='openAPI/img/findingTheApiToken.mp4' controls width='640' height='360'> Your browser cannot play this video.<br> This video explains how to find your sevDesk API token. </video> <br> The token will be needed in every request that you want to send and needs to be provided as a value of an <b>Authorization Header</b>.<br> In this case, we used some random API token. The example shows the token in the Authorization Header. <ul> <li>\"Authorization\" :<span style='color:red'>\"b7794de0085f5cd00560f160f290af38\"</span></li> </ul> The api tokens have an infinite lifetime and, in other words, exist as long as the sevdesk user exists.<br> For this reason, the user should <b>NEVER</b> be deleted.<br> If really necessary, it is advisable to save the api token as we will <b>NOT</b> be able to retrieve it afterwards!<br> It is also possible to generate a new API token, for example, if you want to prevent the usage of your sevdesk account by other people who got your current API token.<br> To achieve this, you just need to click on the \"generate new\" symbol to the right of your token and confirm it with your password. 
 # API News
- To never miss API news and updates again, subscribe to our <b>free API newsletter</b> and get all relevant  information to keep your sevdesk software running smoothly. To subscribe, simply click <a href = 'https://landing.sevdesk.de/api-newsletter'><b>here</b></a> and confirm the email address to which we may send all updates relevant to you. 
+ To never miss API news and updates again, subscribe to our <b>free API newsletter</b> and get all relevant information to keep your sevdesk software running smoothly. To subscribe, simply click <a href = 'https://landing.sevdesk.de/api-newsletter'><b>here</b></a> and confirm the email address to which we may send all updates relevant to you. 
 # API Requests
  In our case, REST API requests need to be build by combining the following components. <table> <tr> <th><b>Component</b></th> <th><b>Description</b></th> </tr> <tr> <td>HTTP-Methods</td> <td> <ul> <li>GET (retrieve a resource)</li> <li>POST (create a resource)</li> <li>PUT (update a resource)</li> <li>DELETE (delete a resource)</li> </ul> </td> </tr> <tr> <td>URL of the API</td> <td><span style='color: #2aa198'>ht</span><span style='color: #2aa198'>tps://my.sevdesk.de/api/v1</span></td> </tr> <tr> <td>URI of the resource</td> <td>The resource to query.<br>For example contacts in sevdesk:<br><br> <span style='color:red'>/Contact</span><br><br> Which will result in the following complete URL:<br><br> <span style='color: #2aa198'>ht</span><span style='color: #2aa198'>tps://my.sevdesk.de/api/v1</span><span style='color:red'>/Contact</span> </td> </tr> <tr> <td>Query parameters</td> <td>Are attached by using the connectives <b>?</b> and <b>&</b> in the URL.<br></td> </tr> <tr> <td>Request headers</td> <td>Typical request headers are for example:<br> <div> <br> <ul> <li>Content-type</li> <li>Authorization</li> <li>Accept-Encoding</li> <li>User-Agent</li> <li>X-Version: Used for resource versioning see information below</li> <li>...</li> </ul> </div> </td> </tr> <tr>  <td>Response headers</td> <td> Typical response headers are for example:<br><br> <div> <ul>  <li>Deprecation: If a resource is deprecated we return true or a timestamp since when</li> <li>...</li> </ul> </div> </td> </tr> <tr> <td>Request body</td> <td>Mostly required in POST and PUT requests.<br> Often the request body contains json, in our case, it also accepts url-encoded data. </td> </tr> </table><br> <span style='color:red'>Note</span>: please pass a meaningful entry at the header \"User-Agent\".  If the \"User-Agent\" is set meaningfully, we can offer better support in case of queries from customers.<br> An example how such a \"User-Agent\" can look like: \"Integration-name by abc\". <br><br> This is a sample request for retrieving existing contacts in sevdesk using curl:<br><br> <img src='img/GETRequest.png' alt='Get Request' height='150'><br><br> As you can see, the request contains all the components mentioned above.<br> It's HTTP method is GET, it has a correct endpoint  (<span style='color: #2aa198'>ht</span><span style='color: #2aa198'>tps://my.sevdesk.de/api/v1</span><span style='color:red'>/Contact</span>), query parameters and additional <b>header</b> information!<br><br> <b>Query Parameters</b><br><br> As you might have seen in the sample request above, there are several query parameters located in the url.<br> Those are mostly optional but prove to be very useful for a lot of requests as they can limit, extend, sort or filter the data you will get as a response.<br><br> These are the most used query parameter for the sevdesk API. <table> <tr> <th><b>Parameter</b></th> <th><b>Description</b></th> </tr> <tr> <td>embed</td> <td>Will extend some of the returned data.<br> A brief example can be found below.</td> </tr> <tr> <td>countAll</td> <td>\"countAll=true\" returns the number of items</td> </tr> </table> This is an example for the usage of the embed parameter.<br> The following first request will return all company contact entries in sevdesk up to a limit of 100 without any additional information and no offset.<br><br> <img src='img/ContactQueryWithoutEmbed.png' width='900' height='850'><br><br> Now have a look at the category attribute located in the response.<br> Naturally, it just contains the id and the object name of the object but no further information.<br> We will now use the parameter embed with the value \"category\".<br><br> <img src='img/ContactQueryWithEmbed.png' width='900' height='850'><br><br> As you can see, the category object is now extended and shows all the attributes and their corresponding values.<br><br> There are lot of other query parameters that can be used to filter the returned data for objects that match a certain pattern, however, those will not be mentioned here and instead can be found at the detail documentation of the most used API endpoints like contact, invoice or voucher.<br><br>
 <b>Pagination</b><br> <p>This API implements pagination to help you efficiently manage large result sets. Instead of retrieving all records at once, you can request specific subsets of data using the following parameters.</p> <table> <tr> <th><b>Parameter</b></th> <th><b>Type</b></th> <th><b>Description</b></th> </tr> <tr> <td>limit</td> <td>Integer</td> <td>Limits the number of entries that are returned.<br> Most useful in GET requests which will most likely deliver big sets of data like country or currency lists.<br> The limit must be between 1 and 1000. </td> </tr> <tr> <td>offset</td> <td>Integer</td> <td>Specifies a certain offset for the data that will be returned.<br> As an example, you can specify \"offset=2\" if you want all entries except for the first two.</td> </tr> <tr> <td>countAll</td> <td>Boolean</td> <td>When set to <code>true</code>, the response will include the total count of available records. Defaults to <code>false</code>.</td> </tr> </table> <br> <b>How Pagination Works</b><br>
@@ -35,7 +35,7 @@ Multiple nested resources are also possible by providing multiple names, separat
 <b>Example Usage:</b><br> <b>Basic Request</b><br> <ul><li><code>ht<span>tps://my.sevdesk.de/api/v1/Invoice?limit=10&offset=0<span></code></li></ul> <p>This returns the first 10 resources.</p><br>
 <b>Page Navigation</b><br> <ul><li><code>ht<span>tps://my.sevdesk.de/api/v1/Invoice?limit=10&offset=10<span></code></li></ul> <p>This returns resources 11-20 (the second page when using a page size of 10).</p><br>
 <b>With Total Count</b><br> <ul><li><code>ht<span>tps://my.sevdesk.de/api/v1/Invoice?limit=10&offset=0&countAll=true<span></code></li></ul> <p>This returns the first 10 resources and includes the total count of available resources in the response.</p>
-<b>Response Format</b><br> <pre> <code> {<br> &nbsp;&nbsp;&nbsp;&nbsp;\"total\": \"157\",<br> &nbsp;&nbsp;&nbsp;&nbsp;\"objects\": [<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Array of resource objects<br> &nbsp;&nbsp;&nbsp;&nbsp;]<br> &nbsp;} </code> </pre> <br> <b>Best Practises</b><br> <ul> <li>Keep <code>limit</code> values reasonable (between 10-100) to avoid performance issues</li> <li>Use <code>countAll=true</code> when you need to implement UI pagination controls</li> </ul> <b>Request Headers</b><br><br> The HTTP request (response) headers allow the client as well as the server to pass additional information with the request.<br> They transfer the parameters and arguments which are important for transmitting data over HTTP.<br> Three headers which are useful / necessary when using the sevdesk API are \"Authorization, \"Accept\" and  \"Content-type\".<br> Underneath is a brief description of why and how they should be used.<br><br> <b>Authorization</b><br><br> Should be used to provide your API token in the header. <ul> <li>Authorization:<span style='color:red'>yourApiToken</span></li> </ul> <b>Accept</b><br><br> Specifies the format of the response.<br> Required for operations with a response body. <ul> <li>Accept:application/<span style='color:red'>format</span> </li> </ul> In our case, <code><span style='color:red'>format</span></code> could be replaced with <code>json</code> or <code>xml</code><br><br> <b>Content-type</b><br><br> Specifies which format is used in the request.<br> Is required for operations with a request body. <ul> <li>Content-type:application/<span style='color:red'>format</span></li> </ul> In our case,<code><span style='color:red'>format</span></code>could be replaced with <code>json</code> or <code>x-www-form-urlencoded</code> <br><br><b>API Responses</b><br><br> HTTP status codes<br> When calling the sevdesk API it is very likely that you will get a HTTP status code in the response.<br> Some API calls will also return JSON response bodies which will contain information about the resource.<br> Each status code which is returned will either be a <b>success</b> code or an <b>error</b> code.<br><br> Success codes <table> <tr> <th><b>Status code</b></th> <th><b>Description</b></th> </tr> <tr> <td><code>200 OK</code></td> <td>The request was successful</td> </tr> <tr> <td><code>201 Created</code></td> <td>Most likely to be found in the response of a <b>POST</b> request.<br> This code indicates that the desired resource was successfully created.</td> </tr> </table> <br>Error codes <table> <tr> <th><b>Status code</b></th> <th><b>Description</b></th> </tr> <tr> <td><code>400 Bad request</code></td> <td>The request you sent is most likely syntactically incorrect.<br> You should check if the parameters in the request body or the url are correct.</td> </tr> <tr> <td><code>401 Unauthorized</code></td> <td>The authentication failed.<br> Most likely caused by a missing or wrong API token.</td> </tr> <tr> <td><code>403 Forbidden</code></td> <td>You do not have the permission the access the resource which is requested.</td> </tr> <tr> <td><code>404 Not found</code></td> <td>The resource you specified does not exist.</td> </tr> <tr> <td><code>500 Internal server error</code></td> <td>An internal server error has occurred.<br> Normally this means that something went wrong on our side.<br> However, sometimes this error will appear if we missed to catch an error which is normally a 400 status code! </td> </tr> </table> <br><br> <b>Resource Versioning</b> <br><br> We use resource versioning to handle breaking changes for our endpoints, these are rarely used and will be communicated before we remove older versions.<br> To call a different version we use a specific header <code>X-Version</code> that should be filled with the desired version.<br> <ul>  <li>If you do not specify any version we assume <code>default</code></li> <li>If you specify a version that does not exist or was removed, you will get an error with information which versions are available</li> </ul> <table> <tr> <th>X-Version</th> <th>Description</th> </tr> <tr> <td><code>default</code></td> <td>Should always reference the oldest version.<br> If a specific resource is updated with a new version, <br> then the default version stays the same until the old version is deleted</td> </tr> <tr> <td><code>1.0</code> ... <code>1.9</code></td> <td>Our incrementally version for each resource independent<br> <b>Important</b>: A resource can be available via <code>default</code> but not <code>1.0</code></td> </tr> </table> 
+<b>Response Format</b><br> <pre> <code> {<br> &nbsp;&nbsp;&nbsp;&nbsp;\"total\": \"157\",<br> &nbsp;&nbsp;&nbsp;&nbsp;\"objects\": [<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Array of resource objects<br> &nbsp;&nbsp;&nbsp;&nbsp;]<br> &nbsp;} </code> </pre> <br> <b>Best Practises</b><br> <ul> <li>Keep <code>limit</code> values reasonable (between 10-100) to avoid performance issues</li> <li>Use <code>countAll=true</code> when you need to implement UI pagination controls</li> </ul> <b>Request Headers</b><br><br> The HTTP request (response) headers allow the client as well as the server to pass additional information with the request.<br> They transfer the parameters and arguments which are important for transmitting data over HTTP.<br> Three headers which are useful / necessary when using the sevdesk API are \"Authorization, \"Accept\" and \"Content-type\".<br> Underneath is a brief description of why and how they should be used.<br><br> <b>Authorization</b><br><br> Should be used to provide your API token in the header. <ul> <li>Authorization:<span style='color:red'>yourApiToken</span></li> </ul> <b>Accept</b><br><br> Specifies the format of the response.<br> Required for operations with a response body. <ul> <li>Accept:application/<span style='color:red'>format</span> </li> </ul> In our case, <code><span style='color:red'>format</span></code> could be replaced with <code>json</code> or <code>xml</code><br><br> <b>Content-type</b><br><br> Specifies which format is used in the request.<br> Is required for operations with a request body. <ul> <li>Content-type:application/<span style='color:red'>format</span></li> </ul> In our case,<code><span style='color:red'>format</span></code>could be replaced with <code>json</code> or <code>x-www-form-urlencoded</code> <br><br><b>API Responses</b><br><br> HTTP status codes<br> When calling the sevdesk API it is very likely that you will get a HTTP status code in the response.<br> Some API calls will also return JSON response bodies which will contain information about the resource.<br> Each status code which is returned will either be a <b>success</b> code or an <b>error</b> code.<br><br> Success codes <table> <tr> <th><b>Status code</b></th> <th><b>Description</b></th> </tr> <tr> <td><code>200 OK</code></td> <td>The request was successful</td> </tr> <tr> <td><code>201 Created</code></td> <td>Most likely to be found in the response of a <b>POST</b> request.<br> This code indicates that the desired resource was successfully created.</td> </tr> </table> <br>Error codes <table> <tr> <th><b>Status code</b></th> <th><b>Description</b></th> </tr> <tr> <td><code>400 Bad request</code></td> <td>The request you sent is most likely syntactically incorrect.<br> You should check if the parameters in the request body or the url are correct.</td> </tr> <tr> <td><code>401 Unauthorized</code></td> <td>The authentication failed.<br> Most likely caused by a missing or wrong API token.</td> </tr> <tr> <td><code>403 Forbidden</code></td> <td>You do not have the permission the access the resource which is requested.</td> </tr> <tr> <td><code>404 Not found</code></td> <td>The resource you specified does not exist.</td> </tr> <tr> <td><code>500 Internal server error</code></td> <td>An internal server error has occurred.<br> Normally this means that something went wrong on our side.<br> However, sometimes this error will appear if we missed to catch an error which is normally a 400 status code! </td> </tr> </table> <br><br> <b>Resource Versioning</b> <br><br> We use resource versioning to handle breaking changes for our endpoints, these are rarely used and will be communicated before we remove older versions.<br> To call a different version we use a specific header <code>X-Version</code> that should be filled with the desired version.<br> <ul> <li>If you do not specify any version we assume <code>default</code></li> <li>If you specify a version that does not exist or was removed, you will get an error with information which versions are available</li> </ul> <table> <tr> <th>X-Version</th> <th>Description</th> </tr> <tr> <td><code>default</code></td> <td>Should always reference the oldest version.<br> If a specific resource is updated with a new version, <br> then the default version stays the same until the old version is deleted</td> </tr> <tr> <td><code>1.0</code> ... <code>1.9</code></td> <td>Our incrementally version for each resource independent<br> <b>Important</b>: A resource can be available via <code>default</code> but not <code>1.0</code></td> </tr> </table> 
 # Your First Request
  After reading the introduction to our API, you should now be able to make your first call.<br> For testing our API, we would always recommend to create a trial account for sevdesk to prevent unwanted changes to your main account.<br> A trial account will be in the highest tariff (materials management), so every sevdesk function can be tested! 
 
@@ -64,7 +64,7 @@ To start testing we would recommend one of the following tools: <ul> <li><a href
 ## Booking Accounts
  <I><b>(affects the property accountingType)</b></I><br> With sevdesk-Update 2.0 we changed the available booking accounts and their combinatorics. If you use accountingTypes with SKR numbers that are still available in our receipt guidance, you do not have to change anything in your requests. These booking accounts will automatically be mapped to the new representation (Account Datev). But you have to make sure the taxRate used in positions and taxRule used in the voucher is within the allowed ones (check the [ReceiptGuidance](#tag/Voucher/operation/forAllAccounts)) of the provided booking account, otherwise the API will return a validation error (HTTP status code 422). For orders, invoices, vouchers and credit notes in that were created within sevdesk-Update 2.0 the response will change in all endpoints were these objects are returned. 
 ## Receipt Guidance
- To help you decide which account can be used in conjunction with which tax rules, tax rates and documents, we created several guidance endpoints just there for you to get helpful information. You can find the descriptions in the changes section for Vouchers below or jump directly to the endpoint description by using this link: [Receipt Guidance](#tag/Voucher/operation/forAllAccounts).<br> Receipt Guidance is planned to give you guidance in which account you can pick (depending on your filter criteria and the client settings (e.g. 'Kleinunternehmer')) and which tax rate and [tax rules](#section/sevdesk-Update-2.0/Tax-Rules) are comptaible with them.  
+ To help you decide which account can be used in conjunction with which tax rules, tax rates and documents, we created several guidance endpoints just there for you to get helpful information. You can find the descriptions in the changes section for Vouchers below or jump directly to the endpoint description by using this link: [Receipt Guidance](#tag/Voucher/operation/forAllAccounts).<br> Receipt Guidance is planned to give you guidance in which account you can pick (depending on your filter criteria and the client settings (e.g. 'Kleinunternehmer')) and which tax rate and [tax rules](#section/sevdesk-Update-2.0/Tax-Rules) are comptaible with them. 
 ## Vouchers
  
 ### Saving a new voucher ([Voucher/Factory/saveVoucher](#tag/Voucher/operation/voucherFactorySaveVoucher))
@@ -193,6 +193,10 @@ Class | Method | HTTP request | Description
 *AccountingContactApi* | [**getAccountingContactById**](docs/Api/AccountingContactApi.md#getaccountingcontactbyid) | **GET** /AccountingContact/{accountingContactId} | Find accounting contact by ID
 *AccountingContactApi* | [**updateAccountingContact**](docs/Api/AccountingContactApi.md#updateaccountingcontact) | **PUT** /AccountingContact/{accountingContactId} | Update an existing accounting contact
 *BasicsApi* | [**bookkeepingSystemVersion**](docs/Api/BasicsApi.md#bookkeepingsystemversion) | **GET** /Tools/bookkeepingSystemVersion | Retrieve bookkeeping system version
+*CategoryApi* | [**createCategory**](docs/Api/CategoryApi.md#createcategory) | **POST** /Category | Create a new category
+*CategoryApi* | [**deleteCategory**](docs/Api/CategoryApi.md#deletecategory) | **DELETE** /Category/{categoryId} | Deletes a category
+*CategoryApi* | [**getCategories**](docs/Api/CategoryApi.md#getcategories) | **GET** /Category | Retrieve categories
+*CategoryApi* | [**updateCategory**](docs/Api/CategoryApi.md#updatecategory) | **PUT** /Category/{categoryId} | Update an existing category
 *CheckAccountApi* | [**createClearingAccount**](docs/Api/CheckAccountApi.md#createclearingaccount) | **POST** /CheckAccount/Factory/clearingAccount | Create a new clearing account
 *CheckAccountApi* | [**createFileImportAccount**](docs/Api/CheckAccountApi.md#createfileimportaccount) | **POST** /CheckAccount/Factory/fileImportAccount | Create a new file import account
 *CheckAccountApi* | [**deleteCheckAccount**](docs/Api/CheckAccountApi.md#deletecheckaccount) | **DELETE** /CheckAccount/{checkAccountId} | Deletes a check account
@@ -315,10 +319,16 @@ Class | Method | HTTP request | Description
 *OrderPosApi* | [**getOrderPositions**](docs/Api/OrderPosApi.md#getorderpositions) | **GET** /OrderPos | Retrieve order positions
 *OrderPosApi* | [**updateOrderPosition**](docs/Api/OrderPosApi.md#updateorderposition) | **PUT** /OrderPos/{orderPosId} | Update an existing order position
 *PartApi* | [**createPart**](docs/Api/PartApi.md#createpart) | **POST** /Part | Create a new part
+*PartApi* | [**deletePart**](docs/Api/PartApi.md#deletepart) | **DELETE** /Part/{partId} | Deletes a part
 *PartApi* | [**getPartById**](docs/Api/PartApi.md#getpartbyid) | **GET** /Part/{partId} | Find part by ID
 *PartApi* | [**getParts**](docs/Api/PartApi.md#getparts) | **GET** /Part | Retrieve parts
 *PartApi* | [**partGetStock**](docs/Api/PartApi.md#partgetstock) | **GET** /Part/{partId}/getStock | Get stock of a part
+*PartApi* | [**partNumberAvailabilityCheck**](docs/Api/PartApi.md#partnumberavailabilitycheck) | **POST** /Part/Mapper/checkPartNumberAvailability | Check if a part number is available
 *PartApi* | [**updatePart**](docs/Api/PartApi.md#updatepart) | **PUT** /Part/{partId} | Update an existing part
+*PartUnityApi* | [**createPartUnity**](docs/Api/PartUnityApi.md#createpartunity) | **POST** /PartUnity | Create a new part unit
+*PartUnityApi* | [**deletePartUnity**](docs/Api/PartUnityApi.md#deletepartunity) | **DELETE** /PartUnity/{partUnityId} | Deletes a part unit
+*PartUnityApi* | [**getPartUnities**](docs/Api/PartUnityApi.md#getpartunities) | **GET** /PartUnity | Retrieve part units
+*PartUnityApi* | [**updatePartUnity**](docs/Api/PartUnityApi.md#updatepartunity) | **PUT** /PartUnity/{partUnityId} | Update an existing part unit
 *PrivateTransactionRuleApi* | [**createPrivateTransactionRule**](docs/Api/PrivateTransactionRuleApi.md#createprivatetransactionrule) | **POST** /PrivateTransactionRule | Create a new rule
 *PrivateTransactionRuleApi* | [**deletePrivateTransactionRule**](docs/Api/PrivateTransactionRuleApi.md#deleteprivatetransactionrule) | **DELETE** /PrivateTransactionRule/{id} | Delete the rule by id
 *PrivateTransactionRuleApi* | [**listPrivateTransactionRules**](docs/Api/PrivateTransactionRuleApi.md#listprivatetransactionrules) | **GET** /PrivateTransactionRule | List existing rules
@@ -326,6 +336,8 @@ Class | Method | HTTP request | Description
 *ReportApi* | [**reportInvoice**](docs/Api/ReportApi.md#reportinvoice) | **GET** /Report/invoicelist | Export invoice list
 *ReportApi* | [**reportOrder**](docs/Api/ReportApi.md#reportorder) | **GET** /Report/orderlist | Export order list
 *ReportApi* | [**reportVoucher**](docs/Api/ReportApi.md#reportvoucher) | **GET** /Report/voucherlist | Export voucher list
+*SevClientApi* | [**getAccountantUser**](docs/Api/SevClientApi.md#getaccountantuser) | **GET** /SevClient/getAccountantUser | Retrieve the accountant user of the client
+*SevSequenceApi* | [**getSevSequenceByType**](docs/Api/SevSequenceApi.md#getsevsequencebytype) | **GET** /SevSequence/Factory/getByType | Retrieve the number sequence of an object type
 *SevUserApi* | [**getSevUserById**](docs/Api/SevUserApi.md#getsevuserbyid) | **GET** /SevUser/{sevUserId} | 
 *SevUserApi* | [**getSevUsers**](docs/Api/SevUserApi.md#getsevusers) | **GET** /SevUser | 
 *TagApi* | [**createTag**](docs/Api/TagApi.md#createtag) | **POST** /Tag/Factory/create | Create a new tag
@@ -338,6 +350,10 @@ Class | Method | HTTP request | Description
 *TextTemplateApi* | [**deleteTextTemplate**](docs/Api/TextTemplateApi.md#deletetexttemplate) | **DELETE** /TextTemplate/{id} | Delete an existing text template
 *TextTemplateApi* | [**getTextTemplate**](docs/Api/TextTemplateApi.md#gettexttemplate) | **GET** /TextTemplate | Get an overview of all text template
 *TextTemplateApi* | [**updateTextTemplate**](docs/Api/TextTemplateApi.md#updatetexttemplate) | **PUT** /TextTemplate/{id} | Update an existing text template
+*UnityApi* | [**createUnity**](docs/Api/UnityApi.md#createunity) | **POST** /Unity | Create a new unit
+*UnityApi* | [**deleteUnity**](docs/Api/UnityApi.md#deleteunity) | **DELETE** /Unity/{unityId} | Deletes a unit
+*UnityApi* | [**getUnities**](docs/Api/UnityApi.md#getunities) | **GET** /Unity | Retrieve units
+*UnityApi* | [**updateUnity**](docs/Api/UnityApi.md#updateunity) | **PUT** /Unity/{unityId} | Update an existing unit
 *VoucherApi* | [**bookVoucher**](docs/Api/VoucherApi.md#bookvoucher) | **PUT** /Voucher/{voucherId}/bookAmount | Book a voucher
 *VoucherApi* | [**forAccountNumber**](docs/Api/VoucherApi.md#foraccountnumber) | **GET** /ReceiptGuidance/forAccountNumber | Get guidance by account number
 *VoucherApi* | [**forAllAccounts**](docs/Api/VoucherApi.md#forallaccounts) | **GET** /ReceiptGuidance/forAllAccounts | Get all account guides
@@ -378,6 +394,7 @@ Class | Method | HTTP request | Description
 - [CheckAccountTransactionEnshrine200Response](docs/Model/CheckAccountTransactionEnshrine200Response.md)
 - [ContactCustomerNumberAvailabilityCheck200Response](docs/Model/ContactCustomerNumberAvailabilityCheck200Response.md)
 - [CreateAccountingContact201Response](docs/Model/CreateAccountingContact201Response.md)
+- [CreateCategory201Response](docs/Model/CreateCategory201Response.md)
 - [CreateClearingAccount](docs/Model/CreateClearingAccount.md)
 - [CreateClearingAccount201Response](docs/Model/CreateClearingAccount201Response.md)
 - [CreateClearingAccountResponse](docs/Model/CreateClearingAccountResponse.md)
@@ -401,11 +418,13 @@ Class | Method | HTTP request | Description
 - [CreateInvoiceReminderRequestInvoice](docs/Model/CreateInvoiceReminderRequestInvoice.md)
 - [CreateOrder201Response](docs/Model/CreateOrder201Response.md)
 - [CreatePart201Response](docs/Model/CreatePart201Response.md)
+- [CreatePartUnity201Response](docs/Model/CreatePartUnity201Response.md)
 - [CreatePrivateTransactionRule](docs/Model/CreatePrivateTransactionRule.md)
 - [CreateTag200Response](docs/Model/CreateTag200Response.md)
 - [CreateTagRequest](docs/Model/CreateTagRequest.md)
 - [CreateTagRequestObject](docs/Model/CreateTagRequestObject.md)
 - [CreateTransaction201Response](docs/Model/CreateTransaction201Response.md)
+- [CreateUnity201Response](docs/Model/CreateUnity201Response.md)
 - [CreatecreditNote201Response](docs/Model/CreatecreditNote201Response.md)
 - [CreditNoteGetPdf200Response](docs/Model/CreditNoteGetPdf200Response.md)
 - [CreditNoteGetPdf200ResponseObjects](docs/Model/CreditNoteGetPdf200ResponseObjects.md)
@@ -453,9 +472,11 @@ Class | Method | HTTP request | Description
 - [FindContactsByCustomFieldValue200Response](docs/Model/FindContactsByCustomFieldValue200Response.md)
 - [ForAllAccounts200Response](docs/Model/ForAllAccounts200Response.md)
 - [GenerateDownloadHash200Response](docs/Model/GenerateDownloadHash200Response.md)
+- [GetAccountantUser200Response](docs/Model/GetAccountantUser200Response.md)
 - [GetAccountingContact200Response](docs/Model/GetAccountingContact200Response.md)
 - [GetAccountingContactById200Response](docs/Model/GetAccountingContactById200Response.md)
 - [GetBalanceAtDate200Response](docs/Model/GetBalanceAtDate200Response.md)
+- [GetCategories200Response](docs/Model/GetCategories200Response.md)
 - [GetCheckAccountById200Response](docs/Model/GetCheckAccountById200Response.md)
 - [GetCheckAccountTransactionById200Response](docs/Model/GetCheckAccountTransactionById200Response.md)
 - [GetCheckAccounts200Response](docs/Model/GetCheckAccounts200Response.md)
@@ -490,9 +511,12 @@ Class | Method | HTTP request | Description
 - [GetOrderPositionsById200Response](docs/Model/GetOrderPositionsById200Response.md)
 - [GetOrders200Response](docs/Model/GetOrders200Response.md)
 - [GetPartById200Response](docs/Model/GetPartById200Response.md)
+- [GetPartUnities200Response](docs/Model/GetPartUnities200Response.md)
+- [GetPartUnitiesPartParameter](docs/Model/GetPartUnitiesPartParameter.md)
 - [GetParts200Response](docs/Model/GetParts200Response.md)
 - [GetPlaceholder200Response](docs/Model/GetPlaceholder200Response.md)
 - [GetReferenceCount200Response](docs/Model/GetReferenceCount200Response.md)
+- [GetSevSequenceByType200Response](docs/Model/GetSevSequenceByType200Response.md)
 - [GetSevUserById200Response](docs/Model/GetSevUserById200Response.md)
 - [GetSevUsers200Response](docs/Model/GetSevUsers200Response.md)
 - [GetSevUsersIgnoreRolesParameter](docs/Model/GetSevUsersIgnoreRolesParameter.md)
@@ -503,6 +527,7 @@ Class | Method | HTTP request | Description
 - [GetTemplates200ResponseTemplatesInner](docs/Model/GetTemplates200ResponseTemplatesInner.md)
 - [GetTextTemplate200Response](docs/Model/GetTextTemplate200Response.md)
 - [GetTransactions200Response](docs/Model/GetTransactions200Response.md)
+- [GetUnities200Response](docs/Model/GetUnities200Response.md)
 - [GetVoucherById200Response](docs/Model/GetVoucherById200Response.md)
 - [GetVoucherPositions200Response](docs/Model/GetVoucherPositions200Response.md)
 - [GetVouchers200Response](docs/Model/GetVouchers200Response.md)
@@ -531,6 +556,9 @@ Class | Method | HTTP request | Description
 - [ModelAccountingContactResponseSevClient](docs/Model/ModelAccountingContactResponseSevClient.md)
 - [ModelAccountingContactUpdate](docs/Model/ModelAccountingContactUpdate.md)
 - [ModelAccountingContactUpdateContact](docs/Model/ModelAccountingContactUpdateContact.md)
+- [ModelCategory](docs/Model/ModelCategory.md)
+- [ModelCategoryResponse](docs/Model/ModelCategoryResponse.md)
+- [ModelCategoryResponseSevClient](docs/Model/ModelCategoryResponseSevClient.md)
 - [ModelChangeLayout](docs/Model/ModelChangeLayout.md)
 - [ModelChangeLayoutResponse](docs/Model/ModelChangeLayoutResponse.md)
 - [ModelChangeLayoutResponseMetadaten](docs/Model/ModelChangeLayoutResponseMetadaten.md)
@@ -717,13 +745,33 @@ Class | Method | HTTP request | Description
 - [ModelOrderUpdateSevClient](docs/Model/ModelOrderUpdateSevClient.md)
 - [ModelPart](docs/Model/ModelPart.md)
 - [ModelPartCategory](docs/Model/ModelPartCategory.md)
+- [ModelPartResponse](docs/Model/ModelPartResponse.md)
+- [ModelPartResponseCategory](docs/Model/ModelPartResponseCategory.md)
+- [ModelPartResponseCategoryOneOf](docs/Model/ModelPartResponseCategoryOneOf.md)
+- [ModelPartResponseUnity](docs/Model/ModelPartResponseUnity.md)
+- [ModelPartResponseUnityOneOf](docs/Model/ModelPartResponseUnityOneOf.md)
 - [ModelPartSevClient](docs/Model/ModelPartSevClient.md)
 - [ModelPartUnity](docs/Model/ModelPartUnity.md)
+- [ModelPartUnityPart](docs/Model/ModelPartUnityPart.md)
+- [ModelPartUnityResponse](docs/Model/ModelPartUnityResponse.md)
+- [ModelPartUnityResponsePart](docs/Model/ModelPartUnityResponsePart.md)
+- [ModelPartUnityResponsePartOneOf](docs/Model/ModelPartUnityResponsePartOneOf.md)
+- [ModelPartUnityResponseSevClient](docs/Model/ModelPartUnityResponseSevClient.md)
+- [ModelPartUnityResponseUnity](docs/Model/ModelPartUnityResponseUnity.md)
+- [ModelPartUnityResponseUnityOneOf](docs/Model/ModelPartUnityResponseUnityOneOf.md)
+- [ModelPartUnityUnity](docs/Model/ModelPartUnityUnity.md)
 - [ModelPartUpdate](docs/Model/ModelPartUpdate.md)
 - [ModelPaymentMethodResponse](docs/Model/ModelPaymentMethodResponse.md)
 - [ModelPrivateTransactionRuleResponse](docs/Model/ModelPrivateTransactionRuleResponse.md)
 - [ModelPrivateTransactionRuleResponseSevClient](docs/Model/ModelPrivateTransactionRuleResponseSevClient.md)
+- [ModelSevSequenceResponse](docs/Model/ModelSevSequenceResponse.md)
+- [ModelSevSequenceResponseSevClient](docs/Model/ModelSevSequenceResponseSevClient.md)
+- [ModelSevUserPrivilegeResponse](docs/Model/ModelSevUserPrivilegeResponse.md)
+- [ModelSevUserPrivilegeResponseDenialReason](docs/Model/ModelSevUserPrivilegeResponseDenialReason.md)
 - [ModelSevUserResponse](docs/Model/ModelSevUserResponse.md)
+- [ModelSevUserResponseNpsDetail](docs/Model/ModelSevUserResponseNpsDetail.md)
+- [ModelSevUserSettingResponse](docs/Model/ModelSevUserSettingResponse.md)
+- [ModelSevUserSettingResponseSevUser](docs/Model/ModelSevUserSettingResponseSevUser.md)
 - [ModelStaticCountryResponse](docs/Model/ModelStaticCountryResponse.md)
 - [ModelTagCreateResponse](docs/Model/ModelTagCreateResponse.md)
 - [ModelTagCreateResponseTag](docs/Model/ModelTagCreateResponseTag.md)
@@ -733,6 +781,9 @@ Class | Method | HTTP request | Description
 - [ModelTextTemplateResponse](docs/Model/ModelTextTemplateResponse.md)
 - [ModelTextparserFetchDictionaryEntriesByTypeResponse](docs/Model/ModelTextparserFetchDictionaryEntriesByTypeResponse.md)
 - [ModelTextparserFetchDictionaryEntriesByTypeResponseValueInner](docs/Model/ModelTextparserFetchDictionaryEntriesByTypeResponseValueInner.md)
+- [ModelUnity](docs/Model/ModelUnity.md)
+- [ModelUnityResponse](docs/Model/ModelUnityResponse.md)
+- [ModelUnityResponseSevClient](docs/Model/ModelUnityResponseSevClient.md)
 - [ModelVoucher](docs/Model/ModelVoucher.md)
 - [ModelVoucherCostCentre](docs/Model/ModelVoucherCostCentre.md)
 - [ModelVoucherCreateUser](docs/Model/ModelVoucherCreateUser.md)
@@ -766,6 +817,7 @@ Class | Method | HTTP request | Description
 - [OrderGetPdf200ResponseObjects](docs/Model/OrderGetPdf200ResponseObjects.md)
 - [OrderSendByRequest](docs/Model/OrderSendByRequest.md)
 - [PartGetStock200Response](docs/Model/PartGetStock200Response.md)
+- [PartNumberAvailabilityCheckRequest](docs/Model/PartNumberAvailabilityCheckRequest.md)
 - [ReceiptGuideDto](docs/Model/ReceiptGuideDto.md)
 - [ReceiptGuideDtoAllowedTaxRulesInner](docs/Model/ReceiptGuideDtoAllowedTaxRulesInner.md)
 - [ReportContact200Response](docs/Model/ReportContact200Response.md)
@@ -853,5 +905,5 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `2.0.0`
-    - Generator version: `7.22.0`
+    - Generator version: `7.26.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

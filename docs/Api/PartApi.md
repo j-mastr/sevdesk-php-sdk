@@ -7,9 +7,11 @@ All URIs are relative to https://my.sevdesk.de/api/v1, except if the operation d
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createPart()**](PartApi.md#createPart) | **POST** /Part | Create a new part |
+| [**deletePart()**](PartApi.md#deletePart) | **DELETE** /Part/{partId} | Deletes a part |
 | [**getPartById()**](PartApi.md#getPartById) | **GET** /Part/{partId} | Find part by ID |
 | [**getParts()**](PartApi.md#getParts) | **GET** /Part | Retrieve parts |
 | [**partGetStock()**](PartApi.md#partGetStock) | **GET** /Part/{partId}/getStock | Get stock of a part |
+| [**partNumberAvailabilityCheck()**](PartApi.md#partNumberAvailabilityCheck) | **POST** /Part/Mapper/checkPartNumberAvailability | Check if a part number is available |
 | [**updatePart()**](PartApi.md#updatePart) | **PUT** /Part/{partId} | Update an existing part |
 
 
@@ -75,15 +77,75 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deletePart()`
+
+```php
+deletePart($part_id): \Itsmind\Sevdesk\Model\DeleteCheckAccount200Response
+```
+
+Deletes a part
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\PartApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$part_id = 56; // int | Id of part resource to delete
+
+try {
+    $result = $apiInstance->deletePart($part_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PartApi->deletePart: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **part_id** | **int**| Id of part resource to delete | |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\DeleteCheckAccount200Response**](../Model/DeleteCheckAccount200Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getPartById()`
 
 ```php
-getPartById($part_id): \Itsmind\Sevdesk\Model\GetPartById200Response
+getPartById($part_id, $embed): \Itsmind\Sevdesk\Model\GetPartById200Response
 ```
 
 Find part by ID
 
-Returns a single part
+Returns a single part.<br> Supported `embed` values: `category`, `unity`, `accountingType`, `lastLog`, `propertyReorderNotificationLevel`, `propertyReorderNotificationInterval`.
 
 ### Example
 
@@ -105,9 +167,10 @@ $apiInstance = new Itsmind\Sevdesk\Api\PartApi(
     $config
 );
 $part_id = 56; // int | ID of part to return
+$embed = array('embed_example'); // string[] | Get some additional information. Embed can handle multiple values, they must be separated by comma.
 
 try {
-    $result = $apiInstance->getPartById($part_id);
+    $result = $apiInstance->getPartById($part_id, $embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PartApi->getPartById: ', $e->getMessage(), PHP_EOL;
@@ -119,6 +182,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **part_id** | **int**| ID of part to return | |
+| **embed** | [**string[]**](../Model/string.md)| Get some additional information. Embed can handle multiple values, they must be separated by comma. | [optional] |
 
 ### Return type
 
@@ -145,7 +209,7 @@ getParts($part_number, $name, $count_all, $offset, $limit, $embed): \Itsmind\Sev
 
 Retrieve parts
 
-Retrieve all parts in your sevdesk inventory according to the applied filters.
+Retrieve all parts in your sevdesk inventory according to the applied filters.<br> Supported `embed` values: `category`, `unity`, `lastLog`, `accountingType`.
 
 ### Example
 
@@ -265,6 +329,68 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `partNumberAvailabilityCheck()`
+
+```php
+partNumberAvailabilityCheck($part_number_availability_check_request): \Itsmind\Sevdesk\Model\ContactCustomerNumberAvailabilityCheck200Response
+```
+
+Check if a part number is available
+
+Checks if a given part number is available or already used.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key
+$config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Itsmind\Sevdesk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Itsmind\Sevdesk\Api\PartApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$part_number_availability_check_request = new \Itsmind\Sevdesk\Model\PartNumberAvailabilityCheckRequest(); // \Itsmind\Sevdesk\Model\PartNumberAvailabilityCheckRequest
+
+try {
+    $result = $apiInstance->partNumberAvailabilityCheck($part_number_availability_check_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PartApi->partNumberAvailabilityCheck: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **part_number_availability_check_request** | [**\Itsmind\Sevdesk\Model\PartNumberAvailabilityCheckRequest**](../Model/PartNumberAvailabilityCheckRequest.md)|  | [optional] |
+
+### Return type
+
+[**\Itsmind\Sevdesk\Model\ContactCustomerNumberAvailabilityCheck200Response**](../Model/ContactCustomerNumberAvailabilityCheck200Response.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

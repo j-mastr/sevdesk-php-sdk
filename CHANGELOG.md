@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.10.0](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.9.0...v1.10.0) (2026-10-16)
+
+
+### Features
+
+* update openapi.yaml ([#110](https://github.com/j-mastr/sevdesk-php-sdk/issues/110)) ([0d94c9c](https://github.com/j-mastr/sevdesk-php-sdk/commit/0d94c9c6570f57c3a011a647f9dbde58dcfa37d7))
+
+
+### Miscellaneous Chores
+
+* **main:** release 1.10.0 ([#92](https://github.com/j-mastr/sevdesk-php-sdk/issues/92)) ([#113](https://github.com/j-mastr/sevdesk-php-sdk/issues/113)) ([45dce61](https://github.com/j-mastr/sevdesk-php-sdk/commit/45dce61232a63315dc3a29dbda7a5bc8293f0f11))
+
 ## [1.9.0](https://github.com/j-mastr/sevdesk-php-sdk/compare/v1.8.0...v1.9.0) (2026-05-07)
 
 

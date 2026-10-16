@@ -23,5 +23,8 @@ Name | Type | Description | Notes
 **tax_rate** | **float** | Tax rate of the part |
 **status** | **int** | Status of the part. 50 &lt;-&gt; Inactive - 100 &lt;-&gt; Active | [optional]
 **internal_comment** | **string** | An internal comment for the part.&lt;br&gt;       Does not appear on invoices and orders. | [optional]
+**accounting_type** | **mixed** | Unverified, only &#x60;null&#x60; has been observed | [optional]
+**property_reorder_notification_interval** | **mixed** | Unverified, only &#x60;null&#x60; has been observed | [optional]
+**property_reorder_notification_level** | **mixed** | Unverified, only &#x60;null&#x60; has been observed | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pdf** | **string** |  | [optional]
+**pdf** | **string** | Base64-encoded PDF | [optional]
 **pages** | **int** | the number of pages in the document | [optional]
 **thumbs** | **mixed[]** |  | [optional]
 **doc_id** | **string** | the id of the document | [optional] [readonly]
